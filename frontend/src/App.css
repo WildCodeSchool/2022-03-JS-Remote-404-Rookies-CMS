@@ -1,3 +1,11 @@
+:root{
+  --light-green : rgba(2, 228, 148, 0.16);
+  --green : #02e494;
+  --darker-green : #13CF8F;
+  --black : #1B2430;
+  --grey : #F5F5F7;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -57,4 +65,60 @@ code {
 
 button {
   font-size: calc(10px + 2vmin);
+}
+.grid5A{
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-template-rows:33% 33% 33% ;
+}
+.div1{
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.div2{
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.div3{
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+.div4{
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+.arrow1{
+  width:65%;
+  padding-left: 28%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.arrow2{
+  width:65%;
+  padding-left: 28%;
+  padding-bottom: 20%;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.arrow3{
+  width:65%;
+  padding-left: 28%;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.module5E-green{
+color: var(--green)
 }

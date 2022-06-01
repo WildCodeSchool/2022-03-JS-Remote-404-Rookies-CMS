@@ -1,15 +1,16 @@
-:root {
-  --light-green: rgba(2, 228, 148, 0.16);
-  --green: #02e494;
-  --darker-green: #13cf8f;
-  --black: #1b2430;
+:root{
+  --light-green : rgba(2, 228, 148, 0.16);
+  --green : #02e494;
+  --darker-green : #13CF8F;
+  --black : #1B2430;
+  --grey : #F5F5F7;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-gbody {
+body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -64,4 +65,18 @@ code {
 
 button {
   font-size: calc(10px + 2vmin);
+}
+
+.bg4E{
+  background-color: var(--light-green);
+}
+.tc4E{
+  color: var(--green);
+}
+.bg4e-button{
+  color: var(--green);
+  background-color: var(--grey);
+}
+.bc4E{
+  border-color: var(--green);
 }

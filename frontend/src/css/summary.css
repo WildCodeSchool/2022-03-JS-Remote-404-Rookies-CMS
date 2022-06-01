@@ -34,7 +34,7 @@ h1 {
 }
 
 .bc4E .ds4E {
-  content:"+";
+  content: "+";
   width: 100%;
   padding: 0.5rem 0;
   position: relative;
@@ -52,7 +52,6 @@ h1 {
   margin-top: 0.75rem;
   right: 0;
   transform-origin: center;
-
 }
 .bc4E[open] .ds4E:after {
   transform: rotate(45deg);

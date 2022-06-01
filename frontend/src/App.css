@@ -1,16 +1,14 @@
-:root{
-  --light-green : rgba(2, 228, 148, 0.16);
-  --green : #02e494;
-  --darker-green : #13CF8F;
-  --black : #1B2430;
-  --grey : #F5F5F7;
+:root {
+  --light-green: rgba(2, 228, 148, 0.16);
+  --green: #02e494;
+  --darker-green: #13cf8f;
+  --black: #1b2430;
+  --grey: #f5f5f7;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 
 body {
   margin: 0;
@@ -69,16 +67,16 @@ button {
   font-size: calc(10px + 2vmin);
 }
 
-.bg4E{
+.bg4E {
   background-color: var(--light-green);
 }
-.tc4E{
+.tc4E {
   color: var(--green);
 }
-.bg4e-button{
+.bg4e-button {
   color: var(--green);
   background-color: var(--grey);
 }
-.bc4E{
+.bc4E {
   border-color: var(--green);
 }

@@ -29,6 +29,7 @@ const jason = [
       {
         id: 1,
         name: "Yesenia Conway",
+
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
       {
@@ -117,8 +118,6 @@ const jason = [
       {
         id: 0,
         name: "Stein Dejesus",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus finibus fermentum turpis. Quisque condimentum blandit convallis. Nunc at mollis massa.",
       },
       {
         id: 1,
@@ -127,10 +126,6 @@ const jason = [
       {
         id: 2,
         name: "Vonda Ramos",
-      },
-      {
-        id: 3,
-        name: "jean Claudia",
       },
     ],
     greeting: "Hello, Iris Harrington! You have 6 unread messages.",

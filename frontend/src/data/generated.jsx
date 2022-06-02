@@ -24,14 +24,23 @@ const jason = [
       {
         id: 0,
         name: "Mcfarland Tanner",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
       {
         id: 1,
         name: "Yesenia Conway",
+
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
       {
         id: 2,
         name: "Potts Hughes",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      },
+      {
+        id: 3,
+        name: "Jaosn Lejson",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
     ],
     greeting: "Hello, Elva Lopez! You have 8 unread messages.",

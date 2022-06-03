@@ -29,8 +29,8 @@
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-no-constructed-context-values":"off",
     "react/prop-types":"off",
-    "react/destructuring-assignment":"off",
-    "react/jsx-props-no-spreading":"off"
+    "react/jsx-props-no-spreading":"off",
+    "react/destructuring-assignment":"off"
   },
   "settings": {
     "import/resolver": {

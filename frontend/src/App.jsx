@@ -7,6 +7,7 @@ import Page4 from "./pages/Page4";
 import Navbar from "./components/Counter";
 // eslint-disable-next-line import/extensions
 import Module8E from "./components/Module8E";
+import Module9E from "./components/Module9E";
 
 import "./App.css";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/page2" element={<Page2 />} />
         <Route path="/page3" element={<Page3 />} />
         <Route path="/Page4" element={<Page4 />} />
+        <Route path="/Page5" element={<Module9E />} />
       </Routes>
     </Router>
   );

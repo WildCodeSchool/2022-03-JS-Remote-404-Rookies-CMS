@@ -22,9 +22,8 @@ function Module1e() {
           Get started
         </button>
       </div>
-      npm run
-      <div className="w-1/2">
-        <img className="w-96 h-auto mt-6" src={imgm1} alt="people gathering" />
+      <div className="w-1/2 flex flex-row-reverse ">
+        <img className="w-96 h-auto mt-6 " src={imgm1} alt="people gathering" />
       </div>
     </div>
   );

@@ -3,9 +3,9 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import ImageTraitement1 from "../utilitaires/imageTraitement";
-import ImageTraitement2 from "../utilitaires/ImageTraitement2";
-import ImageTraitement3 from "../utilitaires/ImageTraitement3";
+import ImageTraitement1 from "../data/imageTraitement";
+import ImageTraitement2 from "../data/ImageTraitement2";
+import ImageTraitement3 from "../data/ImageTraitement3";
 import "../App.css";
 
 function LogoCarousel() {

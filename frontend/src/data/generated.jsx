@@ -9,7 +9,7 @@ const jason = [
     age: 36,
     eyeColor: "green",
     name: "Elva Lopez",
-    gender: "female",
+    gender: "Frequently asked questions",
     company: "COREPAN",
     email: "elvalopez@corepan.com",
     phone: "+1 (935) 498-2920",
@@ -43,7 +43,7 @@ const jason = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
     ],
-    greeting: "Hello, Elva Lopez! You have 8 unread messages.",
+    greeting: "Do you have some question ?",
     favoriteFruit: "apple",
   },
   {

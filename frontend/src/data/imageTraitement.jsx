@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import "../App.css";
-import jason from "../data/generatedforlogo";
+import jason from "./generatedforlogo";
 
 function ImageTraitement1() {
   return (

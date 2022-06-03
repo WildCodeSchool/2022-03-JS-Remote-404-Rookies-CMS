@@ -167,7 +167,7 @@ color: var(--green)
   height: 100%;
   min-width: 20rem;
   min-height: 20rem;
-  margin-left: 15%;
+
   object-fit: contain;
 }
 
@@ -193,6 +193,7 @@ color: var(--green)
 .carousel-item-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .carousel-item-container2 {
@@ -237,3 +238,11 @@ color: var(--green)
 }
 
 /* For carousel component, module 2E */
+#carousel-img-E7{
+  max-width: 45%;
+  aspect-ratio: 16/9;
+}
+#carousel-logo-E7{
+  max-width: 33%;
+  align-self: flex-start;
+}

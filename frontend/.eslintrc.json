@@ -27,7 +27,6 @@
     ],
     "react/react-in-jsx-scope": "off",
     "react/jsx-one-expression-per-line": "off",
-
     "react/jsx-no-constructed-context-values": "off",
     "react/prop-types": "off",
     "react/destructuring-assignment": "off",

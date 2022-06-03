@@ -1,3 +1,11 @@
+:root{
+  --light-green : rgba(2, 228, 148, 0.16);
+  --green : #02e494;
+  --darker-green : #13CF8F;
+  --black : #1B2430;
+  --grey : #F5F5F7;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -55,6 +63,13 @@ code {
   }
 }
 
-button {
-  font-size: calc(10px + 2vmin);
+#language{
+  border-color: var(--green);
+  color: var(--green)
+}
+.buttonNav{
+  background-color: var(--green);
+}
+.navTextGreen{
+  color: var(--green);
 }

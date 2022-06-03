@@ -53,8 +53,7 @@ button {
 }
 .carousel .control-dots .dot {
   background: var(--green)
-
-
+}
 .bg10E{
   background-color: var(--light-green);
 }
@@ -68,7 +67,7 @@ button {
   background-color: var(--green);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: var(--grey);
-
+}
 
 .grid5A{
   grid-template-columns: 20% 20% 20% 20%;
@@ -125,10 +124,7 @@ button {
 }
 .module5E-green{
 color: var(--green)
-
 }
-
-
 .bg4E{
   background-color: var(--light-green);
 }
@@ -142,3 +138,82 @@ color: var(--green)
 .bc4E {
   border-color: var(--green);
 }
+
+/* For carousel component, module 2E */
+
+.logo-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 20rem;
+  min-height: 20rem;
+  margin-left: 15%;
+  object-fit: contain;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carousel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-item img {
+  object-fit: contain;
+  min-width: 10rem;
+  max-width: 10rem;
+  max-height: 10rem;
+  min-height: 10rem;
+}
+
+.carousel-item-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.carousel-item-container2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.inner-carousel1 {
+  flex-direction: row;
+  margin: 2%;
+  min-width: 10rem;
+  max-width: 10rem;
+  max-height: 10rem;
+  min-height: 10rem;
+}
+
+.inner-carousel1:hover {
+  cursor: grab;
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.inner-carousel2 {
+  flex-direction: row;
+  margin: 2%;
+  min-width: 10rem;
+  max-width: 10rem;
+  max-height: 10rem;
+  min-height: 10rem;
+}
+
+.inner-carousel2:hover {
+  cursor: grab;
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.carousel .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* For carousel component, module 2E */

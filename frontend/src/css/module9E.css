@@ -1,0 +1,69 @@
+html,
+.root {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+}
+
+body {
+  font: menu;
+  font-size: 1rem;
+  line-height: 1.4;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.bc9E[open] .ds4E ~ * {
+  animation: open 0.3s ease-in-out;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.bc9E .ds4E::-webkit-details-marker {
+  display: none;
+}
+
+.bc9E .ds4E {
+  content:"+";
+  margin-right: 5rem;
+  width: 100%;
+  padding: 0.5rem 0;
+  position: relative;
+  cursor: pointer;
+  font-size: 1.25rem;
+  list-style: none;
+}
+
+.bc9E .ds4E:after {
+  content: "+";
+  position: absolute;
+  font-size: 2rem;
+  line-height: 0;
+  margin-top: 0.75rem;
+  right: 0;
+  transform-origin: center;
+
+}
+.bc9E[open] .ds4E:after {
+  transform: rotate(45deg);
+  font-size: 2rem;
+  
+}
+.bc9E .ds4E {
+  outline: 0;
+}
+.bc9E p {
+  font-size: 0.95rem;
+  margin: 0 0 1rem;
+  padding-top: 1rem;
+}

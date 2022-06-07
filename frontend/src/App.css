@@ -1,6 +1,22 @@
+:root{
+  --light-green : rgba(2, 228, 148, 0.16);
+  --green : #02e494;
+  --darker-green : #13CF8F;
+  --black : #1B2430;
+  --grey : #F5F5F7;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --light-green: rgba(2, 228, 148, 0.16);
+  --green: #02e494;
+  --darker-green: #13cf8f;
+  --black: #1b2430;
+  --grey: #f5f5f7;
+}
 
 body {
   margin: 0;
@@ -20,17 +36,6 @@ code {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -42,21 +47,200 @@ code {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 button {
   font-size: calc(10px + 2vmin);
+}
+.text-green{
+  color: var(--green);
+}
+.carousel .slide img {
+  width: 50%
+}
+.slide{
+  width: 100vh;
+}
+.carousel .control-dots .dot {
+  background: var(--green)
+}
+.bg10E{
+  background-color: var(--light-green);
+}
+.bg-button-white-E10{
+  background-color: var(--grey);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  color: var(--green);
+  border: var(--green) solid 1px;
+}
+.bg-button-green-E10{
+  background-color: var(--green);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: var(--grey);
+}
+
+.grid5A{
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-template-rows:33% 33% 33% ;
+}
+.div1{
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.div2{
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.div3{
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+.div4{
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+.arrow1{
+  width:65%;
+  padding-left: 28%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.arrow2{
+  width:65%;
+  padding-left: 28%;
+  padding-bottom: 20%;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.arrow3{
+  width:65%;
+  padding-left: 28%;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.module5E-green{
+color: var(--green)
+}
+.bg4E{
+  background-color: var(--light-green);
+}
+.tc4E {
+  color: var(--green);
+}
+.bg4e-button {
+  color: var(--green);
+  background-color: var(--grey);
+}
+.bc4E {
+  border-color: var(--green);
+}
+
+
+#language{
+  border-color: var(--green);
+  color: var(--green)
+}
+.buttonNav{
+  background-color: var(--green);
+}
+.navTextGreen{
+  color: var(--green);
+}
+
+/* For carousel component, module 2E */
+
+.logo-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 20rem;
+  min-height: 20rem;
+
+  object-fit: contain;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carousel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-item img {
+  object-fit: contain;
+  min-width: 10rem;
+  max-width: 10rem;
+  max-height: 10rem;
+  min-height: 10rem;
+}
+
+.carousel-item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.carousel-item-container2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.inner-carousel1 {
+  flex-direction: row;
+  margin: 2%;
+  min-width: 10rem;
+  max-width: 10rem;
+  max-height: 10rem;
+  min-height: 10rem;
+}
+
+.inner-carousel1:hover {
+  cursor: grab;
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.inner-carousel2 {
+  flex-direction: row;
+  margin: 2%;
+  min-width: 10rem;
+  max-width: 10rem;
+  max-height: 10rem;
+  min-height: 10rem;
+}
+
+.inner-carousel2:hover {
+  cursor: grab;
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.carousel .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* For carousel component, module 2E */
+#carousel-img-E7{
+  max-width: 45%;
+  aspect-ratio: 16/9;
 }
 
 .circle {
@@ -72,3 +256,9 @@ button {
   width: 30px;
   height: 30px;
 }
+
+#carousel-logo-E7{
+  max-width: 33%;
+  align-self: flex-start;
+}
+

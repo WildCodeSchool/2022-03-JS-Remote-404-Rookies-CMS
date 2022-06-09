@@ -242,7 +242,23 @@ color: var(--green)
   max-width: 45%;
   aspect-ratio: 16/9;
 }
+
+.circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
 #carousel-logo-E7{
   max-width: 33%;
   align-self: flex-start;
 }
+

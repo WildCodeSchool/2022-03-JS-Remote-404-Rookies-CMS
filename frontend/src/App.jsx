@@ -6,6 +6,7 @@ import Page3 from "./pages/Page3";
 import Page4 from "./pages/Page4";
 import Navbar from "./components/Counter";
 import Module9E from "./components/Module9E";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/page3" element={<Page3 />} />
         <Route path="/Page4" element={<Page4 />} />
         <Route path="/Page5" element={<Module9E />} />
+        <Route path="/footer" element={<Footer />} />
       </Routes>
     </Router>
   );

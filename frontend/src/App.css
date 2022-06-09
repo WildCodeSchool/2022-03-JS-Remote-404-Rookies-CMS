@@ -1,9 +1,9 @@
-:root{
-  --light-green : rgba(2, 228, 148, 0.16);
-  --green : #02e494;
-  --darker-green : #13CF8F;
-  --black : #1B2430;
-  --grey : #F5F5F7;
+:root {
+  --light-green: rgba(2, 228, 148, 0.16);
+  --green: #02e494;
+  --darker-green: #13cf8f;
+  --black: #1b2430;
+  --grey: #f5f5f7;
 }
 
 @tailwind base;
@@ -50,71 +50,71 @@ code {
 button {
   font-size: calc(10px + 2vmin);
 }
-.text-green{
+.text-green {
   color: var(--green);
 }
 .carousel .slide img {
-  width: 50%
+  width: 50%;
 }
-.slide{
+.slide {
   width: 100vh;
 }
 .carousel .control-dots .dot {
-  background: var(--green)
+  background: var(--green);
 }
-.bg10E{
+.bg10E {
   background-color: var(--light-green);
 }
-.bg-button-white-E10{
+.bg-button-white-E10 {
   background-color: var(--grey);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   color: var(--green);
   border: var(--green) solid 1px;
 }
-.bg-button-green-E10{
+.bg-button-green-E10 {
   background-color: var(--green);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: var(--grey);
 }
 
-.grid5A{
+.grid5A {
   grid-template-columns: 20% 20% 20% 20%;
-  grid-template-rows:33% 33% 33% ;
+  grid-template-rows: 33% 33% 33%;
 }
-.div1{
+.div1 {
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 1;
   grid-column-end: 2;
 }
-.div2{
+.div2 {
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 2;
   grid-column-end: 3;
 }
-.div3{
+.div3 {
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 3;
   grid-column-end: 4;
 }
-.div4{
+.div4 {
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 4;
   grid-column-end: 5;
 }
-.arrow1{
-  width:65%;
+.arrow1 {
+  width: 65%;
   padding-left: 28%;
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 4;
 }
-.arrow2{
-  width:65%;
+.arrow2 {
+  width: 65%;
   padding-left: 28%;
   padding-bottom: 20%;
   grid-column-start: 2;
@@ -122,18 +122,18 @@ button {
   grid-row-start: 1;
   grid-row-end: 2;
 }
-.arrow3{
-  width:65%;
+.arrow3 {
+  width: 65%;
   padding-left: 28%;
   grid-column-start: 3;
   grid-column-end: 5;
   grid-row-start: 3;
   grid-row-end: 4;
 }
-.module5E-green{
-color: var(--green)
+.module5E-green {
+  color: var(--green);
 }
-.bg4E{
+.bg4E {
   background-color: var(--light-green);
 }
 .tc4E {
@@ -147,15 +147,14 @@ color: var(--green)
   border-color: var(--green);
 }
 
-
-#language{
+#language {
   border-color: var(--green);
-  color: var(--green)
+  color: var(--green);
 }
-.buttonNav{
+.buttonNav {
   background-color: var(--green);
 }
-.navTextGreen{
+.navTextGreen {
   color: var(--green);
 }
 
@@ -238,7 +237,7 @@ color: var(--green)
 }
 
 /* For carousel component, module 2E */
-#carousel-img-E7{
+#carousel-img-E7 {
   max-width: 45%;
   aspect-ratio: 16/9;
 }
@@ -257,8 +256,7 @@ color: var(--green)
   height: 30px;
 }
 
-#carousel-logo-E7{
+#carousel-logo-E7 {
   max-width: 33%;
   align-self: flex-start;
 }
-

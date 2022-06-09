@@ -12,7 +12,6 @@ import Module9E from "../components/Module9E";
 import Module10E from "../components/Module10E";
 import jason from "../data/generated";
 
-
 export default function Page1() {
   return (
     <div>

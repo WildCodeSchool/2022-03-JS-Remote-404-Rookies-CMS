@@ -1,6 +1,6 @@
 import React from "react";
+// eslint-disable-next-line import/extensions
 import jason from "../data/generated.jsx";
-
 
 function Module2S() {
   return (

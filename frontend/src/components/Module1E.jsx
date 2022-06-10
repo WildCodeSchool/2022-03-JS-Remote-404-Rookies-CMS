@@ -1,4 +1,5 @@
 import React from "react";
+import GetStarted from "./GetStarted";
 import imgm1 from "../assets/imgm1.png";
 
 function Module1e() {
@@ -15,12 +16,7 @@ function Module1e() {
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt sint,
           repellendus, fugiat harum doloribus id inventore{" "}
         </h2>
-        <button
-          className="bg-green-700 text-white font-bold py-2 px-4 mt-6 rounded-full"
-          type="submit"
-        >
-          Get started
-        </button>
+        <GetStarted />
       </div>
       <div className="w-1/2 flex flex-row-reverse ">
         <img className="w-96 h-auto mt-6 " src={imgm1} alt="people gathering" />

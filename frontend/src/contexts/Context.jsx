@@ -1,9 +1,14 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
 const Context = createContext();
 
 function Provider({ children }) {
-  return <Context.Provider value={{}}>{children}</Context.Provider>;
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  return (
+    <Context.Provider value={{ isFormOpen, setIsFormOpen }}>
+      {children}
+    </Context.Provider>
+  );
 }
 const ExportContext = {
   Context,

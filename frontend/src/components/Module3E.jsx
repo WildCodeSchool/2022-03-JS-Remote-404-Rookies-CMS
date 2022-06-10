@@ -3,6 +3,7 @@ import image from "../assets/image3E.png";
 import checkbox from "../assets/Checkbox.png";
 // eslint-disable-next-line import/extensions
 import Jason from "../data/generated.jsx";
+import GetStarted from "./GetStarted";
 
 function Module3E() {
   return (
@@ -26,13 +27,7 @@ function Module3E() {
             <img className="mr-2" src={checkbox} alt="hero" />
             <p className="text-sm space-x-4">{Jason[0].tickphrase2}</p>
           </div>
-
-          <button
-            type="button"
-            className="bg-green-500 text-white text-xs font-bold py-2 px-4 rounded-full"
-          >
-            Get Started
-          </button>
+          <GetStarted />
         </div>
       </div>
     </section>

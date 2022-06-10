@@ -70,7 +70,7 @@ function Formulaire() {
                       Tell us more about your project
                     </label>
                     <textarea
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-full ml-6 h-28"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-full ml-6 h-22"
                       type="text"
                       placeholder="Tell us more about your project"
                     />

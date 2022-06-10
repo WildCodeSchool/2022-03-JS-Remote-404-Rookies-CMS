@@ -11,7 +11,7 @@
     "secondline": "A win-win collaboration",
     "tickphrase1": "Students acquire resume worthy experience and connect with employers",
     "tickphrase2": "Companies get answers to their challenges and discover talents",
-    "text":"Submit an assignment specific to your company, taken on by higher education students. The projects are carried out remotely or in person as part of the students’ curriculum with the support of a qualified supervisor.",
+    "text": "Submit an assignment specific to your company, taken on by higher education students. The projects are carried out remotely or in person as part of the students’ curriculum with the support of a qualified supervisor.",
     "eyeColor": "green",
     "name": "Elva Lopez",
     "gender": "female",
@@ -23,15 +23,7 @@
     "registered": "2021-05-26T10:28:49 -02:00",
     "latitude": 25.238017,
     "longitude": -170.837693,
-    "tags": [
-      "magna",
-      "fugiat",
-      "velit",
-      "sint",
-      "et",
-      "adipisicing",
-      "fugiat"
-    ],
+    "tags": ["magna", "fugiat", "velit", "sint", "et", "adipisicing", "fugiat"],
     "friends": [
       {
         "id": 0,
@@ -113,15 +105,7 @@
     "registered": "2016-07-30T06:04:13 -02:00",
     "latitude": 8.615103,
     "longitude": -110.806049,
-    "tags": [
-      "commodo",
-      "cillum",
-      "culpa",
-      "ea",
-      "ea",
-      "id",
-      "proident"
-    ],
+    "tags": ["commodo", "cillum", "culpa", "ea", "ea", "id", "proident"],
     "friends": [
       {
         "id": 0,
@@ -158,15 +142,7 @@
     "registered": "2014-02-22T06:40:22 -01:00",
     "latitude": -17.601659,
     "longitude": 24.860771,
-    "tags": [
-      "non",
-      "proident",
-      "in",
-      "Lorem",
-      "sit",
-      "ullamco",
-      "officia"
-    ],
+    "tags": ["non", "proident", "in", "Lorem", "sit", "ullamco", "officia"],
     "friends": [
       {
         "id": 0,
@@ -248,15 +224,7 @@
     "registered": "2018-03-23T04:26:54 -01:00",
     "latitude": 53.786638,
     "longitude": -110.540337,
-    "tags": [
-      "mollit",
-      "velit",
-      "enim",
-      "tempor",
-      "labore",
-      "ullamco",
-      "non"
-    ],
+    "tags": ["mollit", "velit", "enim", "tempor", "labore", "ullamco", "non"],
     "friends": [
       {
         "id": 0,
@@ -293,15 +261,7 @@
     "registered": "2016-07-10T02:52:01 -02:00",
     "latitude": -64.538085,
     "longitude": -170.678255,
-    "tags": [
-      "non",
-      "Lorem",
-      "esse",
-      "ad",
-      "fugiat",
-      "incididunt",
-      "sint"
-    ],
+    "tags": ["non", "Lorem", "esse", "ad", "fugiat", "incididunt", "sint"],
     "friends": [
       {
         "id": 0,

@@ -34,7 +34,7 @@ h1 {
 }
 
 .bc9E .ds4E {
-  content:"+";
+  content: "+";
   margin-right: 5rem;
   width: 100%;
   padding: 0.5rem 0;
@@ -52,12 +52,10 @@ h1 {
   margin-top: 0.75rem;
   right: 0;
   transform-origin: center;
-
 }
 .bc9E[open] .ds4E:after {
   transform: rotate(45deg);
   font-size: 2rem;
-  
 }
 .bc9E .ds4E {
   outline: 0;

@@ -256,6 +256,11 @@ button {
   height: 30px;
 }
 
+.logo2 {
+  width: 50px;
+  height: 50px;
+}
+
 #carousel-logo-E7 {
   max-width: 33%;
   align-self: flex-start;

@@ -3,10 +3,11 @@ import pen from "../assets/pen.png";
 import clock from "../assets/clock.png";
 import network from "../assets/network.png";
 import sheet from "../assets/sheet.png";
+import GetStarted from "./GetStarted";
 
 function Module6e() {
   return (
-    <div className="bg-green-200 pt-12 flex flex-col justify-items-center place-items-center">
+    <div className="bg4E pt-12 flex flex-col justify-items-center place-items-center">
       <div className="font-bold text-center">
         <h3 className="text-green-400 text-xl pb-1">
           Benefits of working with us
@@ -64,12 +65,9 @@ function Module6e() {
           </div>
         </div>
       </div>
-      <button
-        className="bg-green-400 text-white font-bold py-2 px-4 mt-6 mb-8 rounded-full"
-        type="submit"
-      >
-        Get started
-      </button>
+      <div className="flex flex-row justify-center w-1/3 mb-12 mt-12">
+        <GetStarted />
+      </div>
     </div>
   );
 }

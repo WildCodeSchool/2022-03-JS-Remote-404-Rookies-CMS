@@ -28,9 +28,12 @@ function Footer() {
           >
             <img src={Rookies} alt="logo" />
           </div>
-          <p className="mt-2 text-sm text-justify text-gray-500">
-            integrer clic to call
-          </p>
+          <a
+            className="mt-2 text-sm text-justify text-gray-500"
+            href="tel:+33785680988"
+          >
+            +33 (0) 7 85 68 09 88
+          </a>
           <p className="mt-2 text-sm text-justify text-gray-500">
             integrer integrer envoi mail
           </p>

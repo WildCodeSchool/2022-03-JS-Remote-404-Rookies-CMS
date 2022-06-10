@@ -10,12 +10,12 @@ import Module7E from "../components/module7E";
 import Module8E from "../components/Module8E";
 import Module9E from "../components/Module9E";
 import Module10E from "../components/Module10E";
+import Footer from "../components/Footer";
 import jason from "../data/generated";
 
 export default function Page1() {
   return (
     <div>
-      <h2>Accueil</h2>
       <Module1e />
       <Module2E />
       <Module3E />
@@ -26,6 +26,7 @@ export default function Page1() {
       <Module8E />
       <Module9E />
       <Module10E {...jason} />
+      <Footer />
     </div>
   );
 }

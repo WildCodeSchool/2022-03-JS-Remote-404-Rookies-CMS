@@ -142,7 +142,7 @@ function Footer() {
           <p className="text-base  text-gray-400">Privacy policy</p>
         </div>
         <p className="flex justify-end text-base text-gray-400">
-          2022 Rookies SAS. All rights reserved
+          2022 Rookies SAS.  All rights reserved
         </p>
       </div>
     </footer>

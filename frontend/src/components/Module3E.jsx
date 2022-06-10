@@ -1,7 +1,8 @@
 import React from "react";
 import image from "../assets/image3E.png";
 import checkbox from "../assets/Checkbox.png";
-import Jason from "../data/jason.json";
+// eslint-disable-next-line import/extensions
+import Jason from "../data/generated.jsx";
 
 function Module3E() {
   return (

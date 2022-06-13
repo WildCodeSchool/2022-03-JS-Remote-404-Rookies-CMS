@@ -1,5 +1,7 @@
 import React from "react";
 import Rookies from "../assets/rookies.png";
+import French from "../assets/frenchtech.png";
+import Pepite from "../assets/pepite.png";
 
 function Footer() {
   return (
@@ -7,7 +9,7 @@ function Footer() {
       <div
         className="
           container
-          flex flex-col flex-wrap
+          flex flex-col flex-wrap mt-4
           px-4
           mx-auto
           md:items-center
@@ -72,31 +74,39 @@ function Footer() {
           </div>
         </div>
         <div className="justify-between w-full mt-4 text-center lg:flex">
-          <div className="fw-full px-4 lg:w-1/3 md:w-1/2">
-            <h2 className="mb-2 font-bold tracking-widest text-green-400">
+          <div className="fw-full px-4 lg:w-2/3 md:w-1/2">
+            <h2 className="font-bold text-lg mb-4 flex text-green-400">
               Quick Links
             </h2>
-            <ul className="mb-8 space-y-2 text-sm list-none">
-              <li>
-                <div className="text-gray-600 hover:text-gray-800">Home</div>
-              </li>
-              <li>
-                <div className="text-gray-600 hover:text-gray-800">
-                  About Us
-                </div>
-              </li>
-              <li>
-                <div className="text-gray-600 hover:text-gray-800">Blogs</div>
-              </li>
-              <li>
-                <div className="text-gray-600 hover:text-gray-800">
-                  Contact Us
-                </div>
-              </li>
+            <ul className="flex text-sm list-none">
+              <div className="flex justify-start flex-col w-1/2">
+                <li>
+                  <div className="flex mb-4 text-gray-600 hover:text-gray-800">
+                    Companies
+                  </div>
+                </li>
+                <li>
+                  <div className="flex text-gray-600 hover:text-gray-800">
+                    Student
+                  </div>
+                </li>
+              </div>
+              <div className="flex justify-center flex-col w-1/2">
+                <li>
+                  <div className="flex mb-4 text-gray-600 hover:text-gray-800">
+                    Universities
+                  </div>
+                </li>
+                <li>
+                  <div className="flex text-gray-600 hover:text-gray-800">
+                    About
+                  </div>
+                </li>
+              </div>
             </ul>
           </div>
           <div className="w-full px-4 lg:w-1/3 md:w-1/2">
-            <h2 className="mb-2 font-bold tracking-widest text-green-400">
+            <h2 className="flex justify-start mb-2 font-bold text-lg  text-green-400">
               Join our Newsletter
             </h2>
             <div className="flex mt-4">
@@ -119,17 +129,20 @@ function Footer() {
                 Subscribe
               </button>
             </div>
-            <p>logo 1 & 2</p>
+            <div className="flex mx-2 mt-4">
+              <img className="mr-4" src={Pepite} alt="logo" />
+              <img src={French} alt="logo" />
+            </div>
           </div>
         </div>
       </div>
-      <div className="flex justify-between mx-30">
+      <div className="flex justify-between mt-6">
         <div className="flex space-x-4">
           <p className="text-base  text-gray-400">General terms</p>
           <p className="text-base  text-gray-400">Privacy policy</p>
         </div>
         <p className="flex justify-end text-base text-gray-400">
-          2022 Rookies SAS. All rights reserved
+          2022 Rookies SAS.  All rights reserved
         </p>
       </div>
     </footer>

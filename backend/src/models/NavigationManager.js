@@ -1,7 +1,7 @@
 const AbstractManager = require("./AbstractManager");
 
 class NavigationManager extends AbstractManager {
-  static table = "Navigation";
+  static table = "navigation";
 
   insertNavigation(Navigation) {
     return this.connection.query(
@@ -24,17 +24,18 @@ class NavigationManager extends AbstractManager {
   }
 
   findNavigation(id) {
-    return this.connection.query(`select * from  Navigations where id = ?`, [
+    return this.connection.query(`select * from  Navigation where id = ?`, [
       id,
     ]);
   }
 
-  findAllNavigations() {
+  findAllNavigations(languagesId) {
     return this.connection.query(
-      `select * from Navigations as n 
-      inner join navigation_element as ne on ne.navigation_index = n.id
-      inner join images as i on i.id = n.image_id
-      where n.language_id = ? `
+      `select * from navigation as n 
+      inner join navigation_element as ne on ne.navigation_id = n.id
+      inner join images as i on i.id = n.images_id
+      where n.languages_id = ?`,
+      [languagesId]
     );
   }
 

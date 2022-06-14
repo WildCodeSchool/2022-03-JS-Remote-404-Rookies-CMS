@@ -3,7 +3,7 @@ const models = require("../models");
 class NavigationController {
   static browse = (req, res) => {
     models.navigation
-      .findAllnavigation(req.params.language_id)
+      .findAllNavigations(req.params.languages_id)
       .then(([rows]) => {
         res.send(rows);
       })
@@ -15,7 +15,7 @@ class NavigationController {
 
   static read = (req, res) => {
     models.navigation
-      .find(req.params.id)
+      .findNavigation(req.params.id)
       .then(([rows]) => {
         if (rows[0] == null) {
           res.sendStatus(404);

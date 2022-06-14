@@ -21,8 +21,8 @@ router.put("/images/:id", ImagesController.edit);
 router.post("/images", ImagesController.add);
 router.delete("/images/:id", ImagesController.delete);
 
-router.get("/navigation/:language_id", NavigationController.browse);
-router.get("/navigation/:language_id", NavigationController.read);
+router.get("/navigation/:languages_id", NavigationController.browse);
+router.get("/navigations/:id", NavigationController.read);
 router.put("/navigation/:id", NavigationController.edit);
 router.post("/navigation", NavigationController.add);
 router.delete("/navigation/:id", NavigationController.delete);

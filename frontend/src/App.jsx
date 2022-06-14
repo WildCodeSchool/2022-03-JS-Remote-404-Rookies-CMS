@@ -18,10 +18,10 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/page1/:language_id" element={<Page1 />} />
-          <Route path="/page2/:language_id" element={<Page2 />} />
-          <Route path="/page3/:language_id" element={<Page3 />} />
-          <Route path="/Page4/:language_id" element={<Page4 />} />
+          <Route path="/page1/:language" element={<Page1 />} />
+          <Route path="/page2/:language" element={<Page2 />} />
+          <Route path="/page3/:language" element={<Page3 />} />
+          <Route path="/Page4/:language" element={<Page4 />} />
         </Routes>
       </Router>
     </div>

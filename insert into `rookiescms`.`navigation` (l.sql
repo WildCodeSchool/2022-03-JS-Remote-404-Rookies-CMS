@@ -3,12 +3,7 @@ insert into `rookiescms`.`languages` (languages, status)
     ("EN",1),
     ("FR",0);
 
-insert into `rookiescms`.`navigation` (label, languages_id, path)
-  VALUES
-    ("Companies", 1, "/"),
-    ("Universities",1,"/page2"),
-    ("Students",1,"/page3"),
-    ("About us",1,"/page4");
+
 
 
 insert into `rookiescms`.`advantages` (title, sub_title, languages_id)
@@ -22,46 +17,56 @@ insert into `RookiesCMS`.`advantages_element`(title, text, avantages_id)
     ("Expert HR assessment", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",1);
 
 
-insert into `Rookiescms`.`images`(image_link, image_alt, status, url, categorie)
+insert into `Rookiescms`.`images`(image_link, image_alt, status, url, categorie, languages_id)
   VALUES
-    ("https://i.ibb.co/HDd5xBF/you.png", "Youmeal", 0, "https://youmeal.io/", "logo"),
-    ("https://i.ibb.co/gmC8GKc/home.png", "Homecore", 0, "https://www.homecore.com/fr/", "logo"),
-    ("https://i.ibb.co/4SYjjrC/emma.png", "Emma", 0, "https://www.tendances-emma.fr/", "logo"),
-    ("https://i.ibb.co/h7JB3Fj/keye.png", "Keyena", 0, "https://keyena.com/", "logo"),
-    ("https://i.ibb.co/xfWCDZf/sowa.png", "Sowapi", 0, "https://sowapi.ch/", "logo"),
-    ("https://i.ibb.co/n7Dnf0g/PPa.png", "PPA Business School", 0, "https://www.ppa.fr/ecole-commerce-alternance.html", "logo"),
-    ("https://www.em-normandie.com/themes/custom/emn/images/EM-Logo-2018-default.png", "Normandie Business School", 0, "https://www.em-normandie.com/fr", "logo"),
-    ("https://i.ibb.co/K2zxYq4/stras.png", "EM Strasbourg", 0, "https://www.em-strasbourg.com/fr", "logo"),
-    ("https://i.ibb.co/WfzKyg6/junia.png", "Junia", 0, "https://www.junia.com/", "logo"),
-    ("https://i.ibb.co/YQwsp6d/wild.png", "Wild Code School", 0, "https://www.wildcodeschool.com/", "logo"),
-    ("https://i.ibb.co/Kw3NZyh/hetic.png", "Hetic", 0, "https://www.hetic.net/", "logo"),
-    ("https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Saxion_University_of_Applied_Sciences_logo.svg/1200px-Saxion_University_of_Applied_Sciences_logo.svg.png", "Saxion", 0, "https://www.saxion.edu/", "logo"),
-    ("https://fontys.edu/static/fontysrdpresentation/images/defaultsocialmediaimage.jpeg", "Fontys", 0, "https://fontys.edu/Home.htm", "logo"),
-    ("https://www.efficom.fr/images/2019/10/logo-EFFICOM-V2okblanc.png", "Efficom", 0, "https://www.efficom.fr/", "logo"),
-    ("https://pbs.twimg.com/profile_images/887211284369944577/xqN4uf35_400x400.jpg", "FHNW", 0, "https://www.fhnw.ch/de", "logo"),
-    ("https://tamba-labs.com/wp-content/uploads/2020/12/Logo_Homepage_Main.png", "Tamba Labs", 0, "https://tamba-labs.com/", "logo"),
-    ("https://www.iscom.fr/themes/custom/iscom/images/logo.png", "Iscom", 0, "https://www.iscom.fr/", "logo"),
-    ("https://mon-magasin-en-ville.fr/wp-content/uploads/2021/10/logo-MMEV-600px-96.png", "Mon Magasin en Ville", 0, "https://mon-magasin-en-ville.fr/", "logo"),
-    ("https://media-exp1.licdn.com/dms/image/C4D0BAQEnuytb7N4eHA/company-logo_200_200/0/1637244902902?e=1662595200&v=beta&t=1sUN3rirGsRS8zjy2s91V-P3e1vLbJRLnG6tQSY6ScU", "La Biscuiterie Handi-Gaspi", 0, "https://www.linkedin.com/company/la-biscuiterie-handi-gaspi/?originalSubdomain=fr", "logo"),
-    ("https://www.unilasalle.fr/themes/custom/unilasalle/logo.svg", "UniLaSalle", 0, "https://www.unilasalle.fr/", "logo"),
-    ("https://www.iim.fr/ecole-web/wp-content/uploads/2020/09/logo-iim-paris.png", "IIM", 0, "https://www.iim.fr/", "logo"),
-    ("https://www.cpe.fr/wp-content/themes/acti-main/img/logo-cpe-bleu.svg", "CPE Lyon", 0, "https://www.cpe.fr/", "logo"),
-    ("https://static.wixstatic.com/media/6351e4_54c8eac235d649099f4a167ddaebf4de~mv2.png/v1/fill/w_357,h_165,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Gamechangers%20logo.png", "GameChangers NFT", 0, "https://www.gamechangenft.com/", "logo"),
-    ("https://i.ibb.co/HNmWxvB/Rookies-Logo.png", "Rookies", 0, "https://www.rookies.fr/", "RookiesLogo"),
-    ("https://i.ibb.co/BVVGRFR/image3E.png", "Win Win", 0, "", "ImgPresentation"),
-    ("https://i.ibb.co/RzT7xyK/imgm1.png", "Students", 0, "", "ImgHome"),
-    ("https://i.ibb.co/yV7CZsd/module5E.png", "Talents", 0, "", "ImgProcess "),
-    ("https://i.ibb.co/5TTHJjL/bravetype1.png", "Homecore Men", 0, "", "ImgCarouselReviewCompany"),
-    ("https://i.ibb.co/N9g70zK/bravetype2.png", "You Meal Men", 0, "","ImgCarouselReviewCompany"),
-    ("https://i.ibb.co/RPQxjQk/bravefille1.png", "Keyena Girl", 0, "","ImgCarouselReviewCompany"),
-    ("https://i.ibb.co/WkhbPwG/bravetype3.png", "PPA Men", 0, "","ImgCarouselReviewSchool"),
-    ("https://ibb.co/jJPp98Z", "logo pépite",0, "https://pepite-provence.pepitizy.fr/fr", "logofooter"),
-    ("https://ibb.co/vxNP6qq", "logo la french tech", 0,"https://lafrenchtech.com/fr/","logofooter"),
-    ("https://i.ibb.co/W2mNBmr/3.png", "trois petit point encerclé",0,"","projectexemple"),
-    ("https://i.ibb.co/W2mNBmr/3.png","3 petits points encerclés",0,"","ProjectsExamples"),
-    ("https://i.ibb.co/m5vBkMT/classroom.png","Classroom",0,"","ProjectsExamples");
+    ("https://i.ibb.co/HDd5xBF/you.png", "Youmeal", 0, "https://youmeal.io/", "logo",1),
+    ("https://i.ibb.co/gmC8GKc/home.png", "Homecore", 0, "https://www.homecore.com/fr/", "logo",1),
+    ("https://i.ibb.co/4SYjjrC/emma.png", "Emma", 0, "https://www.tendances-emma.fr/", "logo",1),
+    ("https://i.ibb.co/h7JB3Fj/keye.png", "Keyena", 0, "https://keyena.com/", "logo",1),
+    ("https://i.ibb.co/xfWCDZf/sowa.png", "Sowapi", 0, "https://sowapi.ch/", "logo",1),
+    ("https://i.ibb.co/n7Dnf0g/PPa.png", "PPA Business School", 0, "https://www.ppa.fr/ecole-commerce-alternance.html", "logo",1),
+    ("https://www.em-normandie.com/themes/custom/emn/images/EM-Logo-2018-default.png", "Normandie Business School", 0, "https://www.em-normandie.com/fr", "logo",1),
+    ("https://i.ibb.co/K2zxYq4/stras.png", "EM Strasbourg", 0, "https://www.em-strasbourg.com/fr", "logo",1),
+    ("https://i.ibb.co/WfzKyg6/junia.png", "Junia", 0, "https://www.junia.com/", "logo",1),
+    ("https://i.ibb.co/YQwsp6d/wild.png", "Wild Code School", 0, "https://www.wildcodeschool.com/", "logo",1),
+    ("https://i.ibb.co/Kw3NZyh/hetic.png", "Hetic", 0, "https://www.hetic.net/", "logo",1),
+    ("https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Saxion_University_of_Applied_Sciences_logo.svg/1200px-Saxion_University_of_Applied_Sciences_logo.svg.png", "Saxion", 0, "https://www.saxion.edu/", "logo",1),
+    ("https://fontys.edu/static/fontysrdpresentation/images/defaultsocialmediaimage.jpeg", "Fontys", 0, "https://fontys.edu/Home.htm", "logo",1),
+    ("https://www.efficom.fr/images/2019/10/logo-EFFICOM-V2okblanc.png", "Efficom", 0, "https://www.efficom.fr/", "logo",1),
+    ("https://pbs.twimg.com/profile_images/887211284369944577/xqN4uf35_400x400.jpg", "FHNW", 0, "https://www.fhnw.ch/de", "logo",1),
+    ("https://tamba-labs.com/wp-content/uploads/2020/12/Logo_Homepage_Main.png", "Tamba Labs", 0, "https://tamba-labs.com/", "logo",1),
+    ("https://www.iscom.fr/themes/custom/iscom/images/logo.png", "Iscom", 0, "https://www.iscom.fr/", "logo",1),
+    ("https://mon-magasin-en-ville.fr/wp-content/uploads/2021/10/logo-MMEV-600px-96.png", "Mon Magasin en Ville", 0, "https://mon-magasin-en-ville.fr/", "logo",1),
+    ("https://media-exp1.licdn.com/dms/image/C4D0BAQEnuytb7N4eHA/company-logo_200_200/0/1637244902902?e=1662595200&v=beta&t=1sUN3rirGsRS8zjy2s91V-P3e1vLbJRLnG6tQSY6ScU", "La Biscuiterie Handi-Gaspi", 0, "https://www.linkedin.com/company/la-biscuiterie-handi-gaspi/?originalSubdomain=fr", "logo",1),
+    ("https://www.unilasalle.fr/themes/custom/unilasalle/logo.svg", "UniLaSalle", 0, "https://www.unilasalle.fr/", "logo",1),
+    ("https://www.iim.fr/ecole-web/wp-content/uploads/2020/09/logo-iim-paris.png", "IIM", 0, "https://www.iim.fr/", "logo",1),
+    ("https://www.cpe.fr/wp-content/themes/acti-main/img/logo-cpe-bleu.svg", "CPE Lyon", 0, "https://www.cpe.fr/", "logo",1),
+    ("https://static.wixstatic.com/media/6351e4_54c8eac235d649099f4a167ddaebf4de~mv2.png/v1/fill/w_357,h_165,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Gamechangers%20logo.png", "GameChangers NFT", 0, "https://www.gamechangenft.com/", "logo",1),
+    ("https://i.ibb.co/HNmWxvB/Rookies-Logo.png", "Rookies", 0, "https://www.rookies.fr/", "RookiesLogo",1),
+    ("https://i.ibb.co/BVVGRFR/image3E.png", "Win Win", 0, "", "ImgPresentation",1),
+    ("https://i.ibb.co/RzT7xyK/imgm1.png", "Students", 0, "", "ImgHome",1),
+    ("https://i.ibb.co/yV7CZsd/module5E.png", "Talents", 0, "", "ImgProcess ",1),
+    ("https://i.ibb.co/5TTHJjL/bravetype1.png", "Homecore Men", 0, "", "ImgCarouselReviewCompany",1),
+    ("https://i.ibb.co/N9g70zK/bravetype2.png", "You Meal Men", 0, "","ImgCarouselReviewCompany",1),
+    ("https://i.ibb.co/RPQxjQk/bravefille1.png", "Keyena Girl", 0, "","ImgCarouselReviewCompany",1),
+    ("https://i.ibb.co/WkhbPwG/bravetype3.png", "PPA Men", 0, "","ImgCarouselReviewSchool",1),
+    ("https://ibb.co/jJPp98Z", "logo pépite",0, "https://pepite-provence.pepitizy.fr/fr", "logofooter",1),
+    ("https://ibb.co/vxNP6qq", "logo la french tech", 0,"https://lafrenchtech.com/fr/","logofooter",1),
+    ("https://i.ibb.co/W2mNBmr/3.png","3 petits points encerclés",0,"","ProjectsExamples",1),
+    ("https://i.ibb.co/m5vBkMT/classroom.png","Classroom",0,"","ProjectsExamples",1);
     
-    
+insert into `rookiescms`.`navigation`(cta_label,languages_id,images_id)
+  VALUES
+    ("Contact us", 1,24);
+
+insert into `rookiescms`.`navigation_element` (label, path,navigation_id)
+  VALUES
+    ("Companies", "/",1),
+    ("Universities","/page2",1),
+    ("Students","/page3",1),
+    ("About us","/page4",1);
+
+
 insert into `RookiesCMS`.`QA` (title, sub_title, languages_id)
   VALUES
     ("Do you have some questions ?","Frequently asked questions",1);
@@ -124,16 +129,9 @@ insert into `RookiesCMS`.`contact_form` (fullname,company_name,email,phone_numbe
   VALUES
     ("first name & Last name", "Company Name", "Email", "Phone number", "Tell us more about your project", "Submit",1);
 
-
-insert into `RookiesCMS`.`contact_form_and_newsletter_options`(text, value, languages_id, contact_form_id)
-
-  VALUES
-    ("Company","Company",1,1,1),
-    ("School","School",1,1,1);
-
 insert into `RookiesCMS`.`Home` (title,text,CTA_label,languages_id,navbar_id,images_id)
   VALUES
-    ("Get more done, while connecting with grat talent","involvestudents in your projects and identify your future talents.","Get started",1,26);
+    ('Get more done, while connecting with grat talent',"involve students in your projects and identify your future talents.","Get started",1,1,26);
 
 insert into `RookiesCMS`.`Process` (title,sub_title,text,languages_id,images_id,navbar_id)
   VALUES
@@ -150,12 +148,17 @@ insert into `RookiesCMS`.`carroussel_review` (title,sub_title,languages_id,navba
   VALUES
     ("Testimonials","What our customers say about us",1,1);
 
-insert into `RookiesCMS`.`carroussel_review_element` (fullname,post,testimonial,carroussel_avis_id,images_id)
+insert into `RookiesCMS`.`carroussel_review_element` (fullname,post,testimonial,type,carroussel_avis_id,images_id,images_logo_id)
   VALUES
-    ("Alexandre Guarneri","Founder @HOMECORE",`"The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website."`,1,28,2),
-    ("Xavier Sourceau","Chief revenue Officier @YOUMEAL",`"The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website."`,1,29,1),
-    ("Carolie Gassama","Founder & CEO @KEYENA",`"The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website."`,1,30,4);
+    ("Alexandre Guarneri","Founder @HOMECORE","The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website.",1,1,28,2),
+    ("Xavier Sourceau","Chief revenue Officier @YOUMEAL","The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website.",1,1,29,1),
+    ("Carolie Gassama","Founder & CEO @KEYENA","The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website.",1,1,30,4);
 
-insert into `RookiesCMS`.`footer`(phone_number,mail,sub_title1,sub_title2,copyright,terms,newsletter,languages_id,images_logo1_id,images_logo2_id,rookies_logo)
+insert into `RookiesCMS`.`footer`(phone_number,mail,sub_title1,sub_title2,copyright,terms,policy,newsletter,languages_id, images_logo1_id, images_logo2_id,  rookies_logo)
   VALUES 
-    ("+33(0)785680988","contact@rookiesprojects.com","Quick Links","Join our newsletter", "© 2022 Rookies SAS. All rights reserved","General Terms","Your Email",1,32,33,24);
+    ("+33(0)785680988","contact@rookiesprojects.com","Quick Links","Join our newsletter", "© 2022 Rookies SAS. All rights reserved","General Terms","Privacy Policy","Your Email",1,32,33,24);
+
+insert into `RookiesCMS`.`contact_form_and_newsletter_options`(text, value, languages_id, contact_form_id, footer_id)
+  VALUES
+    ("Company","Company",1,1,1),
+    ("School","School",1,1,1);

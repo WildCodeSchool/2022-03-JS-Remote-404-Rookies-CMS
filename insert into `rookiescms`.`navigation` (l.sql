@@ -8,7 +8,7 @@ insert into `rookiescms`.`navigation` (label, languages_id, path)
     ("Companies", 1, "/"),
     ("Universities",1,"/page2"),
     ("Students",1,"/page3"),
-    ("About",1,"/page4");
+    ("About us",1,"/page4");
 
 
 insert into `rookiescms`.`advantages` (title, sub_title, languages_id)
@@ -54,7 +54,12 @@ insert into `Rookiescms`.`images`(image_link, image_alt, status, url, categorie)
     ("https://i.ibb.co/5TTHJjL/bravetype1.png", "Homecore Men", 0, "", "ImgCarouselReviewCompany"),
     ("https://i.ibb.co/N9g70zK/bravetype2.png", "You Meal Men", 0, "","ImgCarouselReviewCompany"),
     ("https://i.ibb.co/RPQxjQk/bravefille1.png", "Keyena Girl", 0, "","ImgCarouselReviewCompany"),
-    ("https://i.ibb.co/WkhbPwG/bravetype3.png", "PPA Men", 0, "","ImgCarouselReviewSchool");
+    ("https://i.ibb.co/WkhbPwG/bravetype3.png", "PPA Men", 0, "","ImgCarouselReviewSchool"),
+    ("https://ibb.co/jJPp98Z", "logo pépite",0, "https://pepite-provence.pepitizy.fr/fr", "logofooter"),
+    ("https://ibb.co/vxNP6qq", "logo la french tech", 0,"https://lafrenchtech.com/fr/","logofooter"),
+    ("https://i.ibb.co/W2mNBmr/3.png", "trois petit point encerclé",0,"","projectexemple"),
+    ("https://i.ibb.co/W2mNBmr/3.png","3 petits points encerclés",0,"","ProjectsExamples"),
+    ("https://i.ibb.co/m5vBkMT/classroom.png","Classroom",0,"","ProjectsExamples");
     
     
 insert into `RookiesCMS`.`QA` (title, sub_title, languages_id)
@@ -85,11 +90,11 @@ insert into `RookiesCMS`.`presentation` (title, sub_title, text1, text2,text3, l
   VALUES
     ("What is a Rookies Project?","A win-win collaboration", "Submit an assignement specific to your company, taken on by higher educaton students. The projects are carried out remotely or in person as part of the students' curriculum with the support of a qualified supervisor.","Studenrs acquire resume worthy experience and connect with employers","Compagnies get answers to their challenges and discover talents",1,25,"Get Started");
 
-insert into `RookiesCMS`.`profit` (title, sub_title, languages_id, navbar_id )
+insert into `RookiesCMS`.`profit` (title, sub_title, languages_id, navigation_id )
   VALUES
-    ("Benefits of working with us","A turnkey solution",1,1)
+    ("Benefits of working with us","A turnkey solution",1,1);
 
-insert into `RookiesCMS`.`profit_elements` (title, text,profit_id)
+insert into `RookiesCMS`.`profit_elements` (title, text, profit_id)
   VALUES
     ("Easily design your projects","Express tour nees and objectives in few clicks or talk with one of our experts and we take care of the rest.",1 ),
     ("Access a large network","More than 500 opportunities referenced in our project database in France and abroad.",1),
@@ -115,4 +120,42 @@ insert into `RookiesCMS`.`school_project`(title,text,CTA_label,languages_id)
   VALUES 
     ("Project in mind ?","if you are havigne any trouble deciding. do not worry! you can simply request a demo for FREE and decide after that","Book a Meeting",1);
 
-insert into `RookiesCMS`.`contact_form` ()
+insert into `RookiesCMS`.`contact_form` (fullname,company_name,email,phone_number,description,CTA_label,languages_id)
+  VALUES
+    ("first name & Last name", "Company Name", "Email", "Phone number", "Tell us more about your project", "Submit",1);
+
+
+insert into `RookiesCMS`.`contact_form_and_newsletter_options`(text, value, languages_id, contact_form_id)
+
+  VALUES
+    ("Company","Company",1,1,1),
+    ("School","School",1,1,1);
+
+insert into `RookiesCMS`.`Home` (title,text,CTA_label,languages_id,navbar_id,images_id)
+  VALUES
+    ("Get more done, while connecting with grat talent","involvestudents in your projects and identify your future talents.","Get started",1,26);
+
+insert into `RookiesCMS`.`Process` (title,sub_title,text,languages_id,images_id,navbar_id)
+  VALUES
+    ("How does it works ?","Test talents while working on meaningful projects","Easily build and manage your experiential hiring projects to support your team and identify your future workforce.",1,27,1);
+
+insert into `RookiesCMS`.`Process_element` (title,text,Process_id)
+  VALUES
+    ("Design","indicate your goals, timeline, and candidate requirements.",1),
+    ("Select & Start","Get proposals,select and launch your project.",1),
+    ("Manage","Easiliy manage the progression of your project with our platform.",1),
+    ("Evaluate & integrate","identify the top performers and integrate the best solutions.",1);
+
+insert into `RookiesCMS`.`carroussel_review` (title,sub_title,languages_id,navbar_id)
+  VALUES
+    ("Testimonials","What our customers say about us",1,1);
+
+insert into `RookiesCMS`.`carroussel_review_element` (fullname,post,testimonial,carroussel_avis_id,images_id)
+  VALUES
+    ("Alexandre Guarneri","Founder @HOMECORE",`"The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website."`,1,28,2),
+    ("Xavier Sourceau","Chief revenue Officier @YOUMEAL",`"The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website."`,1,29,1),
+    ("Carolie Gassama","Founder & CEO @KEYENA",`"The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website."`,1,30,4);
+
+insert into `RookiesCMS`.`footer`(phone_number,mail,sub_title1,sub_title2,copyright,terms,newsletter,languages_id,images_logo1_id,images_logo2_id,rookies_logo)
+  VALUES 
+    ("+33(0)785680988","contact@rookiesprojects.com","Quick Links","Join our newsletter", "© 2022 Rookies SAS. All rights reserved","General Terms","Your Email",1,32,33,24);

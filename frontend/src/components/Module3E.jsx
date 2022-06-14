@@ -19,7 +19,7 @@ function Module3E() {
           </h2>
           <p className=" mb-8 ">{Jason[0].text}</p>
           <div className=" mb-2 flex">
-            <img className=" mr-2" src={checkbox} alt="hero" />
+            <img className=" mr-2 aspect-ratio:1/1" src={checkbox} alt="hero" />
             <p className="text-sm mb-4 space-x-4">{Jason[0].tickphrase1}</p>
           </div>
 

@@ -5,21 +5,19 @@ import ExportContext from "../contexts/Context";
 
 export default function Navbar() {
   const { language, selectLanguage } = useContext(ExportContext.Context);
-  /* eslint-disable camelcase */
+
   const [data, setData] = useState([]);
 
   const options = [
-    { value: 1, label: "https://ibb.co/7QmD7Xx", state: true },
-    { value: 2, label: "\uD83C\uDDEB\uD83C\uDDF7", state: true },
+    { value: 1, label: "GB", state: true },
+    { value: 2, label: "FR", state: true },
   ];
 
   useEffect(() => {
     axios
-      /*eslint-disable*/
-      .get("http://localhost:5000/navigation/" + `${language}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/navigation/${language}`)
       .then((response) => {
         setData(response.data);
-        // console.warn("data" + { data });
       })
       .catch((error) => {
         console.warn(error);
@@ -28,28 +26,41 @@ export default function Navbar() {
 
   return (
     <div className="flex justify-between align-center items-center my-14 mx-14">
-      <img src={data[0]?.image_link} alt={data[0]?.image_alt} />
+      <img src={data?.image_link} alt={data?.image_alt} />
       <ul className="flex gap-10 font-bold text-xl">
         <Link to={`/page1/${language}`}>
-          <li className="navTextGreen">{data[0]?.label}</li>
+          <li className="navTextGreen">{data.links && data.links[0].label}</li>
         </Link>
         <Link to={`/page2/${language}`}>
-          <li>{data[1]?.label}</li>
+          <li>{data.links && data.links[1].label}</li>
         </Link>
         <Link to={`/page3/${language}`}>
-          <li>{data[2]?.label}</li>
+          <li>{data.links && data.links[2].label}</li>
         </Link>
         <Link to={`/page4/${language}`}>
-          <li>{data[3]?.label}</li>
+          <li>{data.links && data.links[3].label}</li>
         </Link>
       </ul>
-      <div className="">
+      <div className="flex flex-row">
         <button
           type="button"
           className="pt-2 pb-3 pl-3 pr-3 rounded-full buttonNav mr-10 text-xl text-white"
         >
-          {data[0]?.cta_label}
+          {data.links && data.links[4].label}
         </button>
+        {language === "1" ? (
+          <img
+            className="w-10 h-10 justifdy-center items-center mr-2 mt-2"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ3TuVTTYPanFfn3EZRam9bMcnGfnT6zbknA&usqp=CAU"
+            alt="britflag"
+          />
+        ) : (
+          <img
+            className="w-10 h-10 justifdy-center items-center mr-2 mt-2"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShiKc2vuXXlwonKWzUTu1LaaovzuuRA-k9MeN8vZ103iwRpVaSwmcCKfhWZPMmb02fgKE&usqp=CAU"
+            alt="frenchflag"
+          />
+        )}
         <select
           className="border py-2 px-5"
           name="language"

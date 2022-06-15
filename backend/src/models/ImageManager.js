@@ -5,13 +5,14 @@ class ImageManager extends AbstractManager {
 
   insertImage(image) {
     return this.connection.query(
-      `insert into ${ImageManager.table} (image_link, image_alt, status, url, categorie) values (?, ?, ?, ?, ?)`,
+      `insert into ${ImageManager.table} (image_link, image_alt, status, url, categorie, languages_id) values (?, ?, ?, ?, ?, ?)`,
       [
         image.image_link,
         image.image_alt,
         image.status,
         image.url,
         image.categorie,
+        image.languages_id,
       ]
     );
   }

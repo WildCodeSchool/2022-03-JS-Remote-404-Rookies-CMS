@@ -5,7 +5,7 @@ class NavigationManager extends AbstractManager {
 
   insertNavigation(Navigation) {
     return this.connection.query(
-      `insert into ${NavigationManager.table} (Navigation_link, Navigation_alt, status, url, categorie) values (?, ?, ?, ?, ?)`,
+      `insert into ${NavigationManager.table} (Navigation_link, Navigation_alt, status, url, categorie,) values (?, ?, ?, ?, ?)`,
       [
         Navigation.Navigation_link,
         Navigation.Navigation_alt,
@@ -23,19 +23,20 @@ class NavigationManager extends AbstractManager {
     );
   }
 
-  findNavigation(id) {
-    return this.connection.query(`select * from  Navigation where id = ?`, [
-      id,
-    ]);
-  }
-
-  findAllNavigations(languagesId) {
+  findNavigation(languagesId) {
     return this.connection.query(
-      `select * from navigation as n 
-      inner join navigation_element as ne on ne.navigation_id = n.id
-      inner join images as i on i.id = n.images_id
+      `select n.id, n.languages_id, n.images_id, i.image_link, i.image_alt from  navigation as n 
+      inner join images as i on i.id = n.images_id 
       where n.languages_id = ?`,
       [languagesId]
+    );
+  }
+
+  findNavigationAll(navigationId) {
+    return this.connection.query(
+      `select * from navigation_element as ne
+      where ne.navigation_id = ?`,
+      [navigationId]
     );
   }
 

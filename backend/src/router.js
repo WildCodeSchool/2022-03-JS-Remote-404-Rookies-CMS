@@ -4,6 +4,8 @@ const {
   ItemController,
   ImagesController,
   NavigationController,
+  HomeController,
+  PresentationController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -26,5 +28,17 @@ router.get("/navigations/:id", NavigationController.read);
 router.put("/navigation/:id", NavigationController.edit);
 router.post("/navigation", NavigationController.add);
 router.delete("/navigation/:id", NavigationController.delete);
+
+router.get("/homes", HomeController.browse);
+router.get("/homes/:languages_id", HomeController.read);
+router.put("/homes/:id", HomeController.edit);
+router.post("/homes", HomeController.add);
+router.delete("/homes/:id", HomeController.delete);
+
+router.get("/presentations", PresentationController.browse);
+router.get("/presentations/:languages_id", PresentationController.read);
+router.put("/presentations/:id", PresentationController.edit);
+router.post("/presentations", PresentationController.add);
+router.delete("/presentations/:id", PresentationController.delete);
 
 module.exports = router;

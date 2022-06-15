@@ -6,6 +6,7 @@ import Page1 from "./pages/Page1";
 import Page2 from "./pages/Page2";
 import Page3 from "./pages/Page3";
 import Page4 from "./pages/Page4";
+import LogoCarouselAdmin from "./pages/CarouselLogoAdmin";
 import Navbar from "./components/NavBar";
 import Formulaire from "./components/Formulaire";
 import "./App.css";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/page2/:language" element={<Page2 />} />
           <Route path="/page3/:language" element={<Page3 />} />
           <Route path="/Page4/:language" element={<Page4 />} />
+          <Route path="/Page5/:page5" element={<LogoCarouselAdmin />} />
         </Routes>
       </Router>
     </div>

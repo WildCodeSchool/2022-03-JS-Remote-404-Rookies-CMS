@@ -1,31 +1,24 @@
 const models = require("../models");
 
-class NavigationController {
+class PresentationController {
   static browse = (req, res) => {
-    models.navigation
-      .findNavigation(req.params.languages_id)
+    models.presentation
+      .findAll()
       .then(([rows]) => {
-        models.navigation
-          .findNavigationAll(rows[0].id)
-          .then((result) => {
-            rows[0].links = result[0];
-            res.status(200).json(rows[0]);
-          })
-          .catch((err) => {
-            res.status(500).send(err);
-          });
+        res.send(rows);
       })
       .catch((err) => {
-        res.status(500).send(err);
+        console.error(err);
+        res.sendStatus(500);
       });
   };
 
   static read = (req, res) => {
-    models.navigation
-      .findNavigation(req.params.id)
+    models.presentation
+      .findPresentation(req.params.languages_id)
       .then(([rows]) => {
         if (rows[0] == null) {
-          res.sendStatus(404);
+          res.Status(404).send("There is nothing here bitch !");
         } else {
           res.send(rows[0]);
         }
@@ -37,14 +30,14 @@ class NavigationController {
   };
 
   static edit = (req, res) => {
-    const navigation = req.body;
+    const presentation = req.body;
 
     // TODO validations (length, format...)
 
-    navigation.id = parseInt(req.params.id, 10);
+    presentation.id = parseInt(req.params.id, 10);
 
-    models.navigation
-      .update(navigation)
+    models.presentation
+      .update(presentation)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);
@@ -59,14 +52,14 @@ class NavigationController {
   };
 
   static add = (req, res) => {
-    const navigation = req.body;
+    const presentation = req.body;
 
     // TODO validations (length, format...)
 
-    models.navigation
-      .insertnavigation(navigation)
+    models.presentation
+      .insert(presentation)
       .then(([result]) => {
-        res.status(201).send({ ...navigation, id: result.insertId });
+        res.status(201).send({ ...presentation, id: result.insertId });
       })
       .catch((err) => {
         console.error(err);
@@ -75,7 +68,7 @@ class NavigationController {
   };
 
   static delete = (req, res) => {
-    models.navigation
+    models.presentation
       .delete(req.params.id)
       .then(() => {
         res.sendStatus(204);
@@ -87,4 +80,4 @@ class NavigationController {
   };
 }
 
-module.exports = NavigationController;
+module.exports = PresentationController;

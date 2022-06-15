@@ -108,6 +108,7 @@ button {
 .arrow1 {
   width: 65%;
   padding-left: 28%;
+  padding-top: 1%;
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 3;
@@ -116,7 +117,7 @@ button {
 .arrow2 {
   width: 65%;
   padding-left: 28%;
-  padding-bottom: 20%;
+  padding-bottom: 1%;
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 1;
@@ -125,6 +126,7 @@ button {
 .arrow3 {
   width: 65%;
   padding-left: 28%;
+  padding-top:1%;
   grid-column-start: 3;
   grid-column-end: 5;
   grid-row-start: 3;

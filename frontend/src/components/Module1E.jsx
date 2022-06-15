@@ -21,7 +21,7 @@ function Module1e() {
 
   return (
     <div
-      className="bg-white bg-cover bg-no-repeat flex flex-row p-8"
+      className="bg-white bg-cover max-w-md py-16 lg:max-w-full lg:flex flex-row lg:justify-center"
       style={{ backgroundImage: `url(./src/assets/bgm1.png)` }}
     >
       <div className="w-1/2 m-6">

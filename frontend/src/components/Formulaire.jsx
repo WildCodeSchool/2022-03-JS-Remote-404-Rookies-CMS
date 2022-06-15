@@ -4,14 +4,14 @@ import ExportContext from "../contexts/Context";
 import Quote from "./Quote";
 
 function Formulaire() {
-  const { setIsFormOpen } = React.useContext(ExportContext.Context);
+  const { handleForm } = React.useContext(ExportContext.Context);
   return (
     <div className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex bg-gray-900/75">
       <div className="absolute h-full w-3/4 flex flex-col justify-between bg-slate-50 rounded-[16px]">
         <div className="flex flex-col h-full w-full">
           <div className="absolute top-2 right-1 flex justify-self-start self-end">
             <button
-              onClick={() => setIsFormOpen(false)}
+              onClick={() => handleForm()}
               type="button"
               className="bg-button-green-E10 text-02e494 text-2xl font-bold py-0 px-1 drop-shadow-md hover:bg-green-300"
             >
@@ -77,7 +77,7 @@ function Formulaire() {
                   </div>
                   <div className="flex justify-center">
                     <button
-                      onClick={() => setIsFormOpen(false)}
+                      onClick={() => handleForm()}
                       type="button"
                       className="bg-button-green-E10 shadow-lg text-white font-bold py-2 px-4 mb-2 rounded-full hover:bg-green-300 mt-4"
                     >

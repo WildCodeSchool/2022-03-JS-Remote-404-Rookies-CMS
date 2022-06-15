@@ -205,10 +205,10 @@ button {
 .inner-carousel1 {
   flex-direction: row;
   margin: 2%;
-  min-width: 10rem;
-  max-width: 10rem;
-  max-height: 10rem;
-  min-height: 10rem;
+  min-width: 15%;
+  max-width: 15%;
+  max-height: 15%;
+  min-height: 15%;
 }
 
 .inner-carousel1:hover {
@@ -220,10 +220,10 @@ button {
 .inner-carousel2 {
   flex-direction: row;
   margin: 2%;
-  min-width: 10rem;
-  max-width: 10rem;
-  max-height: 10rem;
-  min-height: 10rem;
+  min-width: 15%;
+  max-width: 15%;
+  max-height: 15%;
+  min-height: 15%;
 }
 
 .inner-carousel2:hover {

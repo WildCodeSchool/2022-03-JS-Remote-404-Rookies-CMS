@@ -5,7 +5,7 @@ import flecheReverse from "../assets/module5Earrowreverse.png";
 function Module5E(jason) {
   return (
     <section className="flex flex-col py-16">
-      <div className="justify-center mx-4 lg:flex justify-center">
+      <div className="justify-center mx-4 lg:flex ">
         <div className="mb-4 lg:w-1/3 lg:flex flex-col justify-center lg:mx-6">
           <h2 className="font-bold module5E-green text-xl lg:text-xl">
             {jason[0].name}

@@ -25,9 +25,17 @@ function Module1e() {
       style={{ backgroundImage: `url(./src/assets/bgm1.png)` }}
     >
       <div className="w-1/2 m-6">
-        <h1 className="text-3xl font-bold mt-6 mb-6">{data.title}</h1>
-        <h2>{data.text}</h2>
-        <GetStarted label={data?.CTA_label} />
+        <h1 className="text-3xl font-bold mt-6 mb-6">
+          <span>Get more done, connecting with </span>
+          <span className="underline decoration-4 decoration-green-300">
+            great talent
+          </span>
+        </h1>
+        <h2>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt sint,
+          repellendus, fugiat harum doloribus id inventore{" "}
+        </h2>
+        <GetStarted />
       </div>
       <div className="w-1/2 flex flex-row-reverse ">
         <img

@@ -10,7 +10,10 @@ function Module1e() {
     >
       <div className="w-1/2 m-6">
         <h1 className="text-3xl font-bold mt-6 mb-6">
-          A wonderful title with all the things we could do for you
+          <span>Get more done, connecting with </span>
+          <span className="underline decoration-4 decoration-green-300">
+            great talent
+          </span>
         </h1>
         <h2>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt sint,

@@ -7,10 +7,10 @@ function Module7E() {
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <section className="w-full">
-        <h2 className="text-center text-green font-bold text-2xl pb-4">
+        <h2 className="text-center text-green font-bold md:text-xl text-lg lg:text-2xl pb-4">
           Testimonials
         </h2>
-        <h3 className="text-center font-bold text-4xl pb-20 ">
+        <h3 className="text-center font-bold text-xl md:text-2xl lg:text-4xl pb-4 lg:pb-20 ">
           What our customers say about us
         </h3>
         <div className="mb-2">

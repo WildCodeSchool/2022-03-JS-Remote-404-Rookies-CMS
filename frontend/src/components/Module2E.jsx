@@ -5,7 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ImageTraitement1 from "../data/imageTraitement";
 import ImageTraitement2 from "../data/ImageTraitement2";
-import ImageTraitement3 from "../data/ImageTraitement3";
+// import ImageTraitement3 from "../data/ImageTraitement3";
 import "../App.css";
 
 function LogoCarousel() {
@@ -26,9 +26,6 @@ function LogoCarousel() {
         </div>
         <div className="carousel-item-container">
           <ImageTraitement2 />
-        </div>
-        <div className="carousel-item-container">
-          <ImageTraitement3 />
         </div>
       </Carousel>
     </div>

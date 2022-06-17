@@ -21,17 +21,19 @@ function Module1e() {
 
   return (
     <div
-      className="bg-white bg-cover max-w-md py-16 lg:max-w-full lg:flex flex-row lg:justify-center"
+      className="bg-white bg-cover flex flex-col justify-center  py-16 lg:max-w-full lg:flex-row"
       style={{ backgroundImage: `url(./src/assets/bgm1.png)` }}
     >
-      <div className="w-1/2 m-6">
-        <h1 className="text-3xl font-bold mt-6 mb-6">{data.title}</h1>
+      <div className="flex flex-col justify-center text-center items-center lg:w-1/2 lg:m-6 lg:items-start lg:text-left">
+        <h1 className="justify-center text-3xl font-bold mt-6 mb-6 ">
+          {data.title}
+        </h1>
         <h2>{data.text}</h2>
         <GetStarted label={data?.CTA_label} />
       </div>
-      <div className="w-1/2 flex flex-row-reverse ">
+      <div className="lg:w-1/2 flex justify-center lg:flex-row-reverse ">
         <img
-          className="w-96 h-auto mt-6 "
+          className="w-96 h-auto mt-6 flex justify-center"
           src={data.image_link}
           alt={data.image_alt}
         />

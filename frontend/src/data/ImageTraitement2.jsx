@@ -12,7 +12,6 @@ function ImageTraitement1() {
     axios
       .get("http://localhost:5000/imageslogo")
       .then((response) => {
-        console.warn(response.data);
         setImage(response.data);
       })
       .catch((error) => {

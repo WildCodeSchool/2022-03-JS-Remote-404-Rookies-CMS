@@ -22,7 +22,6 @@ function Module6e() {
           <div>
             <h3 className="text-xl pb-1">Easily design your project</h3>
             <p className="max-w-lg">
-              {" "}
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum
               sequi assumenda, quaerat eius ab
             </p>

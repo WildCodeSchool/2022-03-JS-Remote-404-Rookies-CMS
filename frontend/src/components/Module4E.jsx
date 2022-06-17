@@ -2,7 +2,7 @@ import "../css/summary.css";
 
 function Module4E(jason) {
   return (
-    <section className="bg4E max-w-md py-16 lg:max-w-full lg:flex flex-row lg:justify-center">
+    <section className="bg4E py-16 lg:max-w-full md:max-w-full lg:flex flex-row lg:justify-center">
       <div className="lg:w-1/3 flex flex-col justify-center">
         <h2 className="text-lg text-bold text-green-400 mx-4">
           {jason[0].name}

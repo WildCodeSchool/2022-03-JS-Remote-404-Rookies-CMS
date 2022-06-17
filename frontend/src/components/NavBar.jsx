@@ -1,36 +1,72 @@
 import { HashLink as Link } from "react-router-hash-link";
-import logo from "../assets/RookiesLogo.png";
+import axios from "axios";
+import { useContext, useState, useEffect } from "react";
+import ExportContext from "../contexts/Context";
 
 export default function Navbar() {
+  const { language, selectLanguage } = useContext(ExportContext.Context);
+
+  const [data, setData] = useState([]);
+
   const options = [
-    { value: "english", label: "\uD83C\uDDEC\uD83C\uDDE7", state: true },
-    { value: "french", label: "\uD83C\uDDEB\uD83C\uDDF7", state: false },
+    { value: 1, label: "GB", state: true },
+    { value: 2, label: "FR", state: true },
   ];
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/navigation/${language}`)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  }, [language]);
+
   return (
     <div className="flex justify-between align-center items-center my-14 mx-14">
-      <img src={logo} alt="logo Rookies" />
+      <img src={data?.image_link} alt={data?.image_alt} />
       <ul className="flex gap-10 font-bold text-xl">
-        <Link to="/">
-          <li className="navTextGreen">Companies</li>
+        <Link to={`/page1/${language}`}>
+          <li className="navTextGreen">{data.links && data.links[0].label}</li>
         </Link>
-        <Link to="/page2">
-          <li>Universities</li>
+        <Link to={`/page2/${language}`}>
+          <li>{data.links && data.links[1].label}</li>
         </Link>
-        <Link to="/page3">
-          <li>Students</li>
+        <Link to={`/page3/${language}`}>
+          <li>{data.links && data.links[2].label}</li>
         </Link>
-        <Link to="/page4">
-          <li>About</li>
+        <Link to={`/page4/${language}`}>
+          <li>{data.links && data.links[3].label}</li>
         </Link>
       </ul>
-      <div className="">
+      <div className="flex flex-row">
         <button
           type="button"
           className="pt-2 pb-3 pl-3 pr-3 rounded-full buttonNav mr-10 text-xl text-white"
         >
-          contact us
+          {data.links && data.links[4].label}
         </button>
-        <select className="border py-2 px-5" name="language" id="language">
+        {language === "1" ? (
+          <img
+            className="w-10 h-10 justifdy-center items-center mr-2 mt-2"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ3TuVTTYPanFfn3EZRam9bMcnGfnT6zbknA&usqp=CAU"
+            alt="britflag"
+          />
+        ) : (
+          <img
+            className="w-10 h-10 justifdy-center items-center mr-2 mt-2"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShiKc2vuXXlwonKWzUTu1LaaovzuuRA-k9MeN8vZ103iwRpVaSwmcCKfhWZPMmb02fgKE&usqp=CAU"
+            alt="frenchflag"
+          />
+        )}
+        <select
+          className="border py-2 px-5"
+          name="language"
+          id="language"
+          onChange={(e) => selectLanguage(e.target.value)}
+        >
           {options
             .filter((option) => option.state === true)
             .map((option) => {
@@ -38,8 +74,8 @@ export default function Navbar() {
                 <option
                   id="option"
                   value={option.value}
-                  key={option.value}
                   label={option.label}
+                  key={option.value}
                 />
               );
             })}

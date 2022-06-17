@@ -30,7 +30,8 @@
     "react/jsx-no-constructed-context-values": "off",
     "react/prop-types": "off",
     "react/destructuring-assignment": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/label-has-associated-control":"off"
   },
   "settings": {
     "import/resolver": {

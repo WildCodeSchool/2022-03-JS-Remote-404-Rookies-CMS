@@ -8,18 +8,17 @@ import ImageTraitement2 from "../data/ImageTraitement2";
 import ImageTraitement3 from "../data/ImageTraitement3";
 import "../App.css";
 
-function LogoCarousel() {
+function LogoCarouseAdmin() {
   return (
     <div className="carousel">
       <Carousel
-        transitionTime={10000}
+        transitionTime={3000}
         autoPlay
         infiniteLoop
         showThumbs={false}
-        interval={9000}
+        interval={3000}
         showStatus={false}
         showIndicators={false}
-        showArrows={false}
       >
         <div className="carousel-item-container">
           <ImageTraitement1 />
@@ -35,4 +34,4 @@ function LogoCarousel() {
   );
 }
 
-export default LogoCarousel;
+export default LogoCarouseAdmin;

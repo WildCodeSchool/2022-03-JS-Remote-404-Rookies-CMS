@@ -60,7 +60,6 @@ button {
   width: 100vh;
 }
 .carousel .control-dots .dot {
-
   background: var(--green);
 }
 .bg10E {
@@ -77,7 +76,7 @@ button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: var(--grey);
 }
-.grid5A{
+.grid5A {
   grid-template-columns: 20% 20% 20% 20%;
   grid-template-rows: 33% 33% 33%;
 }
@@ -285,11 +284,13 @@ aspect-ratio: 9/16;
 .logo {
   width: 30px;
   height: 30px;
+  aspect-ratio: 1 / 1;
 }
 
 .logo2 {
   width: 50px;
   height: 50px;
+  aspect-ratio: 1 / 1;
 }
 
 #carousel-logo-E7 {

@@ -20,9 +20,8 @@ function Module6e() {
             <img className="logo" src={pen} alt="pen" />
           </div>
           <div>
-            <h3 className="text-xl pt-2 pb-2">Easily design your project</h3>
-            <p className="max-w-lg pb-3">
-              {" "}
+            <h3 className="text-xl pb-1">Easily design your project</h3>
+            <p className="max-w-lg">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum
               sequi assumenda, quaerat eius ab
             </p>

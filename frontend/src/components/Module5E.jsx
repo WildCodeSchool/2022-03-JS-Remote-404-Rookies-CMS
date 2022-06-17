@@ -23,8 +23,8 @@ function Module5E(jason) {
           />
         </div>
       </div>
-      <div className="grid grid5A mt-16 justify-evenly">
-        <div className="div1">
+      <div className="flex flex-wrap lg:grid lg:grid5A mt-16 justify-evenly">
+        <div className="div1 w-2/5 lg:w-min mb-4">
           <h3 className="font-bold text-sm lg:text-xl mb-4">
             <span className="font-bold text-lg lg:text-2xl module5E-green pr-2">
               01
@@ -35,8 +35,12 @@ function Module5E(jason) {
             {jason[0].friends[0].description}
           </h4>
         </div>
-        <img src={fleche} alt="fleche de l'etape 1 a 2" className="arrow1" />
-        <div className="div2">
+        <img
+          src={fleche}
+          alt="fleche de l'etape 1 a 2"
+          className="arrow1 hidden lg:block"
+        />
+        <div className="div2 w-2/5 lg:w-min mb-4">
           <h3 className="font-bold text-sm lg:text-xl mb-4">
             <span className="font-bold text-lg lg:text-2xl module5E-green pr-2">
               02
@@ -50,9 +54,9 @@ function Module5E(jason) {
         <img
           src={flecheReverse}
           alt="fleche de l'etape 2 a 3"
-          className="arrow2"
+          className="arrow2 hidden lg:block"
         />
-        <div className="div3">
+        <div className="div3 w-2/5 lg:w-min">
           <h3 className="font-bold text-sm lg:text-xl mb-4">
             <span className="font-bold text-lg lg:text-2xl module5E-green pr-2">
               03
@@ -63,8 +67,12 @@ function Module5E(jason) {
             {jason[0].friends[2].description}
           </h4>
         </div>
-        <img src={fleche} alt="fleche de l'etape 3 a 4" className="arrow3" />
-        <div className="div4">
+        <img
+          src={fleche}
+          alt="fleche de l'etape 3 a 4"
+          className="arrow3 hidden lg:block"
+        />
+        <div className="div4 w-2/5 lg:w-min ">
           <h3 className="font-bold text-sm lg:text-xl mb-4">
             <span className="font-bold text-lg lg:text-2xl module5E-green pr-2">
               04

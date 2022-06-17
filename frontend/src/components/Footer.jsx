@@ -37,9 +37,9 @@ function Footer() {
             +33 (0) 7 85 68 09 88
           </a>
           <p className="mt-2 text-sm text-justify text-gray-500">
-            integrer integrer envoi mail
+            integrer envoi mail
           </p>
-          <div className="flex justify-start mt-4 lg:mt-2">
+          <div className="flex justify-center mt-4 lg:mt-2 lg:justify-start">
             <div className="ml-3">
               <svg
                 fill="none"
@@ -74,7 +74,7 @@ function Footer() {
           </div>
         </div>
         <div className="justify-between w-full mt-4 text-center lg:flex">
-          <div className="fw-full px-4 lg:w-2/3 md:w-1/2">
+          <div className="fw-full px-4 mb-4 lg:w-2/3 md:w-1/2">
             <h2 className="font-bold text-lg mb-4 flex text-green-400">
               Quick Links
             </h2>

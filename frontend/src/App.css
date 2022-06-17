@@ -107,7 +107,7 @@ button {
 .arrow1 {
   width: 65%;
   padding-left: 28%;
-  padding-top: 1%;
+  padding-top: 5%;
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 3;
@@ -125,7 +125,7 @@ button {
 .arrow3 {
   width: 65%;
   padding-left: 28%;
-  padding-top:1%;
+  padding-top:5%;
   grid-column-start: 3;
   grid-column-end: 5;
   grid-row-start: 3;
@@ -165,9 +165,6 @@ button {
   position: relative;
   width: 100%;
   height: 100%;
-  min-width: 20rem;
-  min-height: 20rem;
-
   object-fit: contain;
 }
 
@@ -184,10 +181,6 @@ button {
 
 .carousel-item img {
   object-fit: contain;
-  min-width: 10rem;
-  max-width: 10rem;
-  max-height: 10rem;
-  min-height: 10rem;
 }
 
 .carousel-item-container {
@@ -208,6 +201,7 @@ button {
   max-width: 15%;
   max-height: 15%;
   min-height: 15%;
+  aspect-ratio: 1;
 }
 
 .inner-carousel1:hover {
@@ -223,6 +217,7 @@ button {
   max-width: 15%;
   max-height: 15%;
   min-height: 15%;
+  aspect-ratio: 1/1;
 }
 
 .inner-carousel2:hover {
@@ -237,10 +232,44 @@ button {
   object-fit: contain;
 }
 
+@media (max-width: 650px) {
+  .inner-carousel2 {
+    flex-direction: row;
+    margin: 2%;
+    min-width: 15%;
+    max-width: 15%;
+    max-height: 15%;
+    min-height: 15%;
+    aspect-ratio: 1/1;
+  }
+  .inner-carousel1 {
+    flex-direction: row;
+    margin: 2%;
+    min-width: 15%;
+    max-width: 15%;
+    max-height: 15%;
+    min-height: 15%;
+    aspect-ratio: 1/1;
+  }
+  .carousel {
+    width: 100%;
+    height: 140%;
+    overflow: hidden;
+    margin-bottom: 10%;
+  }
+}
+
 /* For carousel component, module 2E */
+
 #carousel-img-E7 {
   max-width: 45%;
   aspect-ratio: 16/9;
+}
+@media (max-width: 769px){
+#carousel-img-E7 {
+max-width: 45%;
+aspect-ratio: 9/16;
+  }
 }
 
 .circle {
@@ -268,3 +297,129 @@ button {
   max-width: 33%;
   align-self: flex-start;
 }
+
+.ar-1{
+  aspect-ratio: 1;
+}
+
+/* For burger menu*/
+
+#menu {
+  z-index: 2;
+}
+
+#menu-bar {
+  z-index: 2;
+  width: 45px;
+  height: 40px;
+  margin: 30px 0 20px 20px;
+  cursor: pointer;
+}
+
+.bar {
+  height: 5px;
+  width: 100%;
+  background-color: var(--green);
+  display: block;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+#bar1 {
+  transform: translateY(-4px);
+  color: white;
+}
+
+#bar3 {
+  transform: translateY(4px);
+  color: white;
+}
+
+.nav {
+  transition: 0.3s ease;
+  display: none;
+}
+
+.nav ul {
+  padding: 0 22px;
+  color: white;
+}
+
+.nav li {
+  z-index: 2;
+  list-style: none;
+  padding: 12px 0;
+  color: white;
+}
+
+.nav li a {
+  z-index: 2;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav li a:hover {
+  font-weight: bold;
+}
+
+.menu-bg, #menu {
+  top: 0;
+  left: auto;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.menu-bg {
+  z-index: -1;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, var(--green), var(--green));
+  background-attachment: local;
+  border-radius:50%;
+  transition: 0.3s ease;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.change {
+  display: block;
+}
+
+.change .bar {
+  z-index: 2;
+  background-color: white;
+  color: white;
+}
+
+.change #bar1 {
+  z-index: 2;
+  transform: translateY(4px) rotateZ(-45deg);
+  background-color: white;
+  color: white;
+}
+
+.change #bar2 {
+  z-index: 2;
+  background-color: white;
+  color: white;
+}
+
+.change #bar3 {
+  z-index: 2;
+  transform: translateY(-6px) rotateZ(45deg);
+  background-color: white;
+  color: white;
+}
+
+.change-bg {
+  width: 520px;
+  height: 460px;
+  transform: translate(-60%,-30%);
+}
+
+/* For burger menu*/

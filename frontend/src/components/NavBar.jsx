@@ -4,7 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import ExportContext from "../contexts/Context";
 
 export default function Navbar() {
-  const { language, selectLanguage } = useContext(ExportContext.Context);
+  const { language, selectLanguage, media } = useContext(ExportContext.Context);
 
   const [data, setData] = useState([]);
 
@@ -43,8 +43,7 @@ export default function Navbar() {
     }
   };
 
-  const media = window.matchMedia("(max-width: 768px)");
-  if (!media.matches) {
+  if (!media) {
     return (
       <div className="flex justify-between align-center items-center my-14 mx-14">
         <img src={data?.image_link} alt={data?.image_alt} className="static" />
@@ -108,7 +107,7 @@ export default function Navbar() {
     );
   } else {
     return (
-      <div className="fuck">
+      <div>
         <div className="flex flex-start items-center justify-between">
           <img
             src={data?.image_link}

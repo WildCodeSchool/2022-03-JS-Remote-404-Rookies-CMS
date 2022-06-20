@@ -5,13 +5,12 @@ class ImageManager extends AbstractManager {
 
   insertImage(image) {
     return this.connection.query(
-      `insert into ${ImageManager.table} (image_link, image_alt, status, url, categorie, languages_id) values (?, ?, ?, ?, ?, ?)`,
+      `insert into ${ImageManager.table} (image_link, image_alt, status, url, languages_id) values (?, ?, ?, ?, ?)`,
       [
         image.image_link,
         image.image_alt,
         image.status,
         image.url,
-        image.categorie,
         image.languages_id,
       ]
     );
@@ -35,6 +34,12 @@ class ImageManager extends AbstractManager {
   findAllImagesForLogo() {
     return this.connection.query(
       `select * from images where categorie = "logo"`
+    );
+  }
+
+  findAllImagesForQuotes() {
+    return this.connection.query(
+      `select * from images where categorie = "Quote Img"`
     );
   }
 

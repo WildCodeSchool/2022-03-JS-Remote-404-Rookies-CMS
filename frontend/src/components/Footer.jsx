@@ -17,26 +17,21 @@ function Footer() {
           md:flex-row md:flex-nowrap
         "
       >
-        <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
+        <div className="flex flex-col text-center md:mx-0 md:text-left">
           <div
             className="
-              flex
-              items-center
-              justify-center
-              text-4xl
-              font-bold
-              md:justify-start
+            flex justify-start lg:justify-center text-4xl font-bold md:justify-start
             "
           >
             <img src={Rookies} alt="logo" />
           </div>
           <a
-            className="mt-2 text-sm text-justify text-gray-500"
+            className="flex justity-center ml-4 mt-2 text-sm text-justify text-gray-500"
             href="tel:+33785680988"
           >
             +33 (0) 7 85 68 09 88
           </a>
-          <p className="mt-2 text-sm text-justify text-gray-500">
+          <p className="flex justify-start lg:flex lg:justify-center ml-4 mt-2 text-sm text-justify text-gray-500">
             integrer envoi mail
           </p>
           <div className="flex justify-center mt-4 lg:mt-2 lg:justify-start">
@@ -73,39 +68,37 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="justify-between w-full mt-4 text-center lg:flex">
-          <div className="fw-full px-4 mb-4 lg:w-2/3 md:w-1/2">
-            <h2 className="font-bold text-lg mb-4 flex text-green-400">
+        <div className="flex flex-row lg:block justify-between w-full mt-4 text-center">
+          <div className="w-1/3 px-4 mb-4 lg:w-2/3">
+            <h2 className="font-bold text-lg mb-4 text-green-400">
               Quick Links
             </h2>
-            <ul className="flex text-sm list-none">
-              <div className="flex justify-start flex-col w-1/2">
+            <ul className="text-sm">
+              <div className="flex justify-start flex-col">
                 <li>
-                  <div className="flex mb-4 text-gray-600 hover:text-gray-800">
+                  <div className="mb-4 text-gray-600 hover:text-gray-800">
                     Companies
                   </div>
                 </li>
                 <li>
-                  <div className="flex text-gray-600 hover:text-gray-800">
+                  <div className="mb-4 text-gray-600 hover:text-gray-800">
                     Student
                   </div>
                 </li>
               </div>
-              <div className="flex justify-center flex-col w-1/2">
+              <div className="flex justify-center flex-col">
                 <li>
-                  <div className="flex mb-4 text-gray-600 hover:text-gray-800">
+                  <div className="mb-4 text-gray-600 hover:text-gray-800">
                     Universities
                   </div>
                 </li>
                 <li>
-                  <div className="flex text-gray-600 hover:text-gray-800">
-                    About
-                  </div>
+                  <div className="text-gray-600 hover:text-gray-800">About</div>
                 </li>
               </div>
             </ul>
           </div>
-          <div className="w-full px-4 lg:w-1/3 md:w-1/2">
+          <div className="w-2/3 px-4 lg:w-2/3">
             <h2 className="flex justify-start mb-2 font-bold text-lg  text-green-400">
               Join our Newsletter
             </h2>
@@ -113,7 +106,7 @@ function Footer() {
               <input
                 type="text"
                 className="
-                h-auto
+                w-1/2 h-auto
                 p-2
                 text-sm
                 border border-grey-light
@@ -124,9 +117,20 @@ function Footer() {
               />
               <button
                 type="button"
-                className="h-auto p-3 text-xs text-white bg-green-400 rounded-sm"
+                className="text-white bg-green-400  font-medium rounded-sm text-sm px-5 py-2.5 text-center inline-flex items-center"
               >
-                Subscribe
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
               </button>
             </div>
             <div className="flex mx-2 mt-4">

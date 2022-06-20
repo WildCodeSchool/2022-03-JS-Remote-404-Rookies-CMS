@@ -18,7 +18,7 @@ class PresentationController {
       .findPresentation(req.params.languages_id)
       .then(([rows]) => {
         if (rows[0] == null) {
-          res.Status(404).send("There is nothing here bitch !");
+          res.Status(404).send("There is nothing here !");
         } else {
           res.send(rows[0]);
         }

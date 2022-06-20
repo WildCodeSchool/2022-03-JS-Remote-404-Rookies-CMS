@@ -20,7 +20,6 @@ function Module7E() {
             interval={10000}
             showArrows={false}
             showStatus={false}
-            dynamicHeight
             showThumbs={false}
             centerSlidePercentage={100}
             centerMode

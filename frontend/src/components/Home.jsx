@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useContext, useState, useEffect } from "react";
-import GetStarted from "./GetStarted";
+import CTA from "./CTA";
 import ExportContext from "../contexts/Context";
 
-function Module1e() {
+function Home() {
   const { language } = useContext(ExportContext.Context);
 
   const [data, setData] = useState([]);
@@ -27,7 +27,7 @@ function Module1e() {
       <div className="w-1/2 m-6">
         <h1 className="text-3xl font-bold mt-6 mb-6">{data.title}</h1>
         <h2>{data.text}</h2>
-        <GetStarted label={data?.CTA_label} />
+        <CTA label={data?.CTA_label} />
       </div>
       <div className="w-1/2 flex flex-row-reverse ">
         <img
@@ -40,4 +40,4 @@ function Module1e() {
   );
 }
 
-export default Module1e;
+export default Home;

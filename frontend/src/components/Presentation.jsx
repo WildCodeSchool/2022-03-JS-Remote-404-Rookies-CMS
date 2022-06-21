@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import checkbox from "../assets/Checkbox.png";
-import GetStarted from "./GetStarted";
+import CTA from "./CTA";
 import ExportContext from "../contexts/Context";
 
-function Module3E() {
+function Presentation() {
   const { language } = useContext(ExportContext.Context);
 
   const [data, setData] = useState([]);
@@ -45,11 +45,11 @@ function Module3E() {
             <img className="mr-2" src={checkbox} alt="hero" />
             <p className="text-sm mb-4 space-x-4">{data.text3}</p>
           </div>
-          <GetStarted label={data?.CTA_label} />
+          <CTA label={data?.CTA_label} />
         </div>
       </div>
     </section>
   );
 }
 
-export default Module3E;
+export default Presentation;

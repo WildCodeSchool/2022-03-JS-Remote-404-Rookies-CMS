@@ -38,6 +38,24 @@ class ImageManager extends AbstractManager {
     );
   }
 
+  findAllImagesForQuote() {
+    return this.connection.query(
+      `select * from images where categorie = "Quote Img"`
+    );
+  }
+
+  findAllImagesForProjects() {
+    return this.connection.query(
+      `select * from images where categorie = "ProjectsExamples"`
+    );
+  }
+
+  findAllImagesForFooter() {
+    return this.connection.query(
+      `select * from images where categorie = "logofooter"`
+    );
+  }
+
   deleteImage(id) {
     return this.connection.query(`delete from images where id = ?`, [id]);
   }

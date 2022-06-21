@@ -1,4 +1,4 @@
-function Module7ECard(elem) {
+function CarrousselReviewCard(elem) {
   return (
     <div className="flex justify-between mb-10" data-carousel-item>
       <img
@@ -26,4 +26,4 @@ function Module7ECard(elem) {
     </div>
   );
 }
-export default Module7ECard;
+export default CarrousselReviewCard;

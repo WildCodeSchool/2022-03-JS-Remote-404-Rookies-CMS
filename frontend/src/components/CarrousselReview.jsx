@@ -1,9 +1,9 @@
 import { Carousel } from "react-responsive-carousel";
 import jason from "../data/generated";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Module7ECard from "./Module7ECard";
+import CarrousselReviewCard from "./CarrousselReviewCard";
 
-function Module7E() {
+function CarrousselReview() {
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <section className="w-full">
@@ -27,7 +27,7 @@ function Module7E() {
             className="w-full h-full mb-20"
           >
             {jason.map((elem) => (
-              <Module7ECard {...elem} />
+              <CarrousselReviewCard {...elem} />
             ))}
           </Carousel>
         </div>
@@ -35,4 +35,4 @@ function Module7E() {
     </div>
   );
 }
-export default Module7E;
+export default CarrousselReview;

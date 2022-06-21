@@ -2,7 +2,7 @@ import "../css/module9E.css";
 // eslint-disable-next-line import/extensions
 import jason from "../data/generated.jsx";
 
-function Module9E() {
+function QA() {
   return (
     <section className="bg-slate-100 flex flex-col items-center justify-evenly py-16 ">
       <div className="w-1/2 flex flex-col text-center justify-between">
@@ -25,4 +25,4 @@ function Module9E() {
   );
 }
 
-export default Module9E;
+export default QA;

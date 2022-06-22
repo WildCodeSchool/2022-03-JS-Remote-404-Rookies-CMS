@@ -1,28 +1,21 @@
 const models = require("../models");
 
-class ProfitController {
+class GetStartedController {
   static browse = (req, res) => {
-    models.profit
-      .findProfit(req.params.languages_id)
+    models.get_started
+      .findAll()
       .then(([rows]) => {
-        models.profit
-          .findProfitElement(rows[0].languages_id)
-          .then((result) => {
-            rows[0].elements = result[0];
-            res.status(200).json(rows[0]);
-          })
-          .catch((err) => {
-            res.status(500).send(err);
-          });
+        res.send(rows);
       })
       .catch((err) => {
-        res.status(500).send(err);
+        console.error(err);
+        res.sendStatus(500);
       });
   };
 
   static read = (req, res) => {
-    models.profit
-      .findProfit(req.params.languages_id)
+    models.get_started
+      .findGetStarted(req.params.languages_id)
       .then(([rows]) => {
         if (rows[0] == null) {
           res.sendStatus(404);
@@ -37,14 +30,14 @@ class ProfitController {
   };
 
   static edit = (req, res) => {
-    const profit = req.body;
+    const getStarted = req.body;
 
     // TODO validations (length, format...)
 
-    profit.id = parseInt(req.params.id, 10);
+    getStarted.id = parseInt(req.params.id, 10);
 
-    models.profit
-      .update(profit)
+    models.get_started
+      .update(getStarted)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);
@@ -59,14 +52,14 @@ class ProfitController {
   };
 
   static add = (req, res) => {
-    const profit = req.body;
+    const getStarted = req.body;
 
     // TODO validations (length, format...)
 
-    models.profit
-      .insert(profit)
+    models.getStarted
+      .insert(getStarted)
       .then(([result]) => {
-        res.status(201).send({ ...profit, id: result.insertId });
+        res.status(201).send({ ...getStarted, id: result.insertId });
       })
       .catch((err) => {
         console.error(err);
@@ -75,7 +68,7 @@ class ProfitController {
   };
 
   static delete = (req, res) => {
-    models.profit
+    models.getStarted
       .delete(req.params.id)
       .then(() => {
         res.sendStatus(204);
@@ -87,4 +80,4 @@ class ProfitController {
   };
 }
 
-module.exports = ProfitController;
+module.exports = GetStartedController;

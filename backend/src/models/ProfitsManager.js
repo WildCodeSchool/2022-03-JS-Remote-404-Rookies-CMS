@@ -19,8 +19,16 @@ class ProfitManager extends AbstractManager {
 
   findProfit(languagesId) {
     return this.connection.query(
-      `select p.title, p.sub_title, from profit as p
-      where p.languages_id = ?`,
+      `select title, sub_title, languages_id from profit
+      where languages_id = ?`,
+      [languagesId]
+    );
+  }
+
+  findProfitElement(languagesId) {
+    return this.connection.query(
+      `select title, text from profit_elements
+      where profit_id = ?`,
       [languagesId]
     );
   }

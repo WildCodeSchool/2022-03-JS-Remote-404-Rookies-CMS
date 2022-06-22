@@ -19,9 +19,17 @@ class ProcessManager extends AbstractManager {
 
   findProcess(languagesId) {
     return this.connection.query(
-      `select p.title, p.sub_title, p.text, h.CTA_label ,i.image_link, i.image_alt from process as p
+      `select p.languages_id, p.title, p.sub_title, p.text, i.image_link, i.image_alt from process as p
       inner join images as i on i.id = p.images_id 
       where p.languages_id = ?`,
+      [languagesId]
+    );
+  }
+
+  findProcessElement(languagesId) {
+    return this.connection.query(
+      `select title, text from process_element
+      where process_id = ?`,
       [languagesId]
     );
   }

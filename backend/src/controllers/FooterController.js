@@ -17,11 +17,12 @@ class FooterController {
     models.footer
       .findFooter(req.params.languages_id)
       .then(([rows]) => {
-        if (rows[0] == null) {
-          res.sendStatus(404);
-        } else {
-          res.send(rows[0]);
-        }
+        models.navigation
+          .findNavigationAll(rows[0].languages_id)
+          .then((result) => {
+            rows[0].links = result[0];
+            res.status(200).json(rows[0]);
+          });
       })
       .catch((err) => {
         console.error(err);

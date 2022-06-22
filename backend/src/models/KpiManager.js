@@ -19,8 +19,16 @@ class KpiManager extends AbstractManager {
 
   findKpi(languagesId) {
     return this.connection.query(
-      `select k.title, k.sub_title from kpi as k
-      where h.languages_id = ?`,
+      `select title, sub_title, languages_id from kpi
+      where languages_id = ?`,
+      [languagesId]
+    );
+  }
+
+  findKpiElement(languagesId) {
+    return this.connection.query(
+      `select number, label from kpi_element
+      where KPI_id = ?`,
       [languagesId]
     );
   }

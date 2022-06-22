@@ -4,7 +4,7 @@ import key from "../assets/key.png";
 import cog from "../assets/cog.png";
 import star from "../assets/star.png";
 
-function Module1S() {
+function Advantages() {
   return (
     <div className="bg-green-200 pt-12 flex flex-col justify-items-center place-items-center">
       <div className="font-bold text-center">
@@ -46,4 +46,4 @@ function Module1S() {
     </div>
   );
 }
-export default Module1S;
+export default Advantages;

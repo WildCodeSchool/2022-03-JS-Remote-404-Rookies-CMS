@@ -8,6 +8,7 @@ function LogoCarouselAdmin() {
   const [imageAlt, setImageAlt] = React.useState("");
   const [imageStatus, setImageStatus] = React.useState("");
   const [imageUrl, setImageUrl] = React.useState("");
+  const [imageCategorie, setImageCategorie] = React.useState("");
   const [imageLanguage, setImageLanguage] = React.useState("");
 
   const handleSubmit = (e) => {
@@ -17,6 +18,7 @@ function LogoCarouselAdmin() {
       imageAlt,
       imageStatus,
       imageUrl,
+      imageCategorie,
       imageLanguage,
     };
     console.warn(submit);
@@ -26,6 +28,7 @@ function LogoCarouselAdmin() {
         image_alt: imageAlt,
         status: imageStatus,
         url: imageUrl,
+        categorie: imageCategorie,
         languages_id: imageLanguage,
       })
       .then(() => {
@@ -86,6 +89,18 @@ function LogoCarouselAdmin() {
                   className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                   type="text"
                   placeholder="Url de l'image"
+                />
+              </label>
+            </div>
+            <div className="flex flex-col">
+              <label className="text-gray-900 font-bold mb-2 ml-6 mt-2">
+                Catégoprie de l&apos;image
+                <input
+                  value={imageCategorie}
+                  onChange={(e) => setImageCategorie(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder="Catégoprie de l'image"
                 />
               </label>
             </div>

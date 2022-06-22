@@ -58,7 +58,7 @@ const jason = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
     ],
-    greeting: "Do you have any question ?",
+    greeting: "Do you have some question ?",
     favoriteFruit: "apple",
   },
   {

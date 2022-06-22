@@ -25,6 +25,42 @@ class ImagesController {
       });
   };
 
+  static browseQuote = (req, res) => {
+    models.images
+      .findAllImagesForQuote()
+      .then(([rows]) => {
+        res.send(rows);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
+  static browseProjects = (req, res) => {
+    models.images
+      .findAllImagesForProjects()
+      .then(([rows]) => {
+        res.send(rows);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
+  static browseFooter = (req, res) => {
+    models.images
+      .findAllImagesForFooter()
+      .then(([rows]) => {
+        res.send(rows);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
   static read = (req, res) => {
     models.images
       .find(req.params.id)

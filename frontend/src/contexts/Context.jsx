@@ -12,11 +12,10 @@ function Provider({ children }) {
   const selectLanguage = (option) => {
     setLanguage(option);
   };
-  const media = window.innerWidth < 768;
 
   return (
     <Context.Provider
-      value={{ isFormOpen, handleForm, language, selectLanguage, media }}
+      value={{ isFormOpen, handleForm, language, selectLanguage }}
     >
       {children}
     </Context.Provider>

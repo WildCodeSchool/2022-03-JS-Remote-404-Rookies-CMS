@@ -1,8 +1,8 @@
 const models = require("../models");
 
-class PresentationAdvantagesController {
+class FooterController {
   static browse = (req, res) => {
-    models.presentation
+    models.footer
       .findAll()
       .then(([rows]) => {
         res.send(rows);
@@ -14,14 +14,15 @@ class PresentationAdvantagesController {
   };
 
   static read = (req, res) => {
-    models.presentation_advantages
-      .findPresentationAdvantages(req.params.languages_id)
+    models.footer
+      .findFooter(req.params.languages_id)
       .then(([rows]) => {
-        if (rows[0] == null) {
-          res.Status(404).send("There is nothing here !");
-        } else {
-          res.send(rows[0]);
-        }
+        models.navigation
+          .findNavigationAll(rows[0].languages_id)
+          .then((result) => {
+            rows[0].links = result[0];
+            res.status(200).json(rows[0]);
+          });
       })
       .catch((err) => {
         console.error(err);
@@ -30,14 +31,14 @@ class PresentationAdvantagesController {
   };
 
   static edit = (req, res) => {
-    const presentation = req.body;
+    const footer = req.body;
 
     // TODO validations (length, format...)
 
-    presentation.id = parseInt(req.params.id, 10);
+    footer.id = parseInt(req.params.id, 10);
 
-    models.presentation
-      .update(presentation)
+    models.footer
+      .update(footer)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);
@@ -52,14 +53,14 @@ class PresentationAdvantagesController {
   };
 
   static add = (req, res) => {
-    const presentation = req.body;
+    const footer = req.body;
 
     // TODO validations (length, format...)
 
-    models.presentation
-      .insert(presentation)
+    models.footer
+      .insert(footer)
       .then(([result]) => {
-        res.status(201).send({ ...presentation, id: result.insertId });
+        res.status(201).send({ ...footer, id: result.insertId });
       })
       .catch((err) => {
         console.error(err);
@@ -68,7 +69,7 @@ class PresentationAdvantagesController {
   };
 
   static delete = (req, res) => {
-    models.presentation
+    models.footer
       .delete(req.params.id)
       .then(() => {
         res.sendStatus(204);
@@ -80,4 +81,4 @@ class PresentationAdvantagesController {
   };
 }
 
-module.exports = PresentationAdvantagesController;
+module.exports = FooterController;

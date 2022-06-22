@@ -10,8 +10,9 @@ function ImageTraitement1() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/imageslogo`)
+      .get("http://localhost:5000/imageslogo")
       .then((response) => {
+        console.warn(response.data);
         setImage(response.data);
       })
       .catch((error) => {

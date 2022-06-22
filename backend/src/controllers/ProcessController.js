@@ -1,24 +1,31 @@
 const models = require("../models");
 
-class PresentationAdvantagesController {
+class ProcessController {
   static browse = (req, res) => {
-    models.presentation
-      .findAll()
+    models.process
+      .findProcess(req.params.languages_id)
       .then(([rows]) => {
-        res.send(rows);
+        models.process
+          .findProcessElement(rows[0].languages_id)
+          .then((result) => {
+            rows[0].elements = result[0];
+            res.status(200).json(rows[0]);
+          })
+          .catch((err) => {
+            res.status(500).send(err);
+          });
       })
       .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+        res.status(500).send(err);
       });
   };
 
   static read = (req, res) => {
-    models.presentation_advantages
-      .findPresentationAdvantages(req.params.languages_id)
+    models.process
+      .findProcess(req.params.languages_id)
       .then(([rows]) => {
         if (rows[0] == null) {
-          res.Status(404).send("There is nothing here !");
+          res.sendStatus(404);
         } else {
           res.send(rows[0]);
         }
@@ -30,14 +37,14 @@ class PresentationAdvantagesController {
   };
 
   static edit = (req, res) => {
-    const presentation = req.body;
+    const process = req.body;
 
     // TODO validations (length, format...)
 
-    presentation.id = parseInt(req.params.id, 10);
+    process.id = parseInt(req.params.id, 10);
 
-    models.presentation
-      .update(presentation)
+    models.process
+      .update(process)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);
@@ -52,14 +59,14 @@ class PresentationAdvantagesController {
   };
 
   static add = (req, res) => {
-    const presentation = req.body;
+    const process = req.body;
 
     // TODO validations (length, format...)
 
-    models.presentation
-      .insert(presentation)
+    models.process
+      .insert(process)
       .then(([result]) => {
-        res.status(201).send({ ...presentation, id: result.insertId });
+        res.status(201).send({ ...process, id: result.insertId });
       })
       .catch((err) => {
         console.error(err);
@@ -68,7 +75,7 @@ class PresentationAdvantagesController {
   };
 
   static delete = (req, res) => {
-    models.presentation
+    models.process
       .delete(req.params.id)
       .then(() => {
         res.sendStatus(204);
@@ -80,4 +87,4 @@ class PresentationAdvantagesController {
   };
 }
 
-module.exports = PresentationAdvantagesController;
+module.exports = ProcessController;

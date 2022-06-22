@@ -32,22 +32,6 @@ CREATE SCHEMA IF NOT EXISTS `RookiesCMS` DEFAULT CHARACTER SET utf8 ;
 
 USE `RookiesCMS` ;
 
-DROP TABLE IF EXISTS `RookiesCMS`.`languages` ;
-
-DROP TABLE IF EXISTS `RookiesCMS`.`images` ;
-
-DROP TABLE IF EXISTS `RookiesCMS`.`navigation` ;
-
-DROP TABLE IF EXISTS `RookiesCMS`.`navigation_element` ;
-
-DROP TABLE IF EXISTS `RookiesCMS`.`Home` ;
-
-DROP TABLE IF EXISTS `RookiesCMS`.`Process` ;
-
-DROP TABLE IF EXISTS `RookiesCMS`.`Process_element` ;
-
-DROP TABLE IF EXISTS `RookiesCMS`.`languages` ;
-
 -- -----------------------------------------------------
 
 -- Table `RookiesCMS`.`languages`
@@ -938,86 +922,6 @@ VALUES
         0,
         "",
         "Background",
-        1
-    ),
-    (
-        "https://i.ibb.co/jWNWCGV/caf-livre.png",
-        "Book & cofee",
-        0,
-        "",
-        "Quote Img",
-        1
-    ),
-    (
-        "https://i.ibb.co/t30CjGZ/grec.png",
-        "Greek Column",
-        0,
-        "",
-        "Quote Img",
-        1
-    ),
-    (
-        "https://img-4.linternaute.com/BORGWOduhCqgz_bxlnxXpU2PEL4=/fit-in/x630/smart/filters:fill(1D1D1B)/685fdd5cfcf444e08d3ff22cde5d1581/ccmcms-linternaute/2377659.jpg",
-        "Beautiful cliffs",
-        0,
-        "",
-        "Quote Img",
-        1
-    ),
-    (
-        "https://www.okvoyage.com/wp-content/uploads/2021/02/paysages-norvege-810x538.jpeg",
-        "Beautiful village",
-        0,
-        "",
-        "Quote Img",
-        1
-    ),
-    (
-        "https://www.okvoyage.com/wp-content/uploads/2021/08/paysages-de-france-scaled.jpg",
-        "Beautiful waterfall",
-        0,
-        "",
-        "Quote Img",
-        1
-    ),
-    (
-        "https://resize-elle.ladmedia.fr/rcrop/638,,forcex/img/var/plain_site/storage/images/loisirs/evasion/paysage-ensoleille/90705820-1-fre-FR/Ces-paysages-ensoleilles-boosteront-votre-moral-toute-l-annee.jpg",
-        "Beautiful beach",
-        0,
-        "",
-        "Quote Img",
-        1
-    ),
-    (
-        "https://static.wixstatic.com/media/108ff4_00a3ac6d7c5a4f5d826f8fb99d4fc35a~mv2.jpg/v1/fill/w_640,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/108ff4_00a3ac6d7c5a4f5d826f8fb99d4fc35a~mv2.jpg",
-        "Beautiful boat",
-        0,
-        "",
-        "Quote Img",
-        1
-    ),
-    (
-        "https://www.okvoyage.com/wp-content/uploads/2021/08/le-mont-saint-michel-parmi-les-plus-beaux-paysages-de-france-1024x683.jpg",
-        "Beautiful Castle",
-        0,
-        "",
-        "Quote Img",
-        1
-    ),
-    (
-        "https://img.freepik.com/photos-gratuite/paysage-paisible-paisible-campagne-propre-flux_1417-1106.jpg?w=2000",
-        "Beautiful bay",
-        0,
-        "",
-        "Quote Img",
-        1
-    ),
-    (
-        "https://images.zeald.com/site/detourau/images/Australie/Australie%20info%20et%20articles/5paysages/Iles.jpg",
-        "Beautiful island",
-        0,
-        "",
-        "Quote Img",
         1
     );
 

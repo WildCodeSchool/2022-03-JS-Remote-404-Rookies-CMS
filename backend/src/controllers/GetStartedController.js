@@ -1,8 +1,8 @@
 const models = require("../models");
 
-class PresentationAdvantagesController {
+class GetStartedController {
   static browse = (req, res) => {
-    models.presentation
+    models.get_started
       .findAll()
       .then(([rows]) => {
         res.send(rows);
@@ -14,11 +14,11 @@ class PresentationAdvantagesController {
   };
 
   static read = (req, res) => {
-    models.presentation_advantages
-      .findPresentationAdvantages(req.params.languages_id)
+    models.get_started
+      .findGetStarted(req.params.languages_id)
       .then(([rows]) => {
         if (rows[0] == null) {
-          res.Status(404).send("There is nothing here !");
+          res.sendStatus(404);
         } else {
           res.send(rows[0]);
         }
@@ -30,14 +30,14 @@ class PresentationAdvantagesController {
   };
 
   static edit = (req, res) => {
-    const presentation = req.body;
+    const getStarted = req.body;
 
     // TODO validations (length, format...)
 
-    presentation.id = parseInt(req.params.id, 10);
+    getStarted.id = parseInt(req.params.id, 10);
 
-    models.presentation
-      .update(presentation)
+    models.get_started
+      .update(getStarted)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);
@@ -52,14 +52,14 @@ class PresentationAdvantagesController {
   };
 
   static add = (req, res) => {
-    const presentation = req.body;
+    const getStarted = req.body;
 
     // TODO validations (length, format...)
 
-    models.presentation
-      .insert(presentation)
+    models.getStarted
+      .insert(getStarted)
       .then(([result]) => {
-        res.status(201).send({ ...presentation, id: result.insertId });
+        res.status(201).send({ ...getStarted, id: result.insertId });
       })
       .catch((err) => {
         console.error(err);
@@ -68,7 +68,7 @@ class PresentationAdvantagesController {
   };
 
   static delete = (req, res) => {
-    models.presentation
+    models.getStarted
       .delete(req.params.id)
       .then(() => {
         res.sendStatus(204);
@@ -80,4 +80,4 @@ class PresentationAdvantagesController {
   };
 }
 
-module.exports = PresentationAdvantagesController;
+module.exports = GetStartedController;

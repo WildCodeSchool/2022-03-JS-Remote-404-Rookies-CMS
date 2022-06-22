@@ -2,7 +2,7 @@ import React from "react";
 // eslint-disable-next-line import/extensions
 import Jason from "../data/generated.jsx";
 
-function Module8E() {
+function KPI() {
   return (
     <section className="bg4E flex flex-col justify-evenly py-16">
       <div>
@@ -42,4 +42,4 @@ function Module8E() {
     </section>
   );
 }
-export default Module8E;
+export default KPI;

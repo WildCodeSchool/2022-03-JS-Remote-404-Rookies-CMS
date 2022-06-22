@@ -1,6 +1,6 @@
 import "../css/summary.css";
 
-function Module4E(jason) {
+function PresentationAdvantages(jason) {
   return (
     <section className="bg4E max-w-md py-16 lg:max-w-full lg:flex flex-row lg:justify-center">
       <div className="lg:w-1/3 flex flex-col justify-center">
@@ -35,4 +35,4 @@ function Module4E(jason) {
     </section>
   );
 }
-export default Module4E;
+export default PresentationAdvantages;

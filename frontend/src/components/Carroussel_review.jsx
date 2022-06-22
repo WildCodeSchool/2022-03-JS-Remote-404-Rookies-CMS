@@ -3,7 +3,7 @@ import jason from "../data/generated";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Module7ECard from "./CarrousselReviewCard";
 
-function Module7E() {
+function CarrousselReview() {
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <section className="w-full">
@@ -35,4 +35,4 @@ function Module7E() {
     </div>
   );
 }
-export default Module7E;
+export default CarrousselReview;

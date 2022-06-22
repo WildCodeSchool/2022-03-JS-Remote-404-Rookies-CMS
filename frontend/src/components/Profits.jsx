@@ -3,9 +3,9 @@ import pen from "../assets/pen.png";
 import clock from "../assets/clock.png";
 import network from "../assets/network.png";
 import sheet from "../assets/sheet.png";
-import GetStarted from "./CTA";
+import CTA from "./CTA";
 
-function Profits() {
+function Module6e() {
   return (
     <div className="bg4E pt-12 flex flex-col justify-items-center place-items-center">
       <div className="font-bold text-center">
@@ -66,10 +66,10 @@ function Profits() {
         </div>
       </div>
       <div className="flex flex-row justify-center w-1/3 mb-12 mt-12">
-        <GetStarted />
+        <CTA />
       </div>
     </div>
   );
 }
 
-export default Profits;
+export default Module6e;

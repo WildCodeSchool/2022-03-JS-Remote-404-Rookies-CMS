@@ -2,7 +2,7 @@ import image from "../assets/module5E.png";
 import fleche from "../assets/module5Earrow.png";
 import flecheReverse from "../assets/module5Earrowreverse.png";
 
-function Module5E(jason) {
+function Process(jason) {
   return (
     <section className="flex flex-col py-16">
       <div className="justify-center mx-4 lg:flex ">
@@ -80,4 +80,4 @@ function Module5E(jason) {
   );
 }
 
-export default Module5E;
+export default Process;

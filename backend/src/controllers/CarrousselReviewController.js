@@ -1,9 +1,9 @@
 const models = require("../models");
 
-class PresentationAdvantagesController {
+class CarrousselReviewController {
   static browse = (req, res) => {
-    models.presentation
-      .findAll()
+    models.carroussel_review
+      .findCarrousselReviewFirst(req.params.languages_id)
       .then(([rows]) => {
         res.send(rows);
       })
@@ -14,13 +14,13 @@ class PresentationAdvantagesController {
   };
 
   static read = (req, res) => {
-    models.presentation_advantages
-      .findPresentationAdvantages(req.params.languages_id)
+    models.images
+      .findAllImagesForCarousel()
       .then(([rows]) => {
-        if (rows[0] == null) {
-          res.Status(404).send("There is nothing here !");
+        if (rows == null) {
+          res.sendStatus(404);
         } else {
-          res.send(rows[0]);
+          res.send(rows);
         }
       })
       .catch((err) => {
@@ -30,14 +30,14 @@ class PresentationAdvantagesController {
   };
 
   static edit = (req, res) => {
-    const presentation = req.body;
+    const navigation = req.body;
 
     // TODO validations (length, format...)
 
-    presentation.id = parseInt(req.params.id, 10);
+    navigation.id = parseInt(req.params.id, 10);
 
-    models.presentation
-      .update(presentation)
+    models.carroussel_review
+      .update(navigation)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);
@@ -52,14 +52,14 @@ class PresentationAdvantagesController {
   };
 
   static add = (req, res) => {
-    const presentation = req.body;
+    const navigation = req.body;
 
     // TODO validations (length, format...)
 
-    models.presentation
-      .insert(presentation)
+    models.carroussel_review
+      .insertnavigation(navigation)
       .then(([result]) => {
-        res.status(201).send({ ...presentation, id: result.insertId });
+        res.status(201).send({ ...navigation, id: result.insertId });
       })
       .catch((err) => {
         console.error(err);
@@ -68,7 +68,7 @@ class PresentationAdvantagesController {
   };
 
   static delete = (req, res) => {
-    models.presentation
+    models.carroussel_review
       .delete(req.params.id)
       .then(() => {
         res.sendStatus(204);
@@ -80,4 +80,4 @@ class PresentationAdvantagesController {
   };
 }
 
-module.exports = PresentationAdvantagesController;
+module.exports = CarrousselReviewController;

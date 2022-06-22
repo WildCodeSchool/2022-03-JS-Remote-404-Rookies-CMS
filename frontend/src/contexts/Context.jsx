@@ -12,6 +12,7 @@ function Provider({ children }) {
   const selectLanguage = (option) => {
     setLanguage(option);
   };
+
   const media = window.innerWidth < 768;
 
   return (

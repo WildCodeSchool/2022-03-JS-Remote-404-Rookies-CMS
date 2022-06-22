@@ -1,11 +1,11 @@
-insert into
-    `rookiescms`.`languages` (languages, status)
+INSERT INTO
+    `RookiesCMS`.`languages` (languages, status)
 VALUES
     ("EN", 1),
     ("FR", 0);
 
-insert into
-    `rookiescms`.`advantages` (title, sub_title, languages_id)
+INSERT INTO
+    `RookiesCMS`.`advantages` (title, sub_title, languages_id)
 VALUES
     (
         "Lorem ipsum dolor",
@@ -13,7 +13,7 @@ VALUES
         1
     );
 
-insert into
+INSERT INTO
     `RookiesCMS`.`advantages_element`(title, text, avantages_id)
 VALUES
     (
@@ -32,8 +32,8 @@ VALUES
         1
     );
 
-insert into
-    `Rookiescms`.`images`(
+INSERT INTO
+    `RookiesCMS`.`images`(
         image_link,
         image_alt,
         status,
@@ -331,13 +331,13 @@ VALUES
         1
     );
 
-insert into
-    `rookiescms`.`navigation`(languages_id, images_id)
+INSERT INTO
+    `RookiesCMS`.`navigation`(languages_id, images_id)
 VALUES
     (1, 24);
 
-insert into
-    `rookiescms`.`navigation_element` (label, path, navigation_id, `link?`)
+INSERT INTO
+    `RookiesCMS`.`navigation_element` (label, path, navigation_id, `link?`)
 VALUES
     ("Companies", "/", 1, 0),
     ("Universities", "/page2", 1, 0),
@@ -345,7 +345,7 @@ VALUES
     ("About us", "/page4", 1, 0),
     ("Contact us", "", 1, 1);
 
-insert into
+INSERT INTO
     `RookiesCMS`.`QA` (title, sub_title, languages_id)
 VALUES
     (
@@ -354,7 +354,7 @@ VALUES
         1
     );
 
-insert into
+INSERT INTO
     `RookiesCMS`.`QA_element`(question, answer, FAQ_id)
 VALUES
     (
@@ -383,7 +383,7 @@ VALUES
         1
     );
 
-insert into
+INSERT INTO
     `RookiesCMS`.`presentation_advantages` (
         title,
         sub_title,
@@ -402,7 +402,7 @@ VALUES
         "Book a meeting"
     );
 
-insert into
+INSERT INTO
     `RookiesCMS`.`presentation_advantages_element` (summary, details, presentation_avantages_id)
 VALUES
     (
@@ -421,7 +421,7 @@ VALUES
         1
     );
 
-insert into
+INSERT INTO
     `RookiesCMS`.`presentation` (
         title,
         sub_title,
@@ -443,7 +443,7 @@ VALUES
         25,
         "Get Started"
     );
-insert into
+INSERT INTO
     `RookiesCMS`.`profit` (title, sub_title, languages_id, navigation_id)
 VALUES
     (
@@ -452,7 +452,7 @@ VALUES
         1,
         1
     );
-insert into
+INSERT INTO
     `RookiesCMS`.`profit_elements` (title, text, profit_id)
 VALUES
     (
@@ -475,7 +475,7 @@ VALUES
         "Lorem ipsum dolor sit amet, consectetur adpiscing elit. Mattis et sed nam sem tellus erat.",
         1
     );
-insert into
+INSERT INTO
     `RookiesCMS`.`KPI` (title, sub_title, languages_id)
 VALUES
     (
@@ -483,14 +483,14 @@ VALUES
         "Our achievement depicted in numbers",
         1
     );
-insert into
+INSERT INTO
     `RookiesCMS`.`KPI_element` (number, label, KPI_id)
 VALUES
     (50, "Projects", 1),
     (30, "clients", 1),
     (300, "Student participants", 1),
     (5, "Countries", 1);
-insert into
+INSERT INTO
     `RookiesCMS`.`get_started` (
         title,
         sub_title,
@@ -506,7 +506,7 @@ VALUES
         "Book a meeting",
         1
     );
-insert into
+INSERT INTO
     `RookiesCMS`.`school_project`(title, text, CTA_label, languages_id)
 VALUES
     (
@@ -515,7 +515,7 @@ VALUES
         "Book a Meeting",
         1
     );
-insert into
+INSERT INTO
     `RookiesCMS`.`contact_form` (
         fullname,
         company_name,
@@ -535,7 +535,7 @@ VALUES
         "Submit",
         1
     );
-insert into
+INSERT INTO
     `RookiesCMS`.`Home` (
         title,
         text,
@@ -555,7 +555,7 @@ VALUES
         26,
         36
     );
-insert into
+INSERT INTO
     `RookiesCMS`.`Process` (
         title,
         sub_title,
@@ -573,7 +573,7 @@ VALUES
         27,
         1
     );
-insert into
+INSERT INTO
     `RookiesCMS`.`Process_element` (title, text, Process_id)
 VALUES
     (
@@ -596,7 +596,7 @@ VALUES
         "identify the top performers and integrate the best solutions.",
         1
     );
-insert into
+INSERT INTO
     `RookiesCMS`.`carroussel_review` (title, sub_title, languages_id, navbar_id)
 VALUES
     (
@@ -605,7 +605,7 @@ VALUES
         1,
         1
     );
-insert into
+INSERT INTO
     `RookiesCMS`.`carroussel_review_element` (
         fullname,
         post,
@@ -643,7 +643,7 @@ VALUES
         30,
         4
     );
-insert into
+INSERT INTO
     `RookiesCMS`.`footer`(
         phone_number,
         mail,
@@ -673,7 +673,7 @@ VALUES
         33,
         24
     );
-insert into
+INSERT INTO
     `RookiesCMS`.`contact_form_and_newsletter_options`(
         text,
         value,
@@ -684,3 +684,4 @@ insert into
 VALUES
     ("Company", "Company", 1, 1, 1),
     ("School", "School", 1, 1, 1);
+INSERT

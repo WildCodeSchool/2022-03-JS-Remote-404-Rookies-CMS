@@ -4,7 +4,7 @@ import GetStarted from "./GetStarted";
 import ExportContext from "../contexts/Context";
 
 function Module1e() {
-  const { language } = useContext(ExportContext.Context);
+  const { language, media } = useContext(ExportContext.Context);
 
   const [data, setData] = useState([]);
 
@@ -29,7 +29,7 @@ function Module1e() {
           {data.title}
         </h1>
         <h2 className=" lg:center text-left">{data.text}</h2>
-        <GetStarted label={`${data?.CTA_label} 💬`} />
+        <GetStarted label={`${data?.CTA_label} ${media ? "💬" : ""}`} />
       </div>
       <div className="lg:w-1/2 flex justify-center lg:flex-row-reverse ">
         <img

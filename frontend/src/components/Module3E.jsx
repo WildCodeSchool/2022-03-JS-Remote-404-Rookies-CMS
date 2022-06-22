@@ -5,7 +5,7 @@ import GetStarted from "./GetStarted";
 import ExportContext from "../contexts/Context";
 
 function Module3E() {
-  const { language } = useContext(ExportContext.Context);
+  const { language, media } = useContext(ExportContext.Context);
 
   const [data, setData] = useState([]);
 
@@ -54,7 +54,7 @@ function Module3E() {
             <p className="text-sm mb-4 space-x-4">{data.text3}</p>
           </div>
           <div className="flex flex-col items-center max-w-full">
-            <GetStarted label={`${data?.CTA_label} 💬`} />
+            <GetStarted label={`${data?.CTA_label} ${media ? "💬" : ""}`} />
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ function KPI() {
         </h3>
       </div>
       <div className="flex flex-wrap justify-evenly  lg:grid  lg:grid-cols-4 lg:gap-6 lg:divide-x-2 lg:divide-green-300">
-        <div className="flex w-2/5 justify-start lg:w-full flex-col lg:basis-1/4 mb-4">
+        <div className="flex w-2/5 lg:w-full flex-col lg:basis-1/4 mb-4">
           <p className="flex justify-center text-2xl lg:text-4xl tc4E font-bold order-2 mb-4">
             {Jason[0].data1}
           </p>
@@ -34,7 +34,7 @@ function KPI() {
           <p className="flex justify-center text-2xl lg:text-4xl tc4E font-bold order-2 mb-4">
             {Jason[0].data3}
           </p>
-          <p className="flex font-bold ml-6 w-full lg:font-medium lg:text-xl mb-4 tc4e2">
+          <p className="flex justify-center lg:ml-0 font-bold  w-full lg:font-medium lg:text-xl mb-4 tc4e2">
             {Jason[0].type3}
           </p>
         </div>

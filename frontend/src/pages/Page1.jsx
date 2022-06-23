@@ -7,7 +7,7 @@ import PresentationAdvantages from "../components/PresentationAdvantages";
 import Process from "../components/Process";
 import Profits from "../components/Profits";
 import CarrousselReview from "../components/CarrousselReview";
-import KPI from "../components/KPI";
+// import KPI from "../components/KPI";
 import QA from "../components/QA";
 import GetStarted from "../components/GetStarted";
 import jason from "../data/generated";
@@ -22,7 +22,7 @@ export default function Page1() {
       <Process {...jason} />
       <Profits />
       <CarrousselReview />
-      <KPI />
+      {/* <KPI /> */}
       <QA />
       <GetStarted {...jason} />
     </div>

@@ -14,6 +14,7 @@ const {
   FooterController,
   PresentationAdvantagesController,
   GetStartedController,
+  UserController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -111,5 +112,11 @@ router.get("/getstarted/:languages_id", GetStartedController.read);
 router.put("/getstarted/:id", GetStartedController.edit);
 router.post("/getstarted", GetStartedController.add);
 router.delete("/getstarted/:id", GetStartedController.delete);
+
+router.get("/getstarteds/:languages_id", UserController.browse);
+router.get("/getstarted/:languages_id", UserController.read);
+router.put("/getstarted/:id", UserController.edit);
+router.post("/user", UserController.add);
+router.delete("/getstarted/:id", UserController.delete);
 
 module.exports = router;

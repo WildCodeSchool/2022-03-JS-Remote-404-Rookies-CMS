@@ -18,59 +18,51 @@ function Formulaire() {
               &times;
             </button>
           </div>
-          <h1 className="text-3xl font-bold navTextGreen mt-2 mb-2 ml-3">
-            Contact Us
-          </h1>
-          <div className="bg4E flex flex-row md:flex-row items-center">
+          <div className="flex flex-row md:flex-row items-center">
+            <div className="flex flex-col md:flex-col items-center w-2/5">
+              <Quote />
+            </div>
+
             <div className="flex flex-col md:flex-col items-center w-7/12">
-              <div className="flex flex-col w-full">
+              <div className="flex flex-col w-full mt-8">
+                <h1 className="text-3xl font-bold mt-12 mb-2 ml-3">
+                  Drop us a message
+                </h1>
+                <p className="text-xl text-gray-500 mb-8 ml-3 mt-4 font-bold">
+                  We will get back to you as soon as possible.
+                </p>
                 <form className="flex flex-col w-full">
-                  <div className="flex flex-col">
-                    <label className="text-gray-900 font-bold mb-2 ml-6 mt-2">
-                      First name & Last name
-                    </label>
+                  <div className="flex flex-col h-1/4">
                     <input
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-full ml-6"
+                      className="text-xl bg-gray-100 border-2 border-gray-300 rounded-lg p-6 w-11/12 ml-6 shadow-lg mb-6"
                       type="text"
                       placeholder="First name & Last name"
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-gray-900 font-bold mb-2 ml-6 mt-2">
-                      Company Name
-                    </label>
                     <input
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-full ml-6"
-                      type="text"
-                      placeholder="Company Name"
-                    />
-                  </div>
-                  <div className="flex flex-col">
-                    <label className="text-gray-900 font-bold mb-2 ml-6 mt-2">
-                      Email
-                    </label>
-                    <input
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-full ml-6"
+                      className="text-xl bg-gray-100 border-2 border-gray-300 rounded-lg p-6 w-11/12 ml-6 shadow-lg mb-6"
                       type="text"
                       placeholder="Email"
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-gray-900 font-bold mb-2 ml-6 mt-2">
-                      Phone number
-                    </label>
                     <input
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-full ml-6"
+                      className="text-xl bg-gray-100 border-2 border-gray-300 rounded-lg p-6 w-11/12 ml-6 shadow-lg mb-6"
+                      type="text"
+                      placeholder="Company Name"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <input
+                      className="text-xl bg-gray-100 border-2 border-gray-300 rounded-lg p-6 w-11/12 ml-6 shadow-lg mb-6"
                       type="text"
                       placeholder="Phone number"
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-gray-900 font-bold mb-2 ml-6 mt-2">
-                      Tell us more about your project
-                    </label>
                     <textarea
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-full ml-6 h-22"
+                      className="text-xl bg-gray-100 border-2 border-gray-300 rounded-lg p-6 w-11/12 ml-6 shadow-lg mb-6"
                       type="text"
                       placeholder="Tell us more about your project"
                     />
@@ -86,9 +78,6 @@ function Formulaire() {
                   </div>
                 </form>
               </div>
-            </div>
-            <div className="flex flex-col md:flex-col items-center w-2/5">
-              <Quote />
             </div>
           </div>
         </div>

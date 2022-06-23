@@ -29,6 +29,8 @@ CREATE SCHEMA IF NOT EXISTS `RookiesCMS` DEFAULT CHARACTER SET utf8 ;
 
 USE `RookiesCMS` ;
 
+DROP TABLE IF EXISTS `RookiesCMS`.`user`;
+
 DROP TABLE IF EXISTS `RookiesCMS`.`languages` ;
 
 DROP TABLE IF EXISTS `RookiesCMS`.`images` ;
@@ -102,6 +104,20 @@ CREATE TABLE IF NOT EXISTS `RookiesCMS`.`languages` (
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC)
 ) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+
+-- Table `RookiesCMS`.`user`
+
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `RookiesCMS`.`user` (
+  `id` VARCHAR(50) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `hashedPassword` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 

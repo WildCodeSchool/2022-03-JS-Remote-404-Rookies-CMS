@@ -1,14 +1,22 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-extraneous-dependencies */
-import React from "react";
+import React, { useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ImageTraitement1 from "../data/imageTraitement";
 import ImageTraitement2 from "../data/ImageTraitement2";
-import ImageTraitement3 from "../data/ImageTraitement3";
 import "../App.css";
 
 function LogoCarousel() {
+  const [time, setTime] = React.useState(1000);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTime(10000);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="carousel">
       <Carousel
@@ -16,7 +24,7 @@ function LogoCarousel() {
         autoPlay
         infiniteLoop
         showThumbs={false}
-        interval={9000}
+        interval={time}
         showStatus={false}
         showIndicators={false}
         showArrows={false}
@@ -26,9 +34,6 @@ function LogoCarousel() {
         </div>
         <div className="carousel-item-container">
           <ImageTraitement2 />
-        </div>
-        <div className="carousel-item-container">
-          <ImageTraitement3 />
         </div>
       </Carousel>
     </div>

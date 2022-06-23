@@ -10,7 +10,6 @@ import CarrousselReview from "../components/CarrousselReview";
 import KPI from "../components/KPI";
 import QA from "../components/QA";
 import GetStarted from "../components/GetStarted";
-import Footer from "../components/Footer";
 import jason from "../data/generated";
 
 export default function Page1() {
@@ -26,7 +25,6 @@ export default function Page1() {
       <KPI />
       <QA />
       <GetStarted {...jason} />
-      <Footer />
     </div>
   );
 }

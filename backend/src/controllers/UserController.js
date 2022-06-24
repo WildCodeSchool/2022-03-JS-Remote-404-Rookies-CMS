@@ -1,5 +1,11 @@
+/* eslint-disable consistent-return */
 const models = require("../models");
-const { hashPassword, uuid } = require("../helper/user");
+const {
+  hashPassword,
+  uuid,
+  jwtSign,
+  passwordVerify,
+} = require("../services/user");
 
 class UserController {
   static browse = (req, res) => {
@@ -16,7 +22,7 @@ class UserController {
 
   static read = (req, res) => {
     models.user
-      .finduser(req.params.languages_id)
+      .findByMail(req.params.email)
       .then(([rows]) => {
         models.navigation
           .findNavigationAll(rows[0].languages_id)
@@ -84,6 +90,39 @@ class UserController {
         console.error(err);
         res.sendStatus(500);
       });
+  };
+
+  static logout = (req, res) => {
+    return res.clearCookie("access_token").Status(200).send("logout done!");
+  };
+
+  static login = async (req, res) => {
+    try {
+      const user = await models.user.findByMail(req.body.email);
+      if (!user[0]) {
+        return res.status(401).send({
+          error: "Invalid credentials",
+        });
+      }
+      const { email, hashedPassword } = user[0];
+      const check = await passwordVerify(hashedPassword, req.body.password);
+      if (!check) {
+        return res.status(401).send({
+          error: "Invalid credentials 2",
+        });
+      }
+      const token = jwtSign({ email }, { expiresIn: "24h" });
+      res
+        .cookie("access_token", token, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+        })
+        .status(200)
+        .json(email);
+    } catch (err) {
+      console.error(err);
+      res.Status(500).send(err);
+    }
   };
 }
 

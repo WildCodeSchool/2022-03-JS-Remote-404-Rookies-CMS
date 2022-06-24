@@ -1,4 +1,6 @@
 const express = require("express");
+const { Authorization } = require("./services/user");
+const { VerifyEmail } = require("./services/verify");
 
 const {
   ItemController,
@@ -113,10 +115,11 @@ router.put("/getstarted/:id", GetStartedController.edit);
 router.post("/getstarted", GetStartedController.add);
 router.delete("/getstarted/:id", GetStartedController.delete);
 
-router.get("/getstarteds/:languages_id", UserController.browse);
-router.get("/getstarted/:languages_id", UserController.read);
+router.get("/checkuser", Authorization, UserController.browse);
+router.get("/checkuser/:email", VerifyEmail, UserController.read);
+router.get("/user/logout", Authorization, UserController.logout);
 router.put("/getstarted/:id", UserController.edit);
-router.post("/user", UserController.add);
+router.post("/user/login", VerifyEmail, UserController.login);
 router.delete("/getstarted/:id", UserController.delete);
 
 module.exports = router;

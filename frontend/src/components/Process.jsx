@@ -1,25 +1,41 @@
-import image from "../assets/module5E.png";
+import axios from "axios";
+import { useContext, useState, useEffect } from "react";
 import fleche from "../assets/module5Earrow.png";
 import flecheReverse from "../assets/module5Earrowreverse.png";
 
 function Process(jason) {
+  // eslint-disable-next-line no-undef
+  const { language } = useContext(ExportContext.Context);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/Processs/${language}`)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  }, [language]);
+
   return (
     <section className="flex flex-col py-16">
       <div className="justify-center mx-4 lg:flex">
         <div className="mb-4 lg:w-1/3 lg:flex flex-col justify-center lg:mx-6">
           <h2 className="font-bold module5E-green text-xl lg:text-xl">
-            {jason[0].name}
+            {data.title}
           </h2>
           <h3 className="font-extrabold text-4xl lg:text-4xl my-6">
-            {jason[0].address}
+            {data.sub_title}
           </h3>
-          <p className="text-gray-600 text-lg lg:w-4/5">{jason[0].about}</p>
+          <p className="text-gray-600 text-lg lg:w-4/5">{data.text}</p>
         </div>
         <div className="flex justify-center lg:w-1/3 lg:flex flex-col">
           <img
             className="hidden lg:block"
-            src={image}
-            alt="projet sur le market study, visual design ,proof of concept et uX/UI design"
+            src={data.image_link}
+            alt={data.image_alt}
           />
         </div>
       </div>

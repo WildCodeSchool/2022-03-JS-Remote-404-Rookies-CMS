@@ -17,6 +17,7 @@ const {
   PresentationAdvantagesController,
   GetStartedController,
   UserController,
+  QuoteController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -121,5 +122,8 @@ router.get("/user/logout", Authorization, UserController.logout);
 router.put("/getstarted/:id", UserController.edit);
 router.post("/user/login", VerifyEmail, UserController.login);
 router.delete("/getstarted/:id", UserController.delete);
+
+router.get("/quote", QuoteController.browse);
+router.get("/quote/:languages_id", QuoteController.read);
 
 module.exports = router;

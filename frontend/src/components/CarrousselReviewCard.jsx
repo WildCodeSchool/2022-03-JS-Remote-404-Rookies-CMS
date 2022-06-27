@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import ExportContext from "../contexts/Context";
 
-function Module7ECard(elem) {
+function CarrousselReviewCard(elem) {
   const { media } = useContext(ExportContext.Context);
   if (!media) {
     return (
@@ -9,26 +9,26 @@ function Module7ECard(elem) {
         <img
           id="carousel-img-E7"
           className="  lg:pl-10 mb-10"
-          src={elem.picture}
-          alt={elem.name}
+          src={elem?.image_link}
+          alt={elem?.image_alt}
         />
         <div className="flex flex-col w-1/2 justify-start mb-10">
           <h2 className="font-semibold text-sm md:text-lg lg:text-xl -pb-4 lg:mb-10 mb-2">
-            {elem.name}
+            {elem?.fullname}
             <br />
             <span className="font-light md:text-lg lg:text-xl text-xs">
-              {elem.email}
+              {elem?.post}
             </span>
           </h2>
           <p className="lg:pl-5 lg:mb-2 lg:pr-10 md:text-lg lg:text-xl text-xs">
-            {elem.about}
+            {elem?.testimonial}
           </p>
           <div className="flex flex-col items-center justify-center lg:w-1/2 lg:pb-12 mt-4">
             <img
               id="carousel-logo-E7"
               className="w-2/3 items-center justify-center object-fit-contain"
-              src={elem.balance}
-              alt={elem.name}
+              src={elem?.linkLogo}
+              alt={elem?.altLogo}
             />
           </div>
         </div>
@@ -41,23 +41,23 @@ function Module7ECard(elem) {
         <img
           id="carousel-img-E7"
           className="w-1/3 flex justify-center"
-          src={elem.picture}
-          alt={elem.name}
+          src={elem?.image_link}
+          alt={elem?.image_alt}
         />
         <h2 className="font-semibold text-sm md:text-lg  -pb-4  mb-2">
-          {elem.name}
+          {elem?.fullname}
           <br />
-          <span className="font-light md:text-lg text-xs">{elem.email}</span>
+          <span className="font-light md:text-lg text-xs">{elem?.post}</span>
         </h2>
         <p className="lg:pl-5 lg:mb-2 lg:pr-10 md:text-lg  text-xs">
-          {elem.about}
+          {elem?.testimonial}
         </p>
-        <div className="flex flex-row items-center justify-end w-full mt-6 object-contain">
+        <div className="flex flex-col items-center justify-end w-full mt-6 object-contain">
           <img
             id="carousel-logo-E7"
             className=" items-center justify-end mb-8"
-            src={elem.balance}
-            alt={elem.name}
+            src={elem?.linkLogo}
+            alt={elem?.altLogo}
           />
         </div>
       </div>
@@ -65,4 +65,4 @@ function Module7ECard(elem) {
   );
 }
 
-export default Module7ECard;
+export default CarrousselReviewCard;

@@ -29,7 +29,11 @@ function Module6e() {
           data.elements.map((elem) => {
             return (
               <div className="basis-1/2 flex flex-col justify-center justify-items-center place-items-center lg:flex-row flex-none mb-4">
+<<<<<<< consumebackend
                 <div className="circle  bg-button-green-E10 mr-2 aspect-square">
+=======
+                <div className="circle bg-button-green-E10 mr-2 aspect-square">
+>>>>>>> dev
                   <img
                     className="logo"
                     src={elem.image_link}

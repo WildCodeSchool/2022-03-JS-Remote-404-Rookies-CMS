@@ -30,7 +30,11 @@ function Presentation() {
             alt={data.image_alt}
           />
         </div>
+<<<<<<< consumebackend
         <div className="flex flex-col lg:mb-16 lg:pr-32 ">
+=======
+        <div className="flex flex-col justify-start lg:mb-16  lg:pr-32 ">
+>>>>>>> dev
           <h3 className="flex flex-start text-left text-green-500 font-bold">
             {data.title}
           </h3>
@@ -45,13 +49,23 @@ function Presentation() {
               alt={data.image_alt}
             />
           </div>
-          <div className=" mb-2 flex">
-            <img className=" mr-2 ar-1 w-8 h-8 " src={checkbox} alt="hero" />
-            <p className="text-sm mb-4 space-x-4">{data.text2}</p>
-          </div>
-          <div className="mb-8 flex">
-            <img className="mr-2 ar-1 w-8 h-8" src={checkbox} alt="hero" />
-            <p className="text-sm mb-4 space-x-4">{data.text3}</p>
+          <div>
+            <div className=" mb-2 flex">
+              <img
+                className=" mr-2 ar-1 w-8 h-8 "
+                src={checkbox}
+                alt="checkbox"
+              />
+              <p className="text-sm mb-4 space-x-4">{data.text2}</p>
+            </div>
+            <div className="mb-2 flex">
+              <img
+                className="mr-2 ar-1 w-8 h-8"
+                src={checkbox}
+                alt="checkbox"
+              />
+              <p className="text-sm mb-4 space-x-4">{data.text3}</p>
+            </div>
           </div>
           <div className="flex flex-col items-center max-w-full lg:w-full">
             <CTA label={`${data?.CTA_label} ${media ? "💬" : ""}`} />

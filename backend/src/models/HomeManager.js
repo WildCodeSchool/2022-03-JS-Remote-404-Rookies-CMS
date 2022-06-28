@@ -19,8 +19,9 @@ class HomeManager extends AbstractManager {
 
   findHome(languagesId) {
     return this.connection.query(
-      `select h.title, h.text, h.CTA_label ,i.image_link, i.image_alt from home as h
-      inner join images as i on i.id = h.images_id 
+      `select h.title, h.text, h.CTA_label ,h.title_green_part, i.image_link, i.image_alt, im.image_link as image_link_background, im.image_alt as image_alt_background from home as h
+      inner join images as i on i.id = h.images_id
+      inner join images as im on im.id = h.background_images_id
       where h.languages_id = ?`,
       [languagesId]
     );

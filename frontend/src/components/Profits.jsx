@@ -2,32 +2,16 @@ import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import ExportContext from "../contexts/Context";
 
-import pen from "../assets/pen.png";
-import clock from "../assets/clock.png";
-import network from "../assets/network.png";
-import sheet from "../assets/sheet.png";
-
 function Module6e() {
   const { language } = useContext(ExportContext.Context);
 
   const [data, setData] = useState([]);
-  const images = [
-    { image: pen, alt: "pen" },
-    { image: clock, alt: "clock" },
-    { image: network, alt: "network" },
-    { image: sheet, alt: "sheet" },
-  ];
 
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/profits/${language}`)
       .then((response) => {
-        const data2 = { ...response.data };
-        // eslint-disable-next-line no-plusplus
-        for (let i = 0; i < images.length; i++) {
-          data2.elements[i] = { ...data2.elements[i], image: images[i] };
-        }
-        setData(data2);
+        setData(response.data);
       })
       .catch((error) => {
         console.warn(error);
@@ -45,11 +29,15 @@ function Module6e() {
           data.elements.map((elem) => {
             return (
               <div className="basis-1/2 flex flex-col justify-center justify-items-center place-items-center lg:flex-row flex-none mb-4">
+<<<<<<< consumebackend
+                <div className="circle  bg-button-green-E10 mr-2 aspect-square">
+=======
                 <div className="circle bg-button-green-E10 mr-2 aspect-square">
+>>>>>>> dev
                   <img
                     className="logo"
-                    src={elem.image.image}
-                    alt={elem.image.alt}
+                    src={elem.image_link}
+                    alt={elem.image_alt}
                   />
                 </div>
                 <div>

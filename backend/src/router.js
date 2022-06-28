@@ -18,6 +18,8 @@ const {
   GetStartedController,
   UserController,
   QuoteController,
+  ProjectController,
+  CtaCaseStudyController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -125,5 +127,13 @@ router.delete("/getstarted/:id", UserController.delete);
 
 router.get("/quote", QuoteController.browse);
 router.get("/quote/:languages_id", QuoteController.read);
+
+router.get("/quote", QuoteController.browse);
+router.get("/quote/:languages_id", QuoteController.read);
+
+router.get("/project/:languages_id", ProjectController.read);
+
+router.get("/ctacasestudy", CtaCaseStudyController.browse);
+router.get("/ctacasestudy/:languages_id", CtaCaseStudyController.read);
 
 module.exports = router;

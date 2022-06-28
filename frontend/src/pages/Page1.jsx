@@ -9,13 +9,14 @@ import Profits from "../components/Profits";
 import KPI from "../components/KPI";
 import CarrousselReview from "../components/CarrousselReview";
 import QA from "../components/QA";
-import GetStarted from "../components/GetStarted";
+import NewsletterComponent from "../components/newsletter_component";
+import CtaCaseStudy from "../components/CtaCaseStudy";
 import jason from "../data/generated";
 
 export default function Page1() {
   return (
     <div>
-      <Home />
+      <Home status={0} />
       <LogoCarousel />
       <Presentation />
       <PresentationAdvantages {...jason} />
@@ -24,7 +25,8 @@ export default function Page1() {
       <CarrousselReview />
       <KPI />
       <QA />
-      <GetStarted {...jason} />
+      <NewsletterComponent />
+      <CtaCaseStudy />
     </div>
   );
 }

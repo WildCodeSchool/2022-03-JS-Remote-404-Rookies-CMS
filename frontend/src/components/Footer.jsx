@@ -1,9 +1,23 @@
-import React from "react";
-import Rookies from "../assets/rookies.png";
-import French from "../assets/frenchtech.png";
-import Pepite from "../assets/pepite.png";
+import axios from "axios";
+import React, { useContext, useState, useEffect } from "react";
+import ExportContext from "../contexts/Context";
 
 function Footer() {
+  const { language } = useContext(ExportContext.Context);
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/footer/${language}`)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  }, [language]);
+
   return (
     <footer className="lg:mx-20">
       <div
@@ -23,16 +37,16 @@ function Footer() {
             flex justify-start lg:justify-center text-4xl font-bold md:justify-start
             "
             >
-              <img src={Rookies} alt="logo" />
+              <img src={data.image_logo_link} alt={data.image_logo_alt} />
             </div>
             <a
               className="flex justity-center  ml-4 lg:ml-6 mt-2 text-sm text-justify text-gray-500"
               href="tel:+33785680988"
             >
-              +33 (0) 7 85 68 09 88
+              {data.phone_number}
             </a>
             <p className="flex justify-start  ml-4 lg:ml-6 mt-2 text-sm text-justify text-gray-500">
-              integrer envoi mail
+              {data.mail}
             </p>
           </div>
           <div className="flex justify-center w-1/2 pt-10 lg:pt-4 lg:justify-start lg:ml-2">
@@ -72,38 +86,46 @@ function Footer() {
         <div className="flex flex-row lg:flex justify-between w-full text-center">
           <div className="w-1/3 lg:w-1/2">
             <h2 className="font-bold text-lg mb-4 lg:flex text-green-400">
-              Quick Links
+              {data.sub_title1}
             </h2>
             <ul className="text-sm lg:text-md lg:flex ">
               <div className="flex justify-start flex-col lg:mr-20 ">
                 <li>
                   <div className="mb-4 text-gray-600 hover:text-gray-800">
-                    Companies
+                    <a href={data.links && data.links[0].path}>
+                      {data.links && data.links[0].label}
+                    </a>
                   </div>
                 </li>
                 <li>
                   <div className="mb-4 flex justify-center lg:justify-start text-gray-600 hover:text-gray-800 ">
-                    Universities
+                    <a href={data.links && data.links[1].path}>
+                      {data.links && data.links[1].label}
+                    </a>
                   </div>
                 </li>
               </div>
               <div className="flex justify-start flex-col lg:ml-20">
                 <li>
                   <div className="mb-4 text-gray-600 hover:text-gray-800 ">
-                    Projects
-                  </div>
-                </li>
-                <li>
-                  <div className="flex justify-center lg:justify-start text-gray-600 hover:text-gray-800 hidden">
-                    Blog
+                    <a href={data.links && data.links[2].path}>
+                      {data.links && data.links[2].label}
+                    </a>
                   </div>
                 </li>
               </div>
+              <li>
+                <div className="flex justify-center lg:justify-start text-gray-600 hover:text-gray-800 hidden">
+                  <a href={data.links && data.links[3].path}>
+                    {data.links && data.links[3].label}
+                  </a>
+                </div>
+              </li>
             </ul>
           </div>
           <div className="w-2/3 px-4 lg:w-1/2 ">
             <h2 className="flex justify-start mb-2 font-bold text-lg  text-green-400">
-              Join our Newsletter
+              {data.sub_title2}
             </h2>
             <div className="flex mt-4 lg:w-2/3 lg:h-10 ">
               <input
@@ -115,7 +137,7 @@ function Footer() {
                 text-grey-dark
                 border-l-2 border-t-2 border-b-2 rounded-l-lg
               "
-                placeholder="Your email"
+                placeholder={data.newsletter}
               />
               <button
                 type="button"
@@ -136,8 +158,16 @@ function Footer() {
               </button>
             </div>
             <div className="flex mx-2 mt-4 ">
-              <img className="mr-4 lg:w-15 lg:h-15 " src={Pepite} alt="logo" />
-              <img className="mr-4 lg:w-15 lg:h-15" src={French} alt="logo" />
+              <img
+                className="mr-4 lg:w-15 lg:h-15 "
+                src={data.image_link}
+                alt={data.image_alt}
+              />
+              <img
+                className="mr-4 lg:w-15 lg:h-15"
+                src={data.image_link2}
+                alt={data.image_alt2}
+              />
             </div>
           </div>
         </div>
@@ -145,14 +175,14 @@ function Footer() {
       <div className="flex flex-col lg:flex-row justify-between mt-6 border-gray-200 border-t-2">
         <div className="flex justify-center">
           <p className="mx-10 mb-4 underline text-base  text-gray-400">
-            General terms
+            {data.terms}
           </p>
           <p className="mx-10 mb-4 underline text-base  text-gray-400">
-            Privacy policy
+            {data.policy}
           </p>
         </div>
         <p className="flex justify-center lg:justify-end text-base text-gray-400">
-          2022 Rookies SAS. All rights reserved
+          {data.copyright}
         </p>
       </div>
     </footer>

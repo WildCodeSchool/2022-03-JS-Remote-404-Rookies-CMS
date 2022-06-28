@@ -2,6 +2,7 @@ import "../css/module9E.css";
 import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import ExportContext from "../contexts/Context";
+import CTA from "./CTA";
 
 function QA() {
   const { language } = useContext(ExportContext.Context);
@@ -40,6 +41,12 @@ function QA() {
             </div>
           );
         })}
+      <div className="flex flex-col justify-items-center  place-items-center pt-20">
+        <div className="pb-20 flex justify-center gap-20">
+          <CTA label="Submit my project" />
+          <CTA label="Book a meeting" />
+        </div>
+      </div>
     </section>
   );
 }

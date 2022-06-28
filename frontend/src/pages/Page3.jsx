@@ -1,3 +1,11 @@
+import Projects from "../components/Projects";
+import StudyCaseHome from "../components/StudyCaseHome";
+
 export default function Page3() {
-  return <h1>Page3</h1>;
+  return (
+    <div>
+      <StudyCaseHome />
+      <Projects />
+    </div>
+  );
 }

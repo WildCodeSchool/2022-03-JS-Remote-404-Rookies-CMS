@@ -12,7 +12,7 @@ import QA from "../components/QA";
 export default function Page2() {
   return (
     <div>
-      <Home />
+      <Home status={1} />
       <LogoCarousel />
       <Presentation />
       <Process {...jason} />

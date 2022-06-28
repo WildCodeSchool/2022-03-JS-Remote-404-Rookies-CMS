@@ -692,25 +692,54 @@ CREATE TABLE IF NOT EXISTS `RookiesCMS`.`study_case_topics` (
 -- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS `RookiesCMS`.`project` (
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `title` VARCHAR(100) NOT NULL,
-    `sub_title` VARCHAR(100) NOT NULL,
-    `description` VARCHAR(100) NOT NULL,
-    `time_week` VARCHAR(100) NOT NULL,
-    `time_hour` VARCHAR(100) NOT NULL,
-    `text` LONGTEXT NOT NULL,
-    `signature` VARCHAR(100) NOT NULL,
-    `amount` FLOAT NOT NULL,
-    `status` TINYINT NOT NULL,
-    `languages_id` INT NOT NULL,
-    `images_id` INT NOT NULL,
-    PRIMARY KEY (`id`, `languages_id`, `images_id`),
-    UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-    INDEX `fk_project_languages1_idx` (`languages_id` ASC),
-    INDEX `fk_project_images1_idx` (`images_id` ASC),
-    CONSTRAINT `fk_project_languages1` FOREIGN KEY (`languages_id`) REFERENCES `RookiesCMS`.`languages` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-    CONSTRAINT `fk_project_images1` FOREIGN KEY (`images_id`) REFERENCES `RookiesCMS`.`images` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoDB;
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(100) NOT NULL,
+  `sub_title` VARCHAR(100) NOT NULL,
+  `description` VARCHAR(100) NOT NULL,
+  `time_week` VARCHAR(100) NOT NULL,
+  `time_hour` VARCHAR(100) NOT NULL,
+  `text` LONGTEXT NOT NULL,
+  `signature` VARCHAR(100) NOT NULL,
+  `amount` FLOAT NOT NULL,
+  `status` TINYINT NOT NULL,
+  `languages_id` INT NOT NULL,
+  `images_id` INT NOT NULL,
+  `images_id1` INT NOT NULL,
+  `images_id2` INT NOT NULL,
+  `images_id3` INT NOT NULL,
+  PRIMARY KEY (`id`, `languages_id`, `images_id`, `images_id1`, `images_id2`, `images_id3`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) ,
+  INDEX `fk_project_languages1_idx` (`languages_id` ASC) ,
+  INDEX `fk_project_images1_idx` (`images_id` ASC) ,
+  INDEX `fk_project_images2_idx` (`images_id1` ASC) ,
+  INDEX `fk_project_images3_idx` (`images_id2` ASC) ,
+  INDEX `fk_project_images4_idx` (`images_id3` ASC) ,
+  CONSTRAINT `fk_project_languages1`
+    FOREIGN KEY (`languages_id`)
+    REFERENCES `RookiesCMS`.`languages` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_project_images1`
+    FOREIGN KEY (`images_id`)
+    REFERENCES `RookiesCMS`.`images` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_project_images2`
+    FOREIGN KEY (`images_id1`)
+    REFERENCES `RookiesCMS`.`images` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_project_images3`
+    FOREIGN KEY (`images_id2`)
+    REFERENCES `RookiesCMS`.`images` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_project_images4`
+    FOREIGN KEY (`images_id3`)
+    REFERENCES `RookiesCMS`.`images` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 
@@ -1030,7 +1059,7 @@ VALUES
         1
     ),
     (
-        "https://ibb.co/jJPp98Z",
+        "https://i.ibb.co/nPNWqw8/pepite.png",
         "logo pépite",
         0,
         "https://pepite-provence.pepitizy.fr/fr",
@@ -1038,7 +1067,7 @@ VALUES
         1
     ),
     (
-        "https://ibb.co/vxNP6qq",
+        "https://i.ibb.co/fY3pzFF/frenchtech.png",
         "logo la french tech",
         0,
         "https://lafrenchtech.com/fr/",
@@ -1050,7 +1079,7 @@ VALUES
         "3 petits points encerclés",
         0,
         "",
-        "ProjectsExamples",
+        "ProjectFixed",
         1
     ),
     (
@@ -1058,11 +1087,11 @@ VALUES
         "Classroom",
         0,
         "",
-        "ProjectsExamples",
+        "Project",
         1
     ),
     (
-        "https://ibb.co/mNYLY2R",
+        "https://i.ibb.co/sWD0DNg/bg-home.png",
         "Home background",
         0,
         "",
@@ -1086,7 +1115,7 @@ VALUES
         1
     ),
     (
-        "https://img-4.linternaute.com/BORGWOduhCqgz_bxlnxXpU2PEL4=/fit-in/x630/smart/filters:fill(1D1D1B)/685fdd5cfcf444e08d3ff22cde5d1581/ccmcms-linternaute/2377659.jpg",
+        "https://i.ibb.co/6bzQN2r/2377659.webp",
         "Beautiful cliffs",
         0,
         "",
@@ -1094,7 +1123,7 @@ VALUES
         1
     ),
     (
-        "https://www.okvoyage.com/wp-content/uploads/2021/02/paysages-norvege-810x538.jpeg",
+        "https://i.ibb.co/5n6rFxP/paysages-norvege-810x538.webp",
         "Beautiful village",
         0,
         "",
@@ -1102,7 +1131,7 @@ VALUES
         1
     ),
     (
-        "https://www.okvoyage.com/wp-content/uploads/2021/08/paysages-de-france-scaled.jpg",
+        "https://i.ibb.co/CVpymRy/paysages-de-france-scaled.webp",
         "Beautiful waterfall",
         0,
         "",
@@ -1126,7 +1155,7 @@ VALUES
         1
     ),
     (
-        "https://www.okvoyage.com/wp-content/uploads/2021/08/le-mont-saint-michel-parmi-les-plus-beaux-paysages-de-france-1024x683.jpg",
+        "https://i.ibb.co/NWGX2t9/le-mont-saint-michel-parmi-les-plus-beaux-paysages-de-france-1024x683.webp",
         "Beautiful Castle",
         0,
         "",
@@ -1134,7 +1163,7 @@ VALUES
         1
     ),
     (
-        "https://img.freepik.com/photos-gratuite/paysage-paisible-paisible-campagne-propre-flux_1417-1106.jpg?w=2000",
+        "https://i.ibb.co/Q9Cyxx5/paysage-paisible-paisible-campagne-propre-flux-1417-1106.webp",
         "Beautiful bay",
         0,
         "",
@@ -1149,49 +1178,49 @@ VALUES
         "Quote Img",
         1
     ),(
-        "https://ibb.co/9vVzskR",
+        "https://i.ibb.co/dcL1Gwn/HOMECORE-x-EM-Normandie.png",
         "HOMECORE x EM Normandie",
         0,
         "",
-        "Project menber",
+        "Project",
         1
     ),(
-        "https://ibb.co/BfRPFDg",
+        "https://i.ibb.co/tH5hFfb/KEYENA-x-PPA-Business-School.png",
         "KEYENA x PPA Business School",
         0,
         "",
-        "Project menber",
+        "Project",
         1
     ),(
-        "https://ibb.co/nD8CphK",
-        "project menber",
+        "https://i.ibb.co/rZfs9nX/project-menber2.png",
+        "project member",
         0,
         "",
-        "Project menber",
+        "Project",
         1
     ),(
-        "https://ibb.co/bQ1s3LV",
-        "project menber 2",
+        "https://i.ibb.co/Gn7WJkD/project-menber3.png",
+        "project member 2",
         0,
         "",
-        "Project menber",
+        "Project",
         1
     ),(
-        "https://ibb.co/8zrdzPf",
-        "project menber 3",
+        "https://i.ibb.co/N19m1WJ/project-menber1.png",
+        "project member 3",
         0,
         "",
-        "Project menber",
+        "Project",
         1
     ),(
-        "https://ibb.co/gymsbtq",
+        "https://i.ibb.co/6Yr6cD9/topic.png",
         "topic logo",
         0,
         "",
         "Topic Main Logo",
         1
     ),(
-        "https://ibb.co/D8LjSvs",
+        "https://i.ibb.co/qWx2PcX/Topic-Back-Ground.png",
         "Topic BackGround",
         0,
         "",
@@ -1290,6 +1319,38 @@ VALUES
         "",
         "Quote Img",
         1
+        ),
+        (
+        "https://i.ibb.co/ZBfcZnr/quote.png",
+        "Quote Project",
+        0,
+        "",
+        "ProjectFixed",
+        1
+        ),
+        (
+        "https://i.ibb.co/4VZkS0W/calendar.png",
+        "Calendar Project",
+        0,
+        "",
+        "ProjectFixed",
+        1
+        ),
+        (
+        "https://i.ibb.co/c3DsRRm/clock2.png",
+        "Clock Project",
+        0,
+        "",
+        "ProjectFixed",
+        1
+        ),
+        (
+        "https://i.ibb.co/PNdQ80h/School-Woman.png",
+        "School-Woman",
+        0,
+        "",
+        "Image Home School",
+        1
         );
 
 insert into
@@ -1302,7 +1363,7 @@ insert into
 VALUES
     ("Companies", "/", 1, 0),
     ("Universities", "/page2", 1, 0),
-    ("Students", "/page3", 1, 0),
+    ("Case study", "/page3", 1, 0),
     ("About us", "/page4", 1, 0),
     ("Contact us", "", 1, 1);
 
@@ -1531,7 +1592,7 @@ VALUES
     ),
     (
         "Select & Start",
-        "Get proposals,select and launch your project.",
+        "Get proposals, select and launch your project.",
         1
     ),
     (
@@ -1719,14 +1780,14 @@ VALUES
         "on le voit toujours de face.",
         "💬  Francis Blanche",
         1,
-        61
+        65
     ),
     (
         "J'aimerais terminer sur un message d'espoir. Je n'en ai pas. En échange, ",
         "est-ce que deux messages de désespoir vous iraient ?",
         "💬  Woody Allen",
         1,
-        62
+        66
     );
 
 INSERT INTO
@@ -1767,7 +1828,10 @@ INSERT INTO
         amount,
         status,
         languages_id,
-        images_id
+        images_id,
+        images_id1,
+        images_id2,
+        images_id3
     )
 VALUES(
         "HOMECORE x EM Normandie",
@@ -1780,7 +1844,10 @@ VALUES(
         6,
         0,
         1,
-        47
+        47,
+        67,
+        68,
+        69
     ),(
         "KEYENA x PPA Business School",
         "Étude de marché",
@@ -1792,7 +1859,10 @@ VALUES(
         6,
         1,
         1,
-        48
+        48,
+        67,
+        68,
+        69
     ),(
         "OBOX x ISE Junia",
         "Étude de faisabilité",
@@ -1804,7 +1874,10 @@ VALUES(
         6,
         0,
         1,
-        47
+        47,
+        67,
+        68,
+        69
     ),(
         "Mon Magasin en Ville x HETIC",
         "Conception UX/UI",
@@ -1816,7 +1889,10 @@ VALUES(
         6,
         1,
         1,
-        47
+        47,
+        67,
+        68,
+        69
     );
 
 INSERT INTO

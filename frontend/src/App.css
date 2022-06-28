@@ -117,7 +117,7 @@ button {
 .arrow3 {
   width: 65%;
   padding-left: 28%;
-  padding-top:5%;
+  padding-top: 5%;
   grid-column-start: 3;
   grid-column-end: 5;
   grid-row-start: 3;
@@ -132,16 +132,16 @@ button {
 .tc4E {
   color: var(--green);
 }
-.tc4e2{
-    color: var(--black);
+.tc4e2 {
+  color: var(--black);
 }
 @media (max-width: 768px) {
-.tc4E {
+  .tc4E {
     color: var(--black);
   }
-.tc4e2{
-  color: var(--green);
-}
+  .tc4e2 {
+    color: var(--green);
+  }
 }
 .bg4e-button {
   color: var(--green);
@@ -269,21 +269,21 @@ button {
   aspect-ratio: 16/9;
 }
 #carousel-logo-E7 {
-    max-width: 33%;
-    align-self: flex-start;
+  max-width: 33%;
+  align-self: flex-start;
 }
 
-@media (max-width: 769px){
-#carousel-logo-E7{
-  max-width: 25%;
-  width: 25%;
-  height: 15%;
-}
+@media (max-width: 769px) {
+  #carousel-logo-E7 {
+    max-width: 25%;
+    width: 25%;
+    height: 15%;
+  }
 
-#carousel-img-E7 {
-  max-width: 55%;
-  max-height: 55%;
-aspect-ratio: 9/16;
+  #carousel-img-E7 {
+    max-width: 55%;
+    max-height: 55%;
+    aspect-ratio: 9/16;
   }
 }
 
@@ -296,7 +296,6 @@ aspect-ratio: 9/16;
   justify-content: center;
   align-items: center;
 }
-
 
 /*logo in 6E*/
 .logo {
@@ -312,9 +311,7 @@ aspect-ratio: 9/16;
   aspect-ratio: 1 / 1;
 }
 
-
-
-.ar-1{
+.ar-1 {
   aspect-ratio: 1;
 }
 
@@ -379,7 +376,8 @@ aspect-ratio: 9/16;
   font-weight: bold;
 }
 
-.menu-bg, #menu {
+.menu-bg,
+#menu {
   top: 0;
   left: auto;
   position: absolute;
@@ -394,7 +392,7 @@ aspect-ratio: 9/16;
   height: 0;
   background: radial-gradient(circle, var(--green), var(--green));
   background-attachment: local;
-  border-radius:50%;
+  border-radius: 50%;
   transition: 0.3s ease;
   display: flex;
   justify-content: flex-end;
@@ -435,7 +433,12 @@ aspect-ratio: 9/16;
 .change-bg {
   width: 520px;
   height: 460px;
-  transform: translate(-60%,-30%);
+  transform: translate(-60%, -30%);
 }
 
 /* For burger menu*/
+
+#trytorotate {
+  transform: rotateY(180deg);
+  transition: 0.3s ease;
+}

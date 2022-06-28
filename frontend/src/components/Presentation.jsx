@@ -22,15 +22,15 @@ function Presentation() {
 
   return (
     <section className="bg-slate-100 text-gray-800">
-      <div className="container mx-auto flex px-5 py-12 lg:flex-row flex-col items-center space-x-4">
-        <div className="lg:max-w-lg mr-4 lg:w-full md:w-1/2 w-5/6 ">
+      <div className="container mx-auto flex flex-col px-5 py-12 space-x-4 lg:flex-row">
+        <div className="mr-4 w-5/6 md:max-w-lg md:w-full ">
           <img
             className="object-cover object-center hidden lg:block"
             src={data.image_link}
             alt={data.image_alt}
           />
         </div>
-        <div className="flex flex-col justify-start lg:mb-16 lg:items-center lg:pr-32 ">
+        <div className="flex flex-col lg:mb-16 lg:pr-32 ">
           <h3 className="flex flex-start text-left text-green-500 font-bold">
             {data.title}
           </h3>

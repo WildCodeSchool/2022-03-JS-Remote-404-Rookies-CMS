@@ -56,6 +56,12 @@ class ImageManager extends AbstractManager {
     );
   }
 
+  findFixedImagesForProject() {
+    return this.connection.query(
+      `select image_link, image_alt from images where categorie = "ProjectFixed"`
+    );
+  }
+
   deleteImage(id) {
     return this.connection.query(`delete from images where id = ?`, [id]);
   }

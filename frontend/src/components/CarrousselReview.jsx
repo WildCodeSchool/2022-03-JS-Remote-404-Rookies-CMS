@@ -1,17 +1,32 @@
+import axios from "axios";
+import { useContext, useState, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
-import jason from "../data/generated";
+import ExportContext from "../contexts/Context";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import CarrousselReviewCard from "./CarrousselReviewCard";
 
 function CarrousselReview() {
+  const { language } = useContext(ExportContext.Context);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/carrousselreview/${language}`)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  }, [language]);
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <section className="w-full">
         <h2 className="text-center text-green font-bold md:text-xl text-lg lg:text-2xl pb-4">
-          Testimonials
+          {data[0] && data[0].title}
         </h2>
         <h3 className="text-center font-bold text-xl md:text-2xl lg:text-4xl pb-4 lg:pb-20 ">
-          What our customers say about us
+          {data[0] && data[0].sub_title}
         </h3>
         <div className="mb-2">
           <Carousel
@@ -25,9 +40,10 @@ function CarrousselReview() {
             centerMode
             className="w-full h-full mb-20"
           >
-            {jason.map((elem) => (
-              <CarrousselReviewCard {...elem} />
-            ))}
+            {data &&
+              data.map((elem) => {
+                return <CarrousselReviewCard {...elem} />;
+              })}
           </Carousel>
         </div>
       </section>

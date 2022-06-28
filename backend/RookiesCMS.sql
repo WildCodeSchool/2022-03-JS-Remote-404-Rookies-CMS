@@ -423,15 +423,26 @@ CREATE TABLE IF NOT EXISTS `RookiesCMS`.`profit` (
 -- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS `RookiesCMS`.`profit_elements` (
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `title` VARCHAR(255) NOT NULL,
-    `text` LONGTEXT NOT NULL,
-    `profit_id` INT NOT NULL,
-    PRIMARY KEY (`id`, `profit_id`),
-    UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-    INDEX `fk_benefices_elements_benefices1_idx` (`profit_id` ASC),
-    CONSTRAINT `fk_benefices_elements_benefices1` FOREIGN KEY (`profit_id`) REFERENCES `RookiesCMS`.`profit` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoDB;
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255) NOT NULL,
+  `text` LONGTEXT NOT NULL,
+  `profit_id` INT NOT NULL,
+  `images_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `profit_id`, `images_id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) ,
+  INDEX `fk_benefices_elements_benefices1_idx` (`profit_id` ASC) ,
+  INDEX `fk_profit_elements_images1_idx` (`images_id` ASC) ,
+  CONSTRAINT `fk_benefices_elements_benefices1`
+    FOREIGN KEY (`profit_id`)
+    REFERENCES `RookiesCMS`.`profit` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_profit_elements_images1`
+    FOREIGN KEY (`images_id`)
+    REFERENCES `RookiesCMS`.`images` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 
@@ -1187,55 +1198,99 @@ VALUES
         "Topic BackGround",
         1
     ),(
-        "https://ibb.co/JcL4kwf",
+        "https://i.ibb.co/NFhPYd8/topics2.png",
         "Topic Logo",
         0,
         "",
         "Topic Logo",
         1
     ),(
-        "https://ibb.co/WKMjnjq",
+        "https://i.ibb.co/vzTR1Rg/topics1.png",
         "Topic Logo",
         0,
         "",
         "Topic Logo",
         1
     ),(
-        "https://ibb.co/qJzZYjY",
+        "https://i.ibb.co/FH9P434/topics5.png",
         "Topic Logo",
         0,
         "",
         "Topic Logo",
         1
     ),(
-        "https://ibb.co/gSMh0dT",
+        "https://i.ibb.co/v3xRNhP/topics4.png",
         "Topic Logo",
         0,
         "",
         "Topic Logo",
         1
     ),(
-        "https://ibb.co/YbrPvqG",
+        "https://i.ibb.co/CWrmxTF/topics3.png",
         "Topic Logo",
         0,
         "",
         "Topic Logo",
         1
     ),(
-        "https://ibb.co/jbPh8pN",
+        "https://i.ibb.co/xXth24k/instagram.png",
         "instagram Logo",
         0,
         "",
         "RS Logo",
         1
     ),(
-        "https://ibb.co/crsxSVd",
+        "https://i.ibb.co/CHSW3DF/linkedin.png",
         "Linkedin Logo",
         0,
         "https://www.linkedin.com/company/rookiesprojects/?originalSubdomain=fr",
         "RS Logo",
         1
-    );
+    ),(
+        "https://i.ibb.co/F4tWNyj/sheet.png",
+        "sheet",
+        0,
+        "",
+        "Profit Logo",
+        1
+    ),(
+        "https://i.ibb.co/p3MsVdK/network.png",
+        "network",
+        0,
+        "",
+        "Profit Logo",
+        1
+    ),(
+        "https://i.ibb.co/xXk1KvB/pen.png",
+        "pen",
+        0,
+        "",
+        "Profit Logo",
+        1
+    ),(
+        "https://i.ibb.co/Zg5ykYX/clock.png",
+        "clock",
+        0,
+        "",
+        "Profit Logo",
+        1
+        ),
+        (
+        "https://thumbs.dreamstime.com/b/beau-paysage-magique-naturel-avec-une-cascade-kirkjufell-pr%C3%A8s-du-volcan-islandais-pays-exotiques-lieux-stup%C3%A9fiants-atraction-169370714.jpg",
+        "Water an grass",
+        0,
+        "",
+        "Quote Img",
+        1
+        ),
+        (
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-UnVr63MT6FxMD2GupjUAg-J7XXvPtjySnw&usqp=CAU",
+        "Twilight",
+        0,
+        "",
+        "Quote Img",
+        1
+        );
 
 insert into
     `RookiesCMS`.`navigation`(languages_id, images_id)
@@ -1357,27 +1412,31 @@ VALUES
         1
     );
 insert into
-    `RookiesCMS`.`profit_elements` (title, text, profit_id)
+    `RookiesCMS`.`profit_elements` (title, text, profit_id,images_id)
 VALUES
     (
         "Easily design your projects",
         "Express tour nees and objectives in few clicks or talk with one of our experts and we take care of the rest.",
-        1
+        1,
+        61
     ),
     (
         "Access a large network",
         "More than 500 opportunities referenced in our project database in France and abroad.",
-        1
+        1,
+        62
     ),
     (
         "Simplified project management",
         "We take care of all administrative tasks ans provide with a platrform to manage your projects efficienly.",
-        1
+        1,
+        63
     ),
     (
         "Detailled Reports",
         "Lorem ipsum dolor sit amet, consectetur adpiscing elit. Mattis et sed nam sem tellus erat.",
-        1
+        1,
+        64
     );
 insert into
     `RookiesCMS`.`KPI` (title, sub_title, languages_id)
@@ -1598,6 +1657,76 @@ VALUES
         "💬  Richard Branson",
         1,
         37
+    ),
+    (
+        "Un jardinier qui sabote une pelouse ",
+        "est un assassin en herbe.",
+        "💬  Raymond Devos",
+        1,
+        39
+    ),
+    (
+        "Les aspirations des pauvres ne sont pas très éloignées ",
+        "des réalités des riches.",
+        "💬  Pierre Desproges",
+        1,
+        40
+    ),
+    (
+        "Je suis capable du meilleur comme du pire, mais, dans le pire, ",
+        "c'est moi le meilleur.",
+        "💬  Coluche",
+        1,
+        41
+    ),
+    (
+        "C'est pas parce qu'on a rien à dire qu'il faut ",
+        "fermer sa gueule.",
+        "💬  Jean Amadou",
+        1,
+        42
+    ),
+    (
+        "Socrate disait: 'Je sais que je ne sais rien', donc chacun de nous en sait plus que Socrate, ",
+        "puisque nous savons au moins que Socrate ne savait rien.",
+        "💬  Coluche",
+        1,
+        43
+    ),
+    (
+        "Boire du café empêche de dormir. Par contre, ",
+        "dormir empêche de boire du café.",
+        "💬  Philippe Geluck",
+        1,
+        44
+    ),
+    (
+        "Si l'herbe est plus verte dans le jardin de ton voisin, ",
+        "laisse-le s'emmerder à la tondre.",
+        "💬  Fred Allen",
+        1,
+        45
+    ),
+    (
+        "Si l'herbe est plus verte dans le jardin de ton voisin, ",
+        "laisse-le s'emmerder à la tondre.",
+        "💬  Fred Allen",
+        1,
+        46
+    ),
+    (
+        "Il a un côté sympathique, seulement ",
+        "on le voit toujours de face.",
+        "💬  Francis Blanche",
+        1,
+        61
+    ),
+    (
+        "J'aimerais terminer sur un message d'espoir. Je n'en ai pas. En échange, ",
+        "est-ce que deux messages de désespoir vous iraient ?",
+        "💬  Woody Allen",
+        1,
+        62
     );
 
 INSERT INTO
@@ -1721,3 +1850,4 @@ VALUES
 INSERT INTO
     `RookiesCMS`.`study_case_topics`(title, sub_title, images_id, study_case_home_id)
 VALUES("Marketing", "Étude de marché", 56, 1),("Communication", "Mentor of Web Design", 57, 1),("Digital et Web", "Developpement", 58, 1),("Graphisme", "Mentor of UI/UX", 54, 1),("Ingénierie", "Mentor of UI/UX", 55, 1);
+

@@ -27,8 +27,7 @@ class ProfitManager extends AbstractManager {
 
   findProfitElement(languagesId) {
     return this.connection.query(
-      `select title, text from profit_elements
-      where profit_id = ?`,
+      `select p.title, p.text, i.image_link, image_alt from profit_elements as p inner join images as i where i.id = p.images_id and profit_id = ?`,
       [languagesId]
     );
   }

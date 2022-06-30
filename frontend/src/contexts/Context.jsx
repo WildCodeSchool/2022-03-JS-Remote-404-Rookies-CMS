@@ -14,9 +14,19 @@ function Provider({ children }) {
   };
   const media = window.innerWidth < 769;
 
+  const [user, setUser] = useState();
+
   return (
     <Context.Provider
-      value={{ isFormOpen, handleForm, language, selectLanguage, media }}
+      value={{
+        isFormOpen,
+        handleForm,
+        language,
+        selectLanguage,
+        media,
+        user,
+        setUser,
+      }}
     >
       {children}
     </Context.Provider>

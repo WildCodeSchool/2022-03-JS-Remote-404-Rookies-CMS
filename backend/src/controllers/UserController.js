@@ -121,7 +121,7 @@ class UserController {
         .json(email);
     } catch (err) {
       console.error(err);
-      res.Status(500).send(err);
+      res.status(500).send(err);
     }
   };
 }

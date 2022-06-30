@@ -50,18 +50,18 @@ export default function Navbar() {
       <div className="flex justify-between align-center items-center my-14 mx-14">
         <img src={data?.image_link} alt={data?.image_alt} className="static" />
         <ul className="flex gap-10 font-bold text-xl">
-          <Link to={`/page1/${language}`}>
+          <Link to={`/${language}/page1`}>
             <li className="navTextGreen">
               {data.links && data.links[0].label}
             </li>
           </Link>
-          <Link to={`/page2/${language}`}>
+          <Link to={`/${language}/page2`}>
             <li>{data.links && data.links[1].label}</li>
           </Link>
-          <Link to={`/page3/${language}`}>
+          <Link to={`/${language}/page3`}>
             <li>{data.links && data.links[2].label}</li>
           </Link>
-          <Link to={`/page4/${language}`} className="hidden">
+          <Link to={`${language}/page4/`} className="hidden">
             <li>{data.links && data.links[3].label}</li>
           </Link>
         </ul>

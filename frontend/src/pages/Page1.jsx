@@ -10,7 +10,6 @@ import KPI from "../components/KPI";
 import CarrousselReview from "../components/CarrousselReview";
 import QA from "../components/QA";
 import NewsletterComponent from "../components/newsletter_component";
-import CtaCaseStudy from "../components/CtaCaseStudy";
 import jason from "../data/generated";
 
 export default function Page1() {
@@ -26,7 +25,6 @@ export default function Page1() {
       <KPI />
       <QA />
       <NewsletterComponent />
-      <CtaCaseStudy />
     </div>
   );
 }

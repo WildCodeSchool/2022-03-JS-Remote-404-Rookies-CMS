@@ -11,9 +11,9 @@ import Page2 from "./pages/Page2";
 import Page3 from "./pages/Page3";
 import Page4 from "./pages/Page4";
 
-import LogoCarouselAdmin from "./pages/CarouselLogoAdmin";
+import LogoCarouselAdmin from "./components/Admin/CarouselLogoAdmin";
+
 import Formulaire from "./components/Formulaire";
-import CarrousselReview from "./components/CarrousselReview";
 import "./App.css";
 
 function App() {
@@ -28,7 +28,6 @@ function App() {
             <Route path=":language/page2" element={<Page2 />} />
             <Route path=":language/page3" element={<Page3 />} />
             <Route path=":language/page4" element={<Page4 />} />
-            <Route path=":language/page5" element={<LogoCarouselAdmin />} />
             <Route path="/rookies-admin" element={<Login />} />
           </Route>
           <Route
@@ -39,7 +38,7 @@ function App() {
               </ProtectedRoute>
             }
           >
-            <Route path="carroussel" element={<CarrousselReview />} />
+            <Route path="logoCarousel" element={<LogoCarouselAdmin />} />
           </Route>
         </Routes>
       </Router>

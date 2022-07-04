@@ -21,8 +21,7 @@ class CtaCaseStudy extends AbstractManager {
 
   findCtaCaseStudy(languagesId) {
     return this.connection.query(
-      `select c.text,p.label, from cta_study_case as c
-      where c.languages_id = ?`,
+      `select c.text, c.cta_label from cta_case_study as c where c.languages_id = ?`,
       [languagesId]
     );
   }

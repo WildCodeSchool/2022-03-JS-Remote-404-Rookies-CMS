@@ -15,41 +15,28 @@ class ProjectController {
   };
 
   static read = async (req, res) => {
-    models.project
-      .findProject(req.params.languages_id)
-      .then(([rows]) => {
-        models.images
-          .findFixedImagesForProject()
-          .then((result) => {
-            for (let i = 0; i < rows.length; i++) {
-              rows[i].imagesFixed = result[0];
-            }
-            if (result[0] == null) {
-              res.Status(404);
-            } else {
-              for (let i = 0; i < rows.length; i++) {
-                models.project.findProjectMenber(rows[i].id).then((final) => {
-                  rows[i].projectMember = final[0];
-                });
-              }
-            }
-            setTimeout(() => {
-              res.send(rows);
-            }, 100);
-          })
-          .catch((err) => {
-            console.error(err);
-            res.Status(500);
-          });
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
+    try {
+      const projects = await models.project.findProject(
+        req.params.languages_id
+      );
+      if (projects[0]) {
+        const images = await models.images.findFixedImagesForProject();
+        const projectMember = await Promise.all(
+          projects.map((proj) =>
+            models.project.findProjectMenber(proj.id).then((final) => final[0])
+          )
+        );
+
+        for (let i = 0; i < projects.length; i++) {
+          projects[i].imagesFixed = images[0];
+          projects[i].projectMember = projectMember[i];
+        }
+      }
+      res.status(200).json(projects);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Internal Error");
+    }
   };
 
   static edit = (req, res) => {

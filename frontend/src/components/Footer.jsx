@@ -57,7 +57,7 @@ function Footer() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="0"
-                className="w-10 text-white bg-gray-500 rounded-sm"
+                className="w-1/3 text-white bg-gray-500 rounded-sm object-contain"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -67,14 +67,14 @@ function Footer() {
                 <circle cx="4" cy="4" r="2" stroke="none" />
               </svg>
             </div>
-            <div className="ml-3">
+            <div className="mb-4 -mt-1 -ml-6">
               <svg
                 fill="none"
                 stroke="currentColor"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                className="w-11 text-gray-500"
+                className="w-2/5 text-gray-500 object-contain"
                 viewBox="0 0 24 24"
               >
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />

@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { HashLink as Link } from "react-router-hash-link";
+import { NavLink, useLocation } from "react-router-dom";
 import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import ExportContext from "../contexts/Context";
 
-export default function Navbar() {
-  const { language, selectLanguage, media } = useContext(ExportContext.Context);
+function Navbar() {
+  const { language, selectLanguage, handleLanguages, languages, media } =
+    useContext(ExportContext.Context);
+  const location = useLocation();
 
   const [data, setData] = useState([]);
 
@@ -15,10 +17,16 @@ export default function Navbar() {
   const [css2, setCss2] = useState("menu-bg");
   const [click, setClick] = useState(false);
 
-  const options = [
-    { value: 1, label: "GB", state: true },
-    { value: 2, label: "FR", state: true },
-  ];
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/languages/`)
+      .then((response) => {
+        handleLanguages(response.data);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  }, []);
 
   useEffect(() => {
     axios
@@ -47,23 +55,37 @@ export default function Navbar() {
 
   if (!media) {
     return (
-      <div className="flex justify-between align-center items-center my-14 mx-14">
+      <div className="flex justify-between w-full align-center items-center fixed bg-white p-2 z-50">
         <img src={data?.image_link} alt={data?.image_alt} className="static" />
-        <ul className="flex gap-10 font-bold text-xl">
-          <Link to={`/${language}/page1`}>
-            <li className="navTextGreen">
+        <ul className="flex justify-evenly w-2/4 gap-10 font-bold text-3xl">
+          <NavLink to={`/${language}/page1`}>
+            <li
+              className={
+                location.pathname.includes("page1") ? "tab-active" : "tab"
+              }
+            >
               {data.links && data.links[0].label}
             </li>
-          </Link>
-          <Link to={`/${language}/page2`}>
+          </NavLink>
+          <NavLink
+            to={`/${language}/page2`}
+            className={
+              location.pathname.includes("page2") ? "tab-active" : "tab"
+            }
+          >
             <li>{data.links && data.links[1].label}</li>
-          </Link>
-          <Link to={`/${language}/page3`}>
+          </NavLink>
+          <NavLink
+            to={`/${language}/page3`}
+            className={
+              location.pathname.includes("page3") ? "tab-active" : "tab"
+            }
+          >
             <li>{data.links && data.links[2].label}</li>
-          </Link>
-          <Link to={`${language}/page4/`} className="hidden">
+          </NavLink>
+          <NavLink to={`${language}/page4/`} className="hidden">
             <li>{data.links && data.links[3].label}</li>
-          </Link>
+          </NavLink>
         </ul>
         <div className="flex flex-row">
           <button
@@ -72,37 +94,31 @@ export default function Navbar() {
           >
             {data.links && data.links[4].label}
           </button>
-          {language === "1" ? (
-            <img
-              className="w-10 h-10 justifdy-center items-center mr-2 mt-2"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ3TuVTTYPanFfn3EZRam9bMcnGfnT6zbknA&usqp=CAU"
-              alt="britflag"
-            />
-          ) : (
-            <img
-              className="w-10 h-10 justifdy-center items-center mr-2 mt-2"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShiKc2vuXXlwonKWzUTu1LaaovzuuRA-k9MeN8vZ103iwRpVaSwmcCKfhWZPMmb02fgKE&usqp=CAU"
-              alt="frenchflag"
-            />
-          )}
+          {languages &&
+            languages
+              .filter((lang) => lang.value === language.value)
+              .map((langbis) => (
+                <img src={langbis.images_link} alt={langbis.images_alt} />
+              ))}
           <select
             className="border py-2 px-5"
             name="language"
             id="language"
             onChange={(e) => selectLanguage(e.target.value)}
           >
-            {options
-              .filter((option) => option.state === true)
-              .map((option) => {
-                return (
-                  <option
-                    id="option"
-                    value={option.value}
-                    label={option.label}
-                    key={option.value}
-                  />
-                );
-              })}
+            {languages &&
+              languages
+                .filter((lang) => lang.status === 1)
+                .map((option) => {
+                  return (
+                    <option
+                      id="option"
+                      value={option.languages}
+                      label={option.languages}
+                      key={option.id}
+                    />
+                  );
+                })}
           </select>
         </div>
       </div>
@@ -125,20 +141,26 @@ export default function Navbar() {
           </div>
           <nav className={css1} id="nav">
             <ul>
-              <Link to={`/page1/${language}`}>
-                <li className="navTextGreen -mt-4">
+              <NavLink to={`/${language}/page1`}>
+                <li className="-mt-4 font-bold">
                   {data.links && data.links[0].label}
                 </li>
-              </Link>
-              <Link to={`/page2/${language}`}>
-                <li>{data.links && data.links[1].label}</li>
-              </Link>
-              <Link to={`/page3/${language}`}>
-                <li>{data.links && data.links[2].label}</li>
-              </Link>
-              <Link to={`/page4/${language}`} className="hidden">
-                <li>{data.links && data.links[3].label}</li>
-              </Link>
+              </NavLink>
+              <NavLink to={`/${language}/page2`}>
+                <li className="-mt-4 font-bold">
+                  {data.links && data.links[1].label}
+                </li>
+              </NavLink>
+              <NavLink to={`/${language}/page3`}>
+                <li className="-mt-4 font-bold">
+                  {data.links && data.links[2].label}
+                </li>
+              </NavLink>
+              <NavLink to={`/${language}/page4`} className="hidden">
+                <li className="-mt-4 font-bold">
+                  {data.links && data.links[3].label}
+                </li>
+              </NavLink>
             </ul>
           </nav>
         </div>
@@ -146,3 +168,5 @@ export default function Navbar() {
     </div>
   );
 }
+
+export default Navbar;

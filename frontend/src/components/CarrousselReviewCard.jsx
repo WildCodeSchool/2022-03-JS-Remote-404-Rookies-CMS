@@ -12,7 +12,7 @@ function CarrousselReviewCard(elem) {
           src={elem?.image_link}
           alt={elem?.image_alt}
         />
-        <div className="flex flex-col w-1/2 justify-start mb-10">
+        <div className="flex flex-col justify-evenly w-1/2">
           <h2 className="font-semibold text-sm md:text-lg lg:text-xl -pb-4 lg:mb-10 mb-2">
             {elem?.fullname}
             <br />
@@ -55,7 +55,7 @@ function CarrousselReviewCard(elem) {
         <div className="flex flex-col items-center justify-end w-full mt-6 object-contain">
           <img
             id="carousel-logo-E7"
-            className=" items-center justify-end mb-8"
+            className=" items-center justify-end"
             src={elem?.linkLogo}
             alt={elem?.altLogo}
           />

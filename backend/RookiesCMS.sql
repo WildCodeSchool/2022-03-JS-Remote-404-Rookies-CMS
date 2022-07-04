@@ -101,6 +101,8 @@ CREATE TABLE IF NOT EXISTS `RookiesCMS`.`languages` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `languages` VARCHAR(2) NOT NULL,
     `status` TINYINT NOT NULL,
+    `images_link`LONGTEXT NOT NULL,
+    `images_alt` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC)
 ) ENGINE = InnoDB;
@@ -795,10 +797,10 @@ CREATE TABLE IF NOT EXISTS `RookiesCMS`.`cta_case_study` (
 ) ENGINE = InnoDB;
 
 insert into
-    `RookiesCMS`.`languages` (languages, status)
+    `RookiesCMS`.`languages` (languages, status, images_link, images_alt)
 VALUES
-    ("EN", 1),
-    ("FR", 0);
+    ("EN", 1 ,"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/320px-Flag_of_the_United_Kingdom.svg.png","great bretain flag"),
+    ("FR", 0 , "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/320px-Flag_of_the_United_Kingdom.svg.png", "drapeaux france");
 
 insert into
     `RookiesCMS`.`images`(
@@ -931,7 +933,7 @@ VALUES
         1
     ),
     (
-        "https://tamba-labs.com/wp-content/uploads/2020/12/Logo_Homepage_Main.png",
+        "https://lafrenchtech-aixmarseille.fr/wp-content/uploads/2020/02/TAMBA-LABS.jpg",
         "Tamba Labs",
         0,
         "https://tamba-labs.com/",
@@ -1897,7 +1899,7 @@ VALUES(
 
 INSERT INTO
     `RookiesCMS`.`project_menber`(project_id, images_id)
-VALUES(1, 49),(1, 50),(1, 51);
+VALUES(1, 49),(1, 50),(1, 51),(2, 49),(2, 50),(2, 51),(3, 49),(3, 50),(3, 51),(4, 49),(4, 50),(4, 51);
 
 INSERT INTO
     `RookiesCMS`.`study_case_home`(

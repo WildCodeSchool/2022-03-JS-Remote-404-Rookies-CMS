@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
-import LogoCarouseAdmin from "../components/Module2EAdmin";
-import "../App.css";
+import LogoCarouseAdmin from "./Module2EAdmin";
 
 function LogoCarouselAdmin() {
   const [imageLink, setImageLink] = React.useState("");

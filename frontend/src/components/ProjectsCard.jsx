@@ -10,18 +10,18 @@ function ProjectsCard(project) {
           {project.project.title}
         </h1>
         <h2 className="font-extrabold text-5xl mb-4">
-          {project.project.description}
-        </h2>
-        <h3 className="text-2xl text-gray-600 mb-20">
           {project.project.sub_title}
+        </h2>
+        <h3 className="text-2xl text-gray-600 mb-6">
+          {project.project.description}
         </h3>
         <div className="flex flex-row w-full h-full items-center justify-between place-items-center">
-          <div className="flex flex-row items-center w-3/5 h-2/5 p-2 border-4 rounded-2xl m-6 mb-12">
+          <div className="flex flex-row items-center w-3/5 h-2/5 p-2 border-4 rounded-2xl m-6 mb-12 pr-10">
             {project.project.projectMember.map((item) => (
               <img
                 src={item.image_link}
                 alt={item.image_alt}
-                className="rounded-full -mr-12 ml-6 items-center imgProject imgProjectSize"
+                className="rounded-full -mr-12 ml-6 items-center object-contain"
               />
             ))}
             <img
@@ -58,7 +58,7 @@ function ProjectsCard(project) {
             </div>
           </div>
         </div>
-        <div className="bg-gray-200 rounded-2xl p-6 -pt-8 -pb-10">
+        <div className="bg-gray-200 rounded-2xl px-6 pt-2 pb-6">
           <span />
           <img
             src={project.project.imagesFixed[1].image_link}

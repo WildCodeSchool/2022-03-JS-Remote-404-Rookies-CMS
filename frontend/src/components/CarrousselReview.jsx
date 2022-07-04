@@ -38,7 +38,7 @@ function CarrousselReview() {
             showThumbs={false}
             centerSlidePercentage={100}
             centerMode
-            className="w-full h-full mb-20"
+            className="w-full h-full mb-10"
           >
             {data &&
               data.map((elem) => {

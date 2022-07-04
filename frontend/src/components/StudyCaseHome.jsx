@@ -30,7 +30,7 @@ export default function StudyCaseHome() {
   const backGround = "https://i.ibb.co/qWx2PcX/Topic-Back-Ground.png";
   return (
     <div className=" flex ">
-      <div className="px-16 w-1/2 flex flex-col justify-evenly">
+      <div className="px-16 w-1/2 flex flex-col justify-evenly mt-20">
         <h1>
           No matter your challenge{" "}
           <span className="underline decoration-8 decoration-green-400">
@@ -49,23 +49,23 @@ export default function StudyCaseHome() {
         </button>
       </div>
       <div
-        className="w-1/2 "
+        className="w-1/2 mt-20"
         style={{
           backgroundImage: `url(${backGround})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "90% 140%",
         }}
       >
-        <div className="flex justify-end mr-24">
+        <div className="flex justify-center mr-24">
           <div className="flex flex-col bg-white w-2/5 my-12 p-8 rounded-2xl ">
             <h3>Multiple Topics</h3>
             {object.map((item) => {
               return (
-                <div className="flex ">
+                <div className="flex justify-between">
                   <img
                     src={item.image_link}
                     alt={item.image_alt}
-                    className="w-1/12 h-1/12"
+                    className="w-4/12 aspect-square object-contain"
                   />
                   <div className="">
                     <h2>{item.title}</h2>

@@ -20,6 +20,7 @@ const {
   QuoteController,
   ProjectController,
   CtaCaseStudyController,
+  LanguageController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -136,5 +137,7 @@ router.get("/project/:languages_id", ProjectController.read);
 
 router.get("/ctacasestudy", CtaCaseStudyController.browse);
 router.get("/ctacasestudy/:languages_id", CtaCaseStudyController.read);
+
+router.get("/languages", LanguageController.browse);
 
 module.exports = router;

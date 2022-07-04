@@ -96,7 +96,7 @@ function Navbar() {
           </button>
           {languages &&
             languages
-              .filter((lang) => lang.value === language.value)
+              .filter((lang) => lang.value === languages.languages)
               .map((langbis) => (
                 <img src={langbis.images_link} alt={langbis.images_alt} />
               ))}

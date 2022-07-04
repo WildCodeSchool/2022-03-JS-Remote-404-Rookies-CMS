@@ -56,8 +56,8 @@ export default function StudyCaseHome() {
           backgroundSize: "90% 140%",
         }}
       >
-        <div className="flex justify-end">
-          <div className="flex flex-col bg-white w-2/5 mr-24 my-12 p-8 rounded-2xl ">
+        <div className="flex justify-end mr-24">
+          <div className="flex flex-col bg-white w-2/5 my-12 p-8 rounded-2xl ">
             <h3>Multiple Topics</h3>
             {object.map((item) => {
               return (

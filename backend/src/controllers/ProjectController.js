@@ -14,36 +14,42 @@ class ProjectController {
       });
   };
 
-  static read = (req, res) => {
-    models.project.findProject(req.params.languages_id).then(([rows]) => {
-      models.images
-        .findFixedImagesForProject()
-        .then((result) => {
-          for (let i = 0; i < rows.length; i++) {
-            rows[i].imagesFixed = result[0];
-          }
-          if (result[0] == null) {
-            res.sendStatus(404);
-          } else {
-            models.project
-              .findProjectMenber()
-              .then((final) => {
-                for (let i = 0; i < rows.length; i++) {
+  static read = async (req, res) => {
+    models.project
+      .findProject(req.params.languages_id)
+      .then(([rows]) => {
+        models.images
+          .findFixedImagesForProject()
+          .then((result) => {
+            for (let i = 0; i < rows.length; i++) {
+              rows[i].imagesFixed = result[0];
+            }
+            if (result[0] == null) {
+              res.Status(404);
+            } else {
+              for (let i = 0; i < rows.length; i++) {
+                models.project.findProjectMenber(rows[i].id).then((final) => {
                   rows[i].projectMember = final[0];
-                }
-                res.send(rows);
-              })
-              .catch((err) => {
-                console.error(err);
-                res.sendStatus(500);
-              });
-          }
-        })
-        .catch((err) => {
-          console.error(err);
-          res.sendStatus(500);
-        });
-    });
+                });
+              }
+            }
+            setTimeout(() => {
+              res.send(rows);
+            }, 100);
+          })
+          .catch((err) => {
+            console.error(err);
+            res.Status(500);
+          });
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
   };
 
   static edit = (req, res) => {

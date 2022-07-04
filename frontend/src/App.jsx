@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MainLayout from "@pages/Layout/MainLayout";
+import MainLayout from "./pages/Layout/MainLayout";
 import ExportContext from "./contexts/Context";
 
 import DashboardLayout from "./pages/Layout/DashboardLayout";

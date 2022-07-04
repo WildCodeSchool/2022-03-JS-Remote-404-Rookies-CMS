@@ -30,11 +30,7 @@ function Presentation() {
             alt={data.image_alt}
           />
         </div>
-<<<<<<< consumebackend
-        <div className="flex flex-col lg:mb-16 lg:pr-32 ">
-=======
         <div className="flex flex-col justify-start lg:mb-16  lg:pr-32 ">
->>>>>>> dev
           <h3 className="flex flex-start text-left text-green-500 font-bold">
             {data.title}
           </h3>

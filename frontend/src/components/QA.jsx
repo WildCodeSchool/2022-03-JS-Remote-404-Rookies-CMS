@@ -11,7 +11,7 @@ function QA() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/QAS/${language}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/QAS/${language.id}`)
       .then((response) => {
         setData(response.data);
       })

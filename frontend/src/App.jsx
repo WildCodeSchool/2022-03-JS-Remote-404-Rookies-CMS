@@ -9,7 +9,10 @@ import Login from "./pages/Login";
 import Page1 from "./pages/Page1";
 import Page2 from "./pages/Page2";
 import Page3 from "./pages/Page3";
-import Page4 from "./pages/Page4";
+import AdminPage from "./pages/Page4";
+import AdminPageCompany from "./pages/AdminPageCompany";
+import AdminPageSchool from "./pages/AdminPageSchool";
+import AdminPageCaseStudy from "./pages/AdminPageCaseStudy";
 
 import LogoCarouselAdmin from "./components/Admin/CarouselLogoAdmin";
 
@@ -27,7 +30,6 @@ function App() {
             <Route path=":language/page1" element={<Page1 />} />
             <Route path=":language/page2" element={<Page2 />} />
             <Route path=":language/page3" element={<Page3 />} />
-            <Route path=":language/page4" element={<Page4 />} />
             <Route path="/rookies-admin" element={<Login />} />
           </Route>
           <Route
@@ -38,6 +40,10 @@ function App() {
               </ProtectedRoute>
             }
           >
+            <Route path="school" element={<AdminPageSchool />} />
+            <Route path="company" element={<AdminPageCompany />} />
+            <Route path="caseStudy" element={<AdminPageCaseStudy />} />
+            <Route path="" element={<AdminPage />} />
             <Route path="logoCarousel" element={<LogoCarouselAdmin />} />
           </Route>
         </Routes>

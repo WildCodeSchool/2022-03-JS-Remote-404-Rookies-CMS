@@ -10,7 +10,7 @@ function Home(props) {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/homes/${language}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/homes/${language.id}`)
       .then((response) => {
         setData(response.data);
       })
@@ -21,12 +21,11 @@ function Home(props) {
 
   const backGround = data?.image_link_background;
   const school = "trytorotate";
-  console.warn(school);
 
   return (
     <div
       className="bg-white bg-cover flex flex-col justify-center  py-16 lg:max-w-full lg:flex-row"
-      id={props.status === 1 ? "trytorotate" : ""}
+      id={props.status === 1 ? school : ""}
       style={{
         backgroundImage: `url(${backGround})`,
         backgroundRepeat: "no-repeat",

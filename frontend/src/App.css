@@ -173,7 +173,6 @@ button {
 
 .carousel {
   width: 100%;
-  height: 100%;
   margin-bottom: 2%;
   overflow: hidden;
 }
@@ -445,16 +444,16 @@ button {
   transition: 0.3s ease;
 }
 
-.quote{
+.quote {
   position: relative;
   top: -3rem;
 }
 
-.imgProject{
-aspect-ratio: 1/1;
-object-fit: contain;
+.imgProject {
+  aspect-ratio: 1/1;
+  object-fit: contain;
 }
-.imgProjectSize{
+.imgProjectSize {
   object-fit: contain;
   max-width: 15%;
   max-height: 20%;

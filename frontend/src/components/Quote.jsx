@@ -8,7 +8,7 @@ function Quote() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/quote/${language}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/quote/${language.id}`)
       .then((response) => {
         setQuotes(response.data);
       })

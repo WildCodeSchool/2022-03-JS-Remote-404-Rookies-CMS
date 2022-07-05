@@ -19,7 +19,7 @@ class CtaCaseStudy {
       .findCtaCaseStudy(req.params.languages_id)
       .then(([rows]) => {
         if (rows[0] == null) {
-          res.Status(404).send("There is nothing here bitch !");
+          res.status(404).send("There is nothing here bitch !");
         } else {
           res.send(rows[0]);
         }

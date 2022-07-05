@@ -1,12 +1,10 @@
 import { Outlet } from "react-router-dom";
 
 import React from "react";
-import NavbarAdmin from "../../components/Admin/NavbarAdmin";
 
 function DashboardLayout() {
   return (
-    <div className="flex w-full  ">
-      <NavbarAdmin />
+    <div className="flex w-full">
       <Outlet />
     </div>
   );

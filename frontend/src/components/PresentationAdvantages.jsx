@@ -11,7 +11,9 @@ function PresentationAdvantages() {
   useEffect(() => {
     axios
       .get(
-        `${import.meta.env.VITE_BACKEND_URL}/presentationadvantages/${language}`
+        `${import.meta.env.VITE_BACKEND_URL}/presentationadvantages/${
+          language.id
+        }`
       )
       .then((response) => {
         setData(response.data);

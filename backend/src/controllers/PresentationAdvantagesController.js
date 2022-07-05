@@ -18,7 +18,7 @@ class PresentationAdvantagesController {
       .findPresentationAdvantages(req.params.languages_id)
       .then(([rows]) => {
         if (rows[0] == null) {
-          res.Status(404).send("There is nothing here !");
+          res.status(404).send("There is nothing here !");
         } else {
           res.send(rows[0]);
         }

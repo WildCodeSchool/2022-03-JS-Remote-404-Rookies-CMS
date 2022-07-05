@@ -10,7 +10,7 @@ export default function CtaCaseStudy() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/ctacasestudy/${language}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/ctacasestudy/${language.id}`)
       .then((response) => {
         setData(response.data);
       })
@@ -22,7 +22,7 @@ export default function CtaCaseStudy() {
   console.warn(media);
 
   return (
-    <section className="bg-slate-100">
+    <section className="bg-slate-100 mt-8">
       <div className="flex flex-row lg: flex justify-center mx-4">
         <div className=" w-4/5 flex justify-center my-4 mx-10 rounded-lg">
           <div>

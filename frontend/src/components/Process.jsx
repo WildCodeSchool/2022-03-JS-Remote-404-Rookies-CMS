@@ -11,7 +11,7 @@ function Process() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/Processs/${language}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/Processs/${language.id}`)
       .then((response) => {
         setData(response.data);
       })

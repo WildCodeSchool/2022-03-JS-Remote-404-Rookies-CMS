@@ -11,7 +11,7 @@ function CarrousselReview() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/carrousselreview/${language}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/carrousselreview/${language.id}`)
       .then((response) => {
         setData(response.data);
       })

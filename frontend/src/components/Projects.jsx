@@ -10,7 +10,7 @@ function Projetcs() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/project/${language}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/project/${language.id}`)
       .then((response) => {
         console.warn(response.data);
         setProjects(response.data);

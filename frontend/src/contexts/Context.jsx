@@ -8,15 +8,16 @@ function Provider({ children }) {
     setIsFormOpen(!isFormOpen);
   };
 
-  const [languages, setLanguages] = useState();
+  const [allLanguages, setAllLanguages] = useState();
   const handleLanguages = (toSet) => {
-    setLanguages(toSet);
+    setAllLanguages(toSet);
   };
 
-  const [language, setLanguage] = useState(1);
+  const [language, setLanguage] = useState({ id: 1 });
   const selectLanguage = (option) => {
     setLanguage(option);
   };
+
   const media = window.innerWidth < 769;
 
   const [user, setUser] = useState();
@@ -24,7 +25,7 @@ function Provider({ children }) {
   return (
     <Context.Provider
       value={{
-        languages,
+        allLanguages,
         handleLanguages,
         isFormOpen,
         handleForm,

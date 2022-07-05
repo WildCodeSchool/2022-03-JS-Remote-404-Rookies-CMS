@@ -9,7 +9,7 @@ function KPI() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/kpis/${language}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/kpis/${language.id}`)
       .then((response) => {
         setData(response.data);
       })

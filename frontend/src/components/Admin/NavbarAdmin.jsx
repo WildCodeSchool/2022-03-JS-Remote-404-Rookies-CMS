@@ -3,41 +3,17 @@ import { Link } from "react-router-dom";
 
 function NavbarAdmin() {
   return (
-    <div className="navbar-layout h-screen">
-      <div className="menu-items">
-        <ul>
-          Page1
-          <li>
-            <Link to="/dashboard/carroussel">Carroussel</Link>
+    <div className="flex flex-row text-center justify-evenly navbar-layout h-full w-full">
+      <div className="flex flex-row border-4 justify-evenly border-green-400 text-xl text-green-600 font-bold w-full">
+        <ul className="flex flex-row m-4 justify-evenly underline w-full">
+          <li className="flex justify-between">
+            <Link to="/dashboard/company">Company</Link>
           </li>
-          <li />
-          <Link to="/dashboard/comp2">Compoent 2</Link>
-          <li>
-            <Link to="/dashboard/comp3">Compoent 3</Link>
+          <li className="flex justify-between">
+            <Link to="/dashboard/school">School</Link>
           </li>
-        </ul>
-        <ul>
-          Page2
-          <li>
-            <Link to="/dashboard/caroussel">Carroussel</Link>
-          </li>
-          <li>
-            <Link to="/dashboard/comp2">Compoent 2</Link>
-          </li>
-          <li>
-            <Link to="/dashboard/comp3">Compoent 3</Link>
-          </li>
-        </ul>
-        <ul>
-          Page3
-          <li>
-            <Link to="/dashboard/caroussel">Carroussel</Link>
-          </li>
-          <li>
-            <Link to="/dashboard/comp2">Compoent 2</Link>
-          </li>
-          <li>
-            <Link to="/dashboard/comp3">Compoent 3</Link>
+          <li className="flex justify-between">
+            <Link to="/dashboard/casestudy">CaseStudy</Link>
           </li>
         </ul>
       </div>

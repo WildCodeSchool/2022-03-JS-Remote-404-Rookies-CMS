@@ -21,6 +21,8 @@ const {
   ProjectController,
   CtaCaseStudyController,
   LanguageController,
+  StudyCaseHomeController,
+  ContactFormController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -139,5 +141,13 @@ router.get("/ctacasestudy", CtaCaseStudyController.browse);
 router.get("/ctacasestudy/:languages_id", CtaCaseStudyController.read);
 
 router.get("/languages", LanguageController.browse);
+
+router.get("/studygethomes/:languages_id", StudyCaseHomeController.browse);
+router.get("/studygethome/:languages_id", StudyCaseHomeController.read);
+router.put("/studygethome/:id", StudyCaseHomeController.edit);
+router.post("/studygethome", StudyCaseHomeController.add);
+router.delete("/studygethome/:id", StudyCaseHomeController.delete);
+
+router.get("/contactForm/:languages_id", ContactFormController.browse);
 
 module.exports = router;

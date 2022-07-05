@@ -1,24 +1,31 @@
 const models = require("../models");
 
-class PresentationController {
+class StudyCaseHomeController {
   static browse = (req, res) => {
-    models.presentation
-      .findAll()
+    models.studyCaseHome
+      .findStudyCaseHome(req.params.languages_id)
       .then(([rows]) => {
-        res.send(rows);
+        models.studyCaseHome
+          .findStudyCaseHome(rows[0].languages_id)
+          .then((result) => {
+            rows[0].elements = result[0];
+            res.status(200).json(rows[0]);
+          })
+          .catch((err) => {
+            res.status(500).send(err);
+          });
       })
       .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+        res.status(500).send(err);
       });
   };
 
   static read = (req, res) => {
-    models.presentation
-      .findPresentation(req.params.languages_id)
+    models.studyCaseHome
+      .findStudyCaseHome(req.params.languages_id)
       .then(([rows]) => {
         if (rows[0] == null) {
-          res.status(404).send("There is nothing here !");
+          res.sendStatus(404);
         } else {
           res.send(rows[0]);
         }
@@ -30,14 +37,14 @@ class PresentationController {
   };
 
   static edit = (req, res) => {
-    const presentation = req.body;
+    const studyCaseHome = req.body;
 
     // TODO validations (length, format...)
 
-    presentation.id = parseInt(req.params.id, 10);
+    studyCaseHome.id = parseInt(req.params.id, 10);
 
-    models.presentation
-      .update(presentation)
+    models.studyCaseHome
+      .update(process)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);
@@ -52,14 +59,14 @@ class PresentationController {
   };
 
   static add = (req, res) => {
-    const presentation = req.body;
+    const studyCaseHome = req.body;
 
     // TODO validations (length, format...)
 
-    models.presentation
-      .insert(presentation)
+    models.studyCaseHome
+      .insert(process)
       .then(([result]) => {
-        res.status(201).send({ ...presentation, id: result.insertId });
+        res.status(201).send({ ...studyCaseHome, id: result.insertId });
       })
       .catch((err) => {
         console.error(err);
@@ -68,7 +75,7 @@ class PresentationController {
   };
 
   static delete = (req, res) => {
-    models.presentation
+    models.studyCaseHome
       .delete(req.params.id)
       .then(() => {
         res.sendStatus(204);
@@ -80,4 +87,4 @@ class PresentationController {
   };
 }
 
-module.exports = PresentationController;
+module.exports = StudyCaseHomeController;

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import axios from "axios";
 import React, { useContext, useState, useEffect } from "react";
 import ExportContext from "../contexts/Context";
@@ -9,7 +10,7 @@ function Footer() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/footer/${language}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/footer/${language.id}`)
       .then((response) => {
         setData(response.data);
       })
@@ -65,6 +66,7 @@ function Footer() {
                   d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
                 />
                 <circle cx="4" cy="4" r="2" stroke="none" />
+                <Link to={{ pathname: "https://google.com" }} target="_blank" />
               </svg>
             </div>
             <div className="mb-4 -mt-1 -ml-6">

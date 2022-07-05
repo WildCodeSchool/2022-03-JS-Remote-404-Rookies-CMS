@@ -6,7 +6,7 @@ import { useContext, useState, useEffect } from "react";
 import ExportContext from "../contexts/Context";
 
 function Navbar() {
-  const { language, selectLanguage, handleLanguages, languages, media } =
+  const { language, selectLanguage, handleLanguages, allLanguages, media } =
     useContext(ExportContext.Context);
   const location = useLocation();
 
@@ -22,6 +22,7 @@ function Navbar() {
       .get(`${import.meta.env.VITE_BACKEND_URL}/languages/`)
       .then((response) => {
         handleLanguages(response.data);
+        selectLanguage(response.data[0]);
       })
       .catch((error) => {
         console.warn(error);
@@ -30,7 +31,7 @@ function Navbar() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/navigation/${language}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/navigation/${language.id}`)
       .then((response) => {
         setData(response.data);
       })
@@ -58,7 +59,7 @@ function Navbar() {
       <div className="flex justify-between w-full align-center items-center fixed bg-white p-2 z-50">
         <img src={data?.image_link} alt={data?.image_alt} className="static" />
         <ul className="flex justify-evenly w-2/4 gap-10 font-bold text-3xl">
-          <NavLink to={`/${language}/page1`}>
+          <NavLink to={`/${language.languages}/page1`}>
             <li
               className={
                 location.pathname.includes("page1") ? "tab-active" : "tab"
@@ -68,7 +69,7 @@ function Navbar() {
             </li>
           </NavLink>
           <NavLink
-            to={`/${language}/page2`}
+            to={`/${language.languages}/page2`}
             className={
               location.pathname.includes("page2") ? "tab-active" : "tab"
             }
@@ -76,14 +77,14 @@ function Navbar() {
             <li>{data.links && data.links[1].label}</li>
           </NavLink>
           <NavLink
-            to={`/${language}/page3`}
+            to={`/${language.languages}/page3`}
             className={
               location.pathname.includes("page3") ? "tab-active" : "tab"
             }
           >
             <li>{data.links && data.links[2].label}</li>
           </NavLink>
-          <NavLink to={`${language}/page4/`} className="hidden">
+          <NavLink to={`${language.languages}/page4/`} className="hidden">
             <li>{data.links && data.links[3].label}</li>
           </NavLink>
         </ul>
@@ -94,32 +95,31 @@ function Navbar() {
           >
             {data.links && data.links[4].label}
           </button>
-          {languages &&
-            languages
-              .filter((lang) => lang.value === languages.languages)
-              .map((langbis) => (
-                <img src={langbis.images_link} alt={langbis.images_alt} />
-              ))}
-          <select
-            className="border py-2 px-5"
-            name="language"
-            id="language"
-            onChange={(e) => selectLanguage(e.target.value)}
-          >
-            {languages &&
-              languages
-                .filter((lang) => lang.status === 1)
-                .map((option) => {
+          <div className="flex flex-row justify-end">
+            <img
+              src={language.images_link}
+              alt={language.images_alt}
+              className="w-2/12 object-contain mr-4"
+            />
+            <select
+              className="border py-2 px-5"
+              name="language"
+              id="language"
+              onChange={(e) => selectLanguage(allLanguages[e.target.value - 1])}
+            >
+              {allLanguages &&
+                allLanguages.map((option) => {
                   return (
                     <option
                       id="option"
-                      value={option.languages}
+                      value={option.id}
                       label={option.languages}
                       key={option.id}
                     />
                   );
                 })}
-          </select>
+            </select>
+          </div>
         </div>
       </div>
     );

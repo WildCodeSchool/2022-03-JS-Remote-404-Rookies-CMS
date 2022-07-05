@@ -11,7 +11,7 @@ function Presentation() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/presentations/${language}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/presentations/${language.id}`)
       .then((response) => {
         setData(response.data);
       })

@@ -23,7 +23,7 @@ function Login() {
       })
       .then((res) => {
         setUser(res.data);
-        navigate("/dashboard/logoCarousel");
+        navigate("/dashboard/");
       })
       .catch((err) => console.error(err));
   };

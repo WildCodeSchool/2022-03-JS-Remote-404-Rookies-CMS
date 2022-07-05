@@ -9,7 +9,7 @@ function Module6e() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/profits/${language}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/profits/${language.id}`)
       .then((response) => {
         setData(response.data);
       })

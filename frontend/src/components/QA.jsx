@@ -9,6 +9,19 @@ function QA() {
 
   const [data, setData] = useState([]);
 
+  const [dataCta, setDataCta] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/getstarteds/${language.id}`)
+      .then((response) => {
+        setDataCta(response.data[0]);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  }, [language]);
+
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/QAS/${language.id}`)
@@ -43,8 +56,8 @@ function QA() {
         })}
       <div className="flex flex-col justify-items-center  place-items-center pt-20">
         <div className="pb-20 flex justify-center gap-20">
-          <CTA label="Submit my project" />
-          <CTA label="Book a meeting" />
+          <CTA label={dataCta?.cta1_label} />
+          <CTA label={dataCta?.cta2_label} />
         </div>
       </div>
     </section>

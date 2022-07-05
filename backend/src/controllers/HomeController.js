@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const models = require("../models");
 
 class HomeController {
@@ -29,26 +30,30 @@ class HomeController {
       });
   };
 
-  static edit = (req, res) => {
-    const home = req.body;
+  static edit = async (req, res) => {
+    try {
+      const object = req.body;
 
-    // TODO validations (length, format...)
-
-    home.id = parseInt(req.params.id, 10);
-
-    models.home
-      .update(home)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+      // TODO validations (length, format...)
+      const a = await models.home.update(object.id, {
+        title: object.title,
+        title_green_part: object.titleGreenPart,
+        text: object.text,
+        CTA_label: object.cta,
       });
+      const b = await models.images.updateImage(object.imgId, {
+        image_link: object.imageLink,
+        image_alt: object.imageAlt,
+      });
+      const c = await models.images.updateImage(object.BimgId, {
+        image_link: object.bgImage,
+        image_alt: object.bgImageAlt,
+      });
+      const result = await res.status(200).json(a, b, c);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Internal Error");
+    }
   };
 
   static add = (req, res) => {

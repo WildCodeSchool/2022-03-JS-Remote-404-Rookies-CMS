@@ -462,3 +462,11 @@ button {
 .active {
   color: var(--green);
 }
+
+.hat {
+  position: relative;
+  top: -4.5vw;
+  left: 17vw;
+  background-color: #00d9ff;
+  object-fit: contain;
+}

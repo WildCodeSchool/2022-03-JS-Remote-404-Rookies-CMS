@@ -1,28 +1,21 @@
 const models = require("../models");
 
-class StudyCaseHomeController {
+class NewsletterController {
   static browse = (req, res) => {
-    models.study_case_home
-      .findStudyCaseHome(req.params.languages_id)
+    models.newsletter_component
+      .findAll(req.params.languages_id)
       .then(([rows]) => {
-        models.study_case_home
-          .findStudyCaseElement(rows.id)
-          .then((result) => {
-            rows.elements = result[0];
-            res.status(200).json(rows);
-          })
-          .catch((err) => {
-            res.status(500).send(err);
-          });
+        res.send(rows);
       })
       .catch((err) => {
-        res.status(500).send(err);
+        console.error(err);
+        res.sendStatus(500);
       });
   };
 
   static read = (req, res) => {
-    models.study_case_home
-      .findStudyCaseHome(req.params.languages_id)
+    models.newsletter_component
+      .find(req.params.id)
       .then(([rows]) => {
         if (rows[0] == null) {
           res.sendStatus(404);
@@ -37,14 +30,14 @@ class StudyCaseHomeController {
   };
 
   static edit = (req, res) => {
-    const studyCaseHome = req.body;
+    const item = req.body;
 
     // TODO validations (length, format...)
 
-    studyCaseHome.id = parseInt(req.params.id, 10);
+    item.id = parseInt(req.params.id, 10);
 
-    models.studyCaseHome
-      .update(process)
+    models.item
+      .update(item)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);
@@ -59,14 +52,14 @@ class StudyCaseHomeController {
   };
 
   static add = (req, res) => {
-    const studyCaseHome = req.body;
+    const item = req.body;
 
     // TODO validations (length, format...)
 
-    models.studyCaseHome
-      .insert(process)
+    models.item
+      .insert(item)
       .then(([result]) => {
-        res.status(201).send({ ...studyCaseHome, id: result.insertId });
+        res.status(201).send({ ...item, id: result.insertId });
       })
       .catch((err) => {
         console.error(err);
@@ -75,7 +68,7 @@ class StudyCaseHomeController {
   };
 
   static delete = (req, res) => {
-    models.studyCaseHome
+    models.item
       .delete(req.params.id)
       .then(() => {
         res.sendStatus(204);
@@ -87,4 +80,4 @@ class StudyCaseHomeController {
   };
 }
 
-module.exports = StudyCaseHomeController;
+module.exports = NewsletterController;

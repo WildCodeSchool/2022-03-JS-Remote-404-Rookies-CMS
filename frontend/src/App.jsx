@@ -18,6 +18,7 @@ import LogoCarouselAdmin from "./components/Admin/CarouselLogoAdmin";
 
 import Formulaire from "./components/Formulaire";
 import "./App.css";
+import HomeAdmin from "./components/Admin/HomeAdmin";
 
 function App() {
   const { isFormOpen, user } = React.useContext(ExportContext.Context);
@@ -45,6 +46,7 @@ function App() {
             <Route path="caseStudy" element={<AdminPageCaseStudy />} />
             <Route path="" element={<AdminPage />} />
             <Route path="logoCarousel" element={<LogoCarouselAdmin />} />
+            <Route path="company/home" element={<HomeAdmin />} />
           </Route>
         </Routes>
       </Router>

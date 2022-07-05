@@ -1352,6 +1352,21 @@ VALUES (
         "",
         "Image Home School",
         1
+    ),
+     (
+        "https://i.ibb.co/PNdQ80h/School-Woman.png",
+        "School-Woman",
+        0,
+        "",
+        "Image Home School",
+        1
+    ),(
+        "https://i.ibb.co/PNdQ80h/School-Woman.png",
+        "School-Woman",
+        0,
+        "",
+        "Image Home School",
+        1
     );
 
 insert into
@@ -1554,6 +1569,15 @@ insert into
         background_images_id
     )
 VALUES (
+        'Get more done, while connecting with ',
+        "great talent",
+        "Involve students in your projects and identify your future talents.",
+        "Get started",
+        1,
+        1,
+        26,
+        36
+    ), (
         'Get more done, while connecting with ',
         "great talent",
         "Involve students in your projects and identify your future talents.",

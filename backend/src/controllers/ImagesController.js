@@ -85,7 +85,7 @@ class ImagesController {
     image.id = parseInt(req.params.id, 10);
 
     models.images
-      .update(image)
+      .updateImage(image.id, image)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);

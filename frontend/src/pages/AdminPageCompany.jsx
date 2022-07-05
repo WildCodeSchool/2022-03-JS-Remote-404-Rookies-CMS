@@ -5,6 +5,8 @@ import React from "react";
 import NavBarAdminCompany from "../components/Admin/NavBarAdminCompany";
 import NavbarAdmin from "../components/Admin/NavbarAdmin";
 import Page1 from "./Page1";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 function AdminPageSchool() {
   return (
@@ -15,7 +17,9 @@ function AdminPageSchool() {
           <NavBarAdminCompany />
         </div>
         <div className="flex flex-col justify-start text-center h-1/12 w-3/4 object-contain">
+          <Navbar />
           <Page1 />
+          <Footer />
         </div>
         <Outlet />
       </div>

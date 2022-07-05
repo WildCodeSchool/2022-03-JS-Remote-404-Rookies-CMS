@@ -23,6 +23,7 @@ const {
   LanguageController,
   StudyCaseHomeController,
   ContactFormController,
+  NewsletterController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -51,7 +52,7 @@ router.delete("/navigation/:id", NavigationController.delete);
 
 router.get("/homes", HomeController.browse);
 router.get("/homes/:languages_id", HomeController.read);
-router.put("/homes/:id", HomeController.edit);
+router.put("/homes/", HomeController.edit);
 router.post("/homes", HomeController.add);
 router.delete("/homes/:id", HomeController.delete);
 
@@ -149,5 +150,7 @@ router.post("/studygethome", StudyCaseHomeController.add);
 router.delete("/studygethome/:id", StudyCaseHomeController.delete);
 
 router.get("/contactForm/:languages_id", ContactFormController.browse);
+
+router.get("/newsletter/:languages_id", NewsletterController.browse);
 
 module.exports = router;

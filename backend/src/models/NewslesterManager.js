@@ -12,15 +12,15 @@ class NewsletterComponentManager extends AbstractManager {
 
   findAll(languagesId) {
     return this.connection.query(
-      `select title, text, cta_label from ${NewsletterComponentManager.table} where languages_id = ? `,
+      `select title, text, cta_label, id from ${NewsletterComponentManager.table} where languages_id = ? `,
       [languagesId]
     );
   }
 
-  update(item) {
+  update(object) {
     return this.connection.query(
-      `update ${NewsletterComponentManager.table} set title = ? where id = ?`,
-      [item.title, item.id]
+      `update ${NewsletterComponentManager.table} set ? where id = ?`,
+      [object, object.id]
     );
   }
 }

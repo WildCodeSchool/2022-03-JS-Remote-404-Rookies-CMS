@@ -40,7 +40,7 @@ router.get("/imagesquotes", ImagesController.browseQuote);
 router.get("/imagesprojects", ImagesController.browseProjects);
 router.get("/imagesfooter", ImagesController.browseFooter);
 router.get("/images/:id", ImagesController.read);
-router.put("/images/:id", ImagesController.edit);
+router.put("/images", ImagesController.edit);
 router.post("/images", ImagesController.add);
 router.delete("/images/:id", ImagesController.delete);
 
@@ -58,25 +58,25 @@ router.delete("/homes/:id", HomeController.delete);
 
 router.get("/presentations", PresentationController.browse);
 router.get("/presentations/:languages_id", PresentationController.read);
-router.put("/presentations/:id", PresentationController.edit);
+router.put("/presentations", PresentationController.edit);
 router.post("/presentations", PresentationController.add);
 router.delete("/presentations/:id", PresentationController.delete);
 
 router.get("/processs/:languages_id", ProcessController.browse);
 router.get("/process/:languages_id", ProcessController.read);
-router.put("/process/:id", ProcessController.edit);
+router.put("/process", ProcessController.edit);
 router.post("/process", ProcessController.add);
 router.delete("/process/:id", ProcessController.delete);
 
 router.get("/profits/:languages_id", ProfitController.browse);
 router.get("/profit/:languages_id", ProfitController.read);
-router.put("/profit/:id", ProfitController.edit);
+router.put("/profits", ProfitController.edit);
 router.post("/profit", ProfitController.add);
 router.delete("/profit/:id", ProfitController.delete);
 
 router.get("/kpis/:languages_id", KpiController.browse);
 router.get("/Kpi/:languages_id", KpiController.read);
-router.put("/kpi/:id", KpiController.edit);
+router.put("/kpi", KpiController.edit);
 router.post("/kpi", KpiController.add);
 router.delete("/kpi/:id", KpiController.delete);
 
@@ -106,10 +106,7 @@ router.get(
   "/presentationadvantages/:languages_id",
   PresentationAdvantagesController.read
 );
-router.put(
-  "/presentationadvantages/:id",
-  PresentationAdvantagesController.edit
-);
+router.put("/presentationadvantage", PresentationAdvantagesController.edit);
 router.post("/presentationadvantages", PresentationAdvantagesController.add);
 router.delete(
   "/presentationadvantages/:id",
@@ -152,5 +149,6 @@ router.delete("/studygethome/:id", StudyCaseHomeController.delete);
 router.get("/contactForm/:languages_id", ContactFormController.browse);
 
 router.get("/newsletter/:languages_id", NewsletterController.browse);
+router.put("/newsletter", NewsletterController.edit);
 
 module.exports = router;

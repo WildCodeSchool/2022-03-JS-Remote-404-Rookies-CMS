@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 
 import React from "react";
 import NavBarAdminCompany from "../components/Admin/NavBarAdminCompany";
-import NavbarAdmin from "../components/Admin/NavbarAdmin";
 import Page1 from "./Page1";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -11,7 +10,6 @@ import Navbar from "../components/Navbar";
 function AdminPageSchool() {
   return (
     <div className="flex flex-col h-full w-full">
-      <NavbarAdmin />
       <div className="flex flex-row w-full h-full">
         <div className="flex flex-col justify-start text-center h-full w-full">
           <NavBarAdminCompany />

@@ -30,14 +30,12 @@ class NewsletterController {
   };
 
   static edit = (req, res) => {
-    const item = req.body;
+    const object = req.body;
 
     // TODO validations (length, format...)
 
-    item.id = parseInt(req.params.id, 10);
-
-    models.item
-      .update(item)
+    models.newsletter_component
+      .update(object)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);

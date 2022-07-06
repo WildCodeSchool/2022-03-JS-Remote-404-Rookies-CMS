@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const models = require("../models");
 
 class KpiController {
@@ -33,26 +34,28 @@ class KpiController {
       });
   };
 
-  static edit = (req, res) => {
-    const kpi = req.body;
+  static edit = async (req, res) => {
+    try {
+      const object = req.body;
+      const elements = object.elements;
 
-    // TODO validations (length, format...)
-
-    kpi.id = parseInt(req.params.id, 10);
-
-    models.kpi
-      .update(kpi)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+      const kpi = await models.KPI.update(object.id, {
+        title: object.title,
+        sub_title: object.subtitle,
       });
+      const data = await Promise.all(
+        elements.map((elem) =>
+          models.KPI.updateKpiElement(elem.id, {
+            number: elem.number,
+            label: elem.label,
+          })
+        )
+      );
+      const result = res.status(204).send("It's ok !");
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
   };
 
   static add = (req, res) => {

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const models = require("../models");
 
 class ImagesController {
@@ -77,26 +78,22 @@ class ImagesController {
       });
   };
 
-  static edit = (req, res) => {
-    const image = req.body;
+  static edit = async (req, res) => {
+    try {
+      const object = req.body;
 
-    // TODO validations (length, format...)
-
-    image.id = parseInt(req.params.id, 10);
-
-    models.images
-      .updateImage(image.id, image)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+      // TODO validations (length, format...)
+      const image = await models.images.updateImage(object.imageId, {
+        image_link: object.imageLink,
+        image_alt: object.imageAlt,
+        url: object.imageUrl,
+        categorie: object.categorie,
       });
+      const result = await res.status(200).json(image);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Internal Error");
+    }
   };
 
   static add = (req, res) => {

@@ -10,38 +10,38 @@ function NavBarAdminCompany() {
             <Link to="/dashboard/company/home">Home</Link>
           </li>
           <li className="mb-52 mt-52">
-            <Link to="/dashboard/entreprise/CarouselLogo">Carrousel Logo</Link>
+            <Link to="/dashboard/company/carousellogo">Carrousel Logo</Link>
           </li>
           <li className="mb-52 mt-52">
-            <Link to="/dashboard/entreprise/presentation">Presentation</Link>
+            <Link to="/dashboard/company/presentation">Presentation</Link>
           </li>
           <li className="mb-52 mt-52">
-            <Link to="/dashboard/entreprise/presentation_advantages">
+            <Link to="/dashboard/company/presentationadvantages">
               Presentation advantages
             </Link>
           </li>
           <li className="my-96">
-            <Link to="/dashboard/entreprise/process">Process</Link>
+            <Link to="/dashboard/company/process">Process</Link>
           </li>
           <li className="my-96">
-            <Link to="/dashboard/entreprise/profits">Profits</Link>
+            <Link to="/dashboard/company/profits">Profits</Link>
           </li>
           <li className="my-72">
-            <Link to="/dashboard/entreprise/CarrousselReview">
+            <Link to="/dashboard/company/CarrousselReview">
               Carousel review
             </Link>
           </li>
           <li className="my-72">
-            <Link to="/dashboard/entreprise/KPI">KPI</Link>
+            <Link to="/dashboard/company/KPI">KPI</Link>
           </li>
           <li className="my-96">
-            <Link to="/dashboard/entreprise/QA">QA</Link>
+            <Link to="/dashboard/company/QA">QA</Link>
           </li>
           <li className="mb-52 mt-36">
-            <Link to="/dashboard/entreprise/GetStarted">Get started</Link>
+            <Link to="/dashboard/company/newsletter">NewsLetter</Link>
           </li>
           <li className="mb-52 mt-36">
-            <Link to="/dashboard/entreprise/Footer">Footer</Link>
+            <Link to="/dashboard/company/footer">Footer</Link>
           </li>
         </ul>
       </div>

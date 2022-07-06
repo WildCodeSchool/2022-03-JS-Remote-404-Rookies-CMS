@@ -10,16 +10,23 @@ class ProcessManager extends AbstractManager {
     );
   }
 
-  update(process) {
+  update(id, process) {
     return this.connection.query(
-      `update ${ProcessManager.table} set title = ? where id = ?`,
-      [process.title, process.id]
+      `update ${ProcessManager.table} set ? where id = ?`,
+      [process, id]
     );
+  }
+
+  updateProcessElements(id, process) {
+    return this.connection.query(`update process_element set ? where id = ?`, [
+      process,
+      id,
+    ]);
   }
 
   findProcess(languagesId) {
     return this.connection.query(
-      `select p.languages_id, p.title, p.sub_title, p.text, i.image_link, i.image_alt from process as p
+      `select p.languages_id, p.id, p.title, p.images_id as imgId, p.sub_title, p.text, i.image_link, i.image_alt from process as p
       inner join images as i on i.id = p.images_id 
       where p.languages_id = ?`,
       [languagesId]
@@ -28,7 +35,7 @@ class ProcessManager extends AbstractManager {
 
   findProcessElement(languagesId) {
     return this.connection.query(
-      `select title, text from process_element
+      `select title, text, id from process_element
       where process_id = ?`,
       [languagesId]
     );

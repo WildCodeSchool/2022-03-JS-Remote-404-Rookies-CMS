@@ -35,21 +35,21 @@ class HomeController {
       const object = req.body;
 
       // TODO validations (length, format...)
-      const a = await models.home.update(object.id, {
+      const home = await models.home.update(object.id, {
         title: object.title,
         title_green_part: object.titleGreenPart,
         text: object.text,
         CTA_label: object.cta,
       });
-      const b = await models.images.updateImage(object.imgId, {
+      const image = await models.images.updateImage(object.imgId, {
         image_link: object.imageLink,
         image_alt: object.imageAlt,
       });
-      const c = await models.images.updateImage(object.BimgId, {
+      const image2 = await models.images.updateImage(object.BimgId, {
         image_link: object.bgImage,
         image_alt: object.bgImageAlt,
       });
-      const result = await res.status(200).json(a, b, c);
+      const result = await res.status(200).json(home, image, image2);
     } catch (err) {
       console.error(err);
       res.status(500).send("Internal Error");

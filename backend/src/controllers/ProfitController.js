@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const models = require("../models");
 
 class ProfitController {
@@ -36,26 +37,19 @@ class ProfitController {
       });
   };
 
-  static edit = (req, res) => {
-    const profit = req.body;
-
-    // TODO validations (length, format...)
-
-    profit.id = parseInt(req.params.id, 10);
-
-    models.profit
-      .update(profit)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+  static edit = async (req, res) => {
+    try {
+      const data = req.body;
+      const elements = data.elements;
+      const profitU = await models.profit.update(data.id, {
+        title: data.title,
+        sub_title: data.subTitle,
       });
+      const result = res.status(204).send("It's ok !");
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
   };
 
   static add = (req, res) => {

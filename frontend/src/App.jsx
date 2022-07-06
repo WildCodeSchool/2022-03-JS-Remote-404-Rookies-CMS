@@ -13,12 +13,20 @@ import AdminPage from "./pages/Page4";
 import AdminPageCompany from "./pages/AdminPageCompany";
 import AdminPageSchool from "./pages/AdminPageSchool";
 import AdminPageCaseStudy from "./pages/AdminPageCaseStudy";
+import PresentationAdmin from "./components/Admin/PresentationAdmin";
+import NavbarAdmin from "./components/Admin/NavbarAdmin";
+import ProcessAdmin from "./components/Admin/ProcessAdmin";
 
 import LogoCarouselAdmin from "./components/Admin/CarouselLogoAdmin";
 
 import Formulaire from "./components/Formulaire";
 import "./App.css";
 import HomeAdmin from "./components/Admin/HomeAdmin";
+import KpiAdmin from "./components/Admin/KpiAdmin";
+import NewsletterAdmin from "./components/Admin/NewsletterAdmin";
+import ProfitsAdmin from "./components/Admin/ProfitsAdmin";
+import FooterAdmin from "./components/Admin/FooterAdmin";
+import PresentationAdvantagesAdmin from "./components/Admin/PresentationAdvantagesAdmin";
 
 function App() {
   const { isFormOpen, user } = React.useContext(ExportContext.Context);
@@ -37,6 +45,7 @@ function App() {
             path="/dashboard/"
             element={
               <ProtectedRoute user={user}>
+                <NavbarAdmin />
                 <DashboardLayout />
               </ProtectedRoute>
             }
@@ -45,8 +54,24 @@ function App() {
             <Route path="company" element={<AdminPageCompany />} />
             <Route path="caseStudy" element={<AdminPageCaseStudy />} />
             <Route path="" element={<AdminPage />} />
-            <Route path="logoCarousel" element={<LogoCarouselAdmin />} />
+            <Route
+              path="company/:carousellogo"
+              element={<LogoCarouselAdmin />}
+            />
             <Route path="company/home" element={<HomeAdmin />} />
+            <Route path="company/kpi" element={<KpiAdmin />} />
+            <Route
+              path="company/presentation"
+              element={<PresentationAdmin />}
+            />
+            <Route path="company/newsletter" element={<NewsletterAdmin />} />
+            <Route path="company/profits" element={<ProfitsAdmin />} />
+            <Route path="company/process" element={<ProcessAdmin />} />
+            <Route path="company/footer" element={<FooterAdmin />} />
+            <Route
+              path="company/presentationadvantages"
+              element={<PresentationAdvantagesAdmin />}
+            />
           </Route>
         </Routes>
       </Router>

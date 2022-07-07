@@ -45,6 +45,22 @@ class ProfitController {
         title: data.title,
         sub_title: data.subTitle,
       });
+      const elementsU = await Promise.all(
+        elements.map((elem) =>
+          models.profit.updateProfitElements(elem.id, {
+            title: elem.title,
+            text: elem.text,
+          })
+        )
+      );
+      const imageU = await Promise.all(
+        elements.map((elem) =>
+          models.images.updateImage(elem.imid, {
+            image_link: elem.imageLink,
+            image_alt: elem.imageAlt,
+          })
+        )
+      );
       const result = res.status(204).send("It's ok !");
     } catch (err) {
       console.error(err);

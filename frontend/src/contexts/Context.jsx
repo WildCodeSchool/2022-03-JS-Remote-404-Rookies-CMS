@@ -13,7 +13,7 @@ function Provider({ children }) {
     setAllLanguages(toSet);
   };
 
-  const [language, setLanguage] = useState({ id: 1 });
+  const [language, setLanguage] = useState({ id: 1, languages: "EN" });
   const selectLanguage = (option) => {
     setLanguage(option);
   };

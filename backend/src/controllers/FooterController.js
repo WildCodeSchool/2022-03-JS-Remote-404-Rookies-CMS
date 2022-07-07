@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const models = require("../models");
 
 class FooterController {
@@ -30,26 +31,35 @@ class FooterController {
       });
   };
 
-  static edit = (req, res) => {
-    const footer = req.body;
+  static edit = async (req, res) => {
+    try {
+      const object = req.body;
+      const images = object.images;
 
-    // TODO validations (length, format...)
-
-    footer.id = parseInt(req.params.id, 10);
-
-    models.footer
-      .update(footer)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+      const footer = await models.footer.update(object.id, {
+        phone_number: object.phone_number,
+        mail: object.mail,
+        sub_title1: object.sub_title1,
+        sub_title2: object.sub_title2,
+        copyright: object.copyright,
+        policy: object.policy,
+        terms: object.terms,
+        newsletter: object.newsletter,
       });
+
+      const imageU = await Promise.all(
+        images.map((image) =>
+          models.images.updateImage(image.imid, {
+            image_link: image.imageLink,
+            image_alt: image.imageAlt,
+          })
+        )
+      );
+      const result = await res.status(204).send("ça maaaaarche");
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
   };
 
   static add = (req, res) => {

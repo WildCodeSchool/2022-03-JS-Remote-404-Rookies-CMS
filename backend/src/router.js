@@ -82,7 +82,7 @@ router.delete("/kpi/:id", KpiController.delete);
 
 router.get("/QAS/:languages_id", QAController.browse);
 router.get("/QA/:languages_id", QAController.read);
-router.put("/QA/:id", QAController.edit);
+router.put("/QAS", QAController.edit);
 router.post("/QA", QAController.add);
 router.delete("/QA/:id", QAController.delete);
 
@@ -91,13 +91,13 @@ router.get(
   "/carrousselreview/:languages_id",
   CarrousselReviewController.browse
 );
-router.put("/carrousselreview/:id", CarrousselReviewController.edit);
+router.put("/carrousselreview", CarrousselReviewController.edit);
 router.post("/carrousselreview", CarrousselReviewController.add);
 router.delete("/carrousselreview/:id", CarrousselReviewController.delete);
 
 router.get("/footer", FooterController.browse);
 router.get("/footer/:languages_id", FooterController.read);
-router.put("/footer/:id", FooterController.edit);
+router.put("/footers", FooterController.edit);
 router.post("/footer", FooterController.add);
 router.delete("/footer/:id", FooterController.delete);
 
@@ -115,7 +115,7 @@ router.delete(
 
 router.get("/getstarteds/:languages_id", GetStartedController.browse);
 router.get("/getstarted/:languages_id", GetStartedController.read);
-router.put("/getstarted/:id", GetStartedController.edit);
+router.put("/getstarteds", GetStartedController.edit);
 router.post("/getstarted", GetStartedController.add);
 router.delete("/getstarted/:id", GetStartedController.delete);
 

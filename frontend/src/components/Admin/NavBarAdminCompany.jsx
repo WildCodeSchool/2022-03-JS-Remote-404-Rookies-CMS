@@ -26,10 +26,8 @@ function NavBarAdminCompany() {
           <li className="my-96">
             <Link to="/dashboard/company/profits">Profits</Link>
           </li>
-          <li className="my-72">
-            <Link to="/dashboard/company/CarrousselReview">
-              Carousel review
-            </Link>
+          <li className="my-36">
+            <Link to="/dashboard/company/carrouselReview">Carousel review</Link>
           </li>
           <li className="my-72">
             <Link to="/dashboard/company/KPI">KPI</Link>

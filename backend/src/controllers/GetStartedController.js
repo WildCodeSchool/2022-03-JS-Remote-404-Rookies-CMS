@@ -31,19 +31,13 @@ class GetStartedController {
 
   static edit = (req, res) => {
     const getStarted = req.body;
-
-    // TODO validations (length, format...)
-
-    getStarted.id = parseInt(req.params.id, 10);
-
     models.get_started
-      .update(getStarted)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
+      .update(getStarted.id, {
+        cta1_label: getStarted.cta1_label,
+        cta2_label: getStarted.cta2_label,
+      })
+      .then(([rows]) => {
+        res.send(rows);
       })
       .catch((err) => {
         console.error(err);

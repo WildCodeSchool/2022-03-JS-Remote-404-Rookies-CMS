@@ -10,16 +10,23 @@ class QAManager extends AbstractManager {
     );
   }
 
-  update(QA) {
+  update(id, data) {
     return this.connection.query(
-      `update ${QAManager.table} set title = ? where id = ?`,
-      [QA.title, QA.id]
+      `update ${QAManager.table} set ? where id = ?`,
+      [data, id]
     );
+  }
+
+  updateQaElements(id, data) {
+    return this.connection.query(`update qa_element set ? where id = ?`, [
+      data,
+      id,
+    ]);
   }
 
   findQA(languagesId) {
     return this.connection.query(
-      `select languages_id, title, sub_title from qa q
+      `select id, languages_id, title, sub_title from qa q
       where q.languages_id = ?`,
       [languagesId]
     );
@@ -27,7 +34,7 @@ class QAManager extends AbstractManager {
 
   findQAElement(languagesId) {
     return this.connection.query(
-      `select question, answer from qa_element as qa
+      `select id, question, answer from qa_element as qa
       where qa.FAQ_id = ?`,
       [languagesId]
     );

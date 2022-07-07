@@ -18,9 +18,9 @@ function StudyCaseHome() {
       });
   }, [language]);
   return (
-    <div className=" flex ">
-      <div className="flex px-16 w-1/2 flex flex-col justify-evenly mt-20">
-        <h1 className="font-bold text-4xl">
+    <div className=" flex flex-col lg:flex-row  ">
+      <div className="w-full px-2 lg:px-16 lg:w-1/2 flex flex-col justify-evenly mt-20">
+        <h1 className="w-full font-bold text-4xl">
           {data?.title}
           <br />{" "}
           <span className="underline decoration-8 decoration-green-400">
@@ -36,7 +36,7 @@ function StudyCaseHome() {
         </button>
       </div>
       <div
-        className="w-1/2 mt-20"
+        className="hidden lg:inline w-1/2 mt-20"
         style={{
           backgroundImage: `url(${data?.image_link})`,
           backgroundRepeat: "no-repeat",

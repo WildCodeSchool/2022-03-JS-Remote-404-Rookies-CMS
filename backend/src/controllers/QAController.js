@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const models = require("../models");
 
 class QAController {
@@ -33,31 +34,31 @@ class QAController {
       });
   };
 
-  static edit = (req, res) => {
-    const QA = req.body;
-
-    // TODO validations (length, format...)
-
-    QA.id = parseInt(req.params.id, 10);
-
-    models.QA.update(QA)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+  static edit = async (req, res) => {
+    try {
+      const data = req.body;
+      const elements = data.elements;
+      const QaU = await models.QA.update(data.id, {
+        title: data.title,
+        sub_title: data.subtitle,
       });
+      const QaElementsU = await Promise.all(
+        elements.map((elem) =>
+          models.QA.updateQaElements(elem.id, {
+            question: elem.question,
+            answer: elem.answer,
+          })
+        )
+      );
+      const result = res.status(204).send("It's ok !");
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
   };
 
   static add = (req, res) => {
     const QA = req.body;
-
-    // TODO validations (length, format...)
 
     models.QA.insert(QA)
       .then(([result]) => {

@@ -1,8 +1,11 @@
 import { useContext } from "react";
+import { useLocation } from "react-router-dom";
 import ExportContext from "../contexts/Context";
 
 function CarrousselReviewCard(elem) {
   const { media } = useContext(ExportContext.Context);
+  const location = useLocation();
+
   if (!media) {
     return (
       <div className="flex justify-between mb-10" data-carousel-item>
@@ -14,6 +17,9 @@ function CarrousselReviewCard(elem) {
         />
         <div className="flex flex-col justify-evenly w-1/2">
           <h2 className="font-semibold text-sm md:text-lg lg:text-xl -pb-4 lg:mb-10 mb-2">
+            {location.pathname.includes("carrouselReview") ? (
+              <p>Id : {elem?.id}</p>
+            ) : null}
             {elem?.fullname}
             <br />
             <span className="font-light md:text-lg lg:text-xl text-xs">

@@ -3,29 +3,38 @@ const AbstractManager = require("./AbstractManager");
 class CarrousselReviewManager extends AbstractManager {
   static table = "carroussel_review";
 
-  insertNavigation(Navigation) {
+  insertCarrousselReviewElement(object) {
     return this.connection.query(
-      `insert into ${CarrousselReviewManager.table} (Navigation_link, Navigation_alt, status, url, categorie,) values (?, ?, ?, ?, ?)`,
+      `insert into carroussel_review_element (fullname, post, testimonial, type, carroussel_avis_id ,images_id,images_logo_id) values (?, ?, ?, ?, ?, ?, ?)`,
       [
-        Navigation.Navigation_link,
-        Navigation.Navigation_alt,
-        Navigation.status,
-        Navigation.url,
-        Navigation.categorie,
+        object.fullName,
+        object.post,
+        object.testimonial,
+        object.type,
+        object.carrousselId,
+        object.imagesId,
+        object.logoId,
       ]
     );
   }
 
-  updateNavigation(Navigation) {
+  updateCarouselReviewElement(id, object) {
     return this.connection.query(
-      `update ${CarrousselReviewManager.table} set title = ? where id = ?`,
-      [Navigation.title, Navigation.id]
+      `update carroussel_review_element set ? where id = ?`,
+      [object, id]
+    );
+  }
+
+  updateCarouselReview(id, object) {
+    return this.connection.query(
+      `update ${CarrousselReviewManager.table} set ? where id = ?`,
+      [object, id]
     );
   }
 
   findCarrousselReviewFirst(languagesId) {
     return this.connection.query(
-      `select c.title, c.sub_title, i.image_link, i.image_alt, im.image_link as linkLogo, im.image_alt as altLogo, ca.fullname, ca.post, ca.testimonial, ca.type, ca.id from carroussel_review as c
+      `select c.id,i.id as image_id,im.id as logo_id, c.title, c.sub_title, i.image_link, i.image_alt, im.image_link as linkLogo, im.image_alt as altLogo, ca.fullname, ca.post, ca.testimonial, ca.type, ca.id from carroussel_review as c
       inner join carroussel_review_element as ca
       inner join images as i on i.id = ca.images_id
       inner join images as im on im.id = ca.images_logo_id
@@ -48,8 +57,11 @@ class CarrousselReviewManager extends AbstractManager {
     );
   }
 
-  deleteNavigation(id) {
-    return this.connection.query(`delete from Navigations where id = ?`, [id]);
+  deleteCarouselReviewElement(id) {
+    return this.connection.query(
+      `delete from carroussel_review_element where id = ?`,
+      [id]
+    );
   }
 }
 

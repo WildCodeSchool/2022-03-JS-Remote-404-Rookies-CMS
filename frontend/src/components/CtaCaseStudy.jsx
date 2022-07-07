@@ -4,7 +4,7 @@ import axios from "axios";
 import ExportContext from "../contexts/Context";
 
 export default function CtaCaseStudy() {
-  const { language, media } = useContext(ExportContext.Context);
+  const { language } = useContext(ExportContext.Context);
 
   const [data, setData] = useState([]);
 
@@ -18,8 +18,6 @@ export default function CtaCaseStudy() {
         console.warn(error);
       });
   }, [language]);
-
-  console.warn(media);
 
   return (
     <section className="bg-slate-100 mt-8">

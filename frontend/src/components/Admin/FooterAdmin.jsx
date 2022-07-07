@@ -14,18 +14,38 @@ function FooterAdmin() {
   const [subtitle2, setSubtitle2] = useState("");
   const [copyright, setCopyright] = useState("");
   const [policy, setPolicy] = useState("");
-  // const [policyLink, setPolicyLink] = useState("ajouter link dans DB");
   const [terms, setTerms] = useState("");
-  // const [termsLink, setTermsLink] = useState("ajouter link dans db");
   const [newsletter, setNewsletter] = useState("");
   const [image1, setImage1] = useState("");
   const [image1Alt, setImage1Alt] = useState("");
   const [image2, setImage2] = useState("");
   const [image2Alt, setImage2Alt] = useState("");
+  const [imid1, setImid1] = useState("");
+  const [imid2, setImid2] = useState("");
+  const [imid3, setImid3] = useState("");
+  const [data, setData] = useState([]);
+
+  const images = [
+    {
+      imageLink: image1,
+      imageAlt: image1Alt,
+      imid: imid1,
+    },
+    {
+      imageLink: image2,
+      imageAlt: image2Alt,
+      imid: imid2,
+    },
+    {
+      imageLink: logo,
+      imageAlt: altLogo,
+      imid: imid3,
+    },
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = {
+    const data1 = {
       id: id,
       phone_number: phone,
       mail: email,
@@ -35,19 +55,13 @@ function FooterAdmin() {
       policy: policy,
       terms: terms,
       newsletter: newsletter,
-      image_logo_link: logo,
-      image_logo_alt: altLogo,
-      image_link: image1,
-      image_alt: image1Alt,
-      image_link2: image2,
-      image_alt2: image2Alt,
+      images: images,
     };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/newsletter`, data)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/footers`, data1)
       .then(() => {
         console.warn(`${phone} ${email} ${id}`);
         console.warn("Yes !");
-        console.warn(data);
       })
       .catch(() => {
         console.warn(`${phone} ${email} ${id}`);
@@ -58,6 +72,7 @@ function FooterAdmin() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/footer/${language.id}`)
       .then((response) => {
+        setData(response.data);
         setId(response.data.id);
         setLogo(response.data.image_logo_link);
         setAltLogo(response.data.image_logo_alt);
@@ -73,17 +88,17 @@ function FooterAdmin() {
         setImage1Alt(response.data.image_alt);
         setImage2(response.data.image_link2);
         setImage2Alt(response.data.image_alt2);
-        // setPolicyLink("ajouter url dans db");
-        // setTermsLink("ajouter url dans db");
+        setImid1(response.data.imid1);
+        setImid2(response.data.imid2);
+        setImid3(response.data.imid3);
       })
       .catch((error) => {
         console.warn(error);
       });
   }, [language]);
-
   return (
     <div className="flex flex-row w-screen">
-      <form className="flex flex-col h-full w-1/4 justify-center">
+      <form className="flex flex-col h-full w-3/4 justify-center">
         <div className="flex flex-col h-full w-full justify-center">
           <div className="flex flex-col w-full justify-center">
             <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
@@ -217,18 +232,6 @@ function FooterAdmin() {
               />
             </label>
           </div>
-          {/* <div className="flex flex-col w-full justify-center">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Terms url
-              <input
-                value={termsLink && termsLink}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={termsLink && termsLink}
-                onChange={(e) => setTermsLink(e.target.value)}
-              />
-            </label>
-          </div> */}
           <div className="flex flex-col w-full justify-center">
             <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
               Policy
@@ -241,18 +244,6 @@ function FooterAdmin() {
               />
             </label>
           </div>
-          {/* <div className="flex flex-col w-full justify-center">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Policy url
-              <input
-                value={policyLink && policyLink}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={policy && policy}
-                onChange={(e) => setPolicyLink(e.target.value)}
-              />
-            </label>
-          </div> */}
           <div className="flex flex-col w-full justify-center">
             <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
               Copyright
@@ -276,7 +267,7 @@ function FooterAdmin() {
           </div>
         </div>
       </form>
-      <footer className="lg:mx-20">
+      <footer className="lg:mx-20 h-full w-full">
         <div
           className="
           flex flex-col mt-4
@@ -287,7 +278,7 @@ function FooterAdmin() {
           md:flex-row md:flex-nowrap
         "
         >
-          <div className="flex flex-row lg:flex-col text-center mb-4 lg:w-1/3 ">
+          <div className="flex flex-row lg:flex-col text-center mb-4 lg:w-1/3 h-full">
             <div className="w-1/2">
               <div
                 className="
@@ -345,19 +336,19 @@ function FooterAdmin() {
               <h2 className="font-bold text-lg mb-4 lg:flex text-green-400">
                 {subtitle1}
               </h2>
-              {/*  <ul className="text-sm lg:text-md lg:flex ">
+              <ul className="text-sm lg:text-md lg:flex ">
                 <div className="flex justify-start flex-col lg:mr-20 ">
                   <li>
                     <div className="mb-4 text-gray-600 hover:text-gray-800">
-                      <a href={data.links && data.links[0].path}>
-                        {data.links && data.links[0].label}
+                      <a href={data && data.links[0].path}>
+                        {data && data.links[0].label}
                       </a>
                     </div>
                   </li>
                   <li>
                     <div className="mb-4 flex justify-center lg:justify-start text-gray-600 hover:text-gray-800 ">
-                      <a href={data.links && data.links[1].path}>
-                        {data.links && data.links[1].label}
+                      <a href={data && data.links[1].path}>
+                        {data && data.links[1].label}
                       </a>
                     </div>
                   </li>
@@ -365,20 +356,20 @@ function FooterAdmin() {
                 <div className="flex justify-start flex-col lg:ml-20">
                   <li>
                     <div className="mb-4 text-gray-600 hover:text-gray-800 ">
-                      <a href={data.links && data.links[2].path}>
-                        {data.links && data.links[2].label}
+                      <a href={data && data.links[2].path}>
+                        {data && data.links[2].label}
                       </a>
                     </div>
                   </li>
                 </div>
                 <li>
                   <div className="flex justify-center lg:justify-start text-gray-600 hover:text-gray-800 hidden">
-                    <a href={data.links && data.links[3].path}>
-                      {data.links && data.links[3].label}
+                    <a href={data && data.links[3].path}>
+                      {data && data.links[3].label}
                     </a>
                   </div>
                 </li>
-              </ul> */}
+              </ul>
             </div>
             <div className="w-2/3 px-4 lg:w-1/2 ">
               <h2 className="flex justify-start mb-2 font-bold text-lg  text-green-400">

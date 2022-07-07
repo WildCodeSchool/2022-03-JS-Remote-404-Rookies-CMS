@@ -18,7 +18,7 @@ class ProfitManager extends AbstractManager {
   }
 
   updateProfitElements(id, data) {
-    return this.connection.query(`update profit_element set ? where id = ?`, [
+    return this.connection.query(`update profit_elements set ? where id = ?`, [
       data,
       id,
     ]);
@@ -41,7 +41,7 @@ class ProfitManager extends AbstractManager {
 
   findProfitElement(languagesId) {
     return this.connection.query(
-      `select p.id, p.title, p.text, i.image_link, image_alt from profit_elements as p inner join images as i where i.id = p.images_id and profit_id = ?`,
+      `select p.id, p.title, p.text, i.id as imid, i.image_link, i.image_alt from profit_elements as p inner join images as i where i.id = p.images_id and profit_id = ?`,
       [languagesId]
     );
   }

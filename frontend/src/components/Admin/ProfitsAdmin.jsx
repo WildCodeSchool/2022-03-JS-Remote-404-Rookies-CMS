@@ -8,7 +8,6 @@ function ProfitsAdmin() {
   const [eImageAlt, setEImageAlt] = useState("");
   const [title, setTitle] = useState("");
   const [subTitle, setSubTitle] = useState("");
-  const [text, setText] = useState("");
   const [elemTitle1, setElemTitle1] = useState("");
   const [elemText1, setElemText1] = useState("");
   const [elemId1, setElemId1] = useState("");
@@ -28,34 +27,53 @@ function ProfitsAdmin() {
   const [eImageAlt2, setEImageAlt2] = useState("");
   const [eImageLink3, setEImageLink3] = useState("");
   const [eImageAlt3, setEImageAlt3] = useState("");
+  const [imid1, setImid1] = useState("");
+  const [imid2, setImid2] = useState("");
+  const [imid3, setImid3] = useState("");
+  const [imid4, setImid4] = useState("");
+
+  const elements = [
+    {
+      title: elemTitle1,
+      text: elemText1,
+      id: elemId1,
+      imageLink: eImageLink,
+      imageAlt: eImageAlt,
+      imid: imid1,
+    },
+    {
+      title: elemTitle2,
+      text: elemText2,
+      id: elemId2,
+      imageLink: eImageLink1,
+      imageAlt: eImageAlt1,
+      imid: imid2,
+    },
+    {
+      title: elemTitle3,
+      text: elemText3,
+      id: elemId3,
+      imageLink: eImageLink2,
+      imageAlt: eImageAlt2,
+      imid: imid3,
+    },
+    {
+      title: elemTitle4,
+      text: elemText4,
+      id: elemId4,
+      imageLink: eImageLink3,
+      imageAlt: eImageAlt3,
+      imid: imid4,
+    },
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
       id: id,
-      eImageLink: eImageLink,
-      eImageAlt: eImageAlt,
       title: title,
       subTitle: subTitle,
-      text: text,
-      elemTitle1: elemTitle1,
-      elemText1: elemText1,
-      elemId1: elemId1,
-      elemTitle2: elemTitle2,
-      elemText2: elemText2,
-      elemId2: elemId2,
-      elemTitle3: elemTitle3,
-      elemText3: elemText3,
-      elemId3: elemId3,
-      elemTitle4: elemTitle4,
-      elemText4: elemText4,
-      elemId4: elemId4,
-      eImageLink1: eImageLink1,
-      eImageAlt1: eImageAlt1,
-      eImageLink2: eImageLink2,
-      eImageAlt2: eImageAlt2,
-      eImageLink3: eImageLink3,
-      eImageAlt3: eImageAlt3,
+      elements: elements,
     };
     axios
       .put(`${import.meta.env.VITE_BACKEND_URL}/profits`, data)
@@ -74,7 +92,6 @@ function ProfitsAdmin() {
         setId(response.data.id);
         setTitle(response.data.title);
         setSubTitle(response.data.sub_title);
-        setText(response.data.text);
         setElemTitle1(response.data.elements[0].title);
         setElemText1(response.data.elements[0].text);
         setElemId1(response.data.elements[0].id);
@@ -95,18 +112,15 @@ function ProfitsAdmin() {
         setEImageAlt2(response.data.elements[2].image_alt);
         setEImageLink3(response.data.elements[3].image_link);
         setEImageAlt3(response.data.elements[3].image_alt);
+        setImid1(response.data.elements[0].imid);
+        setImid2(response.data.elements[1].imid);
+        setImid3(response.data.elements[2].imid);
+        setImid4(response.data.elements[3].imid);
       })
       .catch((error) => {
         console.warn(error);
       });
   }, [language]);
-
-  //   const elements = [
-  //    { title: elemTitle1, text: elemText1 },
-  //     { title: elemTitle2, text: elemText2 },
-  //     { title: elemTitle3, text: elemText3 },
-  //     { title: elemTitle4, text: elemText4 },
-  //   ];
 
   return (
     <div className="flex flex-col w-full">
@@ -189,7 +203,7 @@ function ProfitsAdmin() {
               Deuxième titre
               <input
                 value={elemTitle2 && elemTitle2}
-                onChange={(e) => setElemTitle1(e.target.value)}
+                onChange={(e) => setElemTitle2(e.target.value)}
                 className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                 type="text"
                 placeholder={elemTitle2 && elemTitle2}
@@ -201,7 +215,7 @@ function ProfitsAdmin() {
               Deuxième texte
               <input
                 value={elemText2 && elemText2}
-                onChange={(e) => setElemText1(e.target.value)}
+                onChange={(e) => setElemText2(e.target.value)}
                 className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                 type="text"
                 placeholder={elemText2 && elemText2}
@@ -213,7 +227,7 @@ function ProfitsAdmin() {
               Deuxième image
               <input
                 value={eImageLink1 && eImageLink1}
-                onChange={(e) => setEImageLink(e.target.value)}
+                onChange={(e) => setEImageLink1(e.target.value)}
                 className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                 type="text"
                 placeholder={eImageLink1 && eImageLink1}
@@ -227,7 +241,7 @@ function ProfitsAdmin() {
               Deuxième description d&apos;image
               <input
                 value={eImageAlt1 && eImageAlt1}
-                onChange={(e) => setEImageAlt(e.target.value)}
+                onChange={(e) => setEImageAlt1(e.target.value)}
                 className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                 type="text"
                 placeholder={eImageAlt1 && eImageAlt1}
@@ -239,7 +253,7 @@ function ProfitsAdmin() {
               Troisième titre
               <input
                 value={elemTitle3 && elemTitle3}
-                onChange={(e) => setElemTitle1(e.target.value)}
+                onChange={(e) => setElemTitle3(e.target.value)}
                 className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                 type="text"
                 placeholder={elemTitle3 && elemTitle3}
@@ -251,7 +265,7 @@ function ProfitsAdmin() {
               Troisième texte
               <input
                 value={elemText3 && elemText3}
-                onChange={(e) => setElemText1(e.target.value)}
+                onChange={(e) => setElemText3(e.target.value)}
                 className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                 type="text"
                 placeholder={elemText3 && elemText3}
@@ -263,7 +277,7 @@ function ProfitsAdmin() {
               Troisième image
               <input
                 value={eImageLink2 && eImageLink2}
-                onChange={(e) => setEImageLink(e.target.value)}
+                onChange={(e) => setEImageLink2(e.target.value)}
                 className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                 type="text"
                 placeholder={eImageLink2 && eImageLink2}
@@ -275,7 +289,7 @@ function ProfitsAdmin() {
               Troisième description d&apos;image
               <input
                 value={eImageAlt2 && eImageAlt2}
-                onChange={(e) => setEImageAlt(e.target.value)}
+                onChange={(e) => setEImageAlt2(e.target.value)}
                 className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                 type="text"
                 placeholder={eImageAlt2 && eImageAlt2}
@@ -287,7 +301,7 @@ function ProfitsAdmin() {
               Quatrième titre
               <input
                 value={elemTitle4 && elemTitle4}
-                onChange={(e) => setElemTitle1(e.target.value)}
+                onChange={(e) => setElemTitle4(e.target.value)}
                 className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                 type="text"
                 placeholder={elemTitle4 && elemTitle4}
@@ -299,7 +313,7 @@ function ProfitsAdmin() {
               Quatrième texte
               <input
                 value={elemText4 && elemText4}
-                onChange={(e) => setElemText1(e.target.value)}
+                onChange={(e) => setElemText4(e.target.value)}
                 className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                 type="text"
                 placeholder={elemText4 && elemText4}
@@ -311,7 +325,7 @@ function ProfitsAdmin() {
               Quatrième image
               <input
                 value={eImageLink3 && eImageLink3}
-                onChange={(e) => setEImageLink(e.target.value)}
+                onChange={(e) => setEImageLink3(e.target.value)}
                 className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                 type="text"
                 placeholder={eImageLink3 && eImageLink3}
@@ -323,7 +337,7 @@ function ProfitsAdmin() {
               Quatrième description d&apos;image
               <input
                 value={eImageAlt3 && eImageAlt3}
-                onChange={(e) => setEImageAlt(e.target.value)}
+                onChange={(e) => setEImageAlt3(e.target.value)}
                 className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                 type="text"
                 placeholder={eImageAlt3 && eImageAlt3}

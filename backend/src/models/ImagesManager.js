@@ -58,7 +58,7 @@ class ImageManager extends AbstractManager {
 
   findFixedImagesForProject() {
     return this.connection.query(
-      `select image_link, image_alt from images where categorie = "ProjectFixed"`
+      `select id ,image_link, image_alt from images where categorie = "ProjectFixed"`
     );
   }
 

@@ -32,10 +32,10 @@ function CarrouselReviewAdmin() {
     testimonial: testimonial,
     image_link: image,
     image_alt: imageAlt,
-    logo_id: imgId,
+    logo_id: logoId,
     linkLogo: logo,
     altLogo: logoAlt,
-    image_id: logoId,
+    image_id: imgId,
     type: 1,
   };
 
@@ -141,13 +141,6 @@ function CarrouselReviewAdmin() {
         console.warn(error);
       });
   }, [language]);
-
-  //   const elements = [
-  //    { title: elemTitle1, text: elemText1 },
-  //     { title: elemTitle2, text: elemText2 },
-  //     { title: elemTitle3, text: elemText3 },
-  //     { title: elemTitle4, text: elemText4 },
-  //   ];
 
   return (
     <div className="flex flex-col align-center justify-center">

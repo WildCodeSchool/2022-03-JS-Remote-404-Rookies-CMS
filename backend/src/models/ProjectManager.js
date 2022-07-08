@@ -31,7 +31,7 @@ class ProjectManager extends AbstractManager {
 
   findProjectMenber(id) {
     return this.connection.query(
-      `select p.id, p.project_id, i.image_link, i.image_alt from project_menber as p
+      `select p.id, p.project_id,p.images_id as imgId, i.image_link, i.image_alt from project_menber as p
       inner join images as i on i.id = p.images_id
       where p.project_id = ?`,
       [id]

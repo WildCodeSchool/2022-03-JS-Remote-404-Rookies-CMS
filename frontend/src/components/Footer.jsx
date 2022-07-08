@@ -160,16 +160,28 @@ function Footer() {
               </button>
             </div>
             <div className="flex mx-2 mt-4 ">
-              <img
-                className="mr-4 lg:w-15 lg:h-15 "
-                src={data.image_link}
-                alt={data.image_alt}
-              />
-              <img
-                className="mr-4 lg:w-15 lg:h-15"
-                src={data.image_link2}
-                alt={data.image_alt2}
-              />
+              <a
+                href="https://pepite-provence.pepitizy.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  className="mr-4 lg:w-15 lg:h-15 "
+                  src={data.image_link}
+                  alt={data.image_alt}
+                />
+              </a>
+              <a
+                href="https://lafrenchtech.com/fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  className="mr-4 lg:w-15 lg:h-15"
+                  src={data.image_link2}
+                  alt={data.image_alt2}
+                />
+              </a>
             </div>
           </div>
         </div>

@@ -30,26 +30,23 @@ class CtaCaseStudy {
       });
   };
 
-  static edit = (req, res) => {
-    const cta_case_study = req.body;
+  static edit = async (req, res) => {
+    try {
+      const object = req.body;
 
-    // TODO validations (length, format...)
+      await models.cta_case_study.update(
+        {
+          text: object.text,
+          cta_label: object.ctaLabel,
+        },
+        object.id
+      );
 
-    cta_case_study.id = parseInt(req.params.id, 10);
-
-    models.cta_case_study
-      .update(cta_case_study)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
+      res.status(204);
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
   };
 
   static add = (req, res) => {

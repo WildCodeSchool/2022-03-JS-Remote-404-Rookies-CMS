@@ -52,7 +52,7 @@ router.delete("/navigation/:id", NavigationController.delete);
 
 router.get("/homes", HomeController.browse);
 router.get("/homes/:languages_id", HomeController.read);
-router.put("/homes/", HomeController.edit);
+router.put("/homes", HomeController.edit);
 router.post("/homes", HomeController.add);
 router.delete("/homes/:id", HomeController.delete);
 
@@ -136,13 +136,14 @@ router.get("/quote/:languages_id", QuoteController.read);
 router.get("/project/:languages_id", ProjectController.read);
 
 router.get("/ctacasestudy", CtaCaseStudyController.browse);
+router.put("/ctacasestudy", CtaCaseStudyController.edit);
 router.get("/ctacasestudy/:languages_id", CtaCaseStudyController.read);
 
 router.get("/languages", LanguageController.browse);
 
 router.get("/studygethomes/:languages_id", StudyCaseHomeController.browse);
 router.get("/studygethome/:languages_id", StudyCaseHomeController.read);
-router.put("/studygethome/:id", StudyCaseHomeController.edit);
+router.put("/studygethomes", StudyCaseHomeController.edit);
 router.post("/studygethome", StudyCaseHomeController.add);
 router.delete("/studygethome/:id", StudyCaseHomeController.delete);
 

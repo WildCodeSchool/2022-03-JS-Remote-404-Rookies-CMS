@@ -42,6 +42,11 @@ function StudyCaseHomeAdmin() {
   const [elemImgAlt5, setElemImgAlt5] = useState("");
   const [topic, setTopic] = useState("");
   const [labelTopic, setLabelTopic] = useState("");
+  const [imgId1, setImgId1] = useState("");
+  const [imgId2, setImgId2] = useState("");
+  const [imgId3, setImgId3] = useState("");
+  const [imgId4, setImgId4] = useState("");
+  const [imgId5, setImgId5] = useState("");
 
   useEffect(() => {
     axios
@@ -85,6 +90,11 @@ function StudyCaseHomeAdmin() {
         setElemImgAlt5(response.data.elements[4].image_alt);
         setTopic(response.data.topic);
         setLabelTopic(response.data.label_topics);
+        setImgId1(response.data.elements[0].imgid);
+        setImgId2(response.data.elements[1].imgid);
+        setImgId3(response.data.elements[2].imgid);
+        setImgId4(response.data.elements[3].imgid);
+        setImgId5(response.data.elements[4].imgid);
       })
       .catch((error) => {
         console.warn(error);
@@ -98,6 +108,7 @@ function StudyCaseHomeAdmin() {
       sub_title: elemSubTile1,
       image_link: elemImgLink1,
       image_alt: elemImgAlt1,
+      imgid: imgId1,
     },
     {
       id: elemid2,
@@ -105,6 +116,7 @@ function StudyCaseHomeAdmin() {
       sub_title: elemSubTile2,
       image_link: elemImgLink2,
       image_alt: elemImgAlt2,
+      imgid: imgId2,
     },
     {
       id: elemid3,
@@ -112,6 +124,7 @@ function StudyCaseHomeAdmin() {
       sub_title: elemSubTile3,
       image_link: elemImgLink3,
       image_alt: elemImgAlt3,
+      imgid: imgId3,
     },
     {
       id: elemid4,
@@ -119,6 +132,7 @@ function StudyCaseHomeAdmin() {
       sub_title: elemSubTile4,
       image_link: elemImgLink4,
       image_alt: elemImgAlt4,
+      imgid: imgId4,
     },
     {
       id: elemid5,
@@ -126,6 +140,7 @@ function StudyCaseHomeAdmin() {
       sub_title: elemSubTile5,
       image_link: elemImgLink5,
       image_alt: elemImgAlt5,
+      imgid: imgId5,
     },
   ];
 
@@ -148,9 +163,8 @@ function StudyCaseHomeAdmin() {
       label_topics: labelTopic,
     };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/homes`, data1)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/studygethomes`, data1)
       .then(() => {
-        console.warn(`${imgId} ${BimgId} ${titleGreenPart} ${cta}`);
         console.warn("Yes !");
       })
       .catch(() => {
@@ -263,7 +277,7 @@ function StudyCaseHomeAdmin() {
               </div>
               <div className="flex flex-col">
                 <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-                  Titre topic
+                  Dernier élément topic
                   <input
                     value={topic && topic}
                     onChange={(e) => setTopic(e.target.value)}
@@ -471,61 +485,49 @@ function StudyCaseHomeAdmin() {
               </div>
               <div className="flex flex-col">
                 <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-                  Nom du Call to action
+                  Titre topic 5
                   <input
-                    value={cta && cta}
-                    onChange={(e) => setCta(e.target.value)}
+                    value={elemTitle5 && elemTitle5}
+                    onChange={(e) => setElemTitle5(e.target.value)}
                     className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                     type="text"
-                    placeholder={cta && cta}
+                    placeholder={elemTitle5 && elemTitle5}
                   />
                 </label>
               </div>
               <div className="flex flex-col">
                 <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-                  Image de fond
+                  Sous titre topic 5
                   <input
-                    value={bgImage && bgImage}
-                    onChange={(e) => setBgImage(e.target.value)}
+                    value={elemSubTile5 && elemSubTile5}
+                    onChange={(e) => setElemSubTile5(e.target.value)}
                     className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                     type="text"
-                    placeholder={bgImage && bgImage}
+                    placeholder={elemSubTile5 && elemSubTile5}
                   />
                 </label>
               </div>
               <div className="flex flex-col">
                 <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-                  Alt de l&apos;image de fond
+                  Image topic 5
                   <input
-                    value={bgImageAlt && bgImageAlt}
-                    onChange={(e) => setBgImageAlt(e.target.value)}
+                    value={elemImgLink5 && elemImgLink5}
+                    onChange={(e) => setElemImgLink5(e.target.value)}
                     className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                     type="text"
-                    placeholder={bgImageAlt && bgImageAlt}
+                    placeholder={elemImgLink5 && elemImgLink5}
                   />
                 </label>
               </div>
               <div className="flex flex-col">
                 <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-                  Image
+                  Description image topic 5
                   <input
-                    value={imageLink && imageLink}
-                    onChange={(e) => setImageLink(e.target.value)}
+                    value={elemImgAlt5 && elemImgAlt5}
+                    onChange={(e) => setElemImgAlt5(e.target.value)}
                     className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                     type="text"
-                    placeholder={imageLink && imageLink}
-                  />
-                </label>
-              </div>
-              <div className="flex flex-col">
-                <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-                  Alt image
-                  <input
-                    value={imageAlt && imageAlt}
-                    onChange={(e) => setImageAlt(e.target.value)}
-                    className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                    type="text"
-                    placeholder={imageAlt && imageAlt}
+                    placeholder={elemImgAlt5 && elemImgAlt5}
                   />
                 </label>
               </div>

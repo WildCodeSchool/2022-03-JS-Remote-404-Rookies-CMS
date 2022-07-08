@@ -20,14 +20,14 @@ function StudyCaseHome() {
   return (
     <div className=" flex flex-col lg:flex-row  ">
       <div className="w-full px-2 lg:px-16 lg:w-1/2 flex flex-col justify-evenly mt-20">
-        <h1 className="w-full font-bold text-4xl">
+        <h1 className="w-full font-bold text-3xl lg:text-4xl">
           {data?.title}
           <br />{" "}
           <span className="underline decoration-8 decoration-green-400">
             {data?.title_green_part}
           </span>
         </h1>
-        <p className="py-8 text-3xl">{data?.text}</p>
+        <p className="py-8 text-2xl lg:text-3xl">{data?.text}</p>
         <button
           type="button"
           className="bg-green-400 rounded-xl p-2 self-center text-white object-left flex-start flex flex-row-reverse flex-initial"

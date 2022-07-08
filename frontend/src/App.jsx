@@ -30,6 +30,9 @@ import PresentationAdvantagesAdmin from "./components/Admin/PresentationAdvantag
 import CarrouselReviewAdmin from "./components/Admin/CarrouselReviewAdmin";
 import QAAdmin from "./components/Admin/QaAdmin";
 import StudyCaseHomeAdmin from "./components/Admin/StudyCaseHomeAdmin";
+import CtaCaseStudy from "./components/Admin/CtaStudyCaseAdmin";
+import ProjectAdmin from "./components/Admin/ProjectAdmin";
+import ProjectAdminTest from "./components/Admin/ProjectAdminTest";
 
 function App() {
   const { isFormOpen, user } = React.useContext(ExportContext.Context);
@@ -81,6 +84,12 @@ function App() {
             />
             <Route path="company/QA" element={<QAAdmin />} />
             <Route path="studyCase/home" element={<StudyCaseHomeAdmin />} />
+            <Route path="studyCase/cta" element={<CtaCaseStudy />} />
+            <Route path="studyCase/projects" element={<ProjectAdmin />} />
+            <Route
+              path="studyCase/projects/test"
+              element={<ProjectAdminTest />}
+            />
           </Route>
         </Routes>
       </Router>

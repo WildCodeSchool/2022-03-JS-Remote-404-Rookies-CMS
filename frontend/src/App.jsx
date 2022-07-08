@@ -85,11 +85,8 @@ function App() {
             <Route path="company/QA" element={<QAAdmin />} />
             <Route path="studyCase/home" element={<StudyCaseHomeAdmin />} />
             <Route path="studyCase/cta" element={<CtaCaseStudy />} />
-            <Route path="studyCase/projects" element={<ProjectAdmin />} />
-            <Route
-              path="studyCase/projects/test"
-              element={<ProjectAdminTest />}
-            />
+            <Route path="studyCase/projectsold" element={<ProjectAdmin />} />
+            <Route path="studyCase/projects" element={<ProjectAdminTest />} />
           </Route>
         </Routes>
       </Router>

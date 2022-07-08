@@ -9,7 +9,7 @@ function ProjectAdminTest() {
   const { language } = useContext(ExportContext.Context);
 
   const [data, setData] = useState([]);
-  const [adminTouch, setAdminTouch] = useState("");
+  const [adminTouch, setAdminTouch] = useState(null);
 
   const editData = (area, value) => {
     const newData = [...data];
@@ -73,7 +73,7 @@ function ProjectAdminTest() {
           }}
         >
           <option value="0">Sélectionner une option</option>
-          <option value={null}>Ajouter</option>
+          <option value={data.length}>Ajouter</option>
           {data.map((elem) => (
             <option value={data.indexOf(elem)}>Mettre a jour {elem.id}</option>
           ))}
@@ -157,7 +157,7 @@ function ProjectAdminTest() {
                 </div>
                 <div className="flex flex-col">
                   <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2">
-                    Times week
+                    temps en semaine
                     <input
                       value={data[adminTouch]?.time_week}
                       name="time_week"
@@ -203,14 +203,14 @@ function ProjectAdminTest() {
               <div className="flex flex-col h-full w-full justify-center">
                 <div className="flex flex-col">
                   <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2">
-                    Times hours
+                    Temps en heures
                     <input
                       value={data[adminTouch]?.signature}
                       name="signature"
                       onChange={(e) => editData(e.target.name, e.target.value)}
                       className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                       type="text"
-                      placeholder="temsp en heure"
+                      placeholder="temps en heures"
                       required
                     />
                   </label>
@@ -224,7 +224,7 @@ function ProjectAdminTest() {
                       onChange={(e) => editData(e.target.name, e.target.value)}
                       className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
                       type="text"
-                      placeholder="temsp en heure"
+                      placeholder="Lien de l'image"
                       required
                     />
                   </label>

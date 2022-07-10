@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-undef */
+/* eslint-disable no-restricted-syntax */
 import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import ExportContext from "../../contexts/Context";
@@ -12,8 +13,15 @@ function ProjectAdminTest() {
   const [adminTouch, setAdminTouch] = useState(null);
 
   const editData = (area, value) => {
+    console.log("valeur");
+    console.log(value);
+    console.log("area");
+    console.log(area);
+    console.log("index");
+    console.log(adminTouch);
     const newData = [...data];
     newData[adminTouch][area] = value;
+    console.log(newData);
     setData(newData);
   };
 
@@ -65,18 +73,31 @@ function ProjectAdminTest() {
 
   return (
     <div className="flex flex-col align-center justify-center">
-      <div className="flex flex-col align-center justify-center ml-12 w-1/3 ml-60 mt-4 mb-4 text-center">
+      <div className="flex flex-col align-center justify-center mt-4 mb-4 text-center">
         <select
-          className="flex flex-col justify-center align-center bg-green-500 hover:bg-green-700 text-white font-bold text-xl py-1 px-1 rounded"
+          className="flex flex-col justify-center self-center w-1/3 bg-green-500 hover:bg-green-700 text-white font-bold text-xl py-1 px-1 rounded"
           onChange={(e) => {
             setAdminTouch(e.target.value);
+            // if (parseInt(e.target.value === ) {
+            //   const newData = [...data];
+            //   const toAdd = data[0];
+            //   toAdd.id = "en cour d'ajout";
+            //   console.log("newdata");
+            //   console.log(newData);
+            //   newData.push(toAdd);
+            //   setData(newData);
+            // }
           }}
         >
           <option value="0">Sélectionner une option</option>
-          <option value={data.length}>Ajouter</option>
           {data.map((elem) => (
-            <option value={data.indexOf(elem)}>Mettre a jour {elem.id}</option>
+            <option value={data.indexOf(elem)}>
+              Mettre a jour ou supprimer {elem.id}
+            </option>
           ))}
+          <option id="add" value={response.data.length}>
+            Ajouter (nouveaux en bas de page)
+          </option>
         </select>
       </div>
       <div className="flex flex-row w-1/2 h-full" />
@@ -90,7 +111,7 @@ function ProjectAdminTest() {
                     Lien de l&apos;image
                     <input
                       value={data[adminTouch]?.image_link}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 self-center py-1 w-4/5 "
                       type="text"
                       name="image_link"
                       placeholder="Lien de l'image"
@@ -106,11 +127,28 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.image_alt}
                       name="image_alt"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="Description de l'image"
                       required
                     />
+                  </label>
+                </div>
+                <div className="flex flex-col">
+                  <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2">
+                    Description de l&apos;image
+                    <select
+                      value={data[adminTouch]?.status}
+                      name="status"
+                      onChange={(e) => {
+                        editData(e.target.name, parseFloat(e.target.value));
+                      }}
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
+                      type="text"
+                    >
+                      <option value={0}>image a droite</option>
+                      <option value={1}>image a gauche</option>
+                    </select>
                   </label>
                 </div>
                 <div className="flex flex-col">
@@ -120,7 +158,7 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.title}
                       name="title"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="nom & prenom"
                       required
@@ -134,7 +172,7 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.sub_title}
                       name="sub_title"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="Poste occuper"
                       required
@@ -148,7 +186,7 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.description}
                       name="description"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="Description"
                       required
@@ -162,7 +200,7 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.time_week}
                       name="time_week"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="temps en semaine"
                       required
@@ -176,7 +214,7 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.time_hour}
                       name="time_hour"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="testimonial"
                       required
@@ -190,7 +228,7 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.text}
                       name="text"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="signature"
                       required
@@ -208,7 +246,7 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.signature}
                       name="signature"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="temps en heures"
                       required
@@ -222,7 +260,7 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.image_link}
                       name="image_link"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="Lien de l'image"
                       required
@@ -236,7 +274,7 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.image_alt}
                       name="image_alt"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="image description"
                       required
@@ -250,7 +288,7 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.projectMember[0].image_link}
                       name="projectMember[0].image_link"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="lien du 1er menbre"
                       required
@@ -264,7 +302,7 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.projectMember[0].image_alt}
                       name="projectMember[0].image_alt"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="description de l'image du 1er membre"
                       required
@@ -278,7 +316,7 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.projectMember[1].image_link}
                       name="projectMember[1].image_link"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="lien image du 2eme menbre"
                       required
@@ -287,12 +325,12 @@ function ProjectAdminTest() {
                 </div>
                 <div className="flex flex-col">
                   <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2">
-                    description de l&aps;image du 2eme membre
+                    description de l&apos;image du 2eme membre
                     <input
                       value={data[adminTouch]?.projectMember[1].image_alt}
                       name="projectMember[1].image_alt"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="description de l'image du 2eme membre"
                       required
@@ -306,7 +344,7 @@ function ProjectAdminTest() {
                       value={data[adminTouch]?.projectMember[2].image_link}
                       name="projectMember[2].image_link"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="lien image du 3eme menbre"
                       required
@@ -315,12 +353,12 @@ function ProjectAdminTest() {
                 </div>
                 <div className="flex flex-col">
                   <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2">
-                    description de l&aps;image du 3eme membre
+                    description de l&apos;image du 3eme membre
                     <input
                       value={data[adminTouch]?.projectMember[2].image_alt}
                       name="projectMember[2].image_alt"
                       onChange={(e) => editData(e.target.name, e.target.value)}
-                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                      className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
                       type="text"
                       placeholder="description de l'image du 3eme membre"
                       required
@@ -331,7 +369,7 @@ function ProjectAdminTest() {
             </form>
           </div>
         </div>
-        <div className="flex justify-around mt-4">
+        <div className="flex justify-center mt-4 gap-10">
           <button
             type="submit"
             onClick={handleSubmit}

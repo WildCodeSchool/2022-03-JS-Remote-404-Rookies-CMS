@@ -1,9 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet,
+} from "react-router-dom";
 import MainLayout from "./pages/Layout/MainLayout";
 import ExportContext from "./contexts/Context";
 
-import DashboardLayout from "./pages/Layout/DashboardLayout";
+// import DashboardLayout from "./pages/Layout/DashboardLayout";
 import ProtectedRoute from "./pages/Layout/ProtectedRoute";
 import Login from "./pages/Login";
 import Page1 from "./pages/Page1";
@@ -28,7 +33,7 @@ import ProfitsAdmin from "./components/Admin/ProfitsAdmin";
 import FooterAdmin from "./components/Admin/FooterAdmin";
 import PresentationAdvantagesAdmin from "./components/Admin/PresentationAdvantagesAdmin";
 import CarrouselReviewAdmin from "./components/Admin/CarrouselReviewAdmin";
-import QAAdmin from "./components/Admin/QaAdmin";
+import QAAdmin from "./components/Admin/QaAdmin.JSX";
 import StudyCaseHomeAdmin from "./components/Admin/StudyCaseHomeAdmin";
 import CtaCaseStudy from "./components/Admin/CtaStudyCaseAdmin";
 import ProjectAdmin from "./components/Admin/ProjectAdmin";
@@ -52,7 +57,8 @@ function App() {
             element={
               <ProtectedRoute user={user}>
                 <NavbarAdmin />
-                <DashboardLayout />
+                {/* <DashboardLayout /> */}
+                <Outlet />
               </ProtectedRoute>
             }
           >

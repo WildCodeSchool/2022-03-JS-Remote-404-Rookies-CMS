@@ -8,6 +8,16 @@ function Provider({ children }) {
     setIsFormOpen(!isFormOpen);
   };
 
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const handleContact = () => {
+    setIsContactOpen(!isContactOpen);
+  };
+
+  // const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  // const handleCalendly = () => {
+  //   setIsCalendlyOpen(!isCalendlyOpen);
+  // };
+
   const [allLanguages, setAllLanguages] = useState();
   const handleLanguages = (toSet) => {
     setAllLanguages(toSet);
@@ -34,6 +44,8 @@ function Provider({ children }) {
         media,
         user,
         setUser,
+        handleContact,
+        isContactOpen,
       }}
     >
       {children}

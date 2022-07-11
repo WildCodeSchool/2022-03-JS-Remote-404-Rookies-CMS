@@ -24,9 +24,12 @@ const {
   StudyCaseHomeController,
   ContactFormController,
   NewsletterController,
+  mailerController,
 } = require("./controllers");
 
 const router = express.Router();
+
+router.post("/sendEmail", mailerController.sendMail);
 
 router.get("/items", ItemController.browse);
 router.get("/items/:id", ItemController.read);
@@ -134,6 +137,9 @@ router.get("/quote", QuoteController.browse);
 router.get("/quote/:languages_id", QuoteController.read);
 
 router.get("/project/:languages_id", ProjectController.read);
+router.post("/projectadd", ProjectController.add);
+router.put("/projects", ProjectController.edit);
+router.delete("/projectdelete/:id", ProjectController.delete);
 
 router.get("/ctacasestudy", CtaCaseStudyController.browse);
 router.put("/ctacasestudy", CtaCaseStudyController.edit);
@@ -144,7 +150,7 @@ router.get("/languages", LanguageController.browse);
 router.get("/studygethomes/:languages_id", StudyCaseHomeController.browse);
 router.get("/studygethome/:languages_id", StudyCaseHomeController.read);
 router.put("/studygethomes", StudyCaseHomeController.edit);
-router.post("/studygethome", StudyCaseHomeController.add);
+router.post("/studygethomeadd", StudyCaseHomeController.add);
 router.delete("/studygethome/:id", StudyCaseHomeController.delete);
 
 router.get("/contactForm/:languages_id", ContactFormController.browse);

@@ -6,8 +6,14 @@ import { useContext, useState, useEffect } from "react";
 import ExportContext from "../contexts/Context";
 
 function Navbar() {
-  const { language, selectLanguage, handleLanguages, allLanguages, media } =
-    useContext(ExportContext.Context);
+  const {
+    language,
+    selectLanguage,
+    handleLanguages,
+    allLanguages,
+    media,
+    handleContact,
+  } = useContext(ExportContext.Context);
   const location = useLocation();
 
   const [data, setData] = useState([]);
@@ -92,6 +98,7 @@ function Navbar() {
           <button
             type="button"
             className="pt-2 pb-3 pl-3 pr-3 rounded-full buttonNav mr-10 text-xl text-white"
+            onClick={handleContact}
           >
             {data.links && data.links[4].label}
           </button>

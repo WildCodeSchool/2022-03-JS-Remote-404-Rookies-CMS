@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -38,18 +39,24 @@ import StudyCaseHomeAdmin from "./components/Admin/StudyCaseHomeAdmin";
 import CtaCaseStudy from "./components/Admin/CtaStudyCaseAdmin";
 import ProjectAdmin from "./components/Admin/ProjectAdmin";
 import ProjectAdminTest from "./components/Admin/ProjectAdminTest";
+import Calendly from "./components/Calendly";
+import FormContactUs from "./components/FormContactUs";
 
 function App() {
-  const { isFormOpen, user } = React.useContext(ExportContext.Context);
+  const { isFormOpen, user, isContactOpen } = React.useContext(
+    ExportContext.Context
+  );
   return (
     <div>
       {isFormOpen && <Formulaire />}
+      {isContactOpen && <FormContactUs />}
       <Router>
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route path=":language/page1" element={<Page1 />} />
             <Route path=":language/page2" element={<Page2 />} />
             <Route path=":language/page3" element={<Page3 />} />
+            <Route path="/company/calendly" element={<Calendly />} />
             <Route path="/rookies-admin" element={<Login />} />
           </Route>
           <Route

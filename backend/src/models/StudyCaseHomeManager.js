@@ -5,8 +5,18 @@ class StudyCaseHomeManager extends AbstractManager {
 
   insert(studyCaseHome) {
     return this.connection.query(
-      `insert into ${StudyCaseHomeManager.table} (title) values (?)`,
-      [studyCaseHome.title]
+      `insert into ${StudyCaseHomeManager.table} (title, title_green_part, text, cta_label, label_topics, topic, images_id, topic_img_id, languages_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        studyCaseHome.title,
+        studyCaseHome.titleGreenPart,
+        studyCaseHome.text,
+        studyCaseHome.cta,
+        studyCaseHome.label_topics,
+        studyCaseHome.topic,
+        studyCaseHome.images_id,
+        studyCaseHome.topic_img_id,
+        studyCaseHome.languages_id,
+      ]
     );
   }
 

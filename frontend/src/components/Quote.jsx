@@ -5,22 +5,25 @@ import ExportContext from "../contexts/Context";
 function Quote() {
   const { language } = useContext(ExportContext.Context);
   const [quotes, setQuotes] = useState([]);
+  const [entierAleatoire, setEntierAleatoire] = useState("");
+
+  function entierAleatoire1(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
 
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/quote/${language.id}`)
       .then((response) => {
         setQuotes(response.data);
+        setEntierAleatoire(entierAleatoire1(0, response.data.length));
       })
       .catch((error) => {
         console.warn(error);
       });
   }, []);
 
-  function entierAleatoire(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
-  const entier = entierAleatoire(0, quotes.length);
+  const entier = entierAleatoire;
   const background = quotes[entier] && quotes[entier].image_link;
   return (
     <div

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useState, useEffect } from "react";
-import CTA from "./CTA";
+import Calendly from "./Calendly";
 import ExportContext from "../contexts/Context";
 import "../css/summary.css";
 
@@ -31,8 +31,8 @@ function PresentationAdvantages() {
         </h2>
         <h3 className="text-2xl text-gree font-bold m-4">{data.title}</h3>
         <p className="text-lg text-gray-600 m-4 ">{data.text}</p>
-        <div className="flex justify-center lg:justify-start">
-          {!media ? <CTA label={data.CTA_label} /> : ""}
+        <div id="calendly" className="flex justify-center lg:justify-start">
+          {!media ? <Calendly label={data.CTA_label} /> : ""}
         </div>
       </div>
       <div className="mx-4 lg:w-1/3 ">
@@ -57,7 +57,7 @@ function PresentationAdvantages() {
       </div>
       {media ? (
         <div className="flex justify-center">
-          <CTA label={data.CTA_label} className="" />
+          <Calendly label={data.CTA_label} className="" />
         </div>
       ) : (
         ""

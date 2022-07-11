@@ -703,7 +703,7 @@ CREATE TABLE IF NOT EXISTS `RookiesCMS`.`project` (
   `time_hour` VARCHAR(100) NOT NULL,
   `text` LONGTEXT NOT NULL,
   `signature` VARCHAR(100) NOT NULL,
-  `amount` FLOAT NOT NULL,
+  `amount` VARCHAR(100) NOT NULL,
   `status` TINYINT NOT NULL,
   `languages_id` INT NOT NULL,
   `images_id` INT NOT NULL,
@@ -1929,4 +1929,39 @@ VALUES
 INSERT INTO
     `RookiesCMS`.`study_case_topics`(title, sub_title, images_id, study_case_home_id)
 VALUES("Marketing", "Étude de marché", 56, 1),("Communication", "Mentor of Web Design", 57, 1),("Digital et Web", "Developpement", 58, 1),("Graphisme", "Mentor of UI/UX", 54, 1),("Ingénierie", "Mentor of UI/UX", 55, 1);
+
+CREATE TABLE IF NOT EXISTS `RookiesCMS`.`Contact_us` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `text` VARCHAR(45) NOT NULL,
+  `text_green` VARCHAR(45) NOT NULL,
+  `label_phone` VARCHAR(45) NOT NULL,
+  `phone` VARCHAR(45) NOT NULL,
+  `label_email` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(150) NOT NULL,
+  `label_rdv` VARCHAR(45) NOT NULL,
+  `link_calendly` VARCHAR(150) NOT NULL,
+  `images_id` INT NOT NULL,
+  `bg_id` INT NOT NULL,
+  `languages_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `images_id`, `bg_id`, `languages_id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `fk_table1_images1_idx` (`images_id` ASC) VISIBLE,
+  INDEX `fk_table1_languages1_idx` (`languages_id` ASC) VISIBLE,
+  INDEX `fk_Contact_us_images1_idx` (`bg_id` ASC) VISIBLE,
+  CONSTRAINT `fk_table1_images1`
+    FOREIGN KEY (`images_id`)
+    REFERENCES `RookiesCMS`.`images` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_table1_languages1`
+    FOREIGN KEY (`languages_id`)
+    REFERENCES `RookiesCMS`.`languages` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Contact_us_images1`
+    FOREIGN KEY (`bg_id`)
+    REFERENCES `RookiesCMS`.`images` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 

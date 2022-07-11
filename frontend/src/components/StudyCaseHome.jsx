@@ -38,7 +38,7 @@ function StudyCaseHome() {
       <div
         className="hidden lg:inline w-1/2 mt-20"
         style={{
-          backgroundImage: `url(${data?.image_link})`,
+          backgroundImage: `url(${data?.topicImgLink})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "90% 100%",
         }}
@@ -50,8 +50,8 @@ function StudyCaseHome() {
             </h3>
             <span />
             <img
-              src={data && data.topicImgLink}
-              alt={data && data.topicImgAlt}
+              src={data && data.image_link}
+              alt={data && data.image_alt}
               className="hat rounded-full w-1/4 h-1/4 flex-end"
             />
             {data.elements &&

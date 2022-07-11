@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-undef */
-/* eslint-disable no-restricted-syntax */
 import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import ExportContext from "../../contexts/Context";
@@ -13,15 +12,15 @@ function ProjectAdminTest() {
   const [adminTouch, setAdminTouch] = useState(null);
 
   const editData = (area, value) => {
-    console.log("valeur");
-    console.log(value);
-    console.log("area");
-    console.log(area);
-    console.log("index");
-    console.log(adminTouch);
+    // console.log("valeur");
+    // console.log(value);
+    // console.log("area");
+    // console.log(area);
+    // console.log("index");
+    // console.log(adminTouch);
     const newData = [...data];
     newData[adminTouch][area] = value;
-    console.log(newData);
+    // console.log(newData);
     setData(newData);
   };
 
@@ -90,7 +89,7 @@ function ProjectAdminTest() {
           }}
         >
           <option value="0">Sélectionner une option</option>
-          {data.map((elem) => (
+          {data.slice(0, data.length - 1).map((elem) => (
             <option value={data.indexOf(elem)}>
               Mettre a jour ou supprimer {elem.id}
             </option>

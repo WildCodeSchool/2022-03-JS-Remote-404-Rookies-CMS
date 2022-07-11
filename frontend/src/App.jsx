@@ -33,7 +33,7 @@ import ProfitsAdmin from "./components/Admin/ProfitsAdmin";
 import FooterAdmin from "./components/Admin/FooterAdmin";
 import PresentationAdvantagesAdmin from "./components/Admin/PresentationAdvantagesAdmin";
 import CarrouselReviewAdmin from "./components/Admin/CarrouselReviewAdmin";
-import QAAdmin from "./components/Admin/QaAdmin.JSX";
+import QAAdmin from "./components/Admin/QAAdmin";
 import StudyCaseHomeAdmin from "./components/Admin/StudyCaseHomeAdmin";
 import CtaCaseStudy from "./components/Admin/CtaStudyCaseAdmin";
 import ProjectAdmin from "./components/Admin/ProjectAdmin";

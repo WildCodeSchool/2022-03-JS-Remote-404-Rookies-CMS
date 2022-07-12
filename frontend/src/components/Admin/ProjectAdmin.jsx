@@ -5,6 +5,7 @@ import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import ExportContext from "../../contexts/Context";
 import ProjectsCard from "../ProjectsCard";
+import NavBarAdminCompany from "./NavBarAdminCompany";
 
 function ProjectAdmin() {
   const { language } = useContext(ExportContext.Context);
@@ -177,7 +178,10 @@ function ProjectAdmin() {
 
   return (
     <div className="flex flex-col align-center justify-center">
-      <div className="flex flex-col align-center justify-center ml-12 w-1/3 ml-60 mt-4 mb-4 text-center">
+      <div className="w-1/5">
+        <NavBarAdminCompany />
+      </div>
+      <div className="flex flex-col align-center justify-center ml-12 w-1/3 mt-4 mb-4 text-center">
         <select
           className="flex flex-col justify-center align-center bg-green-500 hover:bg-green-700 text-white font-bold text-xl py-1 px-1 rounded"
           onChange={(e) => setAdminTouch(e.target.value)}

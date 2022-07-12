@@ -17,10 +17,10 @@ class ImageManager extends AbstractManager {
     );
   }
 
-  updateImage(image) {
+  updateImage(id, newAttributes) {
     return this.connection.query(
-      `update ${ImageManager.table} set title = ? where id = ?`,
-      [image.title, image.id]
+      `update ${ImageManager.table} SET ? WHERE id = ?`,
+      [newAttributes, id]
     );
   }
 
@@ -58,7 +58,7 @@ class ImageManager extends AbstractManager {
 
   findFixedImagesForProject() {
     return this.connection.query(
-      `select image_link, image_alt from images where categorie = "ProjectFixed"`
+      `select id ,image_link, image_alt from images where categorie = "ProjectFixed"`
     );
   }
 

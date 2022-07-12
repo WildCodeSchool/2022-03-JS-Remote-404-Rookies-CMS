@@ -10,16 +10,23 @@ class KpiManager extends AbstractManager {
     );
   }
 
-  update(kpi) {
+  update(id, object) {
     return this.connection.query(
-      `update ${KpiManager.table} set title = ? where id = ?`,
-      [kpi.title, kpi.id]
+      `update ${KpiManager.table} set ? where id = ?`,
+      [object, id]
     );
+  }
+
+  updateKpiElement(id, object) {
+    return this.connection.query(`update kpi_element set ? where id = ?`, [
+      object,
+      id,
+    ]);
   }
 
   findKpi(languagesId) {
     return this.connection.query(
-      `select title, sub_title, languages_id from kpi
+      `select id, title, sub_title, languages_id from kpi
       where languages_id = ?`,
       [languagesId]
     );
@@ -27,7 +34,7 @@ class KpiManager extends AbstractManager {
 
   findKpiElement(languagesId) {
     return this.connection.query(
-      `select number, label from kpi_element
+      `select number, label, id from kpi_element
       where KPI_id = ?`,
       [languagesId]
     );

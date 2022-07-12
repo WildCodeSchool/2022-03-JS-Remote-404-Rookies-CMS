@@ -129,18 +129,21 @@ button {
 .bg4E {
   background-color: var(--light-green);
 }
-.tc4E {
+.subtitle {
   color: var(--green);
 }
+.tc4E {
+  color: var(--white);
+}
 .tc4e2 {
-  color: var(--black);
+  color: var(--green);
 }
 @media (max-width: 768px) {
   .tc4E {
-    color: var(--black);
+    color: white;
   }
   .tc4e2 {
-    color: var(--green);
+    color: var(--black);
   }
 }
 .bg4e-button {
@@ -173,7 +176,7 @@ button {
 
 .carousel {
   width: 100%;
-  height: 100%;
+  margin-bottom: 2%;
   overflow: hidden;
 }
 
@@ -199,11 +202,12 @@ button {
 
 .inner-carousel1 {
   flex-direction: row;
-  margin: 2%;
-  min-width: 15%;
-  max-width: 15%;
-  max-height: 15%;
-  min-height: 15%;
+  margin-left: 5%;
+  margin-right: 5%;
+  min-width: 10%;
+  max-width: 10%;
+  max-height: 10%;
+  min-height: 10%;
   aspect-ratio: 1;
 }
 
@@ -269,15 +273,15 @@ button {
   aspect-ratio: 16/9;
 }
 #carousel-logo-E7 {
-  max-width: 33%;
+  max-width: 40%;
   align-self: flex-start;
 }
 
 @media (max-width: 769px) {
   #carousel-logo-E7 {
-    max-width: 25%;
-    width: 25%;
-    height: 15%;
+    max-width: 40%;
+    width: 40%;
+    align-self: flex-end;
   }
 
   #carousel-img-E7 {
@@ -441,4 +445,31 @@ button {
 #trytorotate {
   transform: rotateY(180deg);
   transition: 0.3s ease;
+}
+
+.quote {
+  position: relative;
+  top: -3rem;
+}
+
+.imgProject {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+.imgProjectSize {
+  object-fit: contain;
+  max-width: 15%;
+  max-height: 20%;
+}
+
+.active {
+  color: var(--green);
+}
+
+.hat {
+  position: relative;
+  top: -4.5vw;
+  left: 17vw;
+  background-color: #00d9ff;
+  object-fit: contain;
 }

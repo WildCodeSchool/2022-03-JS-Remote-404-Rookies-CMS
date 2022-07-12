@@ -12,17 +12,16 @@ class CtaCaseStudy extends AbstractManager {
     );
   }
 
-  update(cta_case_study) {
+  update(object, id) {
     return this.connection.query(
-      `update ${CtaCaseStudy.table} set text = ? where id = ?`,
-      [cta_case_study.text, cta_key_study.id]
+      `update ${CtaCaseStudy.table} set ? where id = ?`,
+      [object, id]
     );
   }
 
   findCtaCaseStudy(languagesId) {
     return this.connection.query(
-      `select c.text,p.label, from cta_study_case as c
-      where c.languages_id = ?`,
+      `select c.text, c.id, c.cta_label from cta_case_study as c where c.languages_id = ?`,
       [languagesId]
     );
   }

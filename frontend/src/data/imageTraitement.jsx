@@ -7,7 +7,7 @@ import ExportContext from "../contexts/Context";
 
 function ImageTraitement1() {
   const [image, setImage] = react.useState([]);
-  const { page5 } = useParams();
+  const { carousellogo } = useParams();
 
   const { media } = useContext(ExportContext.Context);
 
@@ -33,8 +33,9 @@ function ImageTraitement1() {
               className="inner-carousel1"
               rel="noreferrer"
             >
+              {" "}
+              {carousellogo ? <p>Id : {item.id}</p> : null}
               <img src={item.image_link} alt={item.image_alt} />
-              {page5 ? <p>{item.id}</p> : null}
             </a>
           ))}
         </div>
@@ -46,8 +47,8 @@ function ImageTraitement1() {
               className="inner-carousel1"
               rel="noreferrer"
             >
+              {carousellogo ? <p>Id : {item.id}</p> : null}
               <img src={item.image_link} alt={item.image_alt} />
-              {page5 ? <p>{item.id}</p> : null}
             </a>
           ))}
         </div>
@@ -64,8 +65,8 @@ function ImageTraitement1() {
             className="inner-carousel1"
             rel="noreferrer"
           >
+            {carousellogo ? <p>{item.id}</p> : null}
             <img src={item.image_link} alt={item.image_alt} />
-            {page5 ? <p>{item.id}</p> : null}
           </a>
         ))}
       </div>
@@ -77,8 +78,8 @@ function ImageTraitement1() {
             className="inner-carousel1"
             rel="noreferrer"
           >
+            {carousellogo ? <p>{item.id}</p> : null}
             <img src={item.image_link} alt={item.image_alt} />
-            {page5 ? <p>{item.id}</p> : null}
           </a>
         ))}
       </div>
@@ -90,8 +91,8 @@ function ImageTraitement1() {
             className="inner-carousel1"
             rel="noreferrer"
           >
+            {carousellogo ? <p>{item.id}</p> : null}
             <img src={item.image_link} alt={item.image_alt} />
-            {page5 ? <p>{item.id}</p> : null}
           </a>
         ))}
       </div>

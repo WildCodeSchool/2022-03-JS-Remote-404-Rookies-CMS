@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const models = require("../models");
 
 class CarrousselReviewController {
@@ -29,54 +30,73 @@ class CarrousselReviewController {
       });
   };
 
-  static edit = (req, res) => {
-    const navigation = req.body;
+  static edit = async (req, res) => {
+    try {
+      const object = req.body;
+      const images = object.images;
 
-    // TODO validations (length, format...)
+      const element =
+        await models.carroussel_review.updateCarouselReviewElement(object.id, {
+          images_id: object.images[0].id,
+          images_logo_id: object.images[1].id,
+          fullname: object.fullName,
+          post: object.post,
+          testimonial: object.testimonial,
+          type: object.type,
+        });
 
-    navigation.id = parseInt(req.params.id, 10);
+      const carousel = await models.carroussel_review.updateCarouselReview(
+        object.languages_id,
+        { title: object.title, sub_title: object.subTitle }
+      );
+      const imageU = await Promise.all(
+        images.map((elem) =>
+          models.images.updateImage(elem.id, {
+            image_link: elem.image_link,
+            image_alt: elem.image_alt,
+          })
+        )
+      );
 
-    models.carroussel_review
-      .update(navigation)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
+      const result = await res.status(204);
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
   };
 
-  static add = (req, res) => {
-    const navigation = req.body;
+  static add = async (req, res) => {
+    try {
+      const object = req.body;
+      const images = object.images;
 
-    // TODO validations (length, format...)
+      const image = await Promise.all(
+        images.map((img) => models.images.insertImage(img))
+      );
+      const review =
+        await models.carroussel_review.insertCarrousselReviewElement({
+          ...object,
+          imagesId: image[0][0].insertId,
+          logoId: image[1][0].insertId,
+        });
 
-    models.carroussel_review
-      .insertnavigation(navigation)
-      .then(([result]) => {
-        res.status(201).send({ ...navigation, id: result.insertId });
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
+      res.status(201);
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
   };
 
-  static delete = (req, res) => {
-    models.carroussel_review
-      .delete(req.params.id)
-      .then(() => {
-        res.sendStatus(204);
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
+  static delete = async (req, res) => {
+    try {
+      const del = await models.carroussel_review.deleteCarouselReviewElement(
+        req.params.id
+      );
+      res.status(204).send(res);
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
   };
 }
 

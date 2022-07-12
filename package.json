@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "joi": "^17.6.0",
-    "migrate": "^1.8.0"
+    "migrate": "^1.8.0",
+    "react-calendly": "^4.0.1"
   }
 }

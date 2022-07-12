@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const models = require("../models");
 
 class PresentationAdvantagesController {
@@ -18,7 +19,7 @@ class PresentationAdvantagesController {
       .findPresentationAdvantages(req.params.languages_id)
       .then(([rows]) => {
         if (rows[0] == null) {
-          res.Status(404).send("There is nothing here !");
+          res.status(404).send("There is nothing here !");
         } else {
           res.send(rows[0]);
         }
@@ -29,26 +30,33 @@ class PresentationAdvantagesController {
       });
   };
 
-  static edit = (req, res) => {
-    const presentation = req.body;
+  static edit = async (req, res) => {
+    try {
+      const object = req.body;
+      const elements = object.elements;
 
-    // TODO validations (length, format...)
-
-    presentation.id = parseInt(req.params.id, 10);
-
-    models.presentation
-      .update(presentation)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
+      const presentation = await models.presentation_advantages.update(
+        object.id,
+        {
+          title: object.title,
+          sub_title: object.subtitle,
+          text: object.text,
+          CTA_label: object.cta,
         }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
+      );
+      const data = await Promise.all(
+        elements.map((elem) =>
+          models.presentation_advantages.updateElement(elem.id, {
+            summary: elem.summary,
+            details: elem.details,
+          })
+        )
+      );
+      const result = await res.status(204).send("It's ok !");
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
   };
 
   static add = (req, res) => {

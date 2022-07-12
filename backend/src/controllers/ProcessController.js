@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const models = require("../models");
 
 class ProcessController {
@@ -36,26 +37,35 @@ class ProcessController {
       });
   };
 
-  static edit = (req, res) => {
-    const process = req.body;
+  static edit = async (req, res) => {
+    try {
+      const object = req.body;
+      const elements = object.elements;
 
-    // TODO validations (length, format...)
-
-    process.id = parseInt(req.params.id, 10);
-
-    models.process
-      .update(process)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+      const process = await models.process.update(object.id, {
+        title: object.title,
+        sub_title: object.subTitle,
+        text: object.text,
       });
+
+      const image = await models.images.updateImage(object.imgId, {
+        image_link: object.imageLink,
+        image_alt: object.imageAlt,
+      });
+
+      const element = await Promise.all(
+        elements.map((elem) =>
+          models.process.updateProcessElements(elem.id, {
+            title: elem.title,
+            text: elem.text,
+          })
+        )
+      );
+      res.sendStatus(204);
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
   };
 
   static add = (req, res) => {

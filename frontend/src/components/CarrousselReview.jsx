@@ -11,7 +11,9 @@ function CarrousselReview() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/carrousselreview/${language}`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/carrousselreview/${language.id}`
+      )
       .then((response) => {
         setData(response.data);
       })
@@ -20,12 +22,12 @@ function CarrousselReview() {
       });
   }, [language]);
   return (
-    <div className="flex flex-col items-center justify-center w-full">
+    <div className="flex flex-col px-4 items-center justify-center w-full">
       <section className="w-full">
-        <h2 className="text-center text-green font-bold md:text-xl text-lg lg:text-2xl pb-4">
+        <h2 className="lg:text-center subtitle pt-12 font-bold text-left text-xl">
           {data[0] && data[0].title}
         </h2>
-        <h3 className="text-center font-bold text-xl md:text-2xl lg:text-4xl pb-4 lg:pb-20 ">
+        <h3 className="lg:text-center font-bold text-4xl text-left my-4 lg:pb-20 ">
           {data[0] && data[0].sub_title}
         </h3>
         <div className="mb-2">
@@ -38,7 +40,7 @@ function CarrousselReview() {
             showThumbs={false}
             centerSlidePercentage={100}
             centerMode
-            className="w-full h-full mb-20"
+            className="w-full h-full mb-10"
           >
             {data &&
               data.map((elem) => {

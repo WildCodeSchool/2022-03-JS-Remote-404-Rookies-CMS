@@ -10,10 +10,10 @@ class GetStartedManager extends AbstractManager {
     );
   }
 
-  update(getStarted) {
+  update(id, getStarted) {
     return this.connection.query(
-      `update ${GetStartedManager.table} set title = ? where id = ?`,
-      [getStarted.title, getStarted.id]
+      `update ${GetStartedManager.table} set ? where id = ?`,
+      [getStarted, id]
     );
   }
 

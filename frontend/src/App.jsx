@@ -20,7 +20,7 @@ import AdminPageCompany from "./pages/AdminPageCompany";
 import AdminPageSchool from "./pages/AdminPageSchool";
 import AdminPageCaseStudy from "./pages/AdminPageCaseStudy";
 import PresentationAdmin from "./components/Admin/PresentationAdmin";
-import NavbarAdmin from "./components/Admin/NavbarAdmin";
+// import NavbarAdmin from "./components/Admin/NavbarAdmin";
 import ProcessAdmin from "./components/Admin/ProcessAdmin";
 
 import LogoCarouselAdmin from "./components/Admin/CarouselLogoAdmin";
@@ -41,6 +41,9 @@ import ProjectAdmin from "./components/Admin/ProjectAdmin";
 import ProjectAdminTest from "./components/Admin/ProjectAdminTest";
 import Calendly from "./components/Calendly";
 import FormContactUs from "./components/FormContactUs";
+import LanguagesAdmin from "./components/Admin/LanguagesAdmin";
+import FormulaireAdmin from "./components/Admin/FormulaireAdmin";
+// import NavBarAdminCompany from "./components/Admin/NavBarAdminCompany";
 
 function App() {
   const { isFormOpen, user, isContactOpen } = React.useContext(
@@ -63,7 +66,6 @@ function App() {
             path="/dashboard/"
             element={
               <ProtectedRoute user={user}>
-                <NavbarAdmin />
                 {/* <DashboardLayout /> */}
                 <Outlet />
               </ProtectedRoute>
@@ -72,6 +74,7 @@ function App() {
             <Route path="school" element={<AdminPageSchool />} />
             <Route path="company" element={<AdminPageCompany />} />
             <Route path="caseStudy" element={<AdminPageCaseStudy />} />
+            <Route path="languages" element={<LanguagesAdmin />} />
             <Route path="" element={<AdminPage />} />
             <Route
               path="company/:carousellogo"
@@ -100,6 +103,7 @@ function App() {
             <Route path="studyCase/cta" element={<CtaCaseStudy />} />
             <Route path="studyCase/projectsold" element={<ProjectAdmin />} />
             <Route path="studyCase/projects" element={<ProjectAdminTest />} />
+            <Route path="shcool/formulaire" element={<FormulaireAdmin />} />
           </Route>
         </Routes>
       </Router>

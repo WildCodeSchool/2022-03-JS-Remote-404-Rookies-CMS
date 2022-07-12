@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import ExportContext from "../../contexts/Context";
+import NavBarAdminCompany from "./NavBarAdminCompany";
 
 function KpiAdmin() {
   const { language } = useContext(ExportContext.Context);
@@ -76,164 +77,169 @@ function KpiAdmin() {
 
   return (
     <div className="flex flex-row w-screen">
-      <form className="flex flex-col h-full w-2/5 justify-center">
-        <div className="flex flex-col h-full w-full justify-center">
-          <div className="flex flex-col h-full w-full justify-center">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Titre
-              <input
-                value={title && title}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={title && title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </label>
+      <div className="w-1/5">
+        <NavBarAdminCompany />
+      </div>
+      <div className="flex flex-col w-full">
+        <form className="flex flex-col w-full ">
+          <div className="flex flex-col ">
+            <div className="flex flex-col ">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Titre
+                <input
+                  value={title && title}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={title && title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Sous-titre
+                <input
+                  value={subtitle && subtitle}
+                  onChange={(e) => setSubTitle(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={subtitle && subtitle}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                premier chiffre
+                <input
+                  value={number1 && number1}
+                  onChange={(e) => setNumber1(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={number1 && number1}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                premier intitulé
+                <input
+                  value={label1 && label1}
+                  onChange={(e) => setLabel1(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={label1 && label1}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                deuxième chiffre
+                <input
+                  value={number2 && number2}
+                  onChange={(e) => setNumber2(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={number2 && number2}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                deuxième intitulé
+                <input
+                  value={label2 && label2}
+                  onChange={(e) => setLabel2(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={label2 && label2}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                troisème chiffre
+                <input
+                  value={number3 && number3}
+                  onChange={(e) => setNumber3(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={number3 && number3}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                troisième intitulé
+                <input
+                  value={label3 && label3}
+                  onChange={(e) => setLabel3(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={label3 && label3}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                quatrième chiffre
+                <input
+                  value={number4 && number4}
+                  onChange={(e) => setNumber4(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={number4 && number4}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                quatrième intitulé
+                <input
+                  value={label4 && label4}
+                  onChange={(e) => setLabel4(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={label4 && label4}
+                />
+              </label>
+            </div>
+            <div className="flex justify-center mt-8">
+              <button
+                type="submit"
+                onClick={(e) => handleSubmit(e)}
+                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
+              >
+                Submit
+              </button>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Sous-titre
-              <input
-                value={subtitle && subtitle}
-                onChange={(e) => setSubTitle(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={subtitle && subtitle}
-              />
-            </label>
+        </form>
+        <section className="bg4E flex flex-col justify-evenly py-16">
+          <div>
+            <h2 className="lg:text-xl pl-4 text-3xl text-green green-400 text-left lg:text-center font-bold py-4 ">
+              {title && title}
+            </h2>
+            <h3 className="lg:text-4xl py-4 text-4xl font-bold text-3 pl-4 text-left lg:text-center mb-6">
+              {subtitle && subtitle}
+            </h3>
           </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              premier chiffre
-              <input
-                value={number1 && number1}
-                onChange={(e) => setNumber1(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={number1 && number1}
-              />
-            </label>
+          <div className="flex flex-wrap justify-evenly  lg:grid  lg:grid-cols-4 lg:gap-6 lg:divide-x-2 lg:divide-green-300">
+            {elements &&
+              elements.map((element) => {
+                return (
+                  <div className="flex w-2/5 justify-start lg:w-full flex-col lg:basis-1/4 mb-4">
+                    <p className="flex justify-center text-2xl lg:text-4xl tc4E font-bold order-2 mb-4">
+                      {element.number}
+                    </p>
+                    <p className="flex justify-center font-bold  lg:font-medium lg:text-xl mb-4 tc4e2">
+                      {element.label}
+                    </p>
+                  </div>
+                );
+              })}
           </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              premier intitulé
-              <input
-                value={label1 && label1}
-                onChange={(e) => setLabel1(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={label1 && label1}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              deuxième chiffre
-              <input
-                value={number2 && number2}
-                onChange={(e) => setNumber2(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={number2 && number2}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              deuxième intitulé
-              <input
-                value={label2 && label2}
-                onChange={(e) => setLabel2(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={label2 && label2}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              troisème chiffre
-              <input
-                value={number3 && number3}
-                onChange={(e) => setNumber3(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={number3 && number3}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              troisième intitulé
-              <input
-                value={label3 && label3}
-                onChange={(e) => setLabel3(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={label3 && label3}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              quatrième chiffre
-              <input
-                value={number4 && number4}
-                onChange={(e) => setNumber4(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={number4 && number4}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              quatrième intitulé
-              <input
-                value={label4 && label4}
-                onChange={(e) => setLabel4(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={label4 && label4}
-              />
-            </label>
-          </div>
-          <div className="flex justify-center mt-8">
-            <button
-              type="submit"
-              onClick={(e) => handleSubmit(e)}
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
-            >
-              Submit
-            </button>
-          </div>
-        </div>
-      </form>
-      <section className="bg4E flex flex-col justify-evenly py-16">
-        <div>
-          <h2 className="lg:text-xl pl-4 text-3xl text-green green-400 text-left lg:text-center font-bold py-4 ">
-            {title && title}
-          </h2>
-          <h3 className="lg:text-4xl py-4 text-4xl font-bold text-3 pl-4 text-left lg:text-center mb-6">
-            {subtitle && subtitle}
-          </h3>
-        </div>
-        <div className="flex flex-wrap justify-evenly  lg:grid  lg:grid-cols-4 lg:gap-6 lg:divide-x-2 lg:divide-green-300">
-          {elements &&
-            elements.map((element) => {
-              return (
-                <div className="flex w-2/5 justify-start lg:w-full flex-col lg:basis-1/4 mb-4">
-                  <p className="flex justify-center text-2xl lg:text-4xl tc4E font-bold order-2 mb-4">
-                    {element.number}
-                  </p>
-                  <p className="flex justify-center font-bold  lg:font-medium lg:text-xl mb-4 tc4e2">
-                    {element.label}
-                  </p>
-                </div>
-              );
-            })}
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }

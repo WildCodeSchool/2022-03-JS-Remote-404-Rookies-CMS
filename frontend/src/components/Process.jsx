@@ -21,15 +21,11 @@ function Process() {
   }, [language]);
 
   return (
-    <section className="flex flex-col py-16">
+    <section className="flex flex-col py-12">
       <div className="justify-center mx-4 lg:flex">
         <div className="mb-4 lg:w-1/3 lg:flex flex-col justify-center lg:mx-6">
-          <h2 className="font-bold module5E-green text-xl lg:text-xl">
-            {data?.title}
-          </h2>
-          <h3 className="font-extrabold text-4xl lg:text-4xl my-6">
-            {data?.sub_title}
-          </h3>
+          <h2 className="font-bold subtitle text-xl">{data?.title}</h2>
+          <h3 className="font-bold text-4xl my-4">{data?.sub_title}</h3>
           <p className="text-gray-600 text-lg lg:w-4/5">{data?.text}</p>
         </div>
         <div className="flex justify-center lg:w-1/3 lg:flex flex-col">
@@ -40,13 +36,13 @@ function Process() {
           />
         </div>
       </div>
-      <div className="flex flex-wrap mx-8 lg:grid lg:grid5A mt-4 lg:mt-16 justify-evenly">
+      <div className="flex flex-wrap mx-8 lg:grid lg:grid5A mt-4 lg:mt-10 justify-evenly">
         <div className="div1 w-full lg:w-min mb-4">
           <h3 className="font-bold text-left  text-xl mb-4">
-            <span className="font-bold text-2xl  module5E-green pr-2">01</span>
+            <span className="font-bold text-2xl subtitle pr-2">01</span>
             {data.elements && data.elements[0].title}
           </h3>
-          <h4 className="text-gray-600 text-md text-left  lg:text-lg>">
+          <h4 className="text-gray-600 text-left text-md lg:text-lg">
             {data.elements && data.elements[0].text}
           </h4>
         </div>
@@ -57,10 +53,10 @@ function Process() {
         />
         <div className="div2 w-full lg:w-min mb-4">
           <h3 className="font-bold text-left  text-xl mb-4">
-            <span className="font-bold text-2xl  module5E-green pr-2">02</span>
+            <span className="font-bold text-2xl subtitle pr-2">02</span>
             {data.elements && data.elements[1].title}
           </h3>
-          <h4 className="text-gray-600 text-left  text-md lg:text-lg">
+          <h4 className="text-gray-600 text-left text-md lg:text-lg">
             {data.elements && data.elements[1].text}
           </h4>
         </div>
@@ -71,7 +67,7 @@ function Process() {
         />
         <div className="div3 mb-4 w-full lg:w-min">
           <h3 className="font-bold text-left text-xl mb-4">
-            <span className="font-bold text-2xl module5E-green pr-2">03</span>
+            <span className="font-bold text-2xl subtitle pr-2">03</span>
             {data.elements && data.elements[2].title}
           </h3>
           <h4 className="text-gray-600 text-left  text-md lg:text-lg">
@@ -85,7 +81,7 @@ function Process() {
         />
         <div className="div4 w-full lg:w-min ">
           <h3 className="font-bold  text-left text-xl mb-4">
-            <span className="font-bold text-2xl   module5E-green pr-2">04</span>
+            <span className="font-bold text-2xl subtitle pr-2">04</span>
             {data.elements && data.elements[3].title}
           </h3>
           <h4 className="text-gray-600 text-left  text-md lg:text-lg">

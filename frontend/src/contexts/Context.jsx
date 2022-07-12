@@ -1,9 +1,12 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
 const Context = createContext();
 
 function Provider({ children }) {
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [receptionEmail, setReceptionEmail] = useState("");
+
   const handleForm = () => {
     setIsFormOpen(!isFormOpen);
   };
@@ -28,6 +31,17 @@ function Provider({ children }) {
     setLanguage(option);
   };
 
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/contactForm/${language.id}`)
+      .then((response) => {
+        setReceptionEmail(response.data);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  }, [language]);
+
   const media = window.innerWidth < 769;
 
   const [user, setUser] = useState();
@@ -46,6 +60,7 @@ function Provider({ children }) {
         setUser,
         handleContact,
         isContactOpen,
+        receptionEmail,
       }}
     >
       {children}

@@ -6,13 +6,16 @@ import Quote from "./Quote";
 
 function Formulaire() {
   const [data, setData] = useState([]);
-  const { handleForm, language } = useContext(ExportContext.Context);
+  const { handleForm, language, receptionEmail } = useContext(
+    ExportContext.Context
+  );
 
   const [mailData, setMailData] = useState([
     {
       fullname: "",
       category: "Company",
       email: "",
+      reception: receptionEmail && receptionEmail,
       message: "",
     },
   ]);
@@ -64,44 +67,48 @@ function Formulaire() {
             </div>
 
             <div className="flex flex-col md:flex-col w-6/12 h-full ml-12">
-              <h1 className="text-3xl font-bold mt-12 mb-2 ml-6">
-                Drop us a message
+              <h1 className="lg:text-3xl md:text-xl font-bold mt-12 mb-2 ml-6">
+                {data?.title}
               </h1>
-              <p className="text-xl text-gray-500 mb-8 ml-6 mt-4 font-bold">
-                We will get back to you as soon as possible.
+              <p className="lg:text-xl md:text-base text-gray-500 mb-8 ml-6 mt-4 font-bold">
+                {data?.sub_title}
               </p>
               <form className="flex flex-col w-full h-full">
                 <input
-                  className="text-xl bg-gray-100 border-2 border-gray-300 rounded-lg h-1/3 w-11/12 ml-6 shadow-lg mb-6"
+                  className="lg:text-xl md:text-base bg-gray-100 border-2 border-gray-300 rounded-lg h-1/3 w-11/12 ml-6 shadow-lg lg:mb-6 md:mb-2"
                   type="text"
                   name="fullname"
                   placeholder={data?.fullname}
                   onChange={(e) => editData(e.target.name, e.target.value)}
+                  required
                 />
                 <input
-                  className="text-xl bg-gray-100 border-2 border-gray-300 rounded-lg h-1/3 w-11/12 ml-6 shadow-lg mb-6"
+                  className="lg:text-xl md:text-base bg-gray-100 border-2 border-gray-300 rounded-lg h-1/3 w-11/12 ml-6 shadow-lg lg:mb-6 md:mb-2"
                   type="text"
                   name="email"
                   placeholder={data?.email}
                   onChange={(e) => editData(e.target.name, e.target.value)}
+                  required
                 />
                 <select
-                  className="text-xl bg-gray-100 border-2 border-gray-300 rounded-lg h-1/3 w-11/12 ml-6 shadow-lg mb-6"
+                  className="lg:text-xl md:text-base bg-gray-100 border-2 border-gray-300 rounded-lg h-1/3 w-11/12 ml-6 shadow-lg lg:mb-6 md:mb-2"
                   type="text"
                   name="category"
                   placeholder="I represent a (company/school)"
                   onChange={(e) => editData(e.target.name, e.target.value)}
+                  required
                 >
                   {data.elements?.map((option) => (
                     <option value={option.value} label={option.text} />
                   ))}
                 </select>
                 <textarea
-                  className="text-xl bg-gray-100 border-2 border-gray-300 rounded-lg h-4/5 w-11/12 ml-6 shadow-lg mb-6"
+                  className="lg:text-xl md:text-base bg-gray-100 border-2 border-gray-300 rounded-lg h-4/5 w-11/12 ml-6 shadow-lg lg:mb-6 md:mb-2"
                   type="text"
                   name="message"
                   placeholder={data?.description}
                   onChange={(e) => editData(e.target.name, e.target.value)}
+                  required
                 />
                 <div className="flex flex-row justify-center">
                   <button
@@ -110,8 +117,9 @@ function Formulaire() {
                       e.preventDefault();
                       SubmitMail();
                     }}
-                    type="button"
-                    className="bg-button-green-E10 shadow-lg text-white font-boldrounded-full hover:bg-green-300 h-4/5 w-4/5 flex justify-center items-center align-center rounded-[12px] mb-8"
+                    type="submit"
+                    required
+                    className="bg-button-green-E10 shadow-lg text-white lg:text-xl md:text-base font-boldrounded-full hover:bg-green-300 h-4/5 w-4/5 flex justify-center items-center align-center rounded-[12px] lg:mb-8 md:mb-4"
                   >
                     {data?.CTA_label}
                   </button>

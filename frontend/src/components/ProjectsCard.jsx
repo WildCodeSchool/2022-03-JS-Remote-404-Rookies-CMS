@@ -16,9 +16,7 @@ function ProjectsCard(project) {
         {location.pathname.includes("studyCase") ? (
           <p>Id : {project && project.project.id}</p>
         ) : null}
-        <h1 className=" text-green-400 text-2xl mb-4 lg:mb-8">
-          {project.project.title}
-        </h1>
+        <h1 className="tc4E text-2xl mb-4 lg:mb-8">{project.project.title}</h1>
         <h2 className=" font-extrabold text-2xl lg:text-5xl mb-4">
           {project.project.sub_title}
         </h2>

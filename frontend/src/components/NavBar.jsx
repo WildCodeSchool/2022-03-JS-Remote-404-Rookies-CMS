@@ -62,7 +62,7 @@ function Navbar() {
 
   if (!media) {
     return (
-      <div className="flex justify-between w-full align-center items-center fixed bg-white p-2 z-50">
+      <div className="flex justify-between w-full align-center items-center fixed bg-white p-2 z-40">
         <img src={data?.image_link} alt={data?.image_alt} className="static" />
         <ul className="flex justify-evenly w-2/4 gap-10 font-bold text-2xl">
           <NavLink to={`/${language.languages}/page1`}>
@@ -115,16 +115,18 @@ function Navbar() {
               onChange={(e) => selectLanguage(allLanguages[e.target.value - 1])}
             >
               {allLanguages &&
-                allLanguages.map((option) => {
-                  return (
-                    <option
-                      id="option"
-                      value={option.id}
-                      label={option.languages}
-                      key={option.id}
-                    />
-                  );
-                })}
+                allLanguages
+                  .filter((langue) => langue.status === 1)
+                  .map((option) => {
+                    return (
+                      <option
+                        id="option"
+                        value={option.id}
+                        label={option.languages}
+                        key={option.id}
+                      />
+                    );
+                  })}
             </select>
           </div>
         </div>
@@ -133,7 +135,7 @@ function Navbar() {
   }
   return (
     <div>
-      <div className="flex flex-start items-center justify-between fixed">
+      <div className="flex flex-start items-center justify-between fixed z-40">
         <img
           src={data?.image_link}
           alt={data?.image_alt}
@@ -148,22 +150,22 @@ function Navbar() {
           </div>
           <nav className={css1} id="nav">
             <ul>
-              <NavLink to={`/${language}/page1`}>
+              <NavLink to={`/${language.languages}/page1`}>
                 <li className="-mt-4 font-bold">
                   {data.links && data.links[0].label}
                 </li>
               </NavLink>
-              <NavLink to={`/${language}/page2`}>
+              <NavLink to={`/${language.languages}/page2`}>
                 <li className="-mt-4 font-bold">
                   {data.links && data.links[1].label}
                 </li>
               </NavLink>
-              <NavLink to={`/${language}/page3`}>
+              <NavLink to={`/${language.languages}/page3`}>
                 <li className="-mt-4 font-bold">
                   {data.links && data.links[2].label}
                 </li>
               </NavLink>
-              <NavLink to={`/${language}/page4`} className="hidden">
+              <NavLink to={`/${language.languages}/page4`} className="hidden">
                 <li className="-mt-4 font-bold">
                   {data.links && data.links[3].label}
                 </li>

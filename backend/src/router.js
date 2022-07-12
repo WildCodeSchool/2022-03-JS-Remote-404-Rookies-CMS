@@ -25,6 +25,8 @@ const {
   ContactFormController,
   NewsletterController,
   mailerController,
+  ContactUsController,
+  AdminMailController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -70,6 +72,9 @@ router.get("/process/:languages_id", ProcessController.read);
 router.put("/process", ProcessController.edit);
 router.post("/process", ProcessController.add);
 router.delete("/process/:id", ProcessController.delete);
+
+router.get("/AdminMail", AdminMailController.browse);
+router.put("/AdminMailEdit", AdminMailController.edit);
 
 router.get("/profits/:languages_id", ProfitController.browse);
 router.get("/profit/:languages_id", ProfitController.read);
@@ -133,8 +138,8 @@ router.delete("/getstarted/:id", UserController.delete);
 router.get("/quote", QuoteController.browse);
 router.get("/quote/:languages_id", QuoteController.read);
 
-router.get("/quote", QuoteController.browse);
-router.get("/quote/:languages_id", QuoteController.read);
+router.get("/contact_us", ContactUsController.browse);
+router.get("/contact_us/:languages_id", ContactUsController.read);
 
 router.get("/project/:languages_id", ProjectController.read);
 router.post("/projectadd", ProjectController.add);
@@ -146,6 +151,8 @@ router.put("/ctacasestudy", CtaCaseStudyController.edit);
 router.get("/ctacasestudy/:languages_id", CtaCaseStudyController.read);
 
 router.get("/languages", LanguageController.browse);
+router.put("/languages", LanguageController.edit);
+router.post("/languages", LanguageController.add);
 
 router.get("/studygethomes/:languages_id", StudyCaseHomeController.browse);
 router.get("/studygethome/:languages_id", StudyCaseHomeController.read);

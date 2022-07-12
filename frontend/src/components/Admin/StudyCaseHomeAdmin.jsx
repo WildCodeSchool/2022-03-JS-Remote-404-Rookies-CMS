@@ -50,7 +50,7 @@ function StudyCaseHomeAdmin() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/studygethom/${language.id}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/studygethomes/${language.id}`)
       .then((response) => {
         setBgImage(response.data.topicImgLink);
         setBgImageAlt(response.data.topicImgAlt);
@@ -618,8 +618,8 @@ function StudyCaseHomeAdmin() {
     );
   }
   return (
-    <div className="flex flex-col items-center justify-evenly py-16 ">
-      <div className="bg-white bg-cover flex flex-col justify-center">
+    <div className="flex flex-col items-center justify-evenly py-16 w-full">
+      <div className="bg-white bg-cover flex flex-col justify-center w-full">
         <div className="flex flex-row">
           <form className="flex flex-col h-full w-1/2 justify-center">
             <div className="flex flex-col h-full w-full justify-center">

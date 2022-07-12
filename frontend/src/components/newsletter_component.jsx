@@ -18,9 +18,14 @@ export default function newsletterComponent() {
   }, [language]);
 
   return (
-    <div className="flex flex-col justify-evenly content-center py-16 place-content-center justify-items-center text-center bg10E">
-      <h2 className="text-4xl font-bold">{data?.title}</h2>
-      <p className="my-8 self-center lg:w-1/3 mx-8 text-lg"> {data?.text} </p>
+    <div className="flex flex-col justify-evenly content-center py-12 place-content-center justify-items-center text-center bg10E">
+      <h2 className="text-4xl font-bold px-4 text-left lg:text-center">
+        {data?.title}
+      </h2>
+      <p className="my-8 self-center text-gray-600 lg:w-1/3 mx-4 lg:mx-8 lg:text-center text-left text-lg">
+        {" "}
+        {data?.text}{" "}
+      </p>
       <div className=" p-2 lg:w-1/4 border-2 border-green-400 rounded-full self-center bg-white mx-8">
         <input
           type="text"

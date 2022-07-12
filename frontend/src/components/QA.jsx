@@ -34,17 +34,17 @@ function QA() {
   }, [language]);
 
   return (
-    <section className="bg-slate-100 flex flex-col items-center justify-evenly py-16 ">
-      <div className="w-1/1 lg:w-1/2 flex flex-col text-center justify-between">
-        <h2 className="tc4E text-xl font-bold py-4 ">{data.title}</h2>
-        <h3 className="text-4xl py-4 font-bold text-gray-800">
+    <section className="bg-slate-100 flex flex-col items-center justify-evenly py-12 ">
+      <div className="lg:w-1/2 flex flex-col text-center justify-between">
+        <h2 className="subtitle text-xl font-bold">{data.title}</h2>
+        <h3 className="text-4xl my-4 font-bold text-gray-800 lg:mb-10">
           {data.sub_title}
         </h3>
       </div>
       {data.elements &&
         data.elements.map((element) => {
           return (
-            <div className="w-1/1 mx-2 lg:w-1/2 flex flex-col content-center justify-between">
+            <div className="w-full mx-2 px-2 lg:w-1/2 flex flex-col content-center justify-between">
               <details className="bc9E border-b-2 border-gray-200 text-gray-800 p-3 my-4">
                 <summary className="ds4E font-semibold">
                   {element.question}

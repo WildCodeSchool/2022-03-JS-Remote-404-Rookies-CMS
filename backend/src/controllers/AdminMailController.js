@@ -1,9 +1,8 @@
 const models = require("../models");
 
-class LanguageController {
+class AdminMail {
   static browse = (req, res) => {
-    models.languages
-      .findAll()
+    models.AdminMail.findAll()
       .then(([rows]) => {
         res.send(rows);
       })
@@ -14,8 +13,7 @@ class LanguageController {
   };
 
   static read = (req, res) => {
-    models.languages
-      .find(req.params.id)
+    models.AdminMail.find(req.params.id)
       .then(([rows]) => {
         if (rows[0] == null) {
           res.sendStatus(404);
@@ -32,8 +30,11 @@ class LanguageController {
   static edit = (req, res) => {
     const item = req.body;
 
-    models.languages
-      .update(item)
+    // TODO validations (length, format...)
+
+    item.id = parseInt(req.params.id, 10);
+
+    models.AdminMail.update(item)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);
@@ -49,10 +50,10 @@ class LanguageController {
 
   static add = (req, res) => {
     const item = req.body;
+
     // TODO validations (length, format...)
 
-    models.languages
-      .insert(item)
+    models.AdminMail.insert(item)
       .then(([result]) => {
         res.status(201).send({ ...item, id: result.insertId });
       })
@@ -63,8 +64,7 @@ class LanguageController {
   };
 
   static delete = (req, res) => {
-    models.item
-      .delete(req.params.id)
+    models.AdminMail.delete(req.params.id)
       .then(() => {
         res.sendStatus(204);
       })
@@ -75,4 +75,4 @@ class LanguageController {
   };
 }
 
-module.exports = LanguageController;
+module.exports = AdminMail;

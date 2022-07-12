@@ -20,6 +20,18 @@ class StudyCaseHomeManager extends AbstractManager {
     );
   }
 
+  insertStudyCaseElement(studyCaseElement) {
+    return this.connection.query(
+      `insert into study_case_topics (title, sub_title, images_id, study_case_home_id) values (?, ?, ?, ?)`,
+      [
+        studyCaseElement.title,
+        studyCaseElement.sub_title,
+        studyCaseElement.images_id,
+        studyCaseElement.study_case_home_id,
+      ]
+    );
+  }
+
   update(id, studyCaseHome) {
     return this.connection.query(
       `update ${StudyCaseHomeManager.table} set ? where id = ?`,

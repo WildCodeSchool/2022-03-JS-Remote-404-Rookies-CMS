@@ -2,10 +2,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import ExportContext from "../contexts/Context";
-import Phone from "../assets/Phone.png";
-import Plane from "../assets/Plane.png";
-import Email from "../assets/Email.png";
-import PhotoJerome from "../assets/photo-Jerome.png";
+import ContactUs from "./ContactUs";
 
 function FormContactUs() {
   const [data, setData] = useState([]);
@@ -36,45 +33,10 @@ function FormContactUs() {
             </button>
           </div>
           <div className="flex flex-row md:flex-row items-center h-full">
-            <div className="flex flex-col md:flex-col items-center w-2/5 h-full">
-              <img
-                src={PhotoJerome}
-                alt="Jérome"
-                className="flex justify-center rounded-full -mr-10 ml-2 lg:ml-4"
-              />
-              <h1>
-                Contactez
-                <span className="text-green-400"> Jérome</span>
-              </h1>
-              <div>
-                <div className="circle bg-button-green-E10 mr-2 aspect-square">
-                  <img className="logo" src={Phone} alt="phone" />
-                </div>
-                <div>
-                  <h1>Téléphone</h1>
-                  <p>07-85-68-09-88</p>
-                </div>
-              </div>
-              <div>
-                <div className="circle bg-button-green-E10 mr-2 aspect-square">
-                  <img className="logo" src={Plane} alt="plane" />
-                </div>
-                <div>
-                  <h1>Rendez-vous</h1>
-                  <p>https://calendly.com/rookies</p>
-                </div>
-              </div>
-              <div>
-                <div className="circle bg-button-green-E10 mr-2 aspect-square">
-                  <img className="logo" src={Email} alt="email" />
-                </div>
-                <div>
-                  <h1>Email</h1>
-                  <p>contact@rookies.com</p>
-                </div>
-              </div>
+            <div className="flex flex-col md:flex-col items-center w-1/2 h-full">
+              <ContactUs />
             </div>
-            <div className="flex flex-col md:flex-col w-6/12 h-full ml-12">
+            <div className="flex flex-col md:flex-col w-1/2 h-full ml-12">
               <h1 className="text-3xl font-bold mt-12 mb-2 ml-6">
                 Drop us a message
               </h1>

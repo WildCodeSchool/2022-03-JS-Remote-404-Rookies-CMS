@@ -3,7 +3,7 @@ require("dotenv").config();
 
 class sendMailer {
   static sendMail = (req, res) => {
-    const { email, category, message, fullname } = req.body;
+    const { email, category, message, fullname, reception } = req.body;
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_SENDIN,
@@ -17,7 +17,7 @@ class sendMailer {
 
     const mailOptions = {
       from: `${email}`,
-      to: `lavigne.kevin02@gmail.com`, // this is the address to which the email will be sent
+      to: `${reception}`, // this is the address to which the email will be sent
       subject: `Mail from ${fullname} come from our website`,
       text: `${message} \n\n categorie: ${category} \n\n Email: ${email}`,
       html: `<p>${message}</p> <p>categorie: ${category}</p> <p>Email: ${email}</p>`,

@@ -119,7 +119,6 @@ class StudyCaseHomeController {
         topic_img_id: imagesId.imgId,
       });
       // console.log(addStudyCaseHome);
-      imagesId.imgidElement = [];
       const addStudyCaseElementImages = await Promise.all(
         elements.map(async (element, index) => {
           const imagesAdd = await models.images.insertImage({
@@ -130,25 +129,23 @@ class StudyCaseHomeController {
             categorie: "Topic Logo",
             languages_id: studyCaseHome.languages_id,
           });
-          imagesId.imgidElement.push(imagesAdd[0].insertId);
+          elements[index].imgid = imagesAdd[0].insertId;
           return imagesAdd;
         })
       );
-      // console.log("ma bite")
-      // await console.log(addStudyCaseElementImages);
-      //   })
-      // );
-      // const studyCaseHomeId = await models.study_case_home.add(studyCaseHome);
-      // const studyCaseHomeElements = await Promise.all(
-      //   elements.map(async (element) => {
-      //     const elementId = await models.study_case_home.addStudyCaseElement(
-      //       studyCaseHomeId,
-      //       element
-      //     );
-      //     const imageId = await models.images.add(element.imageLink);
-      //     return elementId;
-      //   })
-      // );
+      await Promise.all(
+        elements.map(async (element) => {
+          const addStudyCaseElement =
+            await models.study_case_home.insertStudyCaseElement({
+              study_case_home_id: addStudyCaseHome[0].insertId,
+              title: element.title,
+              sub_title: element.sub_title,
+              images_id: element.imgid,
+            });
+          return addStudyCaseElement;
+        })
+      );
+
       const result = await res.status(200).json(studyCaseHome);
     } catch (err) {
       console.error(err);

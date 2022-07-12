@@ -21,7 +21,7 @@ function Module2S() {
           <div className="flex items-center w-1/3 px-10  ">
             <button
               type="button"
-              className="bg-slate-100 px-6 py-2 text-sm text-green-400 font-bold rounded-full"
+              className="bg-slate-100 px-6 py-2 text-sm tc4E font-bold rounded-full"
             >
               Organiser un rdv
             </button>

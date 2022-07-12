@@ -5,15 +5,20 @@ class LanguagesManager extends AbstractManager {
 
   insert(language) {
     return this.connection.query(
-      `insert into ${LanguagesManager.table} (title) values (?)`,
-      [language.title]
+      `insert into ${LanguagesManager.table} (languages, status, images_link, images_alt) values (?,?,?,?)`,
+      [
+        language.languages,
+        language.status,
+        language.images_link,
+        language.images_alt,
+      ]
     );
   }
 
   update(language) {
     return this.connection.query(
-      `update ${LanguagesManager.table} set title = ? where id = ?`,
-      [language.title, language.id]
+      `update ${LanguagesManager.table} set ? where id = ?`,
+      [language, language.id]
     );
   }
 }

@@ -11,6 +11,9 @@ function NavBarAdminSchool() {
             <Link to="/dashboard/school/home">Home</Link>
           </li>
           <li className="mb-12">
+            <Link to="/dashboard/shcool/formulaire">Formulaire</Link>
+          </li>
+          <li className="mb-12">
             <Link to="/dashboard/shcool/carouselLogo">Carroussel Logo</Link>
           </li>
           <li className="mb-12">

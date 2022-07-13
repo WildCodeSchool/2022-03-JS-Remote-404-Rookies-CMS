@@ -14,7 +14,9 @@ function NavBarAdminCompany() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/languages/`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/languages/`, {
+        withCredentials: true,
+      })
       .then((response) => {
         handleLanguages(response.data);
         selectLanguage(response.data[0]);
@@ -27,10 +29,14 @@ function NavBarAdminCompany() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/email`, {
-        id: 1,
-        AdminMail: receptionEmail,
-      })
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/email`,
+        { withCredentials: true },
+        {
+          id: 1,
+          AdminMail: receptionEmail,
+        }
+      )
       .then(() => {
         console.warn("Yes !");
       })

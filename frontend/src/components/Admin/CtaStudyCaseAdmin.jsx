@@ -18,7 +18,9 @@ function CtaStudyCaseAdmin() {
       ctaLabel: ctaLabel,
     };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/ctacasestudy`, data)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/ctacasestudy`, data, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn(`${text} ${id}`);
         console.warn("Yes !");

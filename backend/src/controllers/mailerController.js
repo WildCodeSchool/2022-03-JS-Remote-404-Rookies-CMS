@@ -1,11 +1,14 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
+const models = require("../models");
 
 class sendMailer {
-  static sendMail = (req, res) => {
-    const { email, category, message, fullname, reception } = req.body;
+  static sendMail = async (req, res) => {
+    const reception = await models.adminmail.find();
 
-    const transporter = nodemailer.createTransport({
+    const { email, category, message, fullname } = req.body;
+
+    const transporter = await nodemailer.createTransport({
       host: process.env.SMTP_SENDIN,
       port: process.env.SMTP_PORT_SENDIN,
       secure: false,
@@ -17,7 +20,7 @@ class sendMailer {
 
     const mailOptions = {
       from: `${email}`,
-      to: `${reception}`, // this is the address to which the email will be sent
+      to: `${reception[0][0].AdminMail}`, // this is the address to which the email will be sent
       subject: `Mail from ${fullname} come from our website`,
       text: `${message} \n\n categorie: ${category} \n\n Email: ${email}`,
       html: `<p>${message}</p> <p>categorie: ${category}</p> <p>Email: ${email}</p>`,
@@ -26,10 +29,10 @@ class sendMailer {
     return transporter
       .sendMail(mailOptions)
       .then((info) => {
-        res.status(200).send("Message sent", info);
+        res.status(200).send(info);
       })
       .catch((err) => {
-        res.status(500).send(req.body, err);
+        res.status(500).send(err);
       });
   };
 }

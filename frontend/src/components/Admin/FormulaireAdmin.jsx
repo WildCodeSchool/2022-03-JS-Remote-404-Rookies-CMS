@@ -30,7 +30,9 @@ function FormulaireAdmin() {
     const submit = {};
     console.warn(submit);
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/images`, submit)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/images`, submit, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn("Yes !");
       })
@@ -41,7 +43,9 @@ function FormulaireAdmin() {
 
   const SubmitMail = () => {
     axios
-      .post(`http://localhost:5000/sendEmail`, mailData)
+      .post(`http://localhost:5000/sendEmail`, mailData, {
+        withCredentials: true,
+      })
       .then((res) => {
         console.warn(res);
       })

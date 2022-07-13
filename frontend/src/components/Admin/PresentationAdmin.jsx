@@ -34,7 +34,9 @@ function PresentationAdmin() {
       imgId: imgId,
     };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/presentations`, data)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/presentations`, data, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn("Yes !", data);
       })

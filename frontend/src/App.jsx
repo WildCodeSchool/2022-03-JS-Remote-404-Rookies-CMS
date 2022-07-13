@@ -37,7 +37,6 @@ import CarrouselReviewAdmin from "./components/Admin/CarrouselReviewAdmin";
 import QAAdmin from "./components/Admin/QAAdmin";
 import StudyCaseHomeAdmin from "./components/Admin/StudyCaseHomeAdmin";
 import CtaCaseStudy from "./components/Admin/CtaStudyCaseAdmin";
-import ProjectAdmin from "./components/Admin/ProjectAdmin";
 import ProjectAdminTest from "./components/Admin/ProjectAdminTest";
 import Calendly from "./components/Calendly";
 import FormContactUs from "./components/FormContactUs";
@@ -102,7 +101,6 @@ function App() {
             <Route path="company/QA" element={<QAAdmin />} />
             <Route path="studyCase/home" element={<StudyCaseHomeAdmin />} />
             <Route path="studyCase/cta" element={<CtaCaseStudy />} />
-            <Route path="studyCase/projectsold" element={<ProjectAdmin />} />
             <Route path="studyCase/projects" element={<ProjectAdminTest />} />
             <Route path="school/formulaire" element={<FormulaireAdmin />} />
             <Route path="school/newsletter" element={<NewsletterAdmin />} />

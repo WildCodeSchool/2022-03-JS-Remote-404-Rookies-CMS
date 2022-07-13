@@ -33,6 +33,9 @@ const router = express.Router();
 
 router.post("/sendEmail", mailerController.sendMail);
 
+router.get("/email", AdminMailController.find);
+router.put("/email", AdminMailController.edit);
+
 router.get("/items", ItemController.browse);
 router.get("/items/:id", ItemController.read);
 router.put("/items/:id", ItemController.edit);

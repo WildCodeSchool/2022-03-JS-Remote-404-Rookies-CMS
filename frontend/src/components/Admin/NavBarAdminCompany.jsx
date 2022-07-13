@@ -4,9 +4,13 @@ import axios from "axios";
 import ExportContext from "../../contexts/Context";
 
 function NavBarAdminCompany() {
-  const { selectLanguage, allLanguages, handleLanguages } = useContext(
-    ExportContext.Context
-  );
+  const {
+    selectLanguage,
+    allLanguages,
+    handleLanguages,
+    receptionEmail,
+    handleReceptionEmail,
+  } = useContext(ExportContext.Context);
 
   useEffect(() => {
     axios
@@ -19,6 +23,22 @@ function NavBarAdminCompany() {
         console.warn(error);
       });
   }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .put(`${import.meta.env.VITE_BACKEND_URL}/email`, {
+        id: 1,
+        AdminMail: receptionEmail,
+      })
+      .then(() => {
+        console.warn("Yes !");
+      })
+      .catch(() => {
+        console.warn("No !");
+      });
+  };
+
   return (
     <div className="flex flex-col justify-start text-center navbar-layout h-full w-full">
       <div className="flex flex-col justify-around border-4 border-green-400 text-4xl text-green-600 font-bold">
@@ -44,6 +64,25 @@ function NavBarAdminCompany() {
                 })}
             </select>
           </li>
+          <form className="flex flex-col text-base">
+            <label className="flex flex-col text-gray-900 text-xl font-bold mb-2 ml-6 mt-2 justify-center">
+              Email de reception
+              <input
+                value={receptionEmail && receptionEmail.AdminMail}
+                className="bg-gray-100 border-2 text-base border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                type="text"
+                placeholder={receptionEmail && receptionEmail.AdminMail}
+                onChange={(e) => handleReceptionEmail(e.target.value)}
+              />
+            </label>
+            <button
+              type="submit"
+              onClick={(e) => handleSubmit(e)}
+              className="text-green-500"
+            >
+              Submit
+            </button>
+          </form>
           <li className="flex flex-col gap-10 text-left">
             <Link to="/dashboard/company">Company</Link>
             <li className="text-center">

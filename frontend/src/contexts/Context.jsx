@@ -7,6 +7,10 @@ function Provider({ children }) {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [receptionEmail, setReceptionEmail] = useState("");
 
+  const handleReceptionEmail = (newEmail) => {
+    setReceptionEmail(newEmail);
+  };
+
   const handleForm = () => {
     setIsFormOpen(!isFormOpen);
   };
@@ -33,9 +37,9 @@ function Provider({ children }) {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/contactForm/${language.id}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/email/`)
       .then((response) => {
-        setReceptionEmail(response.data);
+        setReceptionEmail(response.data[0]);
       })
       .catch((error) => {
         console.warn(error);
@@ -61,6 +65,7 @@ function Provider({ children }) {
         handleContact,
         isContactOpen,
         receptionEmail,
+        handleReceptionEmail,
       }}
     >
       {children}

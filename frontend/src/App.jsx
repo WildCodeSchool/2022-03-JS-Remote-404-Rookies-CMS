@@ -5,6 +5,7 @@ import {
   Routes,
   Route,
   Outlet,
+  Navigate,
 } from "react-router-dom";
 import MainLayout from "./pages/Layout/MainLayout";
 import ExportContext from "./contexts/Context";
@@ -22,6 +23,7 @@ import AdminPageCaseStudy from "./pages/AdminPageCaseStudy";
 import PresentationAdmin from "./components/Admin/PresentationAdmin";
 // import NavbarAdmin from "./components/Admin/NavbarAdmin";
 import ProcessAdmin from "./components/Admin/ProcessAdmin";
+import NavigationElements from "./components/Admin/NavigationElements";
 
 import LogoCarouselAdmin from "./components/Admin/CarouselLogoAdmin";
 
@@ -37,7 +39,6 @@ import CarrouselReviewAdmin from "./components/Admin/CarrouselReviewAdmin";
 import QAAdmin from "./components/Admin/QAAdmin";
 import StudyCaseHomeAdmin from "./components/Admin/StudyCaseHomeAdmin";
 import CtaCaseStudy from "./components/Admin/CtaStudyCaseAdmin";
-import ProjectAdmin from "./components/Admin/ProjectAdmin";
 import ProjectAdminTest from "./components/Admin/ProjectAdminTest";
 import Calendly from "./components/Calendly";
 import FormContactUs from "./components/FormContactUs";
@@ -56,11 +57,12 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            <Route path=":language/page1" element={<Page1 />} />
+            <Route index path=":language/page1" element={<Page1 />} />
             <Route path=":language/page2" element={<Page2 />} />
             <Route path=":language/page3" element={<Page3 />} />
             <Route path="/company/calendly" element={<Calendly />} />
             <Route path="/rookies-admin" element={<Login />} />
+            <Route path="" element={<Navigate to="/en/page1" />} />
           </Route>
           <Route
             path="/dashboard/"
@@ -75,6 +77,7 @@ function App() {
             <Route path="company" element={<AdminPageCompany />} />
             <Route path="caseStudy" element={<AdminPageCaseStudy />} />
             <Route path="languages" element={<LanguagesAdmin />} />
+            <Route path="navigation" element={<NavigationElements />} />
             <Route path="" element={<AdminPage />} />
             <Route
               path="company/:carousellogo"
@@ -102,7 +105,6 @@ function App() {
             <Route path="company/QA" element={<QAAdmin />} />
             <Route path="studyCase/home" element={<StudyCaseHomeAdmin />} />
             <Route path="studyCase/cta" element={<CtaCaseStudy />} />
-            <Route path="studyCase/projectsold" element={<ProjectAdmin />} />
             <Route path="studyCase/projects" element={<ProjectAdminTest />} />
             <Route path="school/formulaire" element={<FormulaireAdmin />} />
             <Route path="school/newsletter" element={<NewsletterAdmin />} />

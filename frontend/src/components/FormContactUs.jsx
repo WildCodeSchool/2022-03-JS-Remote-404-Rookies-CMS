@@ -6,8 +6,36 @@ import ContactUs from "./ContactUs";
 
 function FormContactUs() {
   const [data, setData] = useState([]);
-  const { language, handleContact } = useContext(ExportContext.Context);
+  const { handleContact, language, receptionEmail } = useContext(
+    ExportContext.Context
+  );
 
+  const [mailData, setMailData] = useState([
+    {
+      fullname: "",
+      category: "Company",
+      email: "",
+      reception: receptionEmail && receptionEmail,
+      message: "",
+    },
+  ]);
+
+  const editData = (area, value) => {
+    const newData = [...mailData];
+    newData[0][area] = value;
+    setMailData(newData);
+  };
+
+  const SubmitMail = () => {
+    axios
+      .post(`http://localhost:5000/sendEmail`, mailData)
+      .then((res) => {
+        console.warn(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/contactForm/${language.id}`)
@@ -47,18 +75,26 @@ function FormContactUs() {
                 <input
                   className="text-xl bg-gray-100 border-2 border-gray-300 rounded-lg h-1/3 w-11/12 ml-6 shadow-lg mb-6"
                   type="text"
+                  name="fullname"
                   placeholder={data?.fullname}
+                  onChange={(e) => editData(e.target.name, e.target.value)}
+                  required
                 />
                 <input
                   className="text-xl bg-gray-100 border-2 border-gray-300 rounded-lg h-1/3 w-11/12 ml-6 shadow-lg mb-6"
                   type="text"
+                  name="email"
                   placeholder={data?.email}
+                  onChange={(e) => editData(e.target.name, e.target.value)}
+                  required
                 />
                 <select
                   className="text-xl bg-gray-100 border-2 border-gray-300 rounded-lg h-1/3 w-11/12 ml-6 shadow-lg mb-6"
                   type="text"
-                  placeholder="
-                      I represent a (company/school)"
+                  name="category"
+                  placeholder="I represent a (company/school)"
+                  onChange={(e) => editData(e.target.name, e.target.value)}
+                  required
                 >
                   {data.elements?.map((option) => (
                     <option value={option.value} label={option.text} />
@@ -67,12 +103,20 @@ function FormContactUs() {
                 <textarea
                   className="text-xl bg-gray-100 border-2 border-gray-300 rounded-lg h-4/5 w-11/12 ml-6 shadow-lg mb-6"
                   type="text"
+                  name="message"
                   placeholder={data?.description}
+                  onChange={(e) => editData(e.target.name, e.target.value)}
+                  required
                 />
                 <div className="flex flex-row justify-center">
                   <button
-                    onClick={() => handleContact()}
-                    type="button"
+                    onClick={(e) => {
+                      handleContact();
+                      e.preventDefault();
+                      SubmitMail();
+                    }}
+                    type="submit"
+                    required
                     className="bg-button-green-E10 shadow-lg text-white font-boldrounded-full hover:bg-green-300 h-4/5 w-4/5 flex justify-center items-center align-center rounded-[12px] mb-8"
                   >
                     {data?.CTA_label}

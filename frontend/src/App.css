@@ -135,12 +135,18 @@ button {
 .tc4E {
   color: var(--white);
 }
+.tc4E3 {
+  color: var(--black);
+}
 .tc4e2 {
   color: var(--green);
 }
 @media (max-width: 768px) {
   .tc4E {
     color: white;
+  }
+  .tc4E3 {
+    color: var(--green);
   }
   .tc4e2 {
     color: var(--black);

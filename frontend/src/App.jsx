@@ -98,12 +98,16 @@ function App() {
               path="company/carrouselReview"
               element={<CarrouselReviewAdmin />}
             />
+            <Route path="school/presentation" element={<PresentationAdmin />} />
             <Route path="company/QA" element={<QAAdmin />} />
             <Route path="studyCase/home" element={<StudyCaseHomeAdmin />} />
             <Route path="studyCase/cta" element={<CtaCaseStudy />} />
             <Route path="studyCase/projectsold" element={<ProjectAdmin />} />
             <Route path="studyCase/projects" element={<ProjectAdminTest />} />
-            <Route path="shcool/formulaire" element={<FormulaireAdmin />} />
+            <Route path="school/formulaire" element={<FormulaireAdmin />} />
+            <Route path="school/newsletter" element={<NewsletterAdmin />} />
+            <Route path="school/profits" element={<ProfitsAdmin />} />
+            <Route path="school/QA" element={<QAAdmin />} />
           </Route>
         </Routes>
       </Router>

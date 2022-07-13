@@ -3,7 +3,7 @@ import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import CTA from "../CTA";
 import ExportContext from "../../contexts/Context";
-
+import NavBarAdminCompany from "./NavBarAdminCompany";
 import checkbox from "../../assets/Checkbox.png";
 
 function PresentationAdmin() {
@@ -65,6 +65,9 @@ function PresentationAdmin() {
 
   return (
     <div className="bg-white bg-cover flex flex-row justify-center w-full h-full">
+      <div className="w-1/5">
+        <NavBarAdminCompany />
+      </div>
       <form className="flex flex-col h-full w-2/5 justify-center">
         <div className="flex flex-col h-full w-full justify-center">
           <div className="flex flex-col h-full w-full justify-center">

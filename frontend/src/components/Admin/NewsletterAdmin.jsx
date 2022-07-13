@@ -100,7 +100,7 @@ function NewsletterAdmin() {
             </div>
           </div>
         </form>
-        <div className="flex flex-col justify-evenly content-center py-16 place-content-center justify-items-center text-center bg10E w-3/4">
+        <div className="flex flex-col justify-evenly content-center py-16 place-content-center justify-items-center text-center bg10E ">
           <h2 className="text-4xl font-bold">{title && title}</h2>
           <p className="my-8 self-center lg:w-1/3 mx-8 text-lg">
             {" "}

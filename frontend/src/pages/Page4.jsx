@@ -1,16 +1,16 @@
+/* eslint-disable import/no-unresolved */
 import { Outlet } from "react-router-dom";
-
 import React from "react";
-import NavbarAdmin from "../components/Admin/NavbarAdmin";
+import NavBarAdminCompany from "../components/Admin/NavbarAdminCompany";
 import Page1 from "./Page1";
 
 function AdminPage() {
   return (
-    <div className="flex flex-col w-full">
-      <div className="flex flex-col justify-start text-center h-full w-full">
-        <NavbarAdmin />
+    <div className="flex flex-row w-full">
+      <div className="w-1/5">
+        <NavBarAdminCompany />
       </div>
-      <div className="flex flex-col justify-start text-center h-1/12 w-full object-contain">
+      <div className="flex flex-col justify-start text-center h-1/12 w-4/5 object-contain">
         <Page1 />
       </div>
       <Outlet />

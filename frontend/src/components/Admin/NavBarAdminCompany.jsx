@@ -102,7 +102,7 @@ function NavBarAdminCompany() {
               <Link to="/dashboard/school/process">Process</Link>
             </li>
             <li className="text-center">
-              <Link to="/dashboard/school/profit">Profit</Link>
+              <Link to="/dashboard/school/profits">Profit</Link>
             </li>
             <li className="text-center">
               <Link to="/dashboard/school/carrousselReview">

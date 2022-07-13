@@ -176,28 +176,25 @@ CREATE TABLE
 
 -- -----------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `RookiesCMS`.`navigation_element` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `label` VARCHAR(45) NOT NULL,
-  `path` VARCHAR(255) NULL,
-  `link?` TINYINT NOT NULL,
-  `navigation_id` INT NOT NULL,
-  `title` VARCHAR(70) NOT NULL,
-  `description` VARCHAR(155) NOT NULL,
-  `ogimage` VARCHAR(255) NULL,
-  `ogurl` VARCHAR(255) NULL,
-  `ogtype` VARCHAR(45) NULL,
-  `ogtitle` VARCHAR(70) NULL,
-  `ogdescription` VARCHAR(255) NULL,
-  PRIMARY KEY (`id`, `navigation_id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_navigation_element_navigation1_idx` (`navigation_id` ASC) VISIBLE,
-  CONSTRAINT `fk_navigation_element_navigation1`
-    FOREIGN KEY (`navigation_id`)
-    REFERENCES `RookiesCMS`.`navigation` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE TABLE
+    IF NOT EXISTS `RookiesCMS`.`navigation_element` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `label` VARCHAR(45) NOT NULL,
+        `path` VARCHAR(255) NULL,
+        `link?` TINYINT NOT NULL,
+        `navigation_id` INT NOT NULL,
+        `title` VARCHAR(70) NOT NULL,
+        `description` VARCHAR(155) NOT NULL,
+        `ogimage` VARCHAR(255) NULL,
+        `ogurl` VARCHAR(255) NULL,
+        `ogtype` VARCHAR(45) NULL,
+        `ogtitle` VARCHAR(70) NULL,
+        `ogdescription` VARCHAR(255) NULL,
+        PRIMARY KEY (`id`, `navigation_id`),
+        UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+        INDEX `fk_navigation_element_navigation1_idx` (`navigation_id` ASC) VISIBLE,
+        CONSTRAINT `fk_navigation_element_navigation1` FOREIGN KEY (`navigation_id`) REFERENCES `RookiesCMS`.`navigation` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 
@@ -1377,16 +1374,14 @@ VALUES (
         "",
         "Image Home School",
         1
-    ),
-    (
+    ), (
         "https://i.ibb.co/PC3Wsx2/Contactez-Am-lie.png",
         "Contactez Amélie",
         0,
         "",
         "Image Form",
         1
-    ),
-    (
+    ), (
         "https://i.ibb.co/dQV2CF2/phone.png",
         "Phone",
         0,
@@ -2054,7 +2049,7 @@ CREATE TABLE
         CONSTRAINT `fk_Contact_us_images1` FOREIGN KEY (`bg_id`) REFERENCES `RookiesCMS`.`images` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
 
-    INSERT INTO
+INSERT INTO
     `RookiesCMS`.`contact_us`(
         text,
         text_green,
@@ -2082,11 +2077,15 @@ VALUES (
         1
     );
 
-    CREATE TABLE IF NOT EXISTS `RookiesCMS`.`AdminMail` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `AdminMail` VARCHAR(150) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+CREATE TABLE
+    IF NOT EXISTS `RookiesCMS`.`AdminMail` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `AdminMail` VARCHAR(150) NOT NULL,
+        PRIMARY KEY (`id`)
+    ) ENGINE = InnoDB;
 
 insert into
-    `RookiesCMS`.`AdminMail` (AdminMail) VALUES ("santoni@rookiesprojects.com");
+    `RookiesCMS`.`AdminMail` (AdminMail)
+VALUES (
+        "santoni@rookiesprojects.com"
+    );

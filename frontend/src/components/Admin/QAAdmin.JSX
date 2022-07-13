@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import ExportContext from "../../contexts/Context";
 import CTA from "../CTA";
+import NavBarAdminCompany from "./NavBarAdminCompany";
 
 function QAAdmin() {
   const { language } = useContext(ExportContext.Context);
@@ -105,211 +106,220 @@ function QAAdmin() {
 
   return (
     <div className="flex flex-row w-screen">
-      <form className="flex flex-col h-full w-2/5 justify-center">
-        <div className="flex flex-col h-full w-full justify-center">
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Sous-titre
-              <input
-                value={subtitle && subtitle}
-                onChange={(e) => setSubTitle(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={subtitle && subtitle}
-              />
-            </label>
+      <div className="w-1/5">
+        <NavBarAdminCompany />
+      </div>
+      <div className="w-4/5">
+        <form className="flex flex-col w-full justify-center">
+          <div className="flex flex-row flex-wrap w-full justify-center">
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Sous-titre
+                <input
+                  value={subtitle && subtitle}
+                  onChange={(e) => setSubTitle(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={subtitle && subtitle}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Titre
+                <input
+                  value={title && title}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={title && title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                premier avantage
+                <input
+                  value={question1 && question1}
+                  onChange={(e) => setQuestion1(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={question1 && question1}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Premier détail
+                <input
+                  value={answer1 && answer1}
+                  onChange={(e) => setAnswer1(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={answer1 && answer1}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Deuxième avantage
+                <input
+                  value={question2 && question2}
+                  onChange={(e) => setQuestion2(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={question2 && question2}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Deuxième détail
+                <input
+                  value={answer2 && answer2}
+                  onChange={(e) => setAnswer2(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={answer2 && answer2}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Troisème question
+                <input
+                  value={question3 && question3}
+                  onChange={(e) => setQuestion3(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={question3 && question3}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Troisième réponse
+                <input
+                  value={answer3 && answer3}
+                  onChange={(e) => setAnswer3(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={answer3 && answer3}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Quatrième question
+                <input
+                  value={question4 && question4}
+                  onChange={(e) => setQuestion4(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={question4 && question4}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Quatrième réponse
+                <input
+                  value={answer4 && answer4}
+                  onChange={(e) => setAnswer4(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={answer4 && answer4}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Cinquième question
+                <input
+                  value={question5 && question5}
+                  onChange={(e) => setQuestion5(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={question5 && question5}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Cinquième réponse
+                <input
+                  value={answer5 && answer5}
+                  onChange={(e) => setAnswer5(e.target.value)}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={answer5 && answer5}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Bouton 1
+                <input
+                  value={cta1 && cta1}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={cta1 && cta1}
+                  onChange={(e) => setCta1(e.target.value)}
+                />
+              </label>
+            </div>
+            <div className="flex flex-col w-1/2">
+              <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
+                Bouton 2
+                <input
+                  value={cta2 && cta2}
+                  className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
+                  type="text"
+                  placeholder={cta2 && cta2}
+                  onChange={(e) => setCta2(e.target.value)}
+                />
+              </label>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Titre
-              <input
-                value={title && title}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={title && title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </label>
+          <div className="flex justify-center mt-8">
+            <button
+              type="submit"
+              onClick={(e) => handleSubmit(e)}
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
+            >
+              Submit
+            </button>
           </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              premier avantage
-              <input
-                value={question1 && question1}
-                onChange={(e) => setQuestion1(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={question1 && question1}
-              />
-            </label>
+        </form>
+        {/* affichage composant en fonction des state en relation avec les input */}
+        <section className="bg-slate-100 flex flex-col items-center justify-evenly py-16 ">
+          <div className="w-1/1 lg:w-1/2 flex flex-col text-center justify-between">
+            <h2 className="tc4E text-xl font-bold py-4 ">{title && title}</h2>
+            <h3 className="text-4xl py-4 font-bold text-gray-800">
+              {subtitle && subtitle}
+            </h3>
           </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Premier détail
-              <input
-                value={answer1 && answer1}
-                onChange={(e) => setAnswer1(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={answer1 && answer1}
-              />
-            </label>
+          {elements &&
+            elements.map((element) => {
+              return (
+                <div className="w-1/1 mx-2 lg:w-1/2 flex flex-col content-center justify-between">
+                  <details className="bc9E border-b-2 border-gray-200 text-gray-800 p-3 my-4">
+                    <summary className="ds4E font-semibold">
+                      {element.question}
+                    </summary>
+                    {element.answer}
+                  </details>
+                </div>
+              );
+            })}
+          <div className="flex flex-col justify-items-center  place-items-center pt-20">
+            <div className="pb-20 flex justify-center gap-20">
+              <CTA label={cta1 && cta1} />
+              <CTA label={cta2 && cta2} />
+            </div>
           </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Deuxième avantage
-              <input
-                value={question2 && question2}
-                onChange={(e) => setQuestion2(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={question2 && question2}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Deuxième détail
-              <input
-                value={answer2 && answer2}
-                onChange={(e) => setAnswer2(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={answer2 && answer2}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Troisème question
-              <input
-                value={question3 && question3}
-                onChange={(e) => setQuestion3(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={question3 && question3}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Troisième réponse
-              <input
-                value={answer3 && answer3}
-                onChange={(e) => setAnswer3(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={answer3 && answer3}
-              />
-            </label>
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Quatrième question
-              <input
-                value={question4 && question4}
-                onChange={(e) => setQuestion4(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={question4 && question4}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Quatrième réponse
-              <input
-                value={answer4 && answer4}
-                onChange={(e) => setAnswer4(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={answer4 && answer4}
-              />
-            </label>
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Cinquième question
-              <input
-                value={question5 && question5}
-                onChange={(e) => setQuestion5(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={question5 && question5}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Cinquième réponse
-              <input
-                value={answer5 && answer5}
-                onChange={(e) => setAnswer5(e.target.value)}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={answer5 && answer5}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Bouton 1
-              <input
-                value={cta1 && cta1}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={cta1 && cta1}
-                onChange={(e) => setCta1(e.target.value)}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col">
-            <label className="flex flex-col text-gray-900 font-bold mb-2 ml-6 mt-2 justify-center">
-              Bouton 2
-              <input
-                value={cta2 && cta2}
-                className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 ml-6"
-                type="text"
-                placeholder={cta2 && cta2}
-                onChange={(e) => setCta2(e.target.value)}
-              />
-            </label>
-          </div>
-        </div>
-        <div className="flex justify-center mt-8">
-          <button
-            type="submit"
-            onClick={(e) => handleSubmit(e)}
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
-      {/* affichage composant en fonction des state en relation avec les input */}
-      <section className="bg-slate-100 flex flex-col items-center justify-evenly py-16 ">
-        <div className="w-1/1 lg:w-1/2 flex flex-col text-center justify-between">
-          <h2 className="tc4E text-xl font-bold py-4 ">{title && title}</h2>
-          <h3 className="text-4xl py-4 font-bold text-gray-800">
-            {subtitle && subtitle}
-          </h3>
-        </div>
-        {elements &&
-          elements.map((element) => {
-            return (
-              <div className="w-1/1 mx-2 lg:w-1/2 flex flex-col content-center justify-between">
-                <details className="bc9E border-b-2 border-gray-200 text-gray-800 p-3 my-4">
-                  <summary className="ds4E font-semibold">
-                    {element.question}
-                  </summary>
-                  {element.answer}
-                </details>
-              </div>
-            );
-          })}
-        <div className="flex flex-col justify-items-center  place-items-center pt-20">
-          <div className="pb-20 flex justify-center gap-20">
-            <CTA label={cta1 && cta1} />
-            <CTA label={cta2 && cta2} />
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }

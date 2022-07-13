@@ -20,7 +20,7 @@ export default function CtaCaseStudy() {
   }, [language]);
 
   return (
-    <section className="bg-slate-100 mt-8">
+    <section className="bg-slate-100 rounded-xl mt-8">
       <div className="flex flex-col lg:flex-row justify-center my-4 mx-10 rounded-lg">
         <h2 className="font-semibold text-xl py-6 pl-4 w-full lg:w-1/3">
           {data && data.text}

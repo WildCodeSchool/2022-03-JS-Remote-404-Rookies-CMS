@@ -36,7 +36,7 @@ function KPI() {
                 <p className="flex justify-center text-4xl tc4e2 font-bold order-2 mb-4">
                   {element.number}
                 </p>
-                <p className="flex justify-center font-bold  lg:font-medium text-xl mb-4 tc4E">
+                <p className="flex justify-center font-bold  lg:font-medium text-xl mb-4 tc4E3">
                   {element.label}
                 </p>
               </div>

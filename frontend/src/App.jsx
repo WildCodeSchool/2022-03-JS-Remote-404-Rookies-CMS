@@ -5,6 +5,7 @@ import {
   Routes,
   Route,
   Outlet,
+  Navigate,
 } from "react-router-dom";
 import MainLayout from "./pages/Layout/MainLayout";
 import ExportContext from "./contexts/Context";
@@ -22,6 +23,7 @@ import AdminPageCaseStudy from "./pages/AdminPageCaseStudy";
 import PresentationAdmin from "./components/Admin/PresentationAdmin";
 // import NavbarAdmin from "./components/Admin/NavbarAdmin";
 import ProcessAdmin from "./components/Admin/ProcessAdmin";
+import NavigationElements from "./components/Admin/NavigationElements";
 
 import LogoCarouselAdmin from "./components/Admin/CarouselLogoAdmin";
 
@@ -55,11 +57,12 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            <Route path=":language/page1" element={<Page1 />} />
+            <Route index path=":language/page1" element={<Page1 />} />
             <Route path=":language/page2" element={<Page2 />} />
             <Route path=":language/page3" element={<Page3 />} />
             <Route path="/company/calendly" element={<Calendly />} />
             <Route path="/rookies-admin" element={<Login />} />
+            <Route path="" element={<Navigate to="/en/page1" />} />
           </Route>
           <Route
             path="/dashboard/"
@@ -74,6 +77,7 @@ function App() {
             <Route path="company" element={<AdminPageCompany />} />
             <Route path="caseStudy" element={<AdminPageCaseStudy />} />
             <Route path="languages" element={<LanguagesAdmin />} />
+            <Route path="navigation" element={<NavigationElements />} />
             <Route path="" element={<AdminPage />} />
             <Route
               path="company/:carousellogo"

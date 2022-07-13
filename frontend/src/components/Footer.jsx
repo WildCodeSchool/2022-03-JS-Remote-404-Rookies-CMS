@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { Link } from "react-router-dom";
 import axios from "axios";
 import React, { useContext, useState, useEffect } from "react";
@@ -38,7 +40,14 @@ function Footer() {
             flex justify-start lg:justify-center text-4xl font-bold md:justify-start
             "
             >
-              <img src={data.image_logo_link} alt={data.image_logo_alt} />
+              <img
+                className="cursor-pointer"
+                src={data.image_logo_link}
+                alt={data.image_logo_alt}
+                onClick={() => {
+                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                }}
+              />
             </div>
             <a
               className="flex justity-center  ml-4 lg:ml-6 mt-2 text-sm text-justify text-gray-500"
@@ -87,7 +96,7 @@ function Footer() {
         </div>
         <div className="flex flex-row lg:flex justify-between w-full text-center">
           <div className="w-1/3 lg:w-1/2">
-            <h2 className="font-bold text-lg mb-4 lg:flex text-green-400">
+            <h2 className="font-bold text-lg mb-4 lg:flex subtitle">
               {data.sub_title1}
             </h2>
             <ul className="text-sm lg:text-md lg:flex ">
@@ -126,7 +135,7 @@ function Footer() {
             </ul>
           </div>
           <div className="w-2/3 px-4 lg:w-1/2 ">
-            <h2 className="flex justify-start mb-2 font-bold text-lg  text-green-400">
+            <h2 className="flex justify-start mb-2 font-bold text-lg subtitle">
               {data.sub_title2}
             </h2>
             <div className="flex mt-4 lg:w-2/3 lg:h-10 ">

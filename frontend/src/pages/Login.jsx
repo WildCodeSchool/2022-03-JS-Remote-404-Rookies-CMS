@@ -17,10 +17,14 @@ function Login() {
       return;
     }
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/user/login`, {
-        email,
-        password,
-      })
+      .post(
+        `${import.meta.env.VITE_BACKEND_URL}/user/login`,
+        {
+          email,
+          password,
+        },
+        { withCredentials: true }
+      )
       .then((res) => {
         setUser(res.data);
         navigate("/dashboard/");

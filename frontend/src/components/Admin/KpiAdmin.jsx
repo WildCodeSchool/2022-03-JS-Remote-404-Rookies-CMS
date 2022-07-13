@@ -38,7 +38,9 @@ function KpiAdmin() {
       elements: elements,
     };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/kpi`, data)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/kpi`, data, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn(`${title} ${subtitle}`);
         console.warn("Yes !");

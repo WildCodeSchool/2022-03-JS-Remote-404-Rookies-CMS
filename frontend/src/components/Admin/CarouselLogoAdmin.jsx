@@ -22,7 +22,9 @@ function LogoCarouselAdmin() {
     };
     console.warn(submit);
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/images`, submit)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/images`, submit, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn("Yes !");
       })
@@ -41,7 +43,9 @@ function LogoCarouselAdmin() {
       categorie: "logo",
     };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/images`, submit)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/images`, submit, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn(submit);
         console.warn("Yes !");
@@ -59,7 +63,9 @@ function LogoCarouselAdmin() {
     };
     console.warn(submit);
     axios
-      .delete(`${import.meta.env.VITE_BACKEND_URL}/images/${imageId}`)
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/images/${imageId}`, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn("Yes !");
       })

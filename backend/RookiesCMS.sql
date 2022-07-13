@@ -990,10 +990,10 @@ VALUES (
         "logo",
         1
     ), (
-        "https://tamba-labs.com/wp-content/uploads/2020/12/Logo_Homepage_Main.png",
+        "https://media-exp1.licdn.com/dms/image/C4D0BAQEzfe9qMhXoIw/company-logo_200_200/0/1629717965166?e=1665619200&v=beta&t=j7lMetHVQDYfYU57-3A095xr2GDM-a3w5dEAAd5svdU",
         "Tamba Labs",
         0,
-        "https://tamba-labs.com/",
+        "https://www.linkedin.com/company/tamba-labs/about/",
         "logo",
         1
     ), (

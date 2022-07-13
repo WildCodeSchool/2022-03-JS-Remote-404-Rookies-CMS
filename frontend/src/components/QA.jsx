@@ -2,6 +2,7 @@ import "../css/module9E.css";
 import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import ExportContext from "../contexts/Context";
+import CtaContact from "./CtaContact";
 import CTA from "./CTA";
 
 function QA() {
@@ -56,7 +57,7 @@ function QA() {
         })}
       <div className="flex flex-col justify-items-center  place-items-center pt-20">
         <div className="pb-20 flex justify-center gap-20">
-          <CTA label={dataCta?.cta1_label} />
+          <CtaContact label={dataCta?.cta1_label} />
           <CTA label={dataCta?.cta2_label} />
         </div>
       </div>

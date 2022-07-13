@@ -89,7 +89,6 @@ function Process() {
           </h4>
         </div>
       </div>
-      ;
     </section>
   );
 }

@@ -63,7 +63,13 @@ function Navbar() {
   if (!media) {
     return (
       <div className="flex justify-between w-full align-center items-center fixed bg-white p-2 z-40">
-        <img src={data?.image_link} alt={data?.image_alt} className="static" />
+        <NavLink to={`/${language.languages}/page1`}>
+          <img
+            src={data?.image_link}
+            alt={data?.image_alt}
+            className="static"
+          />
+        </NavLink>
         <ul className="flex justify-evenly w-2/4 gap-10 font-bold text-2xl">
           <NavLink to={`/${language.languages}/page1`}>
             <li

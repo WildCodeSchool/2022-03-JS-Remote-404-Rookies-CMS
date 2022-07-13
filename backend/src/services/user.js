@@ -61,15 +61,15 @@ const uuid = () => {
 function Authorization(req, res, next) {
   const token = req.cookies.access_token;
   if (!token) {
-    return res.sendStatus(401);
+    return res.status(401).send("unauthorized");
   }
   try {
     const data = jwtVerify(token);
     req.userId = data.id;
     req.useremail = data.email;
-    return next();
+    next();
   } catch {
-    return res.sendStatus(401);
+    res.status(401).send("unauthorized");
   }
 }
 

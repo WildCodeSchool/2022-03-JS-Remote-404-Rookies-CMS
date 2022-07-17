@@ -54,7 +54,8 @@ router.delete("/images/:id", Authorization, ImagesController.delete);
 
 router.get("/navigation/:languages_id", NavigationController.browse);
 router.get("/navigations/:id", NavigationController.read);
-router.put("/navigation/:id", Authorization, NavigationController.edit);
+router.put("/navigationlogo", Authorization, NavigationController.edit);
+router.put("/navigation/", Authorization, NavigationController.editElement);
 router.post("/navigation", Authorization, NavigationController.add);
 router.delete("/navigation/:id", Authorization, NavigationController.delete);
 

@@ -53,27 +53,35 @@ function NavigationElements() {
     setData(newData);
   };
 
-  const handleSubmit = (e, a) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (a) {
-      axios
-        .put(`${import.meta.env.VITE_BACKEND_URL}/projects`, data[adminTouch])
-        .then(() => {
-          console.warn("Yes !");
-        })
-        .catch(() => {
-          console.warn("No !");
-        });
-    } else {
-      axios
-        .put(`${import.meta.env.VITE_BACKEND_URL}/projects`, data[adminTouch])
-        .then(() => {
-          console.warn("Yes !");
-        })
-        .catch(() => {
-          console.warn("No !");
-        });
-    }
+    axios
+      .put(`${import.meta.env.VITE_BACKEND_URL}/navigationlogo`, data, {
+        withCredentials: true,
+      })
+      .then(() => {
+        console.warn("Yes !");
+      })
+      .catch(() => {
+        console.warn("No !");
+      });
+  };
+  const handleSubmitElement = (e) => {
+    e.preventDefault();
+    axios
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/navigation`,
+        data.links[adminTouch],
+        {
+          withCredentials: true,
+        }
+      )
+      .then(() => {
+        console.warn("Yes !");
+      })
+      .catch(() => {
+        console.warn("No !");
+      });
   };
 
   useEffect(() => {
@@ -215,7 +223,7 @@ function NavigationElements() {
               className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 self-center py-1 w-4/5 "
               type="text"
               name="label"
-              placeholder="Lien de l'image"
+              placeholder="Label du lien"
               onChange={(e) => editData2(e.target.name, e.target.value)}
               required
             />
@@ -230,7 +238,7 @@ function NavigationElements() {
               onChange={(e) => editData2(e.target.name, e.target.value)}
               className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
               type="text"
-              placeholder="Description de l'image"
+              placeholder="Chemin du lien"
               required
             />
           </label>
@@ -243,7 +251,6 @@ function NavigationElements() {
               className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 self-center py-1 w-4/5 "
               type="text"
               name="link?"
-              placeholder="Lien de l'image"
               onChange={(e) => editData2(e.target.name, e.target.value)}
               required
             >
@@ -261,7 +268,7 @@ function NavigationElements() {
               onChange={(e) => editData2(e.target.name, e.target.value)}
               className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
               type="text"
-              placeholder="Description de l'image"
+              placeholder="Titre de la page"
               required
             />
           </label>
@@ -289,7 +296,7 @@ function NavigationElements() {
               onChange={(e) => editData2(e.target.name, e.target.value)}
               className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
               type="text"
-              placeholder="Description de l'image"
+              placeholder="Image à afficher lors du partage du lien"
               required
             />
           </label>
@@ -302,7 +309,7 @@ function NavigationElements() {
               className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 self-center py-1 w-4/5 "
               type="text"
               name="ogurl"
-              placeholder="Lien de l'image"
+              placeholder="Lien de l'image à afficher lors du partage du lien"
               onChange={(e) => editData2(e.target.name, e.target.value)}
               required
             />
@@ -317,7 +324,7 @@ function NavigationElements() {
               onChange={(e) => editData2(e.target.name, e.target.value)}
               className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
               type="text"
-              placeholder="Description de l'image"
+              placeholder="Type de l'open graphe"
               required
             />
           </label>
@@ -330,7 +337,7 @@ function NavigationElements() {
               className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 self-center py-1 w-4/5 "
               type="text"
               name="ogtitle"
-              placeholder="Lien de l'image"
+              placeholder="Titre de l'open graphe"
               onChange={(e) => editData2(e.target.name, e.target.value)}
               required
             />
@@ -344,13 +351,22 @@ function NavigationElements() {
               className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 self-center py-1 w-4/5 "
               type="text"
               name="ogdescription"
-              placeholder="Lien de l'image"
+              placeholder="Description de l'open graphe"
               onChange={(e) => editData2(e.target.name, e.target.value)}
               required
             />
           </label>
         </div>
-        <section className="border ">
+        <div className=" self-center py-4 ">
+          <button
+            type="submit"
+            onClick={handleSubmitElement}
+            className="bg-green-500 hover:bg-green-700 text-white font-bold  py-2 px-4 rounded-full"
+          >
+            Submit
+          </button>
+        </div>
+        <section className="border">
           <div className="flex justify-between w-full align-center items-center bg-white ">
             <img
               src={data?.image_link}

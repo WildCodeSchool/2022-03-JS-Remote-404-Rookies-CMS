@@ -23,7 +23,6 @@ import AdminPageCaseStudy from "./pages/AdminPageCaseStudy";
 import PresentationAdmin from "./components/Admin/PresentationAdmin";
 // import NavbarAdmin from "./components/Admin/NavbarAdmin";
 import ProcessAdmin from "./components/Admin/ProcessAdmin";
-import NavigationElements from "./components/Admin/NavigationElements";
 
 import LogoCarouselAdmin from "./components/Admin/CarouselLogoAdmin";
 
@@ -44,6 +43,7 @@ import Calendly from "./components/Calendly";
 import FormContactUs from "./components/FormContactUs";
 import LanguagesAdmin from "./components/Admin/LanguagesAdmin";
 import FormulaireAdmin from "./components/Admin/FormulaireAdmin";
+import NavigationElements from "./components/Admin/NavigationElements";
 // import NavBarAdminCompany from "./components/Admin/NavBarAdminCompany";
 
 function App() {

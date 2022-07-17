@@ -31,11 +31,11 @@ function NavBarAdminCompany() {
     axios
       .put(
         `${import.meta.env.VITE_BACKEND_URL}/email`,
-        { withCredentials: true },
         {
           id: 1,
           AdminMail: receptionEmail,
-        }
+        },
+        { withCredentials: true }
       )
       .then(() => {
         console.warn("Yes !");
@@ -89,6 +89,9 @@ function NavBarAdminCompany() {
               Submit
             </button>
           </form>
+          <li className="text-left ml-28 text-2xl hover:text-green-400">
+            <Link to="/dashboard/navigation">NavBar</Link>
+          </li>
           <li className="flex flex-col gap-10 text-left">
             <Link className="underline" to="/dashboard/company">
               Company

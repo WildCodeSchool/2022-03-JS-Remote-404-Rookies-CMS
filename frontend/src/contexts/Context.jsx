@@ -6,6 +6,11 @@ const Context = createContext();
 function Provider({ children }) {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [receptionEmail, setReceptionEmail] = useState("");
+  const [position, setPosition] = useState(1);
+
+  const handlePosition = (id) => {
+    setPosition(id);
+  };
 
   const handleReceptionEmail = (newEmail) => {
     setReceptionEmail(newEmail);
@@ -66,6 +71,8 @@ function Provider({ children }) {
         isContactOpen,
         receptionEmail,
         handleReceptionEmail,
+        handlePosition,
+        position,
       }}
     >
       {children}

@@ -4,10 +4,10 @@ const models = require("../models");
 class ProfitController {
   static browse = (req, res) => {
     models.profit
-      .findProfit(req.params.languages_id)
+      .findProfit(req.params.languages_id, req.params.position)
       .then(([rows]) => {
         models.profit
-          .findProfitElement(rows[0].languages_id)
+          .findProfitElement(rows[0].id)
           .then((result) => {
             rows[0].elements = result[0];
             res.status(200).json(rows[0]);

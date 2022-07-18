@@ -13,6 +13,7 @@ function Navbar() {
     allLanguages,
     media,
     handleContact,
+    handlePosition,
   } = useContext(ExportContext.Context);
   const location = useLocation();
 
@@ -60,10 +61,16 @@ function Navbar() {
     }
   };
 
+  // if (location.pathname.includes("/page1") && language?.id === 0) {
+  // }
+
   if (!media) {
     return (
       <div className="flex justify-between w-full align-center items-center fixed bg-white p-2 z-40">
-        <NavLink to={`/${language.languages}/page1`}>
+        <NavLink
+          to={`/${language.languages}/page1`}
+          onClick={() => handlePosition(1)}
+        >
           <img
             src={data?.image_link}
             alt={data?.image_alt}
@@ -71,7 +78,10 @@ function Navbar() {
           />
         </NavLink>
         <ul className="flex justify-evenly w-2/4 gap-10 font-bold text-2xl">
-          <NavLink to={`/${language.languages}/page1`}>
+          <NavLink
+            to={`/${language.languages}/page1`}
+            onClick={() => handlePosition(1)}
+          >
             <li
               className={
                 location.pathname.includes("page1") ? "tab-active" : "tab"
@@ -82,6 +92,7 @@ function Navbar() {
           </NavLink>
           <NavLink
             to={`/${language.languages}/page2`}
+            onClick={() => handlePosition(2)}
             className={
               location.pathname.includes("page2") ? "tab-active" : "tab"
             }
@@ -156,12 +167,18 @@ function Navbar() {
           </div>
           <nav className={css1} id="nav">
             <ul>
-              <NavLink to={`/${language.languages}/page1`}>
+              <NavLink
+                to={`/${language.languages}/page1`}
+                onClick={() => handlePosition(1)}
+              >
                 <li className="-mt-4 font-bold">
                   {data.links && data.links[0].label}
                 </li>
               </NavLink>
-              <NavLink to={`/${language.languages}/page2`}>
+              <NavLink
+                to={`/${language.languages}/page2`}
+                onClick={() => handlePosition(2)}
+              >
                 <li className="-mt-4 font-bold">
                   {data.links && data.links[1].label}
                 </li>

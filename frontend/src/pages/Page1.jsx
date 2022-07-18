@@ -10,16 +10,17 @@ import KPI from "../components/KPI";
 import CarrousselReview from "../components/CarrousselReview";
 import QA from "../components/QA";
 import NewsletterComponent from "../components/newsletter_component";
-import jason from "../data/generated";
 
 export default function Page1() {
+  // console.log(document.getElementsByTagName("META")[1].content);
+
   return (
     <div>
       <Home status={0} />
       <LogoCarousel />
       <Presentation />
-      <PresentationAdvantages {...jason} />
-      <Process {...jason} />
+      <PresentationAdvantages />
+      <Process />
       <Profits />
       <CarrousselReview />
       <KPI />

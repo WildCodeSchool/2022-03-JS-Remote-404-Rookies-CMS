@@ -4,7 +4,7 @@ const models = require("../models");
 class CarrousselReviewController {
   static browse = (req, res) => {
     models.carroussel_review
-      .findCarrousselReviewFirst(req.params.languages_id)
+      .findCarrousselReviewFirst(req.params.languages_id, req.params.position)
       .then(([rows]) => {
         res.send(rows);
       })

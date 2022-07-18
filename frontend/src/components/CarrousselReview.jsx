@@ -6,13 +6,15 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import CarrousselReviewCard from "./CarrousselReviewCard";
 
 function CarrousselReview() {
-  const { language } = useContext(ExportContext.Context);
+  const { language, position } = useContext(ExportContext.Context);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
       .get(
-        `${import.meta.env.VITE_BACKEND_URL}/carrousselreview/${language.id}`
+        `${import.meta.env.VITE_BACKEND_URL}/carrousselreview/${language.id}/${
+          position && position
+        }`
       )
       .then((response) => {
         setData(response.data);

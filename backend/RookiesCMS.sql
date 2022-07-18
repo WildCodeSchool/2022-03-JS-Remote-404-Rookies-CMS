@@ -1624,6 +1624,16 @@ VALUES (
         "A turnkey solution",
         2,
         1
+    ), (
+        "Benefits of working with us",
+        "A turnkey solution",
+        1,
+        2
+    ), (
+        "Benefits of working with us",
+        "A turnkey solution",
+        2,
+        2
     );
 
 insert into
@@ -1672,6 +1682,46 @@ VALUES (
         "Detailled Reports",
         "Lorem ipsum dolor sit amet, consectetur adpiscing elit. Mattis et sed nam sem tellus erat.",
         2,
+        64
+    ), (
+        "Easily design your projects",
+        "Express tour nees and objectives in few clicks or talk with one of our experts and we take care of the rest.",
+        3,
+        61
+    ), (
+        "Access a large network",
+        "More than 500 opportunities referenced in our project database in France and abroad.",
+        3,
+        62
+    ), (
+        "Simplified project management",
+        "We take care of all administrative tasks ans provide with a platrform to manage your projects efficienly.",
+        3,
+        63
+    ), (
+        "Detailled Reports",
+        "Lorem ipsum dolor sit amet, consectetur adpiscing elit. Mattis et sed nam sem tellus erat.",
+        3,
+        64
+    ), (
+        "Easily design your projects",
+        "Express tour nees and objectives in few clicks or talk with one of our experts and we take care of the rest.",
+        4,
+        61
+    ), (
+        "Access a large network",
+        "More than 500 opportunities referenced in our project database in France and abroad.",
+        4,
+        62
+    ), (
+        "Simplified project management",
+        "We take care of all administrative tasks ans provide with a platrform to manage your projects efficienly.",
+        4,
+        63
+    ), (
+        "Detailled Reports",
+        "Lorem ipsum dolor sit amet, consectetur adpiscing elit. Mattis et sed nam sem tellus erat.",
+        4,
         64
     );
 

@@ -24,12 +24,12 @@ class ProcessManager extends AbstractManager {
     ]);
   }
 
-  findProcess(languagesId) {
+  findProcess(languagesId, position) {
     return this.connection.query(
       `select p.languages_id, p.id, p.title, p.images_id as imgId, p.sub_title, p.text, i.image_link, i.image_alt from process as p
       inner join images as i on i.id = p.images_id 
-      where p.languages_id = ?`,
-      [languagesId]
+      where p.languages_id = ? and p.navbar_id = ?`,
+      [languagesId, position]
     );
   }
 

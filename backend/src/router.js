@@ -75,7 +75,7 @@ router.delete(
   PresentationController.delete
 );
 
-router.get("/processs/:languages_id", ProcessController.browse);
+router.get("/processs/:languages_id/:position", ProcessController.browse);
 router.get("/process/:languages_id", ProcessController.read);
 router.put("/process", Authorization, ProcessController.edit);
 router.post("/process", Authorization, ProcessController.add);
@@ -84,7 +84,7 @@ router.delete("/process/:id", Authorization, ProcessController.delete);
 router.get("/AdminMail", AdminMailController.browse);
 router.put("/AdminMailEdit", Authorization, AdminMailController.edit);
 
-router.get("/profits/:languages_id", ProfitController.browse);
+router.get("/profits/:languages_id/:position", ProfitController.browse);
 router.get("/profit/:languages_id", ProfitController.read);
 router.put("/profits", Authorization, ProfitController.edit);
 router.post("/profit", Authorization, ProfitController.add);
@@ -104,7 +104,7 @@ router.delete("/QA/:id", Authorization, QAController.delete);
 
 router.get("/carrousselreview", CarrousselReviewController.read);
 router.get(
-  "/carrousselreview/:languages_id",
+  "/carrousselreview/:languages_id/:position",
   CarrousselReviewController.browse
 );
 router.put("/carrousselreview", Authorization, CarrousselReviewController.edit);

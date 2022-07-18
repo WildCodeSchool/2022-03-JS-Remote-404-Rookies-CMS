@@ -73,7 +73,9 @@ function CarrouselReviewAdmin() {
     };
     console.warn(submit);
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/carrousselreview`, submit)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/carrousselreview`, submit, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn("Yes !");
       })

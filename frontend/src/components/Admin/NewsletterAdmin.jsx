@@ -20,7 +20,9 @@ function NewsletterAdmin() {
       cta_label: ctaLabel,
     };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/newsletter`, data)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/newsletter`, data, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn(`${title} ${text} ${id}`);
         console.warn("Yes !");

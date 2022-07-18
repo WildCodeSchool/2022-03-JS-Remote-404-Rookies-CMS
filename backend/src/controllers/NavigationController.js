@@ -37,14 +37,30 @@ class NavigationController {
   };
 
   static edit = (req, res) => {
-    const navigation = req.body;
-
-    // TODO validations (length, format...)
-
-    navigation.id = parseInt(req.params.id, 10);
-
+    const object = req.body;
     models.navigation
-      .update(navigation)
+      .updateNavigation({
+        id: object.images_id,
+        image_link: object.image_link,
+        image_alt: object.image_alt,
+      })
+      .then(([result]) => {
+        if (result.affectedRows === 0) {
+          res.sendStatus(404);
+        } else {
+          res.sendStatus(204);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
+  static editElement = (req, res) => {
+    const object = req.body;
+    models.navigation
+      .updateNavigationElement(object)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);

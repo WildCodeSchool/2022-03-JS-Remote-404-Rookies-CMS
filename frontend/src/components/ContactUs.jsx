@@ -31,7 +31,7 @@ function ContactUs() {
       }}
     >
       <div className="flex flex-col justify-center items-center w-full">
-        <div className="flex flex-col md:flex-col justify-center w-9/12 blur-none backdrop-blur-3xl pt-8 px-8 rounded-[16px] w-full text-white">
+        <div className="flex flex-col md:flex-col justify-center w-8/12 blur-none backdrop-blur-3xl pt-8 px-8 rounded-[16px] w-full text-white">
           <div className="flex flex-row md:flex-col items-center w-4/5 h-full">
             <img
               src={data && data.image_link}

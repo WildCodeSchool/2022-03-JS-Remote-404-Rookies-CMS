@@ -39,7 +39,9 @@ function PresentationAdvantagesAdmin() {
       elements: elements,
     };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/presentationadvantage`, data)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/presentationadvantage`, data, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn(` ${subtitle} ${title} ${text} ${cta}`);
         console.warn("Yes !");

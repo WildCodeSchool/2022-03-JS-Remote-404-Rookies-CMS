@@ -94,6 +94,8 @@ DROP TABLE IF EXISTS `RookiesCMS`.`newsletter_component` ;
 
 DROP TABLE IF EXISTS `RookiesCMS`.`cta_case_study` ;
 
+DROP TABLE IF EXISTS `RookiesCMS`.`Contact_us` ;
+
 -- -----------------------------------------------------
 
 -- Table `RookiesCMS`.`languages`
@@ -990,10 +992,10 @@ VALUES (
         "logo",
         1
     ), (
-        "https://tamba-labs.com/wp-content/uploads/2020/12/Logo_Homepage_Main.png",
+        "https://media-exp1.licdn.com/dms/image/C4D0BAQEzfe9qMhXoIw/company-logo_200_200/0/1629717965166?e=1665619200&v=beta&t=j7lMetHVQDYfYU57-3A095xr2GDM-a3w5dEAAd5svdU",
         "Tamba Labs",
         0,
-        "https://tamba-labs.com/",
+        "https://www.linkedin.com/company/tamba-labs/about/",
         "logo",
         1
     ), (
@@ -1392,7 +1394,7 @@ VALUES (
 
 insert into
     `RookiesCMS`.`navigation`(languages_id, images_id)
-VALUES (1, 24);
+VALUES (1, 24), (2, 24);
 
 insert into
     `RookiesCMS`.`navigation_element` (
@@ -1431,7 +1433,35 @@ VALUES (
         0,
         "???",
         "why this page exist?"
-    ), ("Contact us", "", 1, 1, "", "");
+    ), ("Contact us", "", 1, 1, "", ""), (
+        "Companies",
+        "/",
+        2,
+        0,
+        "Companies",
+        "company page from rookies"
+    ), (
+        "Universities",
+        "/page2",
+        2,
+        0,
+        "Universities",
+        "Universities page from rookies"
+    ), (
+        "Case study",
+        "/page3",
+        2,
+        0,
+        "Case Study",
+        "Case study page from rookies"
+    ), (
+        "About us",
+        "/page4",
+        2,
+        0,
+        "???",
+        "why this page exist?"
+    ), ("Contact us", "", 2, 1, "", "");
 
 insert into
     `RookiesCMS`.`QA` (title, sub_title, languages_id)
@@ -1439,6 +1469,10 @@ VALUES (
         "Do you have some questions ?",
         "Frequently asked questions",
         1
+    ), (
+        "Do you have some questions ?",
+        "Frequently asked questions",
+        2
     );
 
 insert into
@@ -1463,6 +1497,26 @@ VALUES (
         "How much time do i need to allocate to the project ?",
         "lorem ipsum dolor sit amet",
         1
+    ), (
+        "What is a Rookies project ?",
+        "lorem ipsum dolor sit amet",
+        2
+    ), (
+        "Why should my company launch a Rookie project ?",
+        "upgrade to the Team Plan for unlimited guests. You can also review and remove inactive guests in Setting & Menbers.",
+        2
+    ), (
+        "What kind of projects can be conducted ?",
+        "lorem ipsum dolor sit amet",
+        2
+    ), (
+        "What about data privacy and intellectual property ?",
+        "lorem ipsum dolor sit amet",
+        2
+    ), (
+        "How much time do i need to allocate to the project ?",
+        "lorem ipsum dolor sit amet",
+        2
     );
 
 insert into
@@ -1479,6 +1533,13 @@ VALUES (
         "A Better way to hire talents",
         "Engage with students on your company specific projects, so the can demonstrate their capabilities before they are hired full time.",
         1,
+        "+33785680988",
+        "Book a meeting"
+    ), (
+        "Why launch a Rookies Project?",
+        "A Better way to hire talents",
+        "Engage with students on your company specific projects, so the can demonstrate their capabilities before they are hired full time.",
+        2,
         "+33785680988",
         "Book a meeting"
     );
@@ -1501,6 +1562,18 @@ VALUES (
         "Go beyound CVs",
         "lorem ipsum dolor sit amet",
         1
+    ), (
+        "A support for your team",
+        "lorem ipsum dolor sit amet",
+        2
+    ), (
+        "Boost your employer brand",
+        "Today's students are tommortow's decision makers. When they engage with your company. You become an employer of choice. This collaboration will be with them for years to come.",
+        2
+    ), (
+        "Go beyound CVs",
+        "lorem ipsum dolor sit amet",
+        2
     );
 
 insert into
@@ -1523,6 +1596,15 @@ VALUES (
         1,
         25,
         "Get Started"
+    ), (
+        "What is a Rookies Project?",
+        "A win-win collaboration",
+        "Submit an assignement specific to your company, taken on by higher educaton students. The projects are carried out remotely or in person as part of the students' curriculum with the support of a qualified supervisor.",
+        "Students acquire resume worthy experience and connect with employers",
+        "Compagnies get answers to their challenges and discover talents",
+        2,
+        25,
+        "Get Started"
     );
 
 insert into
@@ -1536,6 +1618,11 @@ VALUES (
         "Benefits of working with us",
         "A turnkey solution",
         1,
+        1
+    ), (
+        "Benefits of working with us",
+        "A turnkey solution",
+        2,
         1
     );
 
@@ -1566,6 +1653,26 @@ VALUES (
         "Lorem ipsum dolor sit amet, consectetur adpiscing elit. Mattis et sed nam sem tellus erat.",
         1,
         64
+    ), (
+        "Easily design your projects",
+        "Express tour nees and objectives in few clicks or talk with one of our experts and we take care of the rest.",
+        2,
+        61
+    ), (
+        "Access a large network",
+        "More than 500 opportunities referenced in our project database in France and abroad.",
+        2,
+        62
+    ), (
+        "Simplified project management",
+        "We take care of all administrative tasks ans provide with a platrform to manage your projects efficienly.",
+        2,
+        63
+    ), (
+        "Detailled Reports",
+        "Lorem ipsum dolor sit amet, consectetur adpiscing elit. Mattis et sed nam sem tellus erat.",
+        2,
+        64
     );
 
 insert into
@@ -1574,11 +1681,15 @@ VALUES (
         "Key Figures",
         "Our achievement depicted in numbers",
         1
+    ), (
+        "Key Figures",
+        "Our achievement depicted in numbers",
+        2
     );
 
 insert into
     `RookiesCMS`.`KPI_element` (number, label, KPI_id)
-VALUES (50, "Projects", 1), (30, "clients", 1), (300, "Student participants", 1), (5, "Countries", 1);
+VALUES (50, "Projects", 1), (30, "clients", 1), (300, "Student participants", 1), (5, "Countries", 1), (50, "Projects", 2), (30, "clients", 2), (300, "Student participants", 2), (5, "Countries", 2);
 
 insert into
     `RookiesCMS`.`get_started` (
@@ -1590,6 +1701,10 @@ VALUES (
         "More questions?",
         "Start Now",
         1
+    ), (
+        "More questions?",
+        "Start Now",
+        2
     );
 
 insert into
@@ -1610,6 +1725,14 @@ VALUES (
         "Message",
         "Submit",
         1
+    ), (
+        "Drop us a message",
+        "We will get back to you as soon as possible",
+        "First name & Last name",
+        "Email",
+        "Message",
+        "Submit",
+        2
     );
 
 insert into
@@ -1641,6 +1764,24 @@ VALUES (
         2,
         70,
         36
+    ), (
+        'Get more done, while connecting with ',
+        "great talent",
+        "Involve students in your projects and identify your future talents.",
+        "Get started",
+        2,
+        1,
+        26,
+        36
+    ), (
+        'Challenge your students on ',
+        "real world live cases",
+        "Give your students the opportunity to showcase their skills and connect with employers.",
+        "Start now",
+        2,
+        2,
+        70,
+        36
     );
 
 insert into
@@ -1659,6 +1800,27 @@ VALUES (
         1,
         27,
         1
+    ), (
+        "How does it works ?",
+        "Test talents while working on meaningful projects",
+        "Easily build and manage your experiential hiring projects to support your team and identify your future workforce.",
+        2,
+        27,
+        1
+    ), (
+        "How does it works ?",
+        "Test talents while working on meaningful projects",
+        "Easily build and manage your experiential hiring projects to support your team and identify your future workforce.",
+        1,
+        27,
+        2
+    ), (
+        "How does it works ?",
+        "Test talents while working on meaningful projects",
+        "Easily build and manage your experiential hiring projects to support your team and identify your future workforce.",
+        2,
+        27,
+        2
     );
 
 insert into
@@ -1679,6 +1841,54 @@ VALUES (
         "Evaluate & integrate",
         "identify the top performers and integrate the best solutions.",
         1
+    ), (
+        "Design",
+        "indicate your goals, timeline, and candidate requirements.",
+        2
+    ), (
+        "Select & Start",
+        "Get proposals, select and launch your project.",
+        2
+    ), (
+        "Manage",
+        "Easiliy manage the progression of your project with our platform.",
+        2
+    ), (
+        "Evaluate & integrate",
+        "identify the top performers and integrate the best solutions.",
+        2
+    ), (
+        "Design",
+        "indicate your goals, timeline, and candidate requirements.",
+        3
+    ), (
+        "Select & Start",
+        "Get proposals, select and launch your project.",
+        3
+    ), (
+        "Manage",
+        "Easiliy manage the progression of your project with our platform.",
+        3
+    ), (
+        "Evaluate & integrate",
+        "identify the top performers and integrate the best solutions.",
+        3
+    ), (
+        "Design",
+        "indicate your goals, timeline, and candidate requirements.",
+        4
+    ), (
+        "Select & Start",
+        "Get proposals, select and launch your project.",
+        4
+    ), (
+        "Manage",
+        "Easiliy manage the progression of your project with our platform.",
+        4
+    ), (
+        "Evaluate & integrate",
+        "identify the top performers and integrate the best solutions.",
+        4
     );
 
 insert into
@@ -1693,6 +1903,21 @@ VALUES (
         "What our customers say about us",
         1,
         1
+    ), (
+        "Testimonials",
+        "What our customers say about us",
+        2,
+        1
+    ), (
+        "Testimonials",
+        "What our customers say about us",
+        1,
+        2
+    ), (
+        "Testimonials",
+        "What our customers say about us",
+        2,
+        2
     );
 
 insert into
@@ -1729,6 +1954,78 @@ VALUES (
         1,
         30,
         4
+    ), (
+        "Alexandre Guarneri",
+        "Founder @HOMECORE",
+        "The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website.",
+        1,
+        2,
+        28,
+        2
+    ), (
+        "Xavier Sourceau",
+        "Chief revenue Officier @YOUMEAL",
+        "The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website.",
+        1,
+        2,
+        29,
+        1
+    ), (
+        "Carolie Gassama",
+        "Founder & CEO @KEYENA",
+        "The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website.",
+        1,
+        2,
+        30,
+        4
+    ), (
+        "Alexandre Guarneri",
+        "Founder @HOMECORE",
+        "The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website.",
+        1,
+        3,
+        28,
+        2
+    ), (
+        "Xavier Sourceau",
+        "Chief revenue Officier @YOUMEAL",
+        "The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website.",
+        1,
+        3,
+        29,
+        1
+    ), (
+        "Carolie Gassama",
+        "Founder & CEO @KEYENA",
+        "The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website.",
+        1,
+        3,
+        30,
+        4
+    ), (
+        "Alexandre Guarneri",
+        "Founder @HOMECORE",
+        "The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website.",
+        1,
+        4,
+        28,
+        2
+    ), (
+        "Xavier Sourceau",
+        "Chief revenue Officier @YOUMEAL",
+        "The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website.",
+        1,
+        4,
+        29,
+        1
+    ), (
+        "Carolie Gassama",
+        "Founder & CEO @KEYENA",
+        "The audit conducted by the Tookies raised many essential questions for Homcore and several of their recommendations will be implemented on our website.",
+        1,
+        4,
+        30,
+        4
     );
 
 insert into
@@ -1763,6 +2060,21 @@ VALUES (
         24,
         49,
         50
+    ), (
+        "+33(0)785680988",
+        "contact@rookiesprojects.com",
+        "Quick Links",
+        "Join our newsletter",
+        "© 2022 Rookies SAS. All rights reserved",
+        "General Terms",
+        "Privacy Policy",
+        "Your Email",
+        2,
+        32,
+        33,
+        24,
+        49,
+        50
     );
 
 insert into
@@ -1773,7 +2085,19 @@ insert into
         contact_form_id,
         footer_id
     )
-VALUES ("Company", "Company", 1, 1, 1), ("School", "School", 1, 1, 1);
+VALUES ("Company", "Company", 1, 1, 1), ("School", "School", 1, 1, 1), (
+        "Entreprise",
+        "Entreprise",
+        2,
+        2,
+        2
+    ), (
+        "Université",
+        "Université",
+        2,
+        2,
+        2
+    );
 
 INSERT INTO
     `RookiesCMS`.`quote`(
@@ -1869,6 +2193,11 @@ VALUES (
         "We have hiking-related blog so we can share our thought and rutinity in our blog that updated weekly. We will not spam you, we promise.",
         "Subscribe",
         1
+    ), (
+        "Subscribe to Our Newsletter",
+        "We have hiking-related blog so we can share our thought and rutinity in our blog that updated weekly. We will not spam you, we promise.",
+        "Subscribe",
+        2
     );
 
 INSERT INTO
@@ -1877,6 +2206,10 @@ VALUES (
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "Check it Out",
         1
+    ), (
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Check it Out",
+        2
     );
 
 INSERT INTO
@@ -1956,11 +2289,71 @@ VALUES (
         67,
         68,
         69
+    ), (
+        "HOMECORE x EM Normandie",
+        "Audit SEO & SEA",
+        "M2 Marketing Digital - Parcours Grande Ecole",
+        "8 semaines de projet",
+        "400 heures de travail",
+        "Wise busy past both park when an ye no. Nay likely her length sooner thrown sex lively income. The expense windows .",
+        "- Mike Taylor, Web Designer",
+        6,
+        0,
+        2,
+        47,
+        67,
+        68,
+        69
+    ), (
+        "KEYENA x PPA Business School",
+        "Étude de marché",
+        "3A de Bachelor Management du Sport ",
+        "8 semaines de projet",
+        "400 heures de travail",
+        "Wise busy past both park when an ye no. Nay likely her length sooner thrown sex lively income. The expense windows .",
+        "- Mike Taylor, Web Designer",
+        6,
+        1,
+        2,
+        48,
+        67,
+        68,
+        69
+    ), (
+        "OBOX x ISE Junia",
+        "Étude de faisabilité",
+        "M2 Marketing Digital - Parcours Grande Ecole",
+        "8 semaines de projet",
+        "400 heures de travail",
+        "Wise busy past both park when an ye no. Nay likely her length sooner thrown sex lively income. The expense windows .",
+        "- Mike Taylor, Web Designer",
+        6,
+        0,
+        2,
+        47,
+        67,
+        68,
+        69
+    ), (
+        "Mon Magasin en Ville x HETIC",
+        "Conception UX/UI",
+        "M2 Marketing Digital - Parcours Grande Ecole",
+        "8 semaines de projet",
+        "400 heures de travail",
+        "Wise busy past both park when an ye no. Nay likely her length sooner thrown sex lively income. The expense windows .",
+        "- Mike Taylor, Web Designer",
+        6,
+        1,
+        2,
+        47,
+        67,
+        68,
+        69
     );
 
 INSERT INTO
     `RookiesCMS`.`project_menber`(project_id, images_id)
-VALUES (1, 49), (1, 50), (1, 51), (2, 49), (2, 50), (2, 51), (3, 49), (3, 50), (3, 51), (4, 49), (4, 50), (4, 51);
+VALUES (1, 49), (1, 50), (1, 51), (2, 49), (2, 50), (2, 51), (3, 49), (3, 50), (3, 51), (4, 49), (4, 50), (4, 51), (5, 49), (5, 50), (5, 51), (6, 49), (6, 50), (6, 51), (7, 49), (7, 50), (7, 51), (8, 49), (8, 50), (8, 51);
 
 INSERT INTO
     `RookiesCMS`.`study_case_home`(
@@ -1982,6 +2375,16 @@ VALUES (
         "Multiple Topics",
         "And More ...",
         1,
+        53,
+        52
+    ), (
+        "No matter your challenge",
+        "Rookies can handle it",
+        "A talented team to help you in your journey on creating usefull and easy to use product",
+        "Let's Talk",
+        "Multiple Topics",
+        "And More ...",
+        2,
         53,
         52
     );
@@ -2018,6 +2421,31 @@ VALUES (
         "Mentor of UI/UX",
         55,
         1
+    ), (
+        "Marketing",
+        "Étude de marché",
+        56,
+        2
+    ), (
+        "Communication",
+        "Mentor of Web Design",
+        57,
+        2
+    ), (
+        "Digital et Web",
+        "Developpement",
+        58,
+        2
+    ), (
+        "Graphisme",
+        "Mentor of UI/UX",
+        54,
+        2
+    ), (
+        "Ingénierie",
+        "Mentor of UI/UX",
+        55,
+        2
     );
 
 CREATE TABLE
@@ -2075,6 +2503,18 @@ VALUES (
         71,
         72,
         1
+    ), (
+        "Contactez",
+        "Amélie",
+        "Téléphone",
+        "+33 7 85 68 09 88",
+        "Email",
+        "contact@rookiesprojects.com",
+        "Rendez-vous",
+        "https://calendly.com/rookies",
+        71,
+        72,
+        2
     );
 
 CREATE TABLE

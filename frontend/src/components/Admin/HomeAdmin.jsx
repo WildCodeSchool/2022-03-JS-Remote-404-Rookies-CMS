@@ -36,7 +36,9 @@ function HomeAdmin(props) {
       BimgId: BimgId,
     };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/homes`, data)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/homes`, data, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn(`${imgId} ${BimgId} ${titleGreenPart} ${cta}`);
         console.warn("Yes !");

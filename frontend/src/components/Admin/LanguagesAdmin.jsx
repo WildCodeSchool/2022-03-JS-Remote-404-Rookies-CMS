@@ -12,7 +12,9 @@ function LanguagesAdmin() {
     e.preventDefault();
     if (isAdd === true) {
       axios
-        .post(`${import.meta.env.VITE_BACKEND_URL}/languages`, data[0])
+        .post(`${import.meta.env.VITE_BACKEND_URL}/languages`, data[0], {
+          withCredentials: true,
+        })
         .then(() => {
           console.warn("Yes !");
         })
@@ -21,7 +23,11 @@ function LanguagesAdmin() {
         });
     } else {
       axios
-        .put(`${import.meta.env.VITE_BACKEND_URL}/languages`, data[adminTouch])
+        .put(
+          `${import.meta.env.VITE_BACKEND_URL}/languages`,
+          data[adminTouch],
+          { withCredentials: true }
+        )
         .then(() => {
           console.warn("Yes !");
         })

@@ -168,7 +168,9 @@ function StudyCaseHomeAdmin() {
     };
     if (id) {
       axios
-        .put(`${import.meta.env.VITE_BACKEND_URL}/studygethomes`, data1)
+        .put(`${import.meta.env.VITE_BACKEND_URL}/studygethomes`, data1, {
+          withCredentials: true,
+        })
         .then(() => {
           console.warn("Yes !");
         })
@@ -178,7 +180,9 @@ function StudyCaseHomeAdmin() {
         });
     } else {
       axios
-        .post(`${import.meta.env.VITE_BACKEND_URL}/studygethomeadd`, data1)
+        .post(`${import.meta.env.VITE_BACKEND_URL}/studygethomeadd`, data1, {
+          withCredentials: true,
+        })
         .then(() => {
           console.warn("Yes !");
         })

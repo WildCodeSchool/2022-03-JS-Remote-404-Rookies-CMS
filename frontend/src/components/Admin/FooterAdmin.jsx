@@ -59,7 +59,9 @@ function FooterAdmin() {
       images: images,
     };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/footers`, data1)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/footers`, data1, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn(`${phone} ${email} ${id}`);
         console.warn("Yes !");

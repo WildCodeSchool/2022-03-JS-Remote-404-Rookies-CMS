@@ -77,7 +77,7 @@ function ProcessAdmin() {
       elements: elements,
     };
     axios
-      .put("http://localhost:5000/process", data)
+      .put("http://localhost:5000/process", data, { withCredentials: true })
       .then(() => {
         console.warn(data);
       })

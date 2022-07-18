@@ -77,7 +77,9 @@ function ProfitsAdmin() {
       elements: elements,
     };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/profits`, data)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/profits`, data, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn("Yes !", data);
       })

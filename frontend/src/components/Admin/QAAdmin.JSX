@@ -51,13 +51,13 @@ function QAAdmin() {
       cta2_label: cta2,
     };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/QAS`, data)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/QAS`, data,{ withCredentials: true })
       .then(() => {
         console.warn("Yes !");
       })
       .then();
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/getstarteds`, dataCta)
+      .put(`${import.meta.env.VITE_BACKEND_URL}/getstarteds`, dataCta,{ withCredentials: true })
       .catch(() => {
         console.warn("No !");
       });

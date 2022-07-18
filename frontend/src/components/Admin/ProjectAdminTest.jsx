@@ -35,7 +35,9 @@ function ProjectAdminTest() {
     e.preventDefault();
     if (isAdd === true) {
       axios
-        .post(`${import.meta.env.VITE_BACKEND_URL}/projectadd`, data)
+        .post(`${import.meta.env.VITE_BACKEND_URL}/projectadd`, data, {
+          withCredentials: true,
+        })
         .then(() => {
           console.warn("Yes !");
         })
@@ -44,7 +46,9 @@ function ProjectAdminTest() {
         });
     } else {
       axios
-        .put(`${import.meta.env.VITE_BACKEND_URL}/projects`, data[adminTouch])
+        .put(`${import.meta.env.VITE_BACKEND_URL}/projects`, data[adminTouch], {
+          withCredentials: true,
+        })
         .then(() => {
           console.warn("Yes !");
         })
@@ -57,7 +61,10 @@ function ProjectAdminTest() {
   const handleSubmitDelete = (e) => {
     e.preventDefault();
     axios
-      .delete(`${import.meta.env.VITE_BACKEND_URL}/projectdelete/${adminTouch}`)
+      .delete(
+        `${import.meta.env.VITE_BACKEND_URL}/projectdelete/${adminTouch}`,
+        { withCredentials: true }
+      )
       .then(() => {
         console.warn("Yes !");
       })

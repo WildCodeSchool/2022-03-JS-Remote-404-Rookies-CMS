@@ -58,6 +58,7 @@ function App() {
               path={`:language/${data.links && data.links[0].path}`}
               element={<Page1 />}
             />
+            <Route path="EN/Company" element={<Page1 />} />
             <Route
               path={`:language/${data.links && data.links[1].path}`}
               element={<Page2 />}

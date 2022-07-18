@@ -309,7 +309,7 @@ function NavigationElements() {
               className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 self-center py-1 w-4/5 "
               type="text"
               name="ogurl"
-              placeholder="Lien de l'image à afficher lors du partage du lien"
+              placeholder="Not yet implemented"
               onChange={(e) => editData2(e.target.name, e.target.value)}
               required
             />
@@ -324,7 +324,7 @@ function NavigationElements() {
               onChange={(e) => editData2(e.target.name, e.target.value)}
               className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 py-1 w-4/5 self-center"
               type="text"
-              placeholder="Type de l'open graphe"
+              placeholder="Not yet implemented"
               required
             />
           </label>
@@ -337,7 +337,7 @@ function NavigationElements() {
               className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 self-center py-1 w-4/5 "
               type="text"
               name="ogtitle"
-              placeholder="Titre de l'open graphe"
+              placeholder="Not yet implemented"
               onChange={(e) => editData2(e.target.name, e.target.value)}
               required
             />
@@ -351,7 +351,7 @@ function NavigationElements() {
               className="bg-gray-100 border-2 border-gray-300 rounded-lg px-2 self-center py-1 w-4/5 "
               type="text"
               name="ogdescription"
-              placeholder="Description de l'open graphe"
+              placeholder="Not yet implemented"
               onChange={(e) => editData2(e.target.name, e.target.value)}
               required
             />

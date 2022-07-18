@@ -67,14 +67,7 @@ function App() {
               element={<Page3 />}
             />
             <Route path="/rookies-admin" element={<Login />} />
-            <Route
-              path=""
-              element={
-                <Navigate
-                  to={`:language/${data.links && data.links[0].path}`}
-                />
-              }
-            />
+            <Route path="" element={<Navigate to="EN/Company" />} />
           </Route>
           <Route
             path="/dashboard/"

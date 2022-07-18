@@ -24,11 +24,11 @@ class QAManager extends AbstractManager {
     ]);
   }
 
-  findQA(languagesId) {
+  findQA(languagesId, position) {
     return this.connection.query(
       `select id, languages_id, title, sub_title from qa q
-      where q.languages_id = ?`,
-      [languagesId]
+      where q.languages_id = ? and q.navigation_id = ?`,
+      [languagesId, position]
     );
   }
 

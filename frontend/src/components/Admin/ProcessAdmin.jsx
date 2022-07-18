@@ -7,7 +7,7 @@ import ExportContext from "../../contexts/Context";
 import NavBarAdminCompany from "./NavBarAdminCompany";
 
 function ProcessAdmin() {
-  const { language } = useContext(ExportContext.Context);
+  const { language, position } = useContext(ExportContext.Context);
   const [imageLink, setImageLink] = useState("");
   const [imageAlt, setImageAlt] = useState("");
   const [title, setTitle] = useState("");
@@ -30,7 +30,11 @@ function ProcessAdmin() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/processs/${language.id}`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/processs/${language.id}/${
+          position && position
+        }`
+      )
       .then((response) => {
         setId(response.data.id);
         setImgId(response.data.imgId);

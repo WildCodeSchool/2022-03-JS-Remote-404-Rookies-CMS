@@ -6,7 +6,7 @@ import React, { useContext, useState, useEffect } from "react";
 import ExportContext from "../contexts/Context";
 
 function Footer() {
-  const { language } = useContext(ExportContext.Context);
+  const { language, handlePosition } = useContext(ExportContext.Context);
 
   const [data, setData] = useState([]);
 
@@ -103,14 +103,24 @@ function Footer() {
               <div className="flex justify-start flex-col lg:mr-20 ">
                 <li>
                   <div className="mb-4 text-gray-600 hover:text-gray-800">
-                    <a href={data.links && data.links[0].path}>
+                    <a
+                      href={`/${language.languages}/${
+                        data.links && data.links[0].path
+                      }`}
+                      onClick={() => handlePosition(1)}
+                    >
                       {data.links && data.links[0].label}
                     </a>
                   </div>
                 </li>
                 <li>
                   <div className="mb-4 flex justify-center lg:justify-start text-gray-600 hover:text-gray-800 ">
-                    <a href={data.links && data.links[1].path}>
+                    <a
+                      href={`/${language.languages}/${
+                        data.links && data.links[1].path
+                      }`}
+                      onClick={() => handlePosition(2)}
+                    >
                       {data.links && data.links[1].label}
                     </a>
                   </div>
@@ -119,7 +129,12 @@ function Footer() {
               <div className="flex justify-start flex-col lg:ml-20">
                 <li>
                   <div className="mb-4 text-gray-600 hover:text-gray-800 ">
-                    <a href={data.links && data.links[2].path}>
+                    <a
+                      href={`/${language.languages}/${
+                        data.links && data.links[2].path
+                      }`}
+                      onClick={() => handlePosition(3)}
+                    >
                       {data.links && data.links[2].label}
                     </a>
                   </div>
@@ -127,7 +142,11 @@ function Footer() {
               </div>
               <li>
                 <div className="flex justify-center lg:justify-start text-gray-600 hover:text-gray-800 hidden">
-                  <a href={data.links && data.links[3].path}>
+                  <a
+                    href={`/${language.languages}/${
+                      data.links && data.links[3].path
+                    }`}
+                  >
                     {data.links && data.links[3].label}
                   </a>
                 </div>

@@ -7,6 +7,7 @@ function Provider({ children }) {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [receptionEmail, setReceptionEmail] = useState("");
   const [position, setPosition] = useState(1);
+  const [data, setData] = useState("");
 
   const handlePosition = (id) => {
     setPosition(id);
@@ -25,11 +26,6 @@ function Provider({ children }) {
     setIsContactOpen(!isContactOpen);
   };
 
-  // const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
-  // const handleCalendly = () => {
-  //   setIsCalendlyOpen(!isCalendlyOpen);
-  // };
-
   const [allLanguages, setAllLanguages] = useState();
   const handleLanguages = (toSet) => {
     setAllLanguages(toSet);
@@ -39,6 +35,17 @@ function Provider({ children }) {
   const selectLanguage = (option) => {
     setLanguage(option);
   };
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/navigation/${language.id}`)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  }, [language]);
 
   useEffect(() => {
     axios
@@ -73,6 +80,7 @@ function Provider({ children }) {
         handleReceptionEmail,
         handlePosition,
         position,
+        data,
       }}
     >
       {children}

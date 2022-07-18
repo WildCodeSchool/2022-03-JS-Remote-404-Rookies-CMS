@@ -10,6 +10,7 @@ function NavBarAdminCompany() {
     handleLanguages,
     receptionEmail,
     handleReceptionEmail,
+    handlePosition,
   } = useContext(ExportContext.Context);
 
   useEffect(() => {
@@ -97,75 +98,170 @@ function NavBarAdminCompany() {
               Company
             </Link>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/company/home">Home</Link>
+              <Link
+                to="/dashboard/company/home"
+                onClick={() => handlePosition(1)}
+              >
+                Home
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/company/carousellogo">Carrousel Logo</Link>
+              <Link
+                to="/dashboard/company/carousellogo"
+                onClick={() => handlePosition(1)}
+              >
+                Carrousel Logo
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/company/presentation">Presentation</Link>
+              <Link
+                to="/dashboard/company/presentation"
+                onClick={() => handlePosition(1)}
+              >
+                Presentation
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/company/presentationadvantages">
+              <Link
+                to="/dashboard/company/presentationadvantages"
+                onClick={() => handlePosition(1)}
+              >
                 Presentation advantages
               </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/company/process">Process</Link>
+              <Link
+                to="/dashboard/company/process"
+                onClick={() => handlePosition(1)}
+              >
+                Process
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/company/profits">Profits</Link>
+              <Link
+                to="/dashboard/company/profits"
+                onClick={() => handlePosition(1)}
+              >
+                Profits
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/company/carrouselReview">
+              <Link
+                to="/dashboard/company/carrouselReview"
+                onClick={() => handlePosition(1)}
+              >
                 Carousel review
               </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/company/KPI">KPI</Link>
+              <Link
+                to="/dashboard/company/KPI"
+                onClick={() => handlePosition(1)}
+              >
+                KPI
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/company/QA">QA</Link>
+              <Link
+                to="/dashboard/company/QA"
+                onClick={() => handlePosition(1)}
+              >
+                QA
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/company/newsletter">NewsLetter</Link>
+              <Link
+                to="/dashboard/company/newsletter"
+                onClick={() => handlePosition(1)}
+              >
+                NewsLetter
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/company/footer">Footer</Link>
+              <Link
+                to="/dashboard/company/footer"
+                onClick={() => handlePosition(1)}
+              >
+                Footer
+              </Link>
             </li>
           </li>
           <li className="flex flex-col gap-10 text-left">
-            <Link className="underline" to="/dashboard/school">
+            <Link
+              className="underline"
+              to="/dashboard/school"
+              onClick={() => handlePosition(2)}
+            >
               School
             </Link>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/school/home">Home</Link>
+              <Link
+                to="/dashboard/school/home"
+                onClick={() => handlePosition(2)}
+              >
+                Home
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/school/formulaire">Formulaire</Link>
+              <Link
+                to="/dashboard/school/formulaire"
+                onClick={() => handlePosition(2)}
+              >
+                Formulaire
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/shcool/carouselLogo">Carroussel Logo</Link>
+              <Link
+                to="/dashboard/school/carousellogo"
+                onClick={() => handlePosition(2)}
+              >
+                Carroussel Logo
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/school/presentation">Presentation</Link>
+              <Link
+                to="/dashboard/school/presentation"
+                onClick={() => handlePosition(2)}
+              >
+                Presentation
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/school/process">Process</Link>
+              <Link
+                to="/dashboard/school/process"
+                onClick={() => handlePosition(2)}
+              >
+                Process
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/school/profits">Profit</Link>
+              <Link
+                to="/dashboard/school/profits"
+                onClick={() => handlePosition(2)}
+              >
+                Profit
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/school/carrousselReview">
+              <Link
+                to="/dashboard/school/carrouselReview"
+                onClick={() => handlePosition(2)}
+              >
                 Carroussel Review
               </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/school/QA">QA</Link>
+              <Link to="/dashboard/school/QA" onClick={() => handlePosition(2)}>
+                QA
+              </Link>
             </li>
             <li className="text-left ml-28 text-2xl hover:text-green-400">
-              <Link to="/dashboard/school/newsletter">Newsletter</Link>
+              <Link
+                to="/dashboard/school/newsletter"
+                onClick={() => handlePosition(2)}
+              >
+                Newsletter
+              </Link>
             </li>
           </li>
           <li className="flex flex-col gap-10 text-left">

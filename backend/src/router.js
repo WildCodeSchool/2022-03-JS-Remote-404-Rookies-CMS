@@ -66,7 +66,10 @@ router.post("/homes", Authorization, HomeController.add);
 router.delete("/homes/:id", Authorization, HomeController.delete);
 
 router.get("/presentations", PresentationController.browse);
-router.get("/presentations/:languages_id", PresentationController.read);
+router.get(
+  "/presentations/:languages_id/:position",
+  PresentationController.read
+);
 router.put("/presentations", Authorization, PresentationController.edit);
 router.post("/presentations", Authorization, PresentationController.add);
 router.delete(
@@ -96,7 +99,7 @@ router.put("/kpi", Authorization, KpiController.edit);
 router.post("/kpi", Authorization, KpiController.add);
 router.delete("/kpi/:id", Authorization, KpiController.delete);
 
-router.get("/QAS/:languages_id", QAController.browse);
+router.get("/QAS/:languages_id/:position", QAController.browse);
 router.get("/QA/:languages_id", QAController.read);
 router.put("/QAS", Authorization, QAController.edit);
 router.post("/QA", Authorization, QAController.add);

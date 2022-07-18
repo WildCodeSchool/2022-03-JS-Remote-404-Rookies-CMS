@@ -12,8 +12,6 @@ import QA from "../components/QA";
 import NewsletterComponent from "../components/newsletter_component";
 
 export default function Page1() {
-  // console.log(document.getElementsByTagName("META")[1].content);
-
   return (
     <div>
       <Home status={0} />

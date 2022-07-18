@@ -6,7 +6,7 @@ import CtaContact from "./CtaContact";
 import CTA from "./CTA";
 
 function QA() {
-  const { language } = useContext(ExportContext.Context);
+  const { language, position } = useContext(ExportContext.Context);
 
   const [data, setData] = useState([]);
 
@@ -25,7 +25,11 @@ function QA() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/QAS/${language.id}`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/QAS/${language.id}/${
+          position && position
+        }`
+      )
       .then((response) => {
         setData(response.data);
       })

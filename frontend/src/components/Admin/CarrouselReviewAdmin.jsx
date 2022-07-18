@@ -7,7 +7,7 @@ import CarrousselReviewCard from "../CarrousselReviewCard";
 import NavBarAdminCompany from "./NavBarAdminCompany";
 
 function CarrouselReviewAdmin() {
-  const { language } = useContext(ExportContext.Context);
+  const { language, position } = useContext(ExportContext.Context);
 
   const [id, setId] = useState("");
   const [data, setData] = useState([]);
@@ -135,7 +135,9 @@ function CarrouselReviewAdmin() {
   useEffect(() => {
     axios
       .get(
-        `${import.meta.env.VITE_BACKEND_URL}/carrousselreview/${language.id}`
+        `${import.meta.env.VITE_BACKEND_URL}/carrousselreview/${language.id}/${
+          position && position
+        }`
       )
       .then((response) => {
         setData(response.data);
@@ -160,7 +162,7 @@ function CarrouselReviewAdmin() {
             <option value="3">Supprimer</option>
           </select>
         </div>
-        <div className="flex flex-row w-1/2 h-full" />
+        <div className="flex flex-row w-1/2" />
         {adminTouch === "1" ? (
           <form className="flex flex-col w-1/2 align-center justify-center ml-24">
             <div className="flex flex-col h-full w-full justify-center">

@@ -1,13 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import "../App.css";
 import react, { useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import ExportContext from "../contexts/Context";
 
 function ImageTraitement1() {
   const [image, setImage] = react.useState([]);
-  const { carousellogo } = useParams();
+  const location = useLocation();
+  const carousellogo = location.pathname.includes("dashboard");
 
   const { media } = useContext(ExportContext.Context);
 

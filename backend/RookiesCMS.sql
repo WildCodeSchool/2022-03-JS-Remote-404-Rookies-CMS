@@ -349,10 +349,17 @@ CREATE TABLE
         `title` VARCHAR(255) NOT NULL,
         `sub_title` VARCHAR(255) NOT NULL,
         `languages_id` INT NOT NULL,
-        PRIMARY KEY (`id`, `languages_id`),
-        UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-        INDEX `fk_module9E_languages1_idx` (`languages_id` ASC),
-        CONSTRAINT `fk_module9E_languages1` FOREIGN KEY (`languages_id`) REFERENCES `RookiesCMS`.`languages` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+        `navigation_id` INT NOT NULL,
+        PRIMARY KEY (
+            `id`,
+            `languages_id`,
+            `navigation_id`
+        ),
+        UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+        INDEX `fk_module9E_languages1_idx` (`languages_id` ASC) VISIBLE,
+        INDEX `fk_QA_navigation1_idx` (`navigation_id` ASC) VISIBLE,
+        CONSTRAINT `fk_module9E_languages1` FOREIGN KEY (`languages_id`) REFERENCES `RookiesCMS`.`languages` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        CONSTRAINT `fk_QA_navigation1` FOREIGN KEY (`navigation_id`) REFERENCES `RookiesCMS`.`navigation` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -390,13 +397,19 @@ CREATE TABLE
         `languages_id` INT NOT NULL,
         `images_id` INT NOT NULL,
         `CTA_label` VARCHAR(100) NOT NULL,
-        PRIMARY KEY (`id`, `images_id`),
-        UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-        INDEX `fk_presentation_languages1_idx` (`languages_id` ASC),
-        INDEX `fk_presentation_images1_idx` (`images_id` ASC),
-        UNIQUE INDEX `languages_id_UNIQUE` (`languages_id` ASC),
+        `navigation_id` INT NOT NULL,
+        PRIMARY KEY (
+            `id`,
+            `images_id`,
+            `navigation_id`
+        ),
+        UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+        INDEX `fk_presentation_languages1_idx` (`languages_id` ASC) VISIBLE,
+        INDEX `fk_presentation_images1_idx` (`images_id` ASC) VISIBLE,
+        INDEX `fk_presentation_navigation1_idx` (`navigation_id` ASC) VISIBLE,
         CONSTRAINT `fk_presentation_languages1` FOREIGN KEY (`languages_id`) REFERENCES `RookiesCMS`.`languages` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-        CONSTRAINT `fk_presentation_images1` FOREIGN KEY (`images_id`) REFERENCES `RookiesCMS`.`images` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+        CONSTRAINT `fk_presentation_images1` FOREIGN KEY (`images_id`) REFERENCES `RookiesCMS`.`images` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        CONSTRAINT `fk_presentation_navigation1` FOREIGN KEY (`navigation_id`) REFERENCES `RookiesCMS`.`navigation` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -1406,22 +1419,22 @@ insert into
         description
     )
 VALUES (
-        "Companies",
-        "/",
+        "Company",
+        "Company",
         1,
         0,
-        "Companies",
+        "Company",
         "company page from rookies"
     ), (
-        "Universities",
-        "/page2",
+        "University",
+        "Univeristy",
         1,
         0,
-        "Universities",
+        "Univeristy",
         "Universities page from rookies"
     ), (
         "Case study",
-        "/page3",
+        "Case_study",
         1,
         0,
         "Case Study",
@@ -1433,26 +1446,33 @@ VALUES (
         0,
         "???",
         "why this page exist?"
-    ), ("Contact us", "", 1, 1, "", ""), (
-        "Companies",
-        "/",
+    ), (
+        "Contact us",
+        "not an link",
+        1,
+        1,
+        "not an link",
+        "not an link"
+    ), (
+        "Entreprise",
+        "Entreprise",
         2,
         0,
-        "Companies",
+        "Entreprise",
         "company page from rookies"
     ), (
-        "Universities",
-        "/page2",
+        "Université",
+        "Universite",
         2,
         0,
-        "Universities",
+        "Université",
         "Universities page from rookies"
     ), (
-        "Case study",
-        "/page3",
+        "Étude de cas",
+        "Etude_de_cas",
         2,
         0,
-        "Case Study",
+        "Étude de cas",
         "Case study page from rookies"
     ), (
         "About us",
@@ -1461,17 +1481,41 @@ VALUES (
         0,
         "???",
         "why this page exist?"
-    ), ("Contact us", "", 2, 1, "", "");
+    ), (
+        "Nous Contactez",
+        "not an link",
+        2,
+        1,
+        "not an link",
+        "not an link"
+    );
 
 insert into
-    `RookiesCMS`.`QA` (title, sub_title, languages_id)
+    `RookiesCMS`.`QA` (
+        title,
+        sub_title,
+        languages_id,
+        navigation_id
+    )
 VALUES (
         "Do you have some questions ?",
         "Frequently asked questions",
+        1,
         1
     ), (
         "Do you have some questions ?",
         "Frequently asked questions",
+        2,
+        1
+    ), (
+        "Do you have some questions ?",
+        "Frequently asked questions",
+        1,
+        2
+    ), (
+        "Do you have some questions ?",
+        "Frequently asked questions",
+        2,
         2
     );
 
@@ -1517,6 +1561,46 @@ VALUES (
         "How much time do i need to allocate to the project ?",
         "lorem ipsum dolor sit amet",
         2
+    ), (
+        "What is a Rookies project ?",
+        "lorem ipsum dolor sit amet",
+        3
+    ), (
+        "Why should my company launch a Rookie project ?",
+        "upgrade to the Team Plan for unlimited guests. You can also review and remove inactive guests in Setting & Menbers.",
+        3
+    ), (
+        "What kind of projects can be conducted ?",
+        "lorem ipsum dolor sit amet",
+        3
+    ), (
+        "What about data privacy and intellectual property ?",
+        "lorem ipsum dolor sit amet",
+        3
+    ), (
+        "How much time do i need to allocate to the project ?",
+        "lorem ipsum dolor sit amet",
+        3
+    ), (
+        "What is a Rookies project ?",
+        "lorem ipsum dolor sit amet",
+        4
+    ), (
+        "Why should my company launch a Rookie project ?",
+        "upgrade to the Team Plan for unlimited guests. You can also review and remove inactive guests in Setting & Menbers.",
+        4
+    ), (
+        "What kind of projects can be conducted ?",
+        "lorem ipsum dolor sit amet",
+        4
+    ), (
+        "What about data privacy and intellectual property ?",
+        "lorem ipsum dolor sit amet",
+        4
+    ), (
+        "How much time do i need to allocate to the project ?",
+        "lorem ipsum dolor sit amet",
+        4
     );
 
 insert into
@@ -1585,7 +1669,8 @@ insert into
         text3,
         languages_id,
         images_id,
-        CTA_label
+        CTA_label,
+        navigation_id
     )
 VALUES (
         "What is a Rookies Project?",
@@ -1595,7 +1680,8 @@ VALUES (
         "Compagnies get answers to their challenges and discover talents",
         1,
         25,
-        "Get Started"
+        "Get Started",
+        1
     ), (
         "What is a Rookies Project?",
         "A win-win collaboration",
@@ -1604,7 +1690,28 @@ VALUES (
         "Compagnies get answers to their challenges and discover talents",
         2,
         25,
-        "Get Started"
+        "Get Started",
+        1
+    ), (
+        "What is a Rookies Project?",
+        "A win-win collaboration",
+        "Submit an assignement specific to your company, taken on by higher educaton students. The projects are carried out remotely or in person as part of the students' curriculum with the support of a qualified supervisor.",
+        "Students acquire resume worthy experience and connect with employers",
+        "Compagnies get answers to their challenges and discover talents",
+        1,
+        25,
+        "Get Started",
+        2
+    ), (
+        "What is a Rookies Project?",
+        "A win-win collaboration",
+        "Submit an assignement specific to your company, taken on by higher educaton students. The projects are carried out remotely or in person as part of the students' curriculum with the support of a qualified supervisor.",
+        "Students acquire resume worthy experience and connect with employers",
+        "Compagnies get answers to their challenges and discover talents",
+        2,
+        25,
+        "Get Started",
+        2
     );
 
 insert into

@@ -3,9 +3,9 @@ const models = require("../models");
 
 class QAController {
   static browse = (req, res) => {
-    models.QA.findQA(req.params.languages_id)
+    models.QA.findQA(req.params.languages_id, req.params.position)
       .then(([rows]) => {
-        models.QA.findQAElement(rows[0].languages_id)
+        models.QA.findQAElement(rows[0].id)
           .then((result) => {
             rows[0].elements = result[0];
             res.status(200).json(rows[0]);

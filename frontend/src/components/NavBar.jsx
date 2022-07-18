@@ -14,10 +14,16 @@ function Navbar() {
     media,
     handleContact,
     handlePosition,
+    position,
+    data,
   } = useContext(ExportContext.Context);
   const location = useLocation();
 
-  const [data, setData] = useState([]);
+  document.getElementsByTagName("META")[2].content =
+    data.links && data.links[position && position - 1].description;
+  document.title = `Rookies | ${
+    data.links && data.links[position && position - 1].title
+  }`;
 
   const [css, setCss] = useState("mt-2");
   const [css1, setCss1] = useState("nav");
@@ -35,17 +41,6 @@ function Navbar() {
         console.warn(error);
       });
   }, []);
-
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/navigation/${language.id}`)
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.warn(error);
-      });
-  }, [language]);
 
   const menuOnClick = () => {
     if (click) {
@@ -68,7 +63,7 @@ function Navbar() {
     return (
       <div className="flex justify-between w-full align-center items-center fixed bg-white p-2 z-40">
         <NavLink
-          to={`/${language.languages}/page1`}
+          to={`/${language.languages}/${data.links && data.links[0].path}`}
           onClick={() => handlePosition(1)}
         >
           <img
@@ -79,7 +74,7 @@ function Navbar() {
         </NavLink>
         <ul className="flex justify-evenly w-2/4 gap-10 font-bold text-2xl">
           <NavLink
-            to={`/${language.languages}/page1`}
+            to={`/${language.languages}/${data.links && data.links[0].path}`}
             onClick={() => handlePosition(1)}
           >
             <li
@@ -91,7 +86,7 @@ function Navbar() {
             </li>
           </NavLink>
           <NavLink
-            to={`/${language.languages}/page2`}
+            to={`/${language.languages}/${data.links && data.links[1].path}`}
             onClick={() => handlePosition(2)}
             className={
               location.pathname.includes("page2") ? "tab-active" : "tab"
@@ -100,14 +95,18 @@ function Navbar() {
             <li>{data.links && data.links[1].label}</li>
           </NavLink>
           <NavLink
-            to={`/${language.languages}/page3`}
+            to={`/${language.languages}/${data.links && data.links[2].path}`}
+            onClick={() => handlePosition(3)}
             className={
               location.pathname.includes("page3") ? "tab-active" : "tab"
             }
           >
             <li>{data.links && data.links[2].label}</li>
           </NavLink>
-          <NavLink to={`${language.languages}/page4/`} className="hidden">
+          <NavLink
+            to={`${language.languages}/${data.links && data.links[3].path}`}
+            className="hidden"
+          >
             <li>{data.links && data.links[3].label}</li>
           </NavLink>
         </ul>

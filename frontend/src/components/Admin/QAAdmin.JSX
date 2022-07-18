@@ -5,7 +5,7 @@ import CTA from "../CTA";
 import NavBarAdminCompany from "./NavBarAdminCompany";
 
 function QAAdmin() {
-  const { language } = useContext(ExportContext.Context);
+  const { language, position } = useContext(ExportContext.Context);
 
   const [id, setId] = useState("");
   const [title, setTitle] = useState("");
@@ -51,13 +51,17 @@ function QAAdmin() {
       cta2_label: cta2,
     };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/QAS`, data,{ withCredentials: true })
+      .put(`${import.meta.env.VITE_BACKEND_URL}/QAS`, data, {
+        withCredentials: true,
+      })
       .then(() => {
         console.warn("Yes !");
       })
       .then();
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/getstarteds`, dataCta,{ withCredentials: true })
+      .put(`${import.meta.env.VITE_BACKEND_URL}/getstarteds`, dataCta, {
+        withCredentials: true,
+      })
       .catch(() => {
         console.warn("No !");
       });
@@ -65,7 +69,11 @@ function QAAdmin() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/QAS/${language.id}`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/QAS/${language.id}/${
+          position && position
+        }`
+      )
       .then((response) => {
         setId(response.data.id);
         setTitle(response.data.title);

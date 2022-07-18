@@ -5,13 +5,17 @@ import CTA from "./CTA";
 import ExportContext from "../contexts/Context";
 
 function Presentation() {
-  const { language, media } = useContext(ExportContext.Context);
+  const { language, media, position } = useContext(ExportContext.Context);
 
   const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/presentations/${language.id}`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/presentations/${language.id}/${
+          position && position
+        }`
+      )
       .then((response) => {
         setData(response.data);
       })

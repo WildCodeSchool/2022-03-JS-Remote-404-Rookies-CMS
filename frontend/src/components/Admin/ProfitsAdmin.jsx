@@ -4,7 +4,7 @@ import ExportContext from "../../contexts/Context";
 import NavBarAdminCompany from "./NavBarAdminCompany";
 
 function ProfitsAdmin() {
-  const { language } = useContext(ExportContext.Context);
+  const { language, position } = useContext(ExportContext.Context);
   const [eImageLink, setEImageLink] = useState("");
   const [eImageAlt, setEImageAlt] = useState("");
   const [title, setTitle] = useState("");
@@ -90,7 +90,11 @@ function ProfitsAdmin() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/profits/${language.id}`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/profits/${language.id}/${
+          position && position
+        }`
+      )
       .then((response) => {
         setId(response.data.id);
         setTitle(response.data.title);

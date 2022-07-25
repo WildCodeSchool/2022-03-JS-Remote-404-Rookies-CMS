@@ -7,7 +7,7 @@ import NavBarAdminCompany from "./NavBarAdminCompany";
 import checkbox from "../../assets/Checkbox.png";
 
 function PresentationAdmin() {
-  const { language, media } = useContext(ExportContext.Context);
+  const { language, media, position } = useContext(ExportContext.Context);
   const [imageLink, setImageLink] = useState("");
   const [imageAlt, setImageAlt] = useState("");
   const [title, setTitle] = useState("");
@@ -47,7 +47,11 @@ function PresentationAdmin() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/presentations/${language.id}`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/presentations/${language.id}/${
+          position && position
+        }`
+      )
       .then((response) => {
         setId(response.data.id);
         setImgId(response.data.imgId);

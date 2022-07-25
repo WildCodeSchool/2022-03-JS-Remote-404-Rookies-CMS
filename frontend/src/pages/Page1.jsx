@@ -10,7 +10,6 @@ import KPI from "../components/KPI";
 import CarrousselReview from "../components/CarrousselReview";
 import QA from "../components/QA";
 import NewsletterComponent from "../components/newsletter_component";
-import jason from "../data/generated";
 
 export default function Page1() {
   return (
@@ -18,8 +17,8 @@ export default function Page1() {
       <Home status={0} />
       <LogoCarousel />
       <Presentation />
-      <PresentationAdvantages {...jason} />
-      <Process {...jason} />
+      <PresentationAdvantages />
+      <Process />
       <Profits />
       <CarrousselReview />
       <KPI />

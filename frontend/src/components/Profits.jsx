@@ -3,13 +3,17 @@ import { useContext, useState, useEffect } from "react";
 import ExportContext from "../contexts/Context";
 
 function Module6e() {
-  const { language } = useContext(ExportContext.Context);
+  const { language, position } = useContext(ExportContext.Context);
 
   const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/profits/${language.id}`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/profits/${language.id}/${
+          position && position
+        }`
+      )
       .then((response) => {
         setData(response.data);
       })

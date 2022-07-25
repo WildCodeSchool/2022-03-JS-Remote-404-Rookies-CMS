@@ -4,10 +4,10 @@ const models = require("../models");
 class ProcessController {
   static browse = (req, res) => {
     models.process
-      .findProcess(req.params.languages_id)
+      .findProcess(req.params.languages_id, req.params.position)
       .then(([rows]) => {
         models.process
-          .findProcessElement(rows[0].languages_id)
+          .findProcessElement(rows[0].id)
           .then((result) => {
             rows[0].elements = result[0];
             res.status(200).json(rows[0]);

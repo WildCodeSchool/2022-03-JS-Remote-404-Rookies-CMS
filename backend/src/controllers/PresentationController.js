@@ -16,7 +16,7 @@ class PresentationController {
 
   static read = (req, res) => {
     models.presentation
-      .findPresentation(req.params.languages_id)
+      .findPresentation(req.params.languages_id, req.params.position)
       .then(([rows]) => {
         if (rows[0] == null) {
           res.status(404).send("There is nothing here !");

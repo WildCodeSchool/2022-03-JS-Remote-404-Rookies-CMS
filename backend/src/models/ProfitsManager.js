@@ -31,11 +31,11 @@ class ProfitManager extends AbstractManager {
     ]);
   }
 
-  findProfit(languagesId) {
+  findProfit(languagesId, position) {
     return this.connection.query(
       `select id, title, sub_title, languages_id from profit
-      where languages_id = ?`,
-      [languagesId]
+      where languages_id = ? and navigation_id = ?`,
+      [languagesId, position]
     );
   }
 

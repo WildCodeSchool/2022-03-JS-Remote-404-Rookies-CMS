@@ -6,12 +6,16 @@ import ExportContext from "../contexts/Context";
 
 function Process() {
   // eslint-disable-next-line no-undef
-  const { language } = useContext(ExportContext.Context);
+  const { language, position } = useContext(ExportContext.Context);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/Processs/${language.id}`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/Processs/${language.id}/${
+          position && position
+        }`
+      )
       .then((response) => {
         setData(response.data);
       })

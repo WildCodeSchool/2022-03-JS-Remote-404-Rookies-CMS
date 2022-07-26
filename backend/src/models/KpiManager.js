@@ -1,7 +1,7 @@
 const AbstractManager = require("./AbstractManager");
 
 class KpiManager extends AbstractManager {
-  static table = "KPI";
+  static table = "kpi";
 
   insert(kpi) {
     return this.connection.query(

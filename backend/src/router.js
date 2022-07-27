@@ -161,9 +161,13 @@ router.delete("/getstarted/:id", Authorization, UserController.delete);
 
 router.get("/quote", QuoteController.browse);
 router.get("/quote/:languages_id", QuoteController.read);
+router.post("/quotes", Authorization, QuoteController.insert);
+router.put("/quotes", Authorization, QuoteController.edit);
+router.delete("/quotes/:imgId/:id", Authorization, QuoteController.delete);
 
 router.get("/contact_us", ContactUsController.browse);
 router.get("/contact_us/:languages_id", ContactUsController.read);
+router.put("/contact_us", Authorization, ContactUsController.edit);
 
 router.get("/project/:languages_id", ProjectController.read);
 router.post("/projectadd", Authorization, ProjectController.add);
@@ -189,6 +193,7 @@ router.delete(
 );
 
 router.get("/contactForm/:languages_id", ContactFormController.browse);
+router.put("/contactForm", Authorization, ContactFormController.edit);
 
 router.get("/newsletter/:languages_id", NewsletterController.browse);
 router.put("/newsletter", Authorization, NewsletterController.edit);

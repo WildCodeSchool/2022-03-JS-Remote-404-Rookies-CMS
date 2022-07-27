@@ -2,7 +2,7 @@ const models = require("../models");
 
 class AdminMail {
   static browse = (req, res) => {
-    models.adminmail
+    models.adminMail
       .findAll()
       .then(([rows]) => {
         res.send(rows);
@@ -14,7 +14,7 @@ class AdminMail {
   };
 
   static find = (req, res) => {
-    models.adminmail
+    models.adminMail
       .find()
       .then(([rows]) => {
         res.send(rows);
@@ -26,7 +26,7 @@ class AdminMail {
   };
 
   static read = (req, res) => {
-    models.adminmail
+    models.adminMail
       .find(req.params.id)
       .then(([rows]) => {
         if (rows[0] == null) {
@@ -43,7 +43,7 @@ class AdminMail {
 
   static edit = (req, res) => {
     const item = req.body;
-    models.adminmail
+    models.adminMail
       .update(item)
       .then(([result]) => {
         if (result.affectedRows === 0) {
@@ -63,7 +63,8 @@ class AdminMail {
 
     // TODO validations (length, format...)
 
-    models.AdminMail.insert(item)
+    models.adminMail
+      .insert(item)
       .then(([result]) => {
         res.status(201).send({ ...item, id: result.insertId });
       })
@@ -74,7 +75,8 @@ class AdminMail {
   };
 
   static delete = (req, res) => {
-    models.AdminMail.delete(req.params.id)
+    models.adminMail
+      .delete(req.params.id)
       .then(() => {
         res.sendStatus(204);
       })

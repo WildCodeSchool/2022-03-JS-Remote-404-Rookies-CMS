@@ -22,7 +22,7 @@ class AdminMail {
       .catch((err) => {
         console.error(err);
         res.sendStatus(500);
-      });
+      }); 
   };
 
   static read = (req, res) => {

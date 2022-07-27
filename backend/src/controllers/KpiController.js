@@ -3,9 +3,11 @@ const models = require("../models");
 
 class KpiController {
   static browse = (req, res) => {
-    models.KPI.findKpi(req.params.languages_id)
+    models.kpi
+      .findKpi(req.params.languages_id)
       .then(([rows]) => {
-        models.KPI.findKpiElement(rows[0].languages_id)
+        models.kpi
+          .findKpiElement(rows[0].languages_id)
           .then((result) => {
             rows[0].elements = result[0];
             res.status(200).json(rows[0]);
@@ -20,7 +22,8 @@ class KpiController {
   };
 
   static read = (req, res) => {
-    models.KPI.findKpi(req.params.languages_id)
+    models.kpi
+      .findKpi(req.params.languages_id)
       .then(([rows]) => {
         if (rows[0] == null) {
           res.sendStatus(404);
@@ -39,13 +42,13 @@ class KpiController {
       const object = req.body;
       const elements = object.elements;
 
-      const kpi = await models.KPI.update(object.id, {
+      const kpi = await models.kpi.update(object.id, {
         title: object.title,
         sub_title: object.subtitle,
       });
       const data = await Promise.all(
         elements.map((elem) =>
-          models.KPI.updateKpiElement(elem.id, {
+          models.kpi.updateKpiElement(elem.id, {
             number: elem.number,
             label: elem.label,
           })

@@ -49,12 +49,12 @@ class NavigationManager extends AbstractManager {
 
   findAllNavigationsForLogo() {
     return this.connection.query(
-      `select * from Navigations where categorie = "logo"`
+      `select * from navigations where categorie = "logo"`
     );
   }
 
   deleteNavigation(id) {
-    return this.connection.query(`delete from Navigations where id = ?`, [id]);
+    return this.connection.query(`delete from navigations where id = ?`, [id]);
   }
 }
 

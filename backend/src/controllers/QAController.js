@@ -3,9 +3,11 @@ const models = require("../models");
 
 class QAController {
   static browse = (req, res) => {
-    models.QA.findQA(req.params.languages_id, req.params.position)
+    models.qa
+      .findQA(req.params.languages_id, req.params.position)
       .then(([rows]) => {
-        models.QA.findQAElement(rows[0].id)
+        models.qa
+          .findQAElement(rows[0].id)
           .then((result) => {
             rows[0].elements = result[0];
             res.status(200).json(rows[0]);
@@ -20,7 +22,8 @@ class QAController {
   };
 
   static read = (req, res) => {
-    models.QA.findQA(req.params.languages_id)
+    models.qa
+      .findQA(req.params.languages_id)
       .then(([rows]) => {
         if (rows[0] === null) {
           res.sendStatus(404);
@@ -60,7 +63,8 @@ class QAController {
   static add = (req, res) => {
     const QA = req.body;
 
-    models.QA.insert(QA)
+    models.qa
+      .insert(QA)
       .then(([result]) => {
         res.status(201).send({ ...QA, id: result.insertId });
       })
@@ -71,7 +75,8 @@ class QAController {
   };
 
   static delete = (req, res) => {
-    models.QA.delete(req.params.id)
+    models.qa
+      .delete(req.params.id)
       .then(() => {
         res.sendStatus(204);
       })

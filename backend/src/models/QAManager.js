@@ -1,7 +1,7 @@
 const AbstractManager = require("./AbstractManager");
 
 class QAManager extends AbstractManager {
-  static table = "QA";
+  static table = "qa";
 
   insert(QA) {
     return this.connection.query(

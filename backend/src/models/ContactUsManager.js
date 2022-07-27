@@ -1,7 +1,7 @@
 const AbstractManager = require("./AbstractManager");
 
 class ContactUsManager extends AbstractManager {
-  static table = "Contact_us";
+  static table = "contact_us";
 
   insert(contactUs) {
     return this.connection.query(

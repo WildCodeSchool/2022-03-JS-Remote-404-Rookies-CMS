@@ -2,7 +2,8 @@ const models = require("../models");
 
 class ContactUsController {
   static browse = (req, res) => {
-    models.Contact_us.findAllContactUs()
+    models.contact_us
+      .findAllContactUs()
       .then(([rows]) => {
         res.send(rows);
       })
@@ -13,7 +14,8 @@ class ContactUsController {
   };
 
   static read = (req, res) => {
-    models.Contact_us.findContactUs(req.params.languages_id)
+    models.contact_us
+      .findContactUs(req.params.languages_id)
       .then(([rows]) => {
         res.send(rows);
       })

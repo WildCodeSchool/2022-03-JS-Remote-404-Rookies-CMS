@@ -41,19 +41,19 @@ DROP TABLE IF EXISTS `RookiesCMS`.`navigation` ;
 
 DROP TABLE IF EXISTS `RookiesCMS`.`navigation_element` ;
 
-DROP TABLE IF EXISTS `RookiesCMS`.`Home` ;
+DROP TABLE IF EXISTS `RookiesCMS`.`home` ;
 
-DROP TABLE IF EXISTS `RookiesCMS`.`Process` ;
+DROP TABLE IF EXISTS `RookiesCMS`.`process` ;
 
-DROP TABLE IF EXISTS `RookiesCMS`.`Process_element` ;
+DROP TABLE IF EXISTS `RookiesCMS`.`process_element` ;
 
 DROP TABLE IF EXISTS `RookiesCMS`.`carroussel_review` ;
 
 DROP TABLE IF EXISTS `RookiesCMS`.`carroussel_review_element` ;
 
-DROP TABLE IF EXISTS `RookiesCMS`.`QA` ;
+DROP TABLE IF EXISTS `RookiesCMS`.`qa` ;
 
-DROP TABLE IF EXISTS `RookiesCMS`.`QA_element` ;
+DROP TABLE IF EXISTS `RookiesCMS`.`qa_element` ;
 
 DROP TABLE IF EXISTS `RookiesCMS`.`presentation` ;
 
@@ -65,9 +65,9 @@ DROP TABLE IF EXISTS `RookiesCMS`.`profit` ;
 
 DROP TABLE IF EXISTS `RookiesCMS`.`profit_elements` ;
 
-DROP TABLE IF EXISTS `RookiesCMS`.`KPI` ;
+DROP TABLE IF EXISTS `RookiesCMS`.`kpi` ;
 
-DROP TABLE IF EXISTS `RookiesCMS`.`KPI_element` ;
+DROP TABLE IF EXISTS `RookiesCMS`.`kpi_element` ;
 
 DROP TABLE IF EXISTS `RookiesCMS`.`get_started` ;
 
@@ -94,7 +94,7 @@ DROP TABLE IF EXISTS `RookiesCMS`.`newsletter_component` ;
 
 DROP TABLE IF EXISTS `RookiesCMS`.`cta_case_study` ;
 
-DROP TABLE IF EXISTS `RookiesCMS`.`Contact_us` ;
+DROP TABLE IF EXISTS `RookiesCMS`.`contact_us` ;
 
 -- -----------------------------------------------------
 
@@ -205,7 +205,7 @@ CREATE TABLE
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `RookiesCMS`.`Home` (
+    IF NOT EXISTS `RookiesCMS`.`home` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `title` VARCHAR(100) NOT NULL,
         `title_green_part` VARCHAR(45) NOT NULL,
@@ -240,7 +240,7 @@ CREATE TABLE
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `RookiesCMS`.`Process` (
+    IF NOT EXISTS `RookiesCMS`.`process` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `title` VARCHAR(100) NOT NULL,
         `sub_title` VARCHAR(100) NOT NULL,
@@ -270,7 +270,7 @@ CREATE TABLE
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `RookiesCMS`.`Process_element` (
+    IF NOT EXISTS `RookiesCMS`.`process_element` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `title` VARCHAR(100) NOT NULL,
         `text` LONGTEXT NOT NULL,
@@ -278,7 +278,7 @@ CREATE TABLE
         PRIMARY KEY (`id`, `Process_id`),
         UNIQUE INDEX `id_UNIQUE` (`id` ASC),
         INDEX `fk_Process_element_Process1_idx` (`Process_id` ASC),
-        CONSTRAINT `fk_Process_element_Process1` FOREIGN KEY (`Process_id`) REFERENCES `RookiesCMS`.`Process` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+        CONSTRAINT `fk_Process_element_Process1` FOREIGN KEY (`Process_id`) REFERENCES `RookiesCMS`.`process` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -344,7 +344,7 @@ CREATE TABLE
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `RookiesCMS`.`QA` (
+    IF NOT EXISTS `RookiesCMS`.`qa` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `title` VARCHAR(255) NOT NULL,
         `sub_title` VARCHAR(255) NOT NULL,
@@ -369,7 +369,7 @@ CREATE TABLE
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `RookiesCMS`.`QA_element` (
+    IF NOT EXISTS `RookiesCMS`.`qa_element` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `question` LONGTEXT NOT NULL,
         `answer` LONGTEXT NOT NULL,
@@ -377,7 +377,7 @@ CREATE TABLE
         PRIMARY KEY (`id`, `FAQ_id`),
         INDEX `fk_FAQ_element_FAQ1_idx` (`FAQ_id` ASC),
         UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-        CONSTRAINT `fk_FAQ_element_FAQ1` FOREIGN KEY (`FAQ_id`) REFERENCES `RookiesCMS`.`QA` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+        CONSTRAINT `fk_FAQ_element_FAQ1` FOREIGN KEY (`FAQ_id`) REFERENCES `RookiesCMS`.`qa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -509,7 +509,7 @@ CREATE TABLE
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `RookiesCMS`.`KPI` (
+    IF NOT EXISTS `RookiesCMS`.`kpi` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `title` VARCHAR(255) NOT NULL,
         `sub_title` VARCHAR(255) NOT NULL,
@@ -527,7 +527,7 @@ CREATE TABLE
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `RookiesCMS`.`KPI_element` (
+    IF NOT EXISTS `RookiesCMS`.`kpi_element` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `number` FLOAT NOT NULL,
         `label` VARCHAR(70) NOT NULL,
@@ -535,7 +535,7 @@ CREATE TABLE
         PRIMARY KEY (`id`, `KPI_id`),
         UNIQUE INDEX `id_UNIQUE` (`id` ASC),
         INDEX `fk_KPI_element_KPI1_idx` (`KPI_id` ASC),
-        CONSTRAINT `fk_KPI_element_KPI1` FOREIGN KEY (`KPI_id`) REFERENCES `RookiesCMS`.`KPI` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+        CONSTRAINT `fk_KPI_element_KPI1` FOREIGN KEY (`KPI_id`) REFERENCES `RookiesCMS`.`kpi` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -1491,7 +1491,7 @@ VALUES (
     );
 
 insert into
-    `RookiesCMS`.`QA` (
+    `RookiesCMS`.`qa` (
         title,
         sub_title,
         languages_id,
@@ -1520,7 +1520,7 @@ VALUES (
     );
 
 insert into
-    `RookiesCMS`.`QA_element`(question, answer, FAQ_id)
+    `RookiesCMS`.`qa_element`(question, answer, FAQ_id)
 VALUES (
         "What is a Rookies project ?",
         "lorem ipsum dolor sit amet",
@@ -1833,7 +1833,7 @@ VALUES (
     );
 
 insert into
-    `RookiesCMS`.`KPI` (title, sub_title, languages_id)
+    `RookiesCMS`.`kpi` (title, sub_title, languages_id)
 VALUES (
         "Key Figures",
         "Our achievement depicted in numbers",
@@ -1845,7 +1845,7 @@ VALUES (
     );
 
 insert into
-    `RookiesCMS`.`KPI_element` (number, label, KPI_id)
+    `RookiesCMS`.`kpi_element` (number, label, KPI_id)
 VALUES (50, "Projects", 1), (30, "clients", 1), (300, "Student participants", 1), (5, "Countries", 1), (50, "Projects", 2), (30, "clients", 2), (300, "Student participants", 2), (5, "Countries", 2);
 
 insert into
@@ -1893,7 +1893,7 @@ VALUES (
     );
 
 insert into
-    `RookiesCMS`.`Home` (
+    `RookiesCMS`.`home` (
         title,
         title_green_part,
         text,
@@ -1942,7 +1942,7 @@ VALUES (
     );
 
 insert into
-    `RookiesCMS`.`Process` (
+    `RookiesCMS`.`process` (
         title,
         sub_title,
         text,
@@ -2606,7 +2606,7 @@ VALUES (
     );
 
 CREATE TABLE
-    IF NOT EXISTS `RookiesCMS`.`Contact_us` (
+    IF NOT EXISTS `RookiesCMS`.`contact_us` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `text` VARCHAR(45) NOT NULL,
         `text_green` VARCHAR(45) NOT NULL,
@@ -2675,14 +2675,14 @@ VALUES (
     );
 
 CREATE TABLE
-    IF NOT EXISTS `RookiesCMS`.`AdminMail` (
+    IF NOT EXISTS `RookiesCMS`.`adminMail` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `AdminMail` VARCHAR(150) NOT NULL,
         PRIMARY KEY (`id`)
     ) ENGINE = InnoDB;
 
 insert into
-    `RookiesCMS`.`AdminMail` (AdminMail)
+    `RookiesCMS`.`adminMail` (AdminMail)
 VALUES (
         "santoni@rookiesprojects.com"
     );

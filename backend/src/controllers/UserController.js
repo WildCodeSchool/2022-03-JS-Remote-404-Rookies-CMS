@@ -1,11 +1,6 @@
 /* eslint-disable consistent-return */
 const models = require("../models");
-const {
-  hashPassword,
-  uuid,
-  jwtSign,
-  passwordVerify,
-} = require("../services/user");
+const { hashPassword, jwtSign, passwordVerify } = require("../services/user");
 
 class UserController {
   static browse = (req, res) => {
@@ -61,10 +56,9 @@ class UserController {
 
   static add = (req, res) => {
     console.warn(hashPassword(req.body.password));
-    const generateId = uuid();
     return hashPassword(req.body.password).then((hashedPassword) => {
       const user = {
-        id: generateId,
+        id: "RookiesAdmin",
         email: req.body.email,
         password: hashedPassword,
       };

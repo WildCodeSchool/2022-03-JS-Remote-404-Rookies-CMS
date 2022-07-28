@@ -24,10 +24,17 @@ class ContactFormManager extends AbstractManager {
     );
   }
 
-  update(item) {
+  updateOption(item) {
     return this.connection.query(
-      `update ${ContactFormManager.table} set title = ? where id = ?`,
-      [item.title, item.id]
+      `update contact_form_and_newsletter_options set ? where id = ?`,
+      [item, item.id]
+    );
+  }
+
+  update(id, item) {
+    return this.connection.query(
+      `update ${ContactFormManager.table} set ? where id = ?`,
+      [item, id]
     );
   }
 }

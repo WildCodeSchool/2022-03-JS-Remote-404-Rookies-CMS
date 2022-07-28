@@ -167,7 +167,9 @@ function Navbar() {
           <nav className={css1} id="nav">
             <ul>
               <NavLink
-                to={`/${language.languages}/page1`}
+                to={`/${language.languages}/${
+                  data.links && data.links[0].path
+                }`}
                 onClick={() => handlePosition(1)}
               >
                 <li className="-mt-4 font-bold">
@@ -175,14 +177,20 @@ function Navbar() {
                 </li>
               </NavLink>
               <NavLink
-                to={`/${language.languages}/page2`}
+                to={`/${language.languages}/${
+                  data.links && data.links[1].path
+                }`}
                 onClick={() => handlePosition(2)}
               >
                 <li className="-mt-4 font-bold">
                   {data.links && data.links[1].label}
                 </li>
               </NavLink>
-              <NavLink to={`/${language.languages}/page3`}>
+              <NavLink
+                to={`/${language.languages}/${
+                  data.links && data.links[2].path
+                }`}
+              >
                 <li className="-mt-4 font-bold">
                   {data.links && data.links[2].label}
                 </li>

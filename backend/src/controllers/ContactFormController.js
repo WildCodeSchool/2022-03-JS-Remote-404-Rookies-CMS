@@ -36,26 +36,38 @@ class ContactFormController {
       });
   };
 
-  static edit = (req, res) => {
-    const item = req.body;
+  static edit = async (req, res) => {
+    try {
+      const item = req.body;
+      // const elements = item.elements;
 
-    // TODO validations (length, format...)
-
-    item.id = parseInt(req.params.id, 10);
-
-    models.item
-      .update(item)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+      // TODO validations (length, format...)
+      await models.contact_form.updateOption({
+        text: item.elements[0].text,
+        id: item.elements[0].id,
+        value: item.elements[0].value,
       });
+      await models.contact_form.updateOption({
+        text: item.elements[1].text,
+        id: item.elements[1].id,
+        value: item.elements[1].value,
+      });
+
+      await models.contact_form.update(item.id, {
+        title: item.title,
+        sub_title: item.sub_title,
+        fullname: item.fullname,
+        email: item.email,
+        description: item.description,
+        CTA_label: item.CTA_label,
+        languages_id: item.languages_id,
+      });
+
+      res.sendStatus(204);
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
   };
 
   static add = (req, res) => {

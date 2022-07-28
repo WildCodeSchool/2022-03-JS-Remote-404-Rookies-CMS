@@ -65,9 +65,9 @@ function LanguagesAdmin() {
       </div>
       <div className="w-4/5">
         <div className="flex flex-col align-center justify-center mt-4 mb-4 text-center">
-          <p className="pb-4 text-2xl text-red-500 font-bold">
-            Attention un language ajouter ne peut être supprimer il peut
-            seulement être désactiver
+          <p className="pb-4 text-2xl text-red-500 font-bold text-center">
+            Attention !!! <br /> Un langage ne peut être supprimé il peut
+            seulement être désactivé
           </p>
           <select
             className="flex flex-col justify-center self-center w-1/3 bg-green-500 hover:bg-green-700 text-white font-bold text-xl py-1 px-1 rounded"

@@ -61,7 +61,6 @@ class AdminMail {
   static add = (req, res) => {
     const item = req.body;
 
-    // TODO validations (length, format...)
 
     models.adminMail
       .insert(item)

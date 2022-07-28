@@ -5,15 +5,21 @@ class QuoteManager extends AbstractManager {
 
   insert(quote) {
     return this.connection.query(
-      `insert into ${QuoteManager.table} (title) values (?)`,
-      [quote.title]
+      `insert into ${QuoteManager.table} (quote, quote_green_part,author,languages_id,images_id) values (?,?,?,?,?)`,
+      [
+        quote.quote,
+        quote.quote_green_part,
+        quote.author,
+        quote.languages_id,
+        quote.images_id,
+      ]
     );
   }
 
-  update(quote) {
+  update(id, quote) {
     return this.connection.query(
-      `update ${QuoteManager.table} set title = ? where id = ?`,
-      [quote.title, quote.id]
+      `update ${QuoteManager.table} set ? where id = ?`,
+      [quote, id]
     );
   }
 
@@ -23,7 +29,7 @@ class QuoteManager extends AbstractManager {
 
   findQuote(languageId) {
     return this.connection.query(
-      `select q.id, q.quote, q.quote_green_part, q.author, i.image_link, i.image_alt from quote as q
+      `select q.id, q.quote, q.quote_green_part, q.author, i.image_link, i.image_alt, i.id as imgId from quote as q
       inner join images as i on i.id = q.images_id
       where q.languages_id = ?`,
       [languageId]

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import { Outlet } from "react-router-dom";
 import React from "react";
-import NavBarAdminCompany from "../components/Admin/NavbarAdminCompany";
+import NavBarAdminCompany from "../components/Admin/NavBarAdminCompany";
 import Page1 from "./Page1";
 
 function AdminPage() {

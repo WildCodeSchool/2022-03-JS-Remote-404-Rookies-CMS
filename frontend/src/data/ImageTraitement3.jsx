@@ -6,12 +6,13 @@ import axios from "axios";
 
 function ImageTraitement1() {
   const [image, setImage] = react.useState([]);
-  const { page5 } = useParams();
+  const { carousellogo } = useParams();
 
   useEffect(() => {
     axios
       .get("http://localhost:5000/imageslogo")
       .then((response) => {
+        console.warn(response.data);
         setImage(response.data);
       })
       .catch((error) => {
@@ -30,7 +31,7 @@ function ImageTraitement1() {
             rel="noreferrer"
           >
             <img src={item.image_link} alt={item.image_alt} />
-            {page5 ? <p>{item.id}</p> : null}
+            {carousellogo ? <p>Id :{item.id}</p> : null}
           </a>
         ))}
       </div>
@@ -43,7 +44,7 @@ function ImageTraitement1() {
             rel="noreferrer"
           >
             <img src={item.image_link} alt={item.image_alt} />
-            {page5 ? <p>{item.id}</p> : null}
+            {carousellogo ? <p>Id :{item.id}</p> : null}
           </a>
         ))}
       </div>

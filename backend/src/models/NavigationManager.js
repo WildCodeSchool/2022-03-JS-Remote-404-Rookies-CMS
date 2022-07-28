@@ -17,9 +17,16 @@ class NavigationManager extends AbstractManager {
   }
 
   updateNavigation(Navigation) {
+    return this.connection.query(`update images set ? where id = ?`, [
+      Navigation,
+      Navigation.id,
+    ]);
+  }
+
+  updateNavigationElement(Navigation) {
     return this.connection.query(
-      `update ${NavigationManager.table} set title = ? where id = ?`,
-      [Navigation.title, Navigation.id]
+      `update navigation_element set ? where id = ?`,
+      [Navigation, Navigation.id]
     );
   }
 
@@ -42,12 +49,12 @@ class NavigationManager extends AbstractManager {
 
   findAllNavigationsForLogo() {
     return this.connection.query(
-      `select * from Navigations where categorie = "logo"`
+      `select * from navigations where categorie = "logo"`
     );
   }
 
   deleteNavigation(id) {
-    return this.connection.query(`delete from Navigations where id = ?`, [id]);
+    return this.connection.query(`delete from navigations where id = ?`, [id]);
   }
 }
 

@@ -1,15 +1,31 @@
-import React from "react";
-import Rookies from "../assets/rookies.png";
-import French from "../assets/frenchtech.png";
-import Pepite from "../assets/pepite.png";
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useContext, useState, useEffect } from "react";
+import ExportContext from "../contexts/Context";
 
 function Footer() {
+  const { language, handlePosition } = useContext(ExportContext.Context);
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/footer/${language.id}`)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  }, [language]);
+
   return (
-    <footer className="border-t border-gray-200">
+    <footer className="lg:mx-20">
       <div
         className="
-          container
-          flex flex-col flex-wrap mt-4
+          flex flex-col mt-4
           px-4
           mx-auto
           md:items-center
@@ -17,43 +33,33 @@ function Footer() {
           md:flex-row md:flex-nowrap
         "
       >
-        <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
-          <div
-            className="
-              flex
-              items-center
-              justify-center
-              text-4xl
-              font-bold
-              md:justify-start
+        <div className="flex flex-row lg:flex-col text-center mb-4 lg:w-1/3 ">
+          <div className="w-1/2">
+            <div
+              className="
+            flex justify-start lg:justify-center text-4xl font-bold md:justify-start
             "
-          >
-            <img src={Rookies} alt="logo" />
-          </div>
-          <a
-            className="mt-2 text-sm text-justify text-gray-500"
-            href="tel:+33785680988"
-          >
-            +33 (0) 7 85 68 09 88
-          </a>
-          <p className="mt-2 text-sm text-justify text-gray-500">
-            integrer envoi mail
-          </p>
-          <div className="flex justify-center mt-4 lg:mt-2 lg:justify-start">
-            <div className="ml-3">
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-6 h-6 text-pink-400"
-                viewBox="0 0 24 24"
-              >
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
-              </svg>
+            >
+              <img
+                className="cursor-pointer"
+                src={data.image_logo_link}
+                alt={data.image_logo_alt}
+                onClick={() => {
+                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                }}
+              />
             </div>
+            <a
+              className="flex justity-center  ml-4 lg:ml-6 mt-2 text-sm text-justify text-gray-500"
+              href="tel:+33785680988"
+            >
+              {data.phone_number}
+            </a>
+            <p className="flex justify-start  ml-4 lg:ml-6 mt-2 text-sm text-justify text-gray-500">
+              {data.mail}
+            </p>
+          </div>
+          <div className="flex justify-center w-1/2 pt-10 lg:pt-4 lg:justify-start lg:ml-2">
             <div className="ml-3">
               <svg
                 fill="currentColor"
@@ -61,7 +67,7 @@ function Footer() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="0"
-                className="w-6 h-6 text-blue-500"
+                className="w-1/3 text-white bg-gray-500 rounded-sm object-contain"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -69,80 +75,156 @@ function Footer() {
                   d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
                 />
                 <circle cx="4" cy="4" r="2" stroke="none" />
+                <Link to={{ pathname: "https://google.com" }} target="_blank" />
+              </svg>
+            </div>
+            <div className="mb-4 -mt-1 -ml-6">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="w-2/5 text-gray-500 object-contain"
+                viewBox="0 0 24 24"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
               </svg>
             </div>
           </div>
         </div>
-        <div className="justify-between w-full mt-4 text-center lg:flex">
-          <div className="fw-full px-4 mb-4 lg:w-2/3 md:w-1/2">
-            <h2 className="font-bold text-lg mb-4 flex text-green-400">
-              Quick Links
+        <div className="flex flex-row lg:flex justify-between w-full text-center">
+          <div className="w-1/3 lg:w-1/2">
+            <h2 className="font-bold text-lg mb-4 lg:flex subtitle">
+              {data.sub_title1}
             </h2>
-            <ul className="flex text-sm list-none">
-              <div className="flex justify-start flex-col w-1/2">
+            <ul className="text-sm lg:text-md lg:flex ">
+              <div className="flex justify-start flex-col lg:mr-20 ">
                 <li>
-                  <div className="flex mb-4 text-gray-600 hover:text-gray-800">
-                    Companies
+                  <div className="mb-4 text-gray-600 hover:text-gray-800">
+                    <a
+                      href={`/${language.languages}/${
+                        data.links && data.links[0].path
+                      }`}
+                      onClick={() => handlePosition(1)}
+                    >
+                      {data.links && data.links[0].label}
+                    </a>
                   </div>
                 </li>
                 <li>
-                  <div className="flex text-gray-600 hover:text-gray-800">
-                    Student
+                  <div className="mb-4 flex justify-center lg:justify-start text-gray-600 hover:text-gray-800 ">
+                    <a
+                      href={`/${language.languages}/${
+                        data.links && data.links[1].path
+                      }`}
+                      onClick={() => handlePosition(2)}
+                    >
+                      {data.links && data.links[1].label}
+                    </a>
                   </div>
                 </li>
               </div>
-              <div className="flex justify-center flex-col w-1/2">
+              <div className="flex justify-start flex-col lg:ml-20">
                 <li>
-                  <div className="flex mb-4 text-gray-600 hover:text-gray-800">
-                    Universities
-                  </div>
-                </li>
-                <li>
-                  <div className="flex text-gray-600 hover:text-gray-800">
-                    About
+                  <div className="mb-4 text-gray-600 hover:text-gray-800 ">
+                    <a
+                      href={`/${language.languages}/${
+                        data.links && data.links[2].path
+                      }`}
+                      onClick={() => handlePosition(3)}
+                    >
+                      {data.links && data.links[2].label}
+                    </a>
                   </div>
                 </li>
               </div>
+              <li>
+                <div className="flex justify-center lg:justify-start text-gray-600 hover:text-gray-800 hidden">
+                  <a
+                    href={`/${language.languages}/${
+                      data.links && data.links[3].path
+                    }`}
+                  >
+                    {data.links && data.links[3].label}
+                  </a>
+                </div>
+              </li>
             </ul>
           </div>
-          <div className="w-full px-4 lg:w-1/3 md:w-1/2">
-            <h2 className="flex justify-start mb-2 font-bold text-lg  text-green-400">
-              Join our Newsletter
+          <div className="w-2/3 px-4 lg:w-1/2 ">
+            <h2 className="flex justify-start mb-2 font-bold text-lg subtitle">
+              {data.sub_title2}
             </h2>
-            <div className="flex mt-4">
+            <div className="flex mt-4 lg:w-2/3 lg:h-10 ">
               <input
                 type="text"
                 className="
-                h-auto
+                w-3/4 h-auto
                 p-2
                 text-sm
-                border border-grey-light
-                round
                 text-grey-dark
+                border-l-2 border-t-2 border-b-2 rounded-l-lg
               "
-                placeholder="Your email address"
+                placeholder={data.newsletter}
               />
               <button
                 type="button"
-                className="h-auto p-3 text-xs text-white bg-green-400 rounded-sm"
+                className="text-green-400 lg:text-white bg-white font-medium lg:bg-green-400 border-t-2 border-b-2 border-r lg:border-green-400 rounded-r-lg lg:w-1/6"
               >
-                Subscribe
+                <svg
+                  className="w-5 h-5 ml-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
               </button>
             </div>
-            <div className="flex mx-2 mt-4">
-              <img className="mr-4" src={Pepite} alt="logo" />
-              <img src={French} alt="logo" />
+            <div className="flex mx-2 mt-4 ">
+              <a
+                href="https://pepite-provence.pepitizy.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  className="mr-4 lg:w-15 lg:h-15 "
+                  src={data.image_link}
+                  alt={data.image_alt}
+                />
+              </a>
+              <a
+                href="https://lafrenchtech.com/fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  className="mr-4 lg:w-15 lg:h-15"
+                  src={data.image_link2}
+                  alt={data.image_alt2}
+                />
+              </a>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex justify-between mt-6">
-        <div className="flex space-x-4">
-          <p className="text-base  text-gray-400">General terms</p>
-          <p className="text-base  text-gray-400">Privacy policy</p>
+      <div className="flex flex-col lg:flex-row justify-between mt-6 border-gray-200 border-t-2">
+        <div className="flex justify-center">
+          <p className="mx-10 mb-4 underline text-base  text-gray-400">
+            {data.terms}
+          </p>
+          <p className="mx-10 mb-4 underline text-base  text-gray-400">
+            {data.policy}
+          </p>
         </div>
-        <p className="flex justify-end text-base text-gray-400">
-          2022 Rookies SAS. All rights reserved
+        <p className="flex justify-center lg:justify-end text-base text-gray-400">
+          {data.copyright}
         </p>
       </div>
     </footer>

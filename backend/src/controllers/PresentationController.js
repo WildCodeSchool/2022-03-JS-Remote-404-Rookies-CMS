@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const models = require("../models");
 
 class PresentationController {
@@ -15,10 +16,10 @@ class PresentationController {
 
   static read = (req, res) => {
     models.presentation
-      .findPresentation(req.params.languages_id)
+      .findPresentation(req.params.languages_id, req.params.position)
       .then(([rows]) => {
         if (rows[0] == null) {
-          res.Status(404).send("There is nothing here bitch !");
+          res.status(404).send("There is nothing here !");
         } else {
           res.send(rows[0]);
         }
@@ -29,26 +30,28 @@ class PresentationController {
       });
   };
 
-  static edit = (req, res) => {
-    const presentation = req.body;
+  static edit = async (req, res) => {
+    try {
+      const object = req.body;
 
-    // TODO validations (length, format...)
-
-    presentation.id = parseInt(req.params.id, 10);
-
-    models.presentation
-      .update(presentation)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+      const presentation = await models.presentation.update(object.id, {
+        title: object.title,
+        sub_title: object.subTitle,
+        text1: object.text1,
+        text2: object.text2,
+        text3: object.text3,
+        CTA_label: object.cta,
       });
+
+      const image = await models.images.updateImage(object.imgId, {
+        image_link: object.imageLink,
+        image_alt: object.imageAlt,
+      });
+      const result = await res.sendStatus(204);
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
   };
 
   static add = (req, res) => {

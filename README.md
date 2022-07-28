@@ -1,34 +1,60 @@
-## Concept
+Un Site web de type CMS par:
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
+-Fabienne guerin
+-Basile Mathieu
+-Guillaume Guerit
+-Kévin Lavigne
 
-## Setup & Use
+A faire en prioriter au clonage du repos:
 
-### Project Initialization
+0: creé les fichier .env du frontend et du backend sinon rien ne fonctionnera
+1: npm run setup
+2: cd backend
+3: npm run migrade
+4: cd ..
+5: npm run dev
 
-- In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
-- Clone this repo, enter it
-- Run command `npm run setup`
-- _NB: To launch the backend server, you'll need an environment file with database credentials. You'll find a template one in `backend/.env.sample`_
+#### Organigramme:
 
-### Available Commands
+Ce projet dispose d'une organisation front et back qui communiquent entre elles et qui peuvent être lancées séparément ou ensemble.
 
-- `setup` : Initialization of frontend and backend, as well as all toolings
-- `dev` : Starts both servers (frontend + backend) in one terminal
-- `dev-front` : Starts the React frontend server
-- `dev-back` : Starts the Express backend server
-- `lint` : Runs validation tools, and refuses unclean code (will be executed on every _commit_)
-- `fix` : Fixes linter errors (run it if `lint` growls on your code !)
+2 Dossiers principaux à la racine :
 
-## FAQ
+-frontend :
+Dossier comportant la partie frontend du site.
 
-### Tools
+-backend :
+Dossier comportant la partie backend du site.
 
-- _Concurrently_ : Allows for several commands to run concurrently in the same CLI
-- _Husky_ : Allows to execute specific commands that trigger on _git_ events
-- _Vite_ : Alternative to _Create-React-App_, packaging less tools for a more fluid experience
-- _ESLint_ : "Quality of code" tool, ensures chosen rules will be enforced
-- _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
-- _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
-- _Nodemon_ : Allows to restart the server everytime a .js file is udated
+fichier de déscription des composants par nom et affichage : Description_compososants_Rookies_CMS.xlsx --> fichier frontend/src/asset
+
+## Frontend :
+
+-Assets : fichier de dossier images
+-Components : fichier de stockage des différents composants disponibles dans les pages du site
+|-> Admin : stockage des différents composants de la partie Admin du site
+-Context : dossier de stockage du context (stockage d'informations globales du site, les variables stockées ici sont utilisées à divers endroits dans le projet et englobent toutes les pages du site en question. )
+-Css : stockage des fichiers css
+-Data: fichier de stockage des traitements de données spécifiques
+-Page: dossier racine des différentes pages du site
+|-> Layout: dossier de stockage des différentes couches du site
+-Service:(non exploité) permet de référencer les fonctions spécifiques (fetch) réexploités à plusieurs endroits
+
+# les fichier primordiaux du front :
+
+.env: a créer selon modele du .env.sample sinon la consommation du backend fonctionne pas
+contexte.jsx: il englobe toute l'app et gere le language qui est lui même utiliser pour tous l'affichage (donc pas de contexte pas d'affichage ni de reception de data du backend)
+app.jsx: le point d'encrage de tous les page du site.
+
+## Backend :
+
+-Src:
+|->Controllers: fichier de stockage des controllers (controller sert à définir les différentes requêtes qui se lanceront lors de l'appel de la fonction dans le router et donc dans le front)
+|->models: lieu de stockage des managers (manager est le lieu de création des différentes requêtes sql qui pouront être utilisées dans le controller)
+|->service: lieu de stockage des middlewares
+
+# les fichiers primordiaux du back :
+
+.env: à créer selon modele du .env.sample sinon pas de connection à la db, pas d'envoi de mail pas de connection, au front via les CORS
+migrate.js: sert à migrer la db. Des modifs sont à apporter si vous rennomez le RookiesCMS.sql du repos,
+Router.js: lieu de création des routes backend.

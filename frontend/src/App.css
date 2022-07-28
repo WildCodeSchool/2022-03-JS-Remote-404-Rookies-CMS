@@ -1,11 +1,3 @@
-:root {
-  --light-green: rgba(2, 228, 148, 0.16);
-  --green: #02e494;
-  --darker-green: #13cf8f;
-  --black: #1b2430;
-  --grey: #f5f5f7;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -125,7 +117,7 @@ button {
 .arrow3 {
   width: 65%;
   padding-left: 28%;
-  padding-top:5%;
+  padding-top: 5%;
   grid-column-start: 3;
   grid-column-end: 5;
   grid-row-start: 3;
@@ -137,8 +129,28 @@ button {
 .bg4E {
   background-color: var(--light-green);
 }
-.tc4E {
+.subtitle {
   color: var(--green);
+}
+.tc4E {
+  color: var(--white);
+}
+.tc4E3 {
+  color: var(--black);
+}
+.tc4e2 {
+  color: var(--green);
+}
+@media (max-width: 768px) {
+  .tc4E {
+    color: white;
+  }
+  .tc4E3 {
+    color: var(--green);
+  }
+  .tc4e2 {
+    color: var(--black);
+  }
 }
 .bg4e-button {
   color: var(--green);
@@ -170,7 +182,7 @@ button {
 
 .carousel {
   width: 100%;
-  height: 100%;
+  margin-bottom: 2%;
   overflow: hidden;
 }
 
@@ -196,11 +208,12 @@ button {
 
 .inner-carousel1 {
   flex-direction: row;
-  margin: 2%;
-  min-width: 15%;
-  max-width: 15%;
-  max-height: 15%;
-  min-height: 15%;
+  margin-left: 5%;
+  margin-right: 5%;
+  min-width: 10%;
+  max-width: 10%;
+  max-height: 10%;
+  min-height: 10%;
   aspect-ratio: 1;
 }
 
@@ -232,23 +245,23 @@ button {
   object-fit: contain;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
   .inner-carousel2 {
     flex-direction: row;
-    margin: 2%;
-    min-width: 15%;
-    max-width: 15%;
-    max-height: 15%;
-    min-height: 15%;
+    margin: 4%;
+    min-width: 20%;
+    max-width: 20%;
+    max-height: 20%;
+    min-height: 20%;
     aspect-ratio: 1/1;
   }
   .inner-carousel1 {
     flex-direction: row;
-    margin: 2%;
-    min-width: 15%;
-    max-width: 15%;
-    max-height: 15%;
-    min-height: 15%;
+    margin: 4%;
+    min-width: 20%;
+    max-width: 20%;
+    max-height: 20%;
+    min-height: 20%;
     aspect-ratio: 1/1;
   }
   .carousel {
@@ -265,13 +278,26 @@ button {
   max-width: 45%;
   aspect-ratio: 16/9;
 }
-@media (max-width: 769px){
-#carousel-img-E7 {
-max-width: 45%;
-aspect-ratio: 9/16;
+#carousel-logo-E7 {
+  max-width: 40%;
+  align-self: flex-start;
+}
+
+@media (max-width: 769px) {
+  #carousel-logo-E7 {
+    max-width: 40%;
+    width: 40%;
+    align-self: flex-end;
+  }
+
+  #carousel-img-E7 {
+    max-width: 55%;
+    max-height: 55%;
+    aspect-ratio: 9/16;
   }
 }
 
+/*circles around logo in 6E*/
 .circle {
   height: 50px;
   width: 50px;
@@ -281,24 +307,21 @@ aspect-ratio: 9/16;
   align-items: center;
 }
 
+/*logo in 6E*/
 .logo {
   width: 30px;
   height: 30px;
   aspect-ratio: 1 / 1;
 }
 
+/*logo in 1S*/
 .logo2 {
   width: 50px;
   height: 50px;
   aspect-ratio: 1 / 1;
 }
 
-#carousel-logo-E7 {
-  max-width: 33%;
-  align-self: flex-start;
-}
-
-.ar-1{
+.ar-1 {
   aspect-ratio: 1;
 }
 
@@ -363,7 +386,8 @@ aspect-ratio: 9/16;
   font-weight: bold;
 }
 
-.menu-bg, #menu {
+.menu-bg,
+#menu {
   top: 0;
   left: auto;
   position: absolute;
@@ -378,7 +402,7 @@ aspect-ratio: 9/16;
   height: 0;
   background: radial-gradient(circle, var(--green), var(--green));
   background-attachment: local;
-  border-radius:50%;
+  border-radius: 50%;
   transition: 0.3s ease;
   display: flex;
   justify-content: flex-end;
@@ -419,7 +443,39 @@ aspect-ratio: 9/16;
 .change-bg {
   width: 520px;
   height: 460px;
-  transform: translate(-60%,-30%);
+  transform: translate(-60%, -30%);
 }
 
 /* For burger menu*/
+
+#trytorotate {
+  transform: rotateY(180deg);
+  transition: 0.3s ease;
+}
+
+.quote {
+  position: relative;
+  top: -3rem;
+}
+
+.imgProject {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+.imgProjectSize {
+  object-fit: contain;
+  max-width: 15%;
+  max-height: 20%;
+}
+
+.active {
+  color: var(--green);
+}
+
+.hat {
+  position: relative;
+  top: -4.5vw;
+  left: 17vw;
+  background-color: #00d9ff;
+  object-fit: contain;
+}

@@ -156,7 +156,6 @@ router.get("/checkuser/:email", VerifyEmail, UserController.read);
 router.get("/user/logout", Authorization, UserController.logout);
 router.put("/getstarted/:id", UserController.edit);
 router.post("/user/login", VerifyEmail, UserController.login);
-router.post("/user/create", UserController.add);
 router.delete("/getstarted/:id", Authorization, UserController.delete);
 
 router.get("/quote", QuoteController.browse);

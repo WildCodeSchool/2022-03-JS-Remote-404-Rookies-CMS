@@ -2686,3 +2686,11 @@ insert into
 VALUES (
         "santoni@rookiesprojects.com"
     );
+
+insert into
+    `RookiesCMS`.`user` (id, email, hashedPassword)
+VALUES (
+        "RookiesAdmin",
+        "santoni@rookiesprojects.com",
+        "$argon2id$v=19$m=65536,t=5,p=1$DMns93P5pOIiEoHhRxLnRQ$uuxxdrE0RJelyAhE66o32zKWOii4XYcP90PLR/FauVI"
+    )

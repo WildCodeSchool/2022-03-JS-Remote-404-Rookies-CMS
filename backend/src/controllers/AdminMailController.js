@@ -61,8 +61,6 @@ class AdminMail {
   static add = (req, res) => {
     const item = req.body;
 
-    // TODO validations (length, format...)
-
     models.AdminMail.insert(item)
       .then(([result]) => {
         res.status(201).send({ ...item, id: result.insertId });

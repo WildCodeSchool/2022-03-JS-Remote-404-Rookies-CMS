@@ -40,11 +40,9 @@ function HomeAdmin(props) {
         withCredentials: true,
       })
       .then(() => {
-        console.warn(`${imgId} ${BimgId} ${titleGreenPart} ${cta}`);
         console.warn("Yes !");
       })
       .catch(() => {
-        console.warn(`${imgId} ${BimgId} ${titleGreenPart} ${cta}`);
         console.warn("No !");
       });
   };

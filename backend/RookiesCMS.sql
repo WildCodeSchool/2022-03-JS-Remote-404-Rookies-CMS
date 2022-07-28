@@ -2686,7 +2686,7 @@ insert into
 VALUES (
         "santoni@rookiesprojects.com"
     );
-
+    
 insert into
     `RookiesCMS`.`user` (id, email, hashedPassword)
 VALUES (

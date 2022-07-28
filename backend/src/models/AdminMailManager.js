@@ -1,10 +1,10 @@
 const AbstractManager = require("./AbstractManager");
 
 class AdminMailManager extends AbstractManager {
-  static table = "adminmail";
+  static table = "adminMail";
 
   find() {
-    return this.connection.query(`select * from adminmail`);
+    return this.connection.query(`select * from adminMail`);
   }
 
   update(item) {

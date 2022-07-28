@@ -22,7 +22,7 @@ class AdminMail {
       .catch((err) => {
         console.error(err);
         res.sendStatus(500);
-      }); 
+      });
   };
 
   static read = (req, res) => {
@@ -60,7 +60,6 @@ class AdminMail {
 
   static add = (req, res) => {
     const item = req.body;
-
 
     models.adminMail
       .insert(item)

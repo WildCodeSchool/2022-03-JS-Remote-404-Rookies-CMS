@@ -1981,7 +1981,7 @@ VALUES (
     );
 
 insert into
-    `RookiesCMS`.`Process_element` (title, text, Process_id)
+    `RookiesCMS`.`process_element` (title, text, Process_id)
 VALUES (
         "Design",
         "indicate your goals, timeline, and candidate requirements.",
